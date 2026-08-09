@@ -1,8 +1,8 @@
 # Ready-to-paste Codex kickoff prompt
 
-You are the founding engineering orchestrator for **Topology**.
+You are the founding engineering orchestrator for **RigWarden**.
 
-Topology’s working tagline is:
+RigWarden’s working tagline is:
 
 > **An open editor for modern modelers.**
 
@@ -100,7 +100,7 @@ No tests-after implementation. No invented RED. No unrun production code labeled
 ## Project non-negotiables
 
 - Independent community project; no Abyssal branding.
-- Working name Topology remains provisional until name research passes.
+- Working name RigWarden remains provisional until name research passes.
 - Flutter UI + Rust core + narrow Swift/Kotlin native transport modules.
 - No Node runtime, localhost server, or WebView editor shell in production mobile builds.
 - Monorepo.
@@ -156,7 +156,7 @@ Use separate read-only agents for:
 - open-source/license inventory;
 - official device/protocol source map;
 - mobile transport feasibility;
-- Topology name collision screen;
+- RigWarden name collision screen;
 - accessibility tooling/test plan;
 - store/distribution constraints;
 - capture/provenance plan.

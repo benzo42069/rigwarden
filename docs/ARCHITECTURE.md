@@ -2,7 +2,7 @@
 
 ## 1. Architectural goals
 
-Topology needs one deterministic editor engine, small platform-specific transport modules, a touch-first adaptive UI, and a profile system that evolves without app-store releases.
+RigWarden needs one deterministic editor engine, small platform-specific transport modules, a touch-first adaptive UI, and a profile system that evolves without app-store releases.
 
 The architecture must optimize for:
 

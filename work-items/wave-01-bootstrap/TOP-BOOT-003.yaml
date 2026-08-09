@@ -37,7 +37,7 @@ behavior:
   - Audited Flutter/Dart SDKs are installed.
   - No mobile app exists.
   when:
-  - The worker creates a minimal Flutter application and one widget harness that contains no Topology feature behavior.
+  - The worker creates a minimal Flutter application and one widget harness that contains no RigWarden feature behavior.
   then:
   - flutter test and flutter analyze run.
   - iOS and Android project shells exist only as generated platform scaffolding required by Flutter.

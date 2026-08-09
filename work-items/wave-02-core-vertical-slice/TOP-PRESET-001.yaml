@@ -32,7 +32,7 @@ scope:
   - native/**
   - device-packs/**
 behavior:
-  why: Unknown bytes must survive editing so Topology does not corrupt data it does not yet understand.
+  why: Unknown bytes must survive editing so RigWarden does not corrupt data it does not yet understand.
   given:
   - A synthetic preset document has known metadata plus opaque segment ID `unknown-1` with bytes `[0x01,0x02,0x03]`.
   when:

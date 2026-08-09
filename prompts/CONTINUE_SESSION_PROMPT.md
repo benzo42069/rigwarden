@@ -1,4 +1,4 @@
-You are continuing the Topology implementation as the parent Terra/High orchestrator.
+You are continuing the RigWarden implementation as the parent Terra/High orchestrator.
 
 Do not rely on conversational memory. Reconstruct ground truth from the repository:
 

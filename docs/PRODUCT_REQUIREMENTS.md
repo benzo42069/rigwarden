@@ -2,7 +2,7 @@
 
 ## 1. Product contract
 
-Topology is a free, local-first editor and preset workstation for modern modelers. The product must be useful without an account, cloud service, AI provider, desktop companion, or internet connection after installation and profile acquisition.
+RigWarden is a free, local-first editor and preset workstation for modern modelers. The product must be useful without an account, cloud service, AI provider, desktop companion, or internet connection after installation and profile acquisition.
 
 The requirements below are target-product requirements. They do not imply that every device profile has been physically verified. Verification status is tracked separately.
 
@@ -130,7 +130,7 @@ Priority terms:
 - **LIB-006 P0:** Filter by compatibility and expected conversion loss.
 - **LIB-007 P0:** Use transactional storage migrations.
 - **LIB-008 P0:** Access user-selected iCloud Drive, Google Drive, Dropbox, network shares, and similar providers only through OS file pickers/document providers.
-- **LIB-009 P0:** Never require a Topology cloud account.
+- **LIB-009 P0:** Never require a RigWarden cloud account.
 - **LIB-010 P0:** Make backup/export formats documented and recoverable without the app where practical.
 - **LIB-011 P1:** Optional encrypted local library backups.
 

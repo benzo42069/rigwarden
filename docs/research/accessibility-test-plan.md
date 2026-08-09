@@ -7,7 +7,7 @@
 
 ## Decision
 
-Topology must treat accessibility evidence as a ladder, not a single automated
+RigWarden must treat accessibility evidence as a ladder, not a single automated
 check. Unit tests and Flutter semantics tests are necessary for deterministic
 labels, state, value, actions, and focus contracts. They are not evidence that a
 real VoiceOver or TalkBack user can complete a task. iOS VoiceOver evidence must
@@ -93,7 +93,7 @@ source register. The access date for all web sources is 2026-08-08.
   accessibility. Its recording contains screenshots, not video or audio.
 - **[FACT][G6]** Android's official testing guidance includes user testing and
   suggests recruiting through disability organizations, colleges/universities,
-  social networks, or a testing service. Topology should use this only as
+  social networks, or a testing service. RigWarden should use this only as
   recruitment guidance and should not collect medical information.
 - **[FACT][G7]** Android's official accessibility codelab runs TalkBack on a
   device or emulator with Android Accessibility Suite and warns that emulator
@@ -144,7 +144,7 @@ an unavailable claim or a blocker to the advertised scope.
 | `debugDumpSemanticsTree()` / Flutter semantics debugger | Diagnose the tree exported toward system accessibility APIs [F3] | A tree dump is not an audio transcript or platform-device verification |
 | Flutter `integration_test` / `flutter drive` / Firebase Test Lab | App-level interaction, lifecycle, and device/emulator coverage [F4] | It does not turn on, observe, or certify VoiceOver/TalkBack; a test can pass while speech, focus timing, or announcements are unusable |
 | iOS Accessibility Inspector | Hierarchy inspection and common audits; export an audit report; `performAccessibilityAudit` in UI tests [A2][A3][A6] | Apple states that audits do not guarantee full accessibility [A2]. iOS Simulator cannot run VoiceOver [A1], so the audit cannot be labeled physical VoiceOver evidence |
-| Android Layout Inspector / UI Automator / Compose semantics | Inspect native Android View/Compose properties and automate reachable native UI actions [G2][G3] | These are not Flutter-semantics-tree tools and cannot inspect Topology's Flutter semantics without an explicit Flutter bridge/test. They are not actual TalkBack speech or blind-user success. |
+| Android Layout Inspector / UI Automator / Compose semantics | Inspect native Android View/Compose properties and automate reachable native UI actions [G2][G3] | These are not Flutter-semantics-tree tools and cannot inspect RigWarden's Flutter semantics without an explicit Flutter bridge/test. They are not actual TalkBack speech or blind-user success. |
 | Android Accessibility Scanner / Espresso `AccessibilityChecks` | Common native-View labels, target sizes, contrast, and other static checks [G4][G5] | These native Android checks do not establish Flutter semantics. Google says Accessibility Scanner is not a replacement for manual testing and does not guarantee accessibility [G5]; it records screenshots, not audio. |
 | iOS Simulator | Flutter layout, semantics, Dynamic Type/reflow, keyboard, and deterministic native bridge tests | No VoiceOver [A1]. Do not claim `PLATFORM_DEVICE_VERIFIED` or VoiceOver completion |
 | Android emulator | Virtual lifecycle/permission/semantics tests; TalkBack smoke only when the image includes Accessibility Suite and audio is usable [G7] | Emulator audio/feature fidelity and OEM behavior are not physical-device evidence; do not claim broad TalkBack or hardware compatibility |

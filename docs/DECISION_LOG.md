@@ -4,13 +4,13 @@ This file records interview decisions already made. Do not reopen them merely be
 
 | ID | Decision |
 |---|---|
-| DEC-001 | Working name is **Topology**, subject to collision and trademark research. |
+| DEC-001 | Public pre-alpha identity is **RigWarden**, subject to current collision and trademark research. |
 | DEC-002 | Tagline is **“An open editor for modern modelers.”** |
-| DEC-003 | Topology is an independent community project with no Abyssal Audio branding or operational tie. |
+| DEC-003 | RigWarden is an independent community project with no Abyssal Audio branding or operational tie. |
 | DEC-004 | Initial architecture is vendor-neutral internally but Fractal-focused publicly. |
 | DEC-005 | Modern first-class scope is AM4, VP4, Axe-Fx III, FM9, and FM3. |
 | DEC-006 | Legacy devices matter and may launch under honest community/experimental labels without owner-verified testing by the founder. |
-| DEC-007 | Existing Axis, ForgeFX, and fractal-midi work must be audited as research/reuse candidates, but Topology will use an independent monorepo and architecture. |
+| DEC-007 | Existing Axis, ForgeFX, and fractal-midi work must be audited as research/reuse candidates, but RigWarden will use an independent monorepo and architecture. |
 | DEC-008 | No requirement to contact upstream maintainers or preserve upstream compatibility. |
 | DEC-009 | Monorepo. |
 | DEC-010 | Original code uses a permissive MIT license; derivative or reused material retains its compatible original license and notices. |
@@ -54,7 +54,7 @@ This file records interview decisions already made. Do not reopen them merely be
 | DEC-048 | UI distinguishes live edited, last-read, last-device-saved, and offline-library states. |
 | DEC-049 | Offline container preserves original SysEx, normalized data, metadata, unknown bytes, and history. |
 | DEC-050 | Local library includes folders, tags, favorites, search, versions, diff, duplicate detection, setlists, and compatibility filtering. |
-| DEC-051 | Cloud storage is accessed through OS file pickers; Topology does not run a project cloud. |
+| DEC-051 | Cloud storage is accessed through OS file pickers; RigWarden does not run a project cloud. |
 | DEC-052 | Complete FC-6/FC-12 editor is in scope. |
 | DEC-053 | Full user-cab management and DynaCab are in scope; dedicated multi-IR mixing follows first beta. |
 | DEC-054 | AI supports BYOK OpenRouter plus a generic OpenAI-compatible provider interface; secrets use Keychain/Keystore. |
@@ -70,5 +70,5 @@ This file records interview decisions already made. Do not reopen them merely be
 | DEC-064 | All decorative/control/icon assets are PNG. Knobs may be procedurally rendered. Live functional visualizations may be dynamically drawn. No production SVG assets. |
 | DEC-065 | The project uses strict observed RED–GREEN–REFACTOR TDD for every production behavior. |
 | DEC-066 | Terra/High is the intended parent orchestration model; Luna/Max is requested for bounded subagents, with runtime verification before large fan-out. |
-| DEC-067 | `Topology` remains an internal working identifier only. Do not publish, reserve, or ship it as the public mark, store title, package ID, repository slug, domain, or handle without a replacement-name decision and counsel-reviewed clearance. |
-| DEC-068 | `RigWarden` is the provisional public pre-alpha GitHub identity. It is not legal clearance or approval for store/package/domain/handle/trademark use; retain `Topology` only as a legacy internal planning codename. |
+| DEC-067 | The superseded working-name candidate is retired. Do not publish, reserve, or ship it as a public mark, store title, package ID, repository slug, domain, or handle. |
+| DEC-068 | `RigWarden` is the provisional public pre-alpha GitHub identity. It is not legal clearance or approval for store/package/domain/handle/trademark use. |

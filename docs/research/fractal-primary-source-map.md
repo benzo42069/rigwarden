@@ -8,7 +8,7 @@
 
 ## Decision
 
-Topology may claim only the standard MIDI controls and file/editor capabilities
+RigWarden may claim only the standard MIDI controls and file/editor capabilities
 that the named device manual or a Fractal-published MIDI document actually
 states. The official material does **not** publish one cross-device, full-editor
 wire protocol. In particular, it does not establish a portable protocol for
@@ -30,7 +30,7 @@ This report therefore separates:
   useful corroboration or a capture lead, never a vendor compatibility claim.
 * **HYPOTHESIS** — a bounded inference that must not enable a write.
 * **UNKNOWN/GAP** — not specified by the sources reviewed.
-* **BLOCKER** — evidence or authority required before Topology can make the
+* **BLOCKER** — evidence or authority required before RigWarden can make the
   proposed claim.
 
 No SysEx bytes are reproduced or derived here. Command names and feature
@@ -66,7 +66,7 @@ two are intentionally not conflated.
 
 ## Documented control messages vs. undocumented full editor
 
-The following is the safe protocol boundary for Topology:
+The following is the safe protocol boundary for RigWarden:
 
 1. **Documented and potentially implementable after device-specific transport
    verification:** standard MIDI program changes, documented CC assignments,
@@ -113,7 +113,7 @@ the official-device table.
   `6b87bd2`](https://github.com/sKuhLight/Axis/tree/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19),
   MIT-licensed community editor. Its README calls the project beta, says FM3
   firmware 12.0 was hardware-verified, and describes a Node/HTTP development
-  stack. It is a research lead, not a Topology production dependency.
+  stack. It is a research lead, not a RigWarden production dependency.
 * **ForgeFX:** [sKuhLight/ForgeFX at commit
   `c22862a`](https://github.com/sKuhLight/ForgeFX/tree/c22862a5b2f2078f3cb92a2735e51f94c39a0062),
   MIT-licensed community beta. Its README claims gen-3 device auto-detection,

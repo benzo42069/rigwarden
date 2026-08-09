@@ -1,4 +1,4 @@
-Run a Topology hardware capture/verification session for the explicitly connected device.
+Run a RigWarden hardware capture/verification session for the explicitly connected device.
 
 Before sending anything:
 

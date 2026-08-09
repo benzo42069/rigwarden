@@ -1,4 +1,4 @@
-Review the completed Topology work-item wave as an independent gate.
+Review the completed RigWarden work-item wave as an independent gate.
 
 Read the strict-TDD skill and every packet/evidence directory in the wave. Spawn separate read-only reviewers for:
 

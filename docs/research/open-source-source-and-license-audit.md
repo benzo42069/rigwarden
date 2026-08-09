@@ -7,11 +7,11 @@
 
 ## Decision summary
 
-Topology should implement its Rust/Flutter architecture independently. Axis, ForgeFX, `mcp-midi-control`, and `forgefx-midi` are valuable research sources, but no source layout, asset, vendor-derived catalog, manual prose, capture, or byte mapping is approved for direct reuse by this audit.
+RigWarden should implement its Rust/Flutter architecture independently. Axis, ForgeFX, `mcp-midi-control`, and `forgefx-midi` are valuable research sources, but no source layout, asset, vendor-derived catalog, manual prose, capture, or byte mapping is approved for direct reuse by this audit.
 
 | Candidate | Exact revision / license evidence | Classification | Required boundary |
 | --- | --- | --- | --- |
-| [Axis](https://github.com/sKuhLight/Axis/tree/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19) | `6b87bd2472fd88854421fda0dd1d2d7a02d2dd19`; [MIT LICENSE](https://github.com/sKuhLight/Axis/blob/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19/LICENSE) | Reference-only. A narrowly audited helper could be ported with MIT notice, but independent Rust is preferred. | Reject UI/layout/art/font/icon copying; Axis uses Svelte/Electron/localhost ForgeFX architecture that conflicts with Topology’s mobile contract. |
+| [Axis](https://github.com/sKuhLight/Axis/tree/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19) | `6b87bd2472fd88854421fda0dd1d2d7a02d2dd19`; [MIT LICENSE](https://github.com/sKuhLight/Axis/blob/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19/LICENSE) | Reference-only. A narrowly audited helper could be ported with MIT notice, but independent Rust is preferred. | Reject UI/layout/art/font/icon copying; Axis uses Svelte/Electron/localhost ForgeFX architecture that conflicts with RigWarden’s mobile contract. |
 | [ForgeFX](https://github.com/sKuhLight/ForgeFX/tree/c22862a5b2f2078f3cb92a2735e51f94c39a0062) | `c22862a5b2f2078f3cb92a2735e51f94c39a0062`; [MIT LICENSE](https://github.com/sKuhLight/ForgeFX/blob/c22862a5b2f2078f3cb92a2735e51f94c39a0062/LICENSE) | Reference-only / unresolved provenance. | Do not port Node server, protocol, layout, or catalog code until stale NOTICE and transitive provenance are reconciled. |
 | [`mcp-midi-control` / `fractal-midi`](https://github.com/TheAndrewStaker/mcp-midi-control/tree/59047175cfc4f23e092931b54a7c54f2bffde3ea) | `59047175cfc4f23e092931b54a7c54f2bffde3ea`; root/package [Apache-2.0 license](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/LICENSE) and [NOTICE](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/NOTICE) | Independent reimplementation preferred; a future file-level port requires Apache notice, modified-file marking, exact provenance, and review. | Protocol facts remain reference-only until independently supported by a primary source or lawful fixture. |
 | [`forgefx-midi`](https://github.com/sKuhLight/forgefx-midi/tree/553d24b7409302908d5c7e46a71b45e07dffdc05) | `553d24b7409302908d5c7e46a71b45e07dffdc05`; Apache-2.0 [LICENSE](https://github.com/sKuhLight/forgefx-midi/blob/553d24b7409302908d5c7e46a71b45e07dffdc05/LICENSE) and [NOTICE](https://github.com/sKuhLight/forgefx-midi/blob/553d24b7409302908d5c7e46a71b45e07dffdc05/NOTICE) | Reference-only. | Reject generated editor-derived cab/layout data and Wiki-derived lineage/prose without independent rights/provenance. |
@@ -21,8 +21,8 @@ Topology should implement its Rust/Flutter architecture independently. Axis, For
 ### Axis
 
 - The [README](https://github.com/sKuhLight/Axis/blob/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19/README.md), typed ForgeFX client, [editor state](https://github.com/sKuhLight/Axis/blob/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19/src/lib/editor.svelte.ts), and [Electron main process](https://github.com/sKuhLight/Axis/blob/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19/electron/main.cjs) show a Svelte/Electron UI coupled to a local Node service.
-- Its ControlSurface, SignalGrid, BlockEditor, CabPicker, EQGraph, designs, PNG/SVG/icon assets, tokens, and visual layouts must not enter Topology. MIT permissiveness does not override Topology’s independent-identity and no-copied-layout rule.
-- Upstream hardware statements are upstream claims only; they grant no Topology verification label.
+- Its ControlSurface, SignalGrid, BlockEditor, CabPicker, EQGraph, designs, PNG/SVG/icon assets, tokens, and visual layouts must not enter RigWarden. MIT permissiveness does not override RigWarden’s independent-identity and no-copied-layout rule.
+- Upstream hardware statements are upstream claims only; they grant no RigWarden verification label.
 
 ### ForgeFX
 
@@ -32,9 +32,9 @@ Topology should implement its Rust/Flutter architecture independently. Axis, For
 
 ### mcp-midi-control / fractal-midi
 
-- The package is TypeScript and includes codec/catalog coverage, but its [README](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/README.md) distinguishes varying upstream evidence levels. Never promote those labels to Topology.
+- The package is TypeScript and includes codec/catalog coverage, but its [README](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/README.md) distinguishes varying upstream evidence levels. Never promote those labels to RigWarden.
 - The [provenance policy](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/AGENTS.md), [capture inventory](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/docs/research/captured-artifacts.md), and [manual policy](https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/docs/manuals/README.md) confirm that raw artifacts/captures are not general reusable fixtures.
-- Do not reuse manual text extracts, Wiki quotes/lineage JSON, editor-derived labels/layouts/assets, raw decompile dumps, private captures, or `fractal-syx-codec` claims without an exact upstream pin and an independently lawful Topology source.
+- Do not reuse manual text extracts, Wiki quotes/lineage JSON, editor-derived labels/layouts/assets, raw decompile dumps, private captures, or `fractal-syx-codec` claims without an exact upstream pin and an independently lawful RigWarden source.
 - GitHub API reported `NOASSERTION` while repository license files report Apache-2.0; retain that metadata contradiction in any future reuse review.
 
 ## Obligations and blockers

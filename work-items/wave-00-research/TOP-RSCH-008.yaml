@@ -36,7 +36,7 @@ scope:
   - Cargo.lock
   - pubspec.yaml
 behavior:
-  why: How will Topology acquire reproducible protocol fixtures and hardware evidence without distributing proprietary material or personal/device secrets?
+  why: How will RigWarden acquire reproducible protocol fixtures and hardware evidence without distributing proprietary material or personal/device secrets?
   given:
   - The starter kit and current external documentation are available.
   when:
@@ -53,7 +53,7 @@ preconditions:
 - Repository contains this starter kit.
 - Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
 research:
-  question: How will Topology acquire reproducible protocol fixtures and hardware evidence without distributing proprietary material or personal/device secrets?
+  question: How will RigWarden acquire reproducible protocol fixtures and hardware evidence without distributing proprietary material or personal/device secrets?
   source_priority:
   - Project provenance contract and schema
   - Official editor/device workflows

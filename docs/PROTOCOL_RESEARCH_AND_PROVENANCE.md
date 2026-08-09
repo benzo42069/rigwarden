@@ -2,7 +2,7 @@
 
 ## 1. Core rule
 
-Topology may implement interoperability. It may not guess protocol behavior, copy proprietary assets, redistribute unknown-rights material, or present a self-consistent codec as proof of device compatibility.
+RigWarden may implement interoperability. It may not guess protocol behavior, copy proprietary assets, redistribute unknown-rights material, or present a self-consistent codec as proof of device compatibility.
 
 Every material protocol fact must have provenance.
 
@@ -15,7 +15,7 @@ Initial projects and documents to audit:
 - ForgeFX.
 - The `fractal-midi` package inside `TheAndrewStaker/mcp-midi-control`.
 - Other permissively licensed code discovered during research.
-- User-owned captures generated specifically for Topology.
+- User-owned captures generated specifically for RigWarden.
 - Community captures submitted with explicit redistribution permission.
 
 Auditing a source does not automatically authorize copying it. Record license, commit, file paths, derivation, and obligations.
@@ -155,7 +155,7 @@ For every reused or derived component:
 - include required NOTICE text;
 - expose third-party notices in the repository and app.
 
-Original Topology code may be MIT. Apache-2.0 or other permissive dependencies remain under their licenses.
+Original RigWarden code may be MIT. Apache-2.0 or other permissive dependencies remain under their licenses.
 
 ## 10. Research deliverables before protocol implementation
 

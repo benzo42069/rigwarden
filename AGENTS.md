@@ -1,10 +1,10 @@
-# AGENTS.md — Topology
+# AGENTS.md — RigWarden
 
 These instructions apply to every agent working in this repository.
 
 ## Mission
 
-Build **Topology**, *an open editor for modern modelers*: a free, local-first, accessible, cross-platform editor beginning with Fractal Audio hardware.
+Build **RigWarden**, *an open editor for modern modelers*: a free, local-first, accessible, cross-platform editor beginning with Fractal Audio hardware.
 
 ## First actions
 

@@ -14,7 +14,7 @@ validator environment and passed with `0 errors, 0 warnings`.
 | `TOP-RSCH-002` | Independent implementation/provenance boundary | No direct code/protocol/UI/asset reuse approval. |
 | `TOP-RSCH-003` | Official Fractal source map | No byte, full-editor, simulator, platform, or hardware claim. |
 | `TOP-RSCH-004` | Mobile transport feasibility matrix | All transport/editor/hardware paths remain physical-test gated. |
-| `TOP-RSCH-005` | Preliminary identity collision screen | Exact public `Topology` is blocked; ADR-0001 permits internal working use only. |
+| `TOP-RSCH-005` | Preliminary identity collision screen | Exact public `RigWarden` is blocked; ADR-0001 permits internal working use only. |
 | `TOP-RSCH-006` | Accessibility evidence ladder and physical test plan | No VoiceOver/TalkBack/blind-user/hardware verification. |
 | `TOP-RSCH-007` | Distribution constraints | DEC-060/static Android `INTERNET` conflict remains a separate decision. |
 | `TOP-RSCH-008` | Lawful capture and fixture plan | No fixtures, captures, writes, or hardware evidence. |

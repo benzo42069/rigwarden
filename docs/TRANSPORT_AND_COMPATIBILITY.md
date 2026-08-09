@@ -2,7 +2,7 @@
 
 ## 1. “All transports” means a matrix
 
-Topology does not promise that every device connects through every method on every OS. It promises to implement and document every technically feasible path for the selected device/platform combination.
+RigWarden does not promise that every device connects through every method on every OS. It promises to implement and document every technically feasible path for the selected device/platform combination.
 
 Compatibility is a four-dimensional claim:
 

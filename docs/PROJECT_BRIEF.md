@@ -1,15 +1,15 @@
-# Topology Project Brief
+# RigWarden Project Brief
 
 ## Working identity
 
-**Topology**  
+**RigWarden**  
 *An open editor for modern modelers.*
 
-Topology is an independent community project. It has no connection to Abyssal Audio and must not inherit Abyssal branding, visual language, accounts, telemetry, infrastructure, or commercial goals.
+RigWarden is an independent community project. It has no connection to Abyssal Audio and must not inherit Abyssal branding, visual language, accounts, telemetry, infrastructure, or commercial goals.
 
 The public story is constructive:
 
-> Topology exists to give musicians a capable, transparent, free, community-maintained editor that works anywhere.
+> RigWarden exists to give musicians a capable, transparent, free, community-maintained editor that works anywhere.
 
 The private quality motivation may be “prove that AI-assisted software does not have to be slop,” but the repository and community must never become a campaign against a named developer or competitor.
 
@@ -17,7 +17,7 @@ The private quality motivation may be “prove that AI-assisted software does no
 
 Build a polished, local-first, cross-platform editor and preset workstation for professional guitar modelers, beginning with current and legacy Fractal Audio hardware.
 
-Topology must support complete editing on iPhone, iPad, and Android phones/tablets—not merely preset selection or stage control. Desktop clients should later ship from the same architecture.
+RigWarden must support complete editing on iPhone, iPad, and Android phones/tablets—not merely preset selection or stage control. Desktop clients should later ship from the same architecture.
 
 The project should be complete enough that the community can immediately use it, inspect it, extend device coverage, contribute fixtures, and continue development without reverse-engineering the reverse engineering.
 
@@ -66,7 +66,7 @@ This order is an engineering sequence, not a permanent product hierarchy.
 
 ### Complete editing
 
-Topology ultimately includes:
+RigWarden ultimately includes:
 
 - automatic detection and manual endpoint selection;
 - preset browsing, rename, save, import, export, backup, and restore;
@@ -140,7 +140,7 @@ Reference-audio matching is deliberately later.
 
 ## Success definition
 
-Topology succeeds when:
+RigWarden succeeds when:
 
 - it can reliably perform complete workflows rather than display mock screens;
 - contributors can develop most behavior without hardware;

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://topology.invalid/schemas/work-item.schema.json",
-  "title": "Topology Work Item",
+  "title": "RigWarden Work Item",
   "type": "object",
   "required": [
     "id",

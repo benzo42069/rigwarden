@@ -4,7 +4,7 @@
 
 AI should make expert modeler workflows approachable without becoming an unsafe remote-control layer.
 
-Topology supports optional bring-your-own-key providers. Core editing remains complete without AI.
+RigWarden supports optional bring-your-own-key providers. Core editing remains complete without AI.
 
 ## 2. Provider architecture
 
@@ -14,7 +14,7 @@ Initial providers:
 - Generic OpenAI-compatible endpoint.
 - Later LAN/local provider using the same interface.
 
-No Topology-owned inference proxy is required.
+No RigWarden-owned inference proxy is required.
 
 Provider interface responsibilities:
 

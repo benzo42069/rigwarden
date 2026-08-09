@@ -1,7 +1,7 @@
 id: TOP-PRESET-002
 kind: implementation
 epic: TOP-200
-title: Round-trip the initial Topology offline container without losing opaque bytes
+title: Round-trip the initial RigWarden offline container without losing opaque bytes
 status: BLOCKED_DEPENDENCY
 priority: high
 requirement_ids:
@@ -65,7 +65,7 @@ test:
     - Unrelated graph failure.
   green_command: cargo test -p topology-preset offline_container_preserves_normalized_and_opaque_data -- --exact --nocapture
 minimum_green:
-- Add versioned internal container for synthetic Topology data.
+- Add versioned internal container for synthetic RigWarden data.
 - Use bounded lengths.
 - Return structured parse errors.
 - Document that vendor compatibility is not established.

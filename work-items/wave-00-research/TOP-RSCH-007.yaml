@@ -37,7 +37,7 @@ scope:
   - Cargo.lock
   - pubspec.yaml
 behavior:
-  why: What current deployment targets, target SDKs, permissions, privacy manifests, signing, testing, network, and open-source requirements constrain Topology’s release architecture?
+  why: What current deployment targets, target SDKs, permissions, privacy manifests, signing, testing, network, and open-source requirements constrain RigWarden’s release architecture?
   given:
   - The starter kit and current external documentation are available.
   when:
@@ -54,7 +54,7 @@ preconditions:
 - Repository contains this starter kit.
 - Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
 research:
-  question: What current deployment targets, target SDKs, permissions, privacy manifests, signing, testing, network, and open-source requirements constrain Topology’s release architecture?
+  question: What current deployment targets, target SDKs, permissions, privacy manifests, signing, testing, network, and open-source requirements constrain RigWarden’s release architecture?
   source_priority:
   - Official Apple developer and App Store documentation
   - Official Android/Google Play documentation

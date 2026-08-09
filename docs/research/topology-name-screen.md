@@ -1,12 +1,12 @@
-# Topology name screen (preliminary)
+# Retired-candidate name screen (historical record)
 
 **Packet:** `TOP-RSCH-005`  
-**Question:** Is **Topology** usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?  
+**Question:** Is a now-retired candidate usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?  
 **Screen date:** 2026-08-08 (America/Chicago; source pages and APIs were accessed on this date)  
 **Status:** `REVIEW_APPROVED` for a preliminary screen only; not public-name or legal clearance  
 **Decision owner:** parent/integration owner; counsel owns any legal clearance decision
 
-> This is an engineering research screen, not a trademark clearance opinion, legal advice, or a finding that any party has enforceable rights against Topology. It is not comprehensive. The risk labels below are prioritization judgments about collision and discoverability, not legal conclusions. A trademark attorney should perform a comprehensive search before any public launch, registration, store submission, domain purchase, or rights-holder contact.
+> **Historical-evidence notice:** This report documents a discarded candidate and its source quotations/URLs. It is not a RigWarden screen, trademark clearance opinion, legal advice, or a finding that any party has enforceable rights. It is not comprehensive. A trademark attorney should perform a current comprehensive search before any public launch, registration, store submission, domain purchase, or rights-holder contact.
 
 ## Decision summary
 

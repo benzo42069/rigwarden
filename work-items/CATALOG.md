@@ -10,7 +10,7 @@ Generated from 62 detailed packets.
 | `TOP-RSCH-002` | READY | high | Audit Axis, ForgeFX, fractal-midi, and related source licenses and provenance | — |
 | `TOP-RSCH-003` | READY | high | Build the official Fractal device, firmware, and protocol source map | — |
 | `TOP-RSCH-004` | READY | high | Establish the mobile transport feasibility and capability matrix | — |
-| `TOP-RSCH-005` | READY | high | Perform a preliminary collision and package-identity screen for Topology | — |
+| `TOP-RSCH-005` | READY | high | Perform a preliminary collision and package-identity screen for RigWarden | — |
 | `TOP-RSCH-006` | READY | high | Define the blind-accessibility tooling and physical test plan | — |
 | `TOP-RSCH-007` | READY | high | Map current Apple, Google Play, GitHub, and F-Droid distribution constraints | — |
 | `TOP-RSCH-008` | READY | high | Finalize the lawful capture, sanitization, and fixture-contribution plan | — |
@@ -48,7 +48,7 @@ Generated from 62 detailed packets.
 | `TOP-GRAPH-004` | BLOCKED_DEPENDENCY | high | Reject a prohibited routing cycle | TOP-GRAPH-002, TOP-GRAPH-003 |
 | `TOP-GRAPH-005` | BLOCKED_DEPENDENCY | high | Produce deterministic topological traversal for the same graph | TOP-GRAPH-004 |
 | `TOP-PRESET-001` | BLOCKED_DEPENDENCY | high | Preserve an opaque preset segment beside known normalized data | TOP-DOM-003, TOP-GRAPH-002 |
-| `TOP-PRESET-002` | BLOCKED_DEPENDENCY | high | Round-trip the initial Topology offline container without losing opaque bytes | TOP-PRESET-001 |
+| `TOP-PRESET-002` | BLOCKED_DEPENDENCY | high | Round-trip the initial RigWarden offline container without losing opaque bytes | TOP-PRESET-001 |
 | `TOP-REG-001` | BLOCKED_DEPENDENCY | high | Resolve an exact device and firmware profile as writable | TOP-DOM-003 |
 | `TOP-REG-002` | BLOCKED_DEPENDENCY | high | Unknown firmware resolves to a non-writable session | TOP-REG-001 |
 | `TOP-SIM-001` | BLOCKED_DEPENDENCY | high | Complete one scripted request-response exchange with deterministic correlation | TOP-CMD-003 |

@@ -2,7 +2,7 @@
 
 ## 1. Project identity
 
-Topology is an independent open-source community project. It is not an official Fractal Audio product and must display a clear compatibility disclaimer.
+RigWarden is an independent open-source community project. It is not an official Fractal Audio product and must display a clear compatibility disclaimer.
 
 Do not use vendor trademarks in the primary project name, package ID, icon, or logo. Device names may be used factually to describe compatibility.
 
@@ -22,7 +22,7 @@ This is not permission for arbitrary undocumented decisions. The decision log re
 
 Intended policy:
 
-- original Topology source: MIT;
+- original RigWarden source: MIT;
 - original declarative device/theme packs: MIT unless a specific compatible data license is selected by ADR;
 - reused or derived permissive code/data: original license retained;
 - Apache-2.0 components retain notices and attribution;
@@ -75,7 +75,7 @@ Public communication should focus on:
 
 ## 6. Competitive boundaries
 
-Topology may:
+RigWarden may:
 
 - implement compatible behavior lawfully;
 - compare public features factually;
@@ -84,7 +84,7 @@ Topology may:
 - audit permissively licensed code;
 - provide migration/import tools where lawful.
 
-Topology must not:
+RigWarden must not:
 
 - copy a competitor’s UI assets or distinctive decorative layout;
 - impersonate an official vendor app;
@@ -119,6 +119,6 @@ Profile contributions additionally require:
 
 ## 8. Naming
 
-“Topology” remains a working name until a preliminary and then professional collision/trademark review is complete.
+“RigWarden” remains a working name until a preliminary and then professional collision/trademark review is complete.
 
 Do not reserve public package IDs, publish store listings, purchase domains, or announce final branding before `TOP-RSCH-005` is approved.

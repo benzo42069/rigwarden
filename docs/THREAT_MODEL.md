@@ -210,7 +210,7 @@ Controls:
 
 ## 4. Performance safety
 
-Topology cannot guarantee that every user action is harmless to speakers, hearing, or stage systems. It can reduce risk:
+RigWarden cannot guarantee that every user action is harmless to speakers, hearing, or stage systems. It can reduce risk:
 
 - do not unexpectedly alter output levels;
 - preview large multi-parameter operations;

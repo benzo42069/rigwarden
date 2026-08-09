@@ -4,15 +4,15 @@
 - Date: 2026-08-08
 - Owner: project owner
 - Requirements: `QA-001`, `SEC-007`
-- Supersedes: public-use portion of `ADR-0001` only; the legacy `Topology` codename remains internal
+- Supersedes: public-use portion of `ADR-0001`
 
 ## Context
 
-The preliminary name screen rejected the exact public use of `Topology` due to
-materially adjacent collisions. The project owner selected `RigWarden` as the
-new public-facing identity. A quick exact-term screen did not identify a
-relevant music/modeler/software collision, but it was not a comprehensive
-trademark, domain, handle, package, or jurisdictional clearance.
+The preliminary name screen rejected a superseded candidate due to materially
+adjacent collisions. The project owner selected `RigWarden` as the new
+public-facing identity. A quick exact-term screen did not identify a relevant
+music/modeler/software collision, but it was not a comprehensive trademark,
+domain, handle, package, or jurisdictional clearance.
 
 ## Decision
 
@@ -22,9 +22,8 @@ materials must call the name *provisional* and must not imply legal clearance,
 trademark ownership, store availability, package-ID availability, domain or
 handle availability, product readiness, or hardware compatibility.
 
-Existing `Topology` references in historical planning, research, evidence, and
-packet identifiers remain as an internal legacy codename. They are preserved
-for traceability and are not public brand approval.
+Historical planning and evidence remain preserved for traceability. They do not
+constitute RigWarden public-brand approval or legal clearance.
 
 ## Consequences
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://topology.invalid/schemas/fixture-provenance.schema.json",
-  "title": "Topology Protocol Fixture Provenance",
+  "title": "RigWarden Protocol Fixture Provenance",
   "type": "object",
   "required": [
     "fixture_id",

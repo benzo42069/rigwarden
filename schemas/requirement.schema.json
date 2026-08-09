@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://topology.invalid/schemas/requirement.schema.json",
-  "title": "Topology Requirement",
+  "title": "RigWarden Requirement",
   "type": "object",
   "required": [
     "id",

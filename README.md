@@ -1,15 +1,13 @@
 # RigWarden — pre-alpha source
 
 **Public pre-alpha identity:** RigWarden
-**Internal planning codename:** Topology (legacy documents only)
 **Tagline:** *An open editor for modern modelers.*
 **Kit version:** 1.0
 **Prepared:** 2026-08-08
 
 > Public identity status: `RigWarden` is approved only as a **provisional
 > pre-alpha GitHub identity**. It is not legal clearance and is not approved
-> for a package ID, store listing, domain, handle, or trademark claim. The
-> legacy `Topology` codename remains internal. See
+> for a package ID, store listing, domain, handle, or trademark claim. See
 > [ADR-0001](docs/decisions/ADR-0001-working-name-gate.md) and
 > [ADR-0003](docs/decisions/ADR-0003-rigwarden-pre-alpha-identity.md).
 
@@ -107,6 +105,4 @@ Custom agent files request Luna at Max reasoning. The orchestrator must treat th
 
 RigWarden is the provisional pre-alpha GitHub identity. Before any store,
 package, domain, handle, trademark, or release identity action, complete
-formal clearance and the public-name gate in ADR-0003. Legacy planning
-documents retain `Topology` where needed to preserve their research trail; do
-not read that codename as public branding.
+formal clearance and the public-name gate in ADR-0003.

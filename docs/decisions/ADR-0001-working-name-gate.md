@@ -1,6 +1,6 @@
-# ADR-0001: Keep `Topology` internal pending public-name replacement
+# ADR-0001: Retire the superseded working-name candidate
 
-- Status: Accepted for the starter-kit/bootstrap phase only
+- Status: Superseded for public identity by ADR-0003
 - Date: 2026-08-08
 - Owners: integration owner; counsel owns public-name clearance
 - Requirements: `QA-001`, `SEC-007`
@@ -8,22 +8,21 @@
 
 ## Context
 
-The preliminary collision screen found active, materially adjacent uses of the
-exact term `Topology` in music/audio and software contexts. That screen is not
-legal clearance, and no public identifier has been reserved.
+The preliminary collision screen found active, materially adjacent uses of a
+superseded candidate in music/audio and software contexts. The screen remains
+historical evidence only; it is not legal clearance.
 
 ## Decision
 
-Use `Topology` only as an internal working identifier while establishing the
-repository baseline. Do not publish, reserve, submit, purchase, or claim any
-public mark, package ID, repository slug, domain, social handle, or store title
-using the exact name. A replacement public identity (or a counsel-reviewed
-modified mark) is a separate decision and clearance gate.
+Do not revive, publish, reserve, submit, purchase, or claim the superseded
+candidate as a public mark, package ID, repository slug, domain, social handle,
+or store title. ADR-0003 selects RigWarden only for the bounded pre-alpha
+community repository and retains its separate clearance gate.
 
 ## Alternatives considered
 
-- Publish the exact name now: rejected; it would turn a known collision risk
-  into external state without clearance.
+- Publish the superseded candidate: rejected; it would turn a known collision
+  risk into external state without clearance.
 - Stop all local bootstrap work: rejected; original repository/legal baseline
   work can proceed without any public use or reservation.
 
@@ -31,18 +30,18 @@ modified mark) is a separate decision and clearance gate.
 
 ### Positive
 
-- Removes the name-screen block from private bootstrap work.
-- Preserves the evidence-backed public-identity gate.
+- Preserves the rejected-candidate evidence without presenting it as current
+  RigWarden research.
+- Keeps the public-identity gate in ADR-0003 explicit.
 
 ### Negative
 
-- Public-facing metadata and release automation remain blocked pending a
-  replacement-name decision and counsel review.
+- Store, package, domain, handle, and trademark actions remain blocked pending
+  current clearance and counsel review.
 
 ### Risks
 
-- Local files containing the working identifier must not be treated as public
-  clearance or copied into a release/store identity without review.
+- Historical evidence must not be represented as a RigWarden clearance result.
 
 ## Verification
 
@@ -52,8 +51,8 @@ release packets.
 
 ## Migration or rollback
 
-Replace the working name only through a reviewed naming decision; no external
-state exists to roll back.
+Do not reuse the superseded candidate. Update current clearance evidence before
+any public identity expansion beyond the pre-alpha repository.
 
 ## References
 

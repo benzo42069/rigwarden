@@ -1,12 +1,14 @@
 # Package Validation Report
 
-**Package:** Topology Codex Starter Kit v1.0  
+**Package:** RigWarden Codex Starter Kit v1.0  
 **Prepared:** 2026-08-08  
 **Validation status:** PASS
 
 ## Final package inventory
 
-- 121 files in the unpacked kit, including this report and `MANIFEST.sha256`.
+- The original starter-kit snapshot contained 121 files. The current
+  RigWarden pre-alpha repository has evolved beyond that snapshot; its manifest
+  covers every tracked repository file except the manifest itself.
 - 62 executable work-item packets across five initial waves.
 - Work-item status distribution:
   - 8 `READY`
@@ -44,11 +46,13 @@ The final unpacked package passed `python tools/validate_starter_kit.py` with ze
 
 - `START_HERE_PROMPT.md` is byte-identical to `prompts/MASTER_ORCHESTRATOR_PROMPT.md`.
 - Every internal reference required by the strict-TDD skill exists.
-- `MANIFEST.sha256` contains a SHA-256 checksum for every unpacked file except the manifest itself.
-- The final manifest was verified with `sha256sum -c MANIFEST.sha256`.
-- The distributed ZIP was tested with an archive integrity pass and a clean temporary extraction.
+- `MANIFEST.sha256` contains a SHA-256 checksum for every tracked repository
+  file except the manifest itself.
+- Verify the current manifest with `shasum -a 256 -c MANIFEST.sha256`.
+- A release ZIP still requires its own archive-integrity pass and clean
+  extraction before publication.
 - The extracted copy passed the starter-kit validator again.
 
 ## What this report does not claim
 
-This validates the planning/orchestration package, not the future Topology product. It does not establish protocol correctness, mobile-platform behavior, physical-device support, accessibility on real devices, store acceptance, or any other product verification label. Those claims require the test and evidence layers defined by the included strict-TDD contract.
+This validates the planning/orchestration package, not the future RigWarden product. It does not establish protocol correctness, mobile-platform behavior, physical-device support, accessibility on real devices, store acceptance, or any other product verification label. Those claims require the test and evidence layers defined by the included strict-TDD contract.

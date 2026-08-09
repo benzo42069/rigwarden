@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://topology.invalid/schemas/device-pack.schema.json",
-  "title": "Topology Declarative Device/Firmware Pack (Initial Contract)",
+  "title": "RigWarden Declarative Device/Firmware Pack (Initial Contract)",
   "type": "object",
   "required": [
     "schema_version",

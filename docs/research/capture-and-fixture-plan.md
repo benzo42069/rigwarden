@@ -8,7 +8,7 @@
 
 ## Decision in one page
 
-Topology should acquire evidence in this order:
+RigWarden should acquire evidence in this order:
 
 1. published vendor facts and manuals;
 2. a contributor's own, explicitly authorized read-only capture;
@@ -51,8 +51,8 @@ The source list at the end of this report records access date and exact referenc
 - Fractal's published Axe-Fx III third-party MIDI PDF is a useful published source for that documented surface, but it is not a complete AM4 or FM3 editor protocol. It must not be stretched into a family-wide compatibility claim. [S5]
 - Apple Core MIDI exposes device/entity/endpoint enumeration, SysEx I/O, BLE MIDI, and network MIDI; its BLE guidance says iOS 16+ can automatically reconnect paired peripherals. This supports an adapter plan, not proof that a particular Fractal unit is supported on iOS. [S6][S7][S8]
 - Android's current USB-host and MIDI documentation requires device/feature enumeration and user permission before USB communication, and documents MIDI device/port discovery, hotplug callbacks, exclusive input access for sending, arbitrary-length SysEx, USB, and BLE transports. This is platform capability, not FM3 hardware evidence. [S9][S10]
-- The audited `mcp-midi-control` repository provides useful *method* examples: tiered report/donate/probe/session/capture contributions, read-only probe gates, front-panel notes, single-action captures, local scratch captures, and distilled byte-exact goldens. Its exact commit and Apache-2.0 license were recorded, but its policy and artifacts are not Topology authority and must not override this packet's prohibition on unknown-write capture. [S11][S12][S13]
-- Axis and ForgeFX were audited as reuse candidates at exact commits. Their root licenses are MIT, but the audit found no Topology-compatible fixture sidecar/redistribution record for direct fixture import. Their protocol claims and fixture bytes therefore remain research inputs, not approved Topology fixtures. [S14][S15]
+- The audited `mcp-midi-control` repository provides useful *method* examples: tiered report/donate/probe/session/capture contributions, read-only probe gates, front-panel notes, single-action captures, local scratch captures, and distilled byte-exact goldens. Its exact commit and Apache-2.0 license were recorded, but its policy and artifacts are not RigWarden authority and must not override this packet's prohibition on unknown-write capture. [S11][S12][S13]
+- Axis and ForgeFX were audited as reuse candidates at exact commits. Their root licenses are MIT, but the audit found no RigWarden-compatible fixture sidecar/redistribution record for direct fixture import. Their protocol claims and fixture bytes therefore remain research inputs, not approved RigWarden fixtures. [S14][S15]
 
 This report is engineering policy, not jurisdiction-specific legal advice. Whether a vendor EULA, a particular capture, or a contributor's source material permits redistribution can require counsel. When that question is material, the status is `BLOCKED`; do not resolve it by confidence or by copying an open-source project's conclusion.
 
@@ -81,7 +81,7 @@ Before any device session:
 1. Record the exact model, hardware variant, firmware string, host/mobile device, OS, transport, adapter model/firmware, app commit, and session ID. Use a stable token for a serial; never put the serial in a fixture or report.
 2. Confirm the endpoint manually. Do not pick the first matching endpoint. Record all candidate endpoint names when ambiguity matters.
 3. Close other editors, firmware updaters, and MIDI/serial clients. Exclusive-port conflicts must be diagnosed, not fought.
-4. Mute or turn down connected monitoring before connecting. Use a disposable working preset or a contributor-owned backup for any later documented write test. Topology itself must not perform an automatic backup before a first write.
+4. Mute or turn down connected monitoring before connecting. Use a disposable working preset or a contributor-owned backup for any later documented write test. RigWarden itself must not perform an automatic backup before a first write.
 5. Start the monitor before the query so the complete response is retained. Select one session only; do not collect unrelated MIDI traffic.
 6. Confirm the selected session's outgoing allowlist. A `READ_PROBE` allowlist contains only approved identity/read requests. Anything else aborts before transport.
 7. Annotate every human action and expected result, including “no action” intervals. For a panel-visible result, write the panel result down before consulting the editor UI.
@@ -106,7 +106,7 @@ For every expected response, record the state shown on the device before the que
 
 ### `PASSIVE_DEVICE_OUT`
 
-Use this only when the transport exposes device-to-host bytes without **any** outbound message from Topology. Select one endpoint and observe one short device-originated broadcast or other unsolicited device output. An identity/read request is outbound and belongs only to `READ_PROBE` under its allowlist; it is never passive. For each capture, note whether the vendor editor was closed and whether any external controller could have generated traffic. Multi-megabyte sessions and mixed actions are not fixtures; they are private analysis material until reduced to an independently explained vector.
+Use this only when the transport exposes device-to-host bytes without **any** outbound message from RigWarden. Select one endpoint and observe one short device-originated broadcast or other unsolicited device output. An identity/read request is outbound and belongs only to `READ_PROBE` under its allowlist; it is never passive. For each capture, note whether the vendor editor was closed and whether any external controller could have generated traffic. Multi-megabyte sessions and mixed actions are not fixtures; they are private analysis material until reduced to an independently explained vector.
 
 ### `DOCUMENTED_WRITE_VERIFY`
 
@@ -176,9 +176,9 @@ The reviewer sets `review.status` to `approved` only after every item is answere
 
 ## Contributor redistribution declaration
 
-Topology should present this declaration at export time and store the resulting text or a signed reference in the private submission record. A checkbox with no text, a “publicly available” statement, or an issue attachment with no contributor declaration is insufficient.
+RigWarden should present this declaration at export time and store the resulting text or a signed reference in the private submission record. A checkbox with no text, a “publicly available” statement, or an issue attachment with no contributor declaration is insufficient.
 
-> I am the owner of, or authorized by the owner to submit, the source material identified by this submission. I have described the exact device, firmware, transport, source, and feature. I grant Topology a non-exclusive, worldwide, royalty-free license to redistribute the **sanitized artifact and its provenance sidecar** under the SPDX license named below, and to make format/sanitization changes that do not change the documented protocol meaning. I understand that the raw capture stays private by default and is not redistributed by Topology unless I separately authorize it. I did not include vendor application binaries, vendor artwork, copied layouts, credentials, confidential information, or data belonging to another person without authorization. I understand that a merged fixture is public test data and that attribution may use the pseudonym I provide. I will identify any third-party material or legal restriction I discover before merge.
+> I am the owner of, or authorized by the owner to submit, the source material identified by this submission. I have described the exact device, firmware, transport, source, and feature. I grant RigWarden a non-exclusive, worldwide, royalty-free license to redistribute the **sanitized artifact and its provenance sidecar** under the SPDX license named below, and to make format/sanitization changes that do not change the documented protocol meaning. I understand that the raw capture stays private by default and is not redistributed by RigWarden unless I separately authorize it. I did not include vendor application binaries, vendor artwork, copied layouts, credentials, confidential information, or data belonging to another person without authorization. I understand that a merged fixture is public test data and that attribution may use the pseudonym I provide. I will identify any third-party material or legal restriction I discover before merge.
 
 Required fields alongside the declaration:
 
@@ -267,7 +267,7 @@ The initial AM4/FM3 fixture packets should create only identity/read fixtures. A
 
 ## AM4 and FM3 hardware/adapter plan
 
-This is a capability plan, not a claim that the current environment has either unit. The current environment has no attached AM4/FM3 and no approved Topology capture, so physical rows remain blocked until a contributor supplies lawful hardware evidence.
+This is a capability plan, not a claim that the current environment has either unit. The current environment has no attached AM4/FM3 and no approved RigWarden capture, so physical rows remain blocked until a contributor supplies lawful hardware evidence.
 
 ### AM4
 
@@ -340,7 +340,7 @@ The kit list is a test prerequisite, not a recommendation to purchase a specific
 ### Current blockers
 
 - No attached AM4 or FM3 hardware is available in this environment; `TOP-AM4-FIX-001`, `TOP-AM4-FIX-002`, `TOP-FM3-FIX-001`, `TOP-AM4-HIL-001`, `TOP-FM3-HIL-001`, and `TOP-FM3-HIL-002` remain hardware/fixture blocked.
-- No lawful, provenance-complete Topology fixture corpus exists yet; do not manufacture bytes from a self-consistent codec or copy an external capture.
+- No lawful, provenance-complete RigWarden fixture corpus exists yet; do not manufacture bytes from a self-consistent codec or copy an external capture.
 - Any EULA, copyright, privacy, or contributor-ownership question that cannot be resolved from the written declaration and source records requires counsel or a narrower fixture scope.
 
 ### Follow-up work
@@ -386,9 +386,9 @@ The kit list is a test prerequisite, not a recommendation to purchase a specific
   <https://github.com/TheAndrewStaker/mcp-midi-control/tree/59047175cfc4f23e092931b54a7c54f2bffde3ea/docs/contributing>
 - **[S13] TheAndrewStaker/mcp-midi-control, exact commit `59047175cfc4f23e092931b54a7c54f2bffde3ea`, `docs/contributing/EVIDENCE.md`.** Evidence labels and independent-check guidance; audited as method, not adopted as a legal conclusion.  
   <https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/docs/contributing/EVIDENCE.md>
-- **[S14] sKuhLight/Axis, exact commit `6b87bd2472fd88854421fda0dd1d2d7a02d2dd19`, root `LICENSE` (MIT).** Reuse candidate audit; no Topology fixture sidecar found in the audited tree.  
+- **[S14] sKuhLight/Axis, exact commit `6b87bd2472fd88854421fda0dd1d2d7a02d2dd19`, root `LICENSE` (MIT).** Reuse candidate audit; no RigWarden fixture sidecar found in the audited tree.  
   <https://github.com/sKuhLight/Axis/tree/6b87bd2472fd88854421fda0dd1d2d7a02d2dd19>
-- **[S15] sKuhLight/ForgeFX, exact commit `c22862a5b2f2078f3cb92a2735e51f94c39a0062`, root `LICENSE` (MIT) and test fixture tree.** Reuse candidate audit; fixture files lack a Topology-compatible redistribution sidecar in the audited tree.  
+- **[S15] sKuhLight/ForgeFX, exact commit `c22862a5b2f2078f3cb92a2735e51f94c39a0062`, root `LICENSE` (MIT) and test fixture tree.** Reuse candidate audit; fixture files lack a RigWarden-compatible redistribution sidecar in the audited tree.  
   <https://github.com/sKuhLight/ForgeFX/tree/c22862a5b2f2078f3cb92a2735e51f94c39a0062>
 
 ### Licensing/provenance references

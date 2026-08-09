@@ -32,7 +32,7 @@ scope:
   - Cargo.lock
   - pubspec.yaml
 behavior:
-  why: Can this exact Codex installation run a Terra/High parent with project-scoped Luna/Max custom subagents, and what build/toolchain is available for Topology?
+  why: Can this exact Codex installation run a Terra/High parent with project-scoped Luna/Max custom subagents, and what build/toolchain is available for RigWarden?
   given:
   - The starter kit and current external documentation are available.
   when:
@@ -49,7 +49,7 @@ preconditions:
 - Repository contains this starter kit.
 - Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
 research:
-  question: Can this exact Codex installation run a Terra/High parent with project-scoped Luna/Max custom subagents, and what build/toolchain is available for Topology?
+  question: Can this exact Codex installation run a Terra/High parent with project-scoped Luna/Max custom subagents, and what build/toolchain is available for RigWarden?
   source_priority:
   - Current official Codex subagent/model documentation
   - Local .codex configuration and agent files

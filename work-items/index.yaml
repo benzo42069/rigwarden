@@ -1,6 +1,6 @@
 schema_version: '1.0'
 generated_at: '2026-08-08'
-project: Topology
+project: RigWarden
 working_tagline: An open editor for modern modelers.
 instructions:
 - Only READY packets with integrated dependencies may run.
@@ -34,7 +34,7 @@ waves:
     depends_on: []
     path: work-items/wave-00-research/TOP-RSCH-004.yaml
   - id: TOP-RSCH-005
-    title: Perform a preliminary collision and package-identity screen for Topology
+    title: Perform a preliminary collision and package-identity screen for RigWarden
     status: INTEGRATED
     priority: high
     depends_on: []
@@ -252,7 +252,7 @@ waves:
     - TOP-GRAPH-002
     path: work-items/wave-02-core-vertical-slice/TOP-PRESET-001.yaml
   - id: TOP-PRESET-002
-    title: Round-trip the initial Topology offline container without losing opaque bytes
+    title: Round-trip the initial RigWarden offline container without losing opaque bytes
     status: BLOCKED_DEPENDENCY
     priority: high
     depends_on:

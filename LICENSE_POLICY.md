@@ -1,6 +1,6 @@
 # License Policy
 
-The intended license for original Topology code is MIT.
+The intended license for original RigWarden code is MIT.
 
 This kit does not grant rights to third-party code, protocol fixtures, artwork, trademarks, or documentation. Before public release, generate:
 

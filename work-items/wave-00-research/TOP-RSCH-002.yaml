@@ -33,7 +33,7 @@ scope:
   - Cargo.lock
   - pubspec.yaml
 behavior:
-  why: What current open-source code, catalogs, fixtures, and protocol knowledge may Topology lawfully reuse, port, reimplement, or only cite?
+  why: What current open-source code, catalogs, fixtures, and protocol knowledge may RigWarden lawfully reuse, port, reimplement, or only cite?
   given:
   - The starter kit and current external documentation are available.
   when:
@@ -51,7 +51,7 @@ preconditions:
 - Repository contains this starter kit.
 - Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
 research:
-  question: What current open-source code, catalogs, fixtures, and protocol knowledge may Topology lawfully reuse, port, reimplement, or only cite?
+  question: What current open-source code, catalogs, fixtures, and protocol knowledge may RigWarden lawfully reuse, port, reimplement, or only cite?
   source_priority:
   - Repository LICENSE/NOTICE/package metadata at exact commits
   - Relevant source files and generated data provenance
@@ -62,7 +62,7 @@ research:
   - Map relevant modules/data files and their stated provenance.
   - Classify each candidate as reuse, port with notice, independent reimplementation, reference-only, or reject.
   - List attribution/NOTICE obligations.
-  - Identify copied-art/layout material that must not enter Topology.
+  - Identify copied-art/layout material that must not enter RigWarden.
   - Produce a third-party provenance table and unresolved legal questions.
   review:
   - Independent reviewer checks source quality, license interpretation boundaries, contradictions, and actionable conclusions.
@@ -71,7 +71,7 @@ acceptance:
 - Map relevant modules/data files and their stated provenance.
 - Classify each candidate as reuse, port with notice, independent reimplementation, reference-only, or reject.
 - List attribution/NOTICE obligations.
-- Identify copied-art/layout material that must not enter Topology.
+- Identify copied-art/layout material that must not enter RigWarden.
 - Produce a third-party provenance table and unresolved legal questions.
 - Uncertainty and contradictory sources are explicit.
 - The report names follow-up ADRs or implementation packets without editing production code.

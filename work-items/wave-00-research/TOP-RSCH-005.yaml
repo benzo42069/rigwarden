@@ -1,7 +1,7 @@
 id: TOP-RSCH-005
 kind: research
 epic: TOP-000
-title: Perform a preliminary collision and package-identity screen for Topology
+title: Perform a preliminary collision and package-identity screen for RigWarden
 status: INTEGRATED
 priority: high
 requirement_ids:
@@ -33,7 +33,7 @@ scope:
   - Cargo.lock
   - pubspec.yaml
 behavior:
-  why: Is Topology usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?
+  why: Is RigWarden usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?
   given:
   - The starter kit and current external documentation are available.
   when:
@@ -51,7 +51,7 @@ preconditions:
 - Repository contains this starter kit.
 - Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
 research:
-  question: Is Topology usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?
+  question: Is RigWarden usable as the working/public name for an open modeler editor, and which package IDs, repository names, domains, and store titles avoid obvious collisions?
   source_priority:
   - Trademark databases
   - Apple App Store and Google Play
