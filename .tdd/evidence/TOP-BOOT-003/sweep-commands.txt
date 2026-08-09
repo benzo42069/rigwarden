@@ -4,3 +4,4 @@
 4. cd apps/mobile_flutter && flutter analyze
 5. cd apps/mobile_flutter && flutter test
 6. cd apps/mobile_flutter && fail-fast static checks for no demo residue, no SVG/WebView/network dependency, and declared Android/iOS targets.
+7. Post-review integration rerun: format check, Flutter analysis, complete Flutter test suite, and the static bootstrap contract from the integration worktree.

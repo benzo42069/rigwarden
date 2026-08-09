@@ -19,3 +19,11 @@ No issues found! (ran in 3.4s)
 
 [6] static bootstrap contract
 all TOP-BOOT-003 sweeps passed
+
+[7] post-review integration rerun
+Formatted 2 files (0 changed) in 6.02 seconds.
+Analyzing mobile_flutter...
+No issues found! (ran in 8.2s)
+00:00 +0: minimal app mounts
+00:00 +1: All tests passed!
+TOP-BOOT-003 post-review integration sweep passed

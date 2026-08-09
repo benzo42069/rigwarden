@@ -1,6 +1,7 @@
 # TOP-BOOT-003 handoff
 
-Status: GREEN_OBSERVED; pending independent review and integration.
+Status: INTEGRATED after independent review, scoped packet amendment, and
+post-review integration sweeps.
 
 ## Delivered
 

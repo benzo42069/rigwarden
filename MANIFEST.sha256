@@ -45,7 +45,7 @@ c56c0ded6b87c3f3d5440a98d629ab004e5dd1176a9db0b6c7a1a74fc64db511  .tdd/evidence/
 eb4caab609d3308cc9dc5c1a4c2da46e40b65bb11803da3c9db6670991f23623  .tdd/evidence/TOP-BOOT-003/green-command.txt
 b2b43fdf89569a4525aaa115430c9aa3bd5828c93756faff75305b2fc3e9a4cd  .tdd/evidence/TOP-BOOT-003/green-exit-status.txt
 6e19843bf3fcd9fb6892c0f67e87ac2d6cc338090999dddf49d8340d1850ee6f  .tdd/evidence/TOP-BOOT-003/green.log
-02e9a781f3cee087ae06b60a6d2d194f382cec4cbefc6773f15d48b6f6ad52f9  .tdd/evidence/TOP-BOOT-003/handoff.md
+7b7769c75513c022fbd7691580a038c104a8a5a627e38df3e5dbcedd3d011f1a  .tdd/evidence/TOP-BOOT-003/handoff.md
 8f9a290cd5429a8afc8d705d6080939321f2a306e5fc6a105278721c9634ee33  .tdd/evidence/TOP-BOOT-003/platform-target-green-command.txt
 d55912dd1dc5901fc813f500250daef21cb27155079d9af6198191bde7dc3bbc  .tdd/evidence/TOP-BOOT-003/platform-target-green-exit-status.txt
 84362498e3b78c2fc37ccdb955526920fb28a401a9460e8ef0178dada781d8ca  .tdd/evidence/TOP-BOOT-003/platform-target-green.log
@@ -55,11 +55,11 @@ d55912dd1dc5901fc813f500250daef21cb27155079d9af6198191bde7dc3bbc  .tdd/evidence/
 ea0973f12958327d80f67b291407ea1a52cc4528aedda0b49d26a6a9f26c12cb  .tdd/evidence/TOP-BOOT-003/red-command.txt
 c6ef86c7cee9b7fe4e306ab368c5bdb2fd7f0feeae929cb07d25d8c75b010c29  .tdd/evidence/TOP-BOOT-003/red-exit-status.txt
 989a08bf6e4fa7cd261b3baaf826566e53be649461fb7513ca6f9228d3d51054  .tdd/evidence/TOP-BOOT-003/red.log
-ac08f3364b2790f4447750366895f5c1723e12cfaae441d2a57841351d064633  .tdd/evidence/TOP-BOOT-003/review.md
-aeb85ea80363a3e3c0260b6ebca3f5a76a27566c7b52c71ac96906b687b9b014  .tdd/evidence/TOP-BOOT-003/sweep-commands.txt
-42ddc1ae29e27be83754e29b14e1e14665d477c5f3eea7e50d74e995362d3d8c  .tdd/evidence/TOP-BOOT-003/sweep-exit-statuses.txt
-b0c35726f91a33b09f15f15ab4358ef039c053368fe7ad60903641f75e64b763  .tdd/evidence/TOP-BOOT-003/sweep.log
-b9b22b54c8cdcca114e86d465daeefbf21d6ba4aa50d59a85980515851754b41  .tdd/evidence/TOP-BOOT-003/work-item.yaml
+320683c13523b9f7de2fe040c782d45ab95c658d447c58c31f590fc8b782eab9  .tdd/evidence/TOP-BOOT-003/review.md
+79797061dd0904e60f8f95abfc813d8ead2b190d6681f734613613ecd05e1636  .tdd/evidence/TOP-BOOT-003/sweep-commands.txt
+8b1e28cbfcc52675db7297cdcee693bce56abe9edd6e51191ed15c4e672379c7  .tdd/evidence/TOP-BOOT-003/sweep-exit-statuses.txt
+3ea281fd5df13ef014a012063339adba8a3ee9379f72cbbe34ab496c56d06b03  .tdd/evidence/TOP-BOOT-003/sweep.log
+f31d9040f77bf2073dedfb746c0bae195315f3494edabd96b975204214ec0854  .tdd/evidence/TOP-BOOT-003/work-item.yaml
 a622d2eb53704d66c88761266430af087a06c73b0a687c74a668557e16538897  .tdd/evidence/TOP-RSCH-001/environment.txt
 99f9a947c67919e400833322ea37b6de54c60dd928641020f681dad80a580245  .tdd/evidence/TOP-RSCH-001/files-changed.txt
 5eceb284918407968096dcf820846da85558f9239d815e56c5a317ed7ed8aefe  .tdd/evidence/TOP-RSCH-001/handoff.md
@@ -272,7 +272,7 @@ c26df5e9d551ecf506fddada327fb2dc1910e96ba7f7e0c9125d2ddfc30c8ba3  tools/validate
 b6d50f785befb1ea81004c5b9767ab4c01921217e779b294e9d2e9fcdac5dc42  work-items/CATALOG.md
 9cd6a73e8e2b4b410a854b81b7d8d98d839f96fd353e905465ea9d9c3fb30190  work-items/README.md
 1a182cde607e4bfda54470bea4524900006fa0bcbdf2cd88b88cb46f2bc9bd2e  work-items/WORK_ITEM_TEMPLATE.yaml
-bedb09eee53b9cb41f287e5028c527fe6482aa747ee4102f79faddd0c32dae1e  work-items/index.yaml
+973d796811eae248afe90ef57a6b49077a1ba9315c1dd46d475ea45b4cc3cdd5  work-items/index.yaml
 5393fd311afd420a43e544ab3911185d2b47b19635a95962b3db6ffe96f54552  work-items/wave-00-research/TOP-RSCH-001.yaml
 d0ed6ed0f91abbd60b8bfda9868faf233f752ee66aee74edc315ee5636a2d238  work-items/wave-00-research/TOP-RSCH-002.yaml
 45f1bb00b0a5522334b84c0cf9c1c46d7f2bf5a48009e2d35c3b26167be92a3b  work-items/wave-00-research/TOP-RSCH-003.yaml
@@ -283,7 +283,7 @@ a6ca1c93bdcf32eba5d237cf005fbaa1cdcd68fb23b7de7a9b210ca4aee010bb  work-items/wav
 36ff4e25acac9a2df618c9981bc41e32253cb5e5edbf8573cf6c5ca08120ad00  work-items/wave-00-research/TOP-RSCH-008.yaml
 2d639f322defc8a135ee1b11e0d9b3df5f99f3a36903d89b0aec857d15c94aec  work-items/wave-01-bootstrap/TOP-BOOT-001.yaml
 044caa45b2c5ee5f38f5468296b7fc76ee0433ff805d0d3e2ebede809b20c9d2  work-items/wave-01-bootstrap/TOP-BOOT-002.yaml
-b9b22b54c8cdcca114e86d465daeefbf21d6ba4aa50d59a85980515851754b41  work-items/wave-01-bootstrap/TOP-BOOT-003.yaml
+f31d9040f77bf2073dedfb746c0bae195315f3494edabd96b975204214ec0854  work-items/wave-01-bootstrap/TOP-BOOT-003.yaml
 e2c2eb0183af1f9bfd26eb857664d5b7f01a9b6e5c357607df634b7f6c907022  work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
 df1b0c472035eab04b11166cb0e058b25121d081b8e36c24b9125cf85ab8cfb7  work-items/wave-01-bootstrap/TOP-BOOT-005.yaml
 5a220bf0818b7ffdca7f88d1705c883b7400d8f97de2fc0b9bc384c0eafa1282  work-items/wave-01-bootstrap/TOP-BOOT-006.yaml

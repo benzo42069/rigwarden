@@ -82,7 +82,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-002.yaml
   - id: TOP-BOOT-003
     title: Create the minimum Flutter mobile app and widget-test harness
-    status: READY
+    status: INTEGRATED
     priority: critical
     depends_on:
     - TOP-BOOT-001

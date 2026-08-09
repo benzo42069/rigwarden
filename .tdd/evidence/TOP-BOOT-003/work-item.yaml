@@ -2,7 +2,15 @@ id: TOP-BOOT-003
 kind: bootstrap
 epic: TOP-000
 title: Create the minimum Flutter mobile app and widget-test harness
-status: READY
+status: INTEGRATED
+amendments:
+- recorded_at: '2026-08-09T09:00:00-05:00'
+  author: parent_orchestrator
+  field: scope.forbidden
+  old: pubspec.yaml
+  new: Root-level pubspec.yaml; apps/mobile_flutter/pubspec.yaml is owned by this packet.
+  reason: A minimal generated Flutter app necessarily owns its app-level pubspec; the prior unqualified path contradicted the granted apps/mobile_flutter/** write scope.
+  claim_changed: false
 priority: critical
 requirement_ids:
 - PLAT-001
@@ -30,7 +38,7 @@ scope:
   - crates/**
   - native/**
   - device-packs/**
-  - pubspec.yaml
+  - /pubspec.yaml
 behavior:
   why: Flutter UI behavior needs a minimal iOS/Android-capable test harness without default counter-app baggage.
   given:

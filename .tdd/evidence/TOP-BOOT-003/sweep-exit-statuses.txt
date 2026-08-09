@@ -4,3 +4,4 @@
 4. flutter analyze: 0
 5. flutter test: 0
 6. static bootstrap contract: 0
+7. post-review integration rerun: 0
