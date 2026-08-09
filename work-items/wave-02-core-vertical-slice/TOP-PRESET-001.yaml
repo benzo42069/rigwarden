@@ -2,7 +2,7 @@ id: TOP-PRESET-001
 kind: implementation
 epic: TOP-200
 title: Preserve an opaque preset segment beside known normalized data
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - PRESET-007

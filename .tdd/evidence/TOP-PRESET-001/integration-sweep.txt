@@ -1,0 +1,10 @@
+Integration base: 1e5b16060a69d1594cbcd11093b1b9bc2b4e1237
+Integration date: 2026-08-09
+
+- cargo test -p topology-preset editing_known_field_preserves_opaque_segment_exactly -- --exact --nocapture: 0
+- cargo test -p topology-preset: 0
+- cargo test -p topology-routing: 0
+- cargo fmt --all -- --check: 0
+- cargo clippy -p topology-preset --all-targets -- -D warnings: 0
+
+The packet earns only UNIT_VERIFIED for the synthetic document behavior. Lossless vendor file codec, byte fixture, protocol, simulator, platform, and hardware claims remain unavailable.
