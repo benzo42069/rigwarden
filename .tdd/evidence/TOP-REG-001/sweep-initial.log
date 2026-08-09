@@ -1,0 +1,16 @@
+=== initial required fail-fast sweep (exit 1) ===
+command: set -euo pipefail; cargo test -p topology-device-registry; cargo test -p topology-domain; cargo fmt --all -- --check; cargo clippy -p topology-device-registry --all-targets -- -D warnings
+
+The registry and domain package tests passed. The formatter then reported only the newly added test's unformatted assertion:
+
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry/tests/exact_resolution.rs:34:
+     assert!(resolved.capabilities().can_write());
+     assert_eq!(resolved.provenance(), ResolutionProvenance::ExactProfile);
+     assert_eq!(resolved.status(), ResolutionStatus::ExactMatch);
+-    assert_eq!(resolved.verification_status(), VerificationStatus::Experimental);
++    assert_eq!(
++        resolved.verification_status(),
++        VerificationStatus::Experimental
++    );
+
+The command stopped at the formatter under `set -euo pipefail`, so Clippy was not reached in that composite run. The test was mechanically formatted with scoped rustfmt, the focused GREEN was rerun, and the final required sweep is recorded in `sweep.log` with all four exit statuses 0.

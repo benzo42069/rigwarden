@@ -1,0 +1,16 @@
+   Compiling topology-device-registry v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry)
+error[E0432]: unresolved imports `topology_device_registry::DeviceProfile`, `topology_device_registry::DeviceRegistry`, `topology_device_registry::ResolutionProvenance`, `topology_device_registry::ResolutionStatus`, `topology_device_registry::SessionCapabilities`, `topology_device_registry::VerificationStatus`
+ --> crates/topology_device_registry/tests/exact_resolution.rs:2:5
+  |
+2 |     DeviceProfile, DeviceRegistry, ResolutionProvenance, ResolutionStatus, SessionCapabilities,
+  |     ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^ no `SessionCapabilities` in the root
+  |     |              |               |                     |
+  |     |              |               |                     no `ResolutionStatus` in the root
+  |     |              |               no `ResolutionProvenance` in the root
+  |     |              no `DeviceRegistry` in the root
+  |     no `DeviceProfile` in the root
+3 |     VerificationStatus,
+  |     ^^^^^^^^^^^^^^^^^^ no `VerificationStatus` in the root
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-device-registry` (test "exact_resolution") due to 1 previous error

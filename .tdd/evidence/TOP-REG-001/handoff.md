@@ -1,0 +1,16 @@
+status=REVIEW_APPROVED_CANDIDATE
+work_item=TOP-REG-001
+behavior=An in-memory registry resolves only an exact family/model/opaque-firmware profile; the resolved result exposes the profile's explicit write capability and exact-match provenance/status.
+files_changed=crates/topology_device_registry/src/lib.rs; crates/topology_device_registry/src/resolve.rs; crates/topology_device_registry/tests/exact_resolution.rs; .tdd/evidence/TOP-REG-001/**
+design=DeviceProfile stores typed DeviceFamilyId, DeviceModelId, FirmwareId, explicit SessionCapabilities, and VerificationStatus. DeviceRegistry scans typed profiles for exact equality only. ResolvedProfile copies the matched profile's capabilities and records ExactProfile/ExactMatch provenance/status.
+red=cargo test -p topology-device-registry exact_profile_match_can_enable_write -- --exact --nocapture exited 101 for the intended missing registry exports; see red.log.
+green=cargo test -p topology-device-registry exact_profile_match_can_enable_write -- --exact --nocapture exited 0; see green.log.
+sweeps=cargo test -p topology-device-registry exited 0; cargo test -p topology-domain exited 0; cargo fmt --all -- --check exited 0; cargo clippy -p topology-device-registry --all-targets -- -D warnings exited 0; see sweep.log.
+claims_earned_candidate=UNIT_VERIFIED only after independent review and integration rerun.
+claims_unavailable=PACK_SIGNATURE_VERIFIED; HARDWARE_VERIFIED.
+shared_changes_proposed=none.
+fixture_source=synthetic typed in-memory values; no protocol fixture or external source used.
+pitfalls=The shared worktree is pre-existing and dirty. The parent-created registry Cargo.toml harness is unmodified. A first post-implementation workspace format sweep found only the new test's rustfmt layout; scoped rustfmt fixed it, focused GREEN was rerun, and the final required format sweep passed.
+next_packet=TOP-REG-002 (unknown firmware read-only result), then TOP-CMD-001.
+review=REVIEW_APPROVED by /root/reg001_independent_audit; integration rerun remains pending.
+blockers=Parent integration rerun and packet/index promotion are pending; implementation agent must not mark INTEGRATED.

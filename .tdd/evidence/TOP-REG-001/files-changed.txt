@@ -1,0 +1,7 @@
+scope_check=git status --short -- crates/topology_device_registry/Cargo.toml crates/topology_device_registry/src/lib.rs crates/topology_device_registry/src/resolve.rs crates/topology_device_registry/tests/exact_resolution.rs .tdd/evidence/TOP-REG-001
+?? crates/topology_device_registry/src/lib.rs
+?? crates/topology_device_registry/src/resolve.rs
+?? crates/topology_device_registry/tests/exact_resolution.rs
+?? .tdd/evidence/TOP-REG-001/ (including candidate.patch)
+
+The registry Cargo.toml is a pre-existing parent-created empty harness and was not edited in this cycle. Root Cargo.toml/Cargo.lock, index, apps, native, and device-pack paths were not edited. Build artifacts are outside the candidate scope and are not included.
