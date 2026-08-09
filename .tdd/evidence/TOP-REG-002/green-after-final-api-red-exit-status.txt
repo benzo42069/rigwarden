@@ -1,0 +1,2 @@
+0
+accepted=YES; final checked-in test shape passes after restoring the candidate implementation.

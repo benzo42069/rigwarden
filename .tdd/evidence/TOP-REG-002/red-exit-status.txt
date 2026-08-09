@@ -1,0 +1,2 @@
+101
+accepted=YES; intended RED because the focused test reached topology-device-registry and reported the missing additive unknown-firmware session-result API/status; no unrelated compile or fixture failure was reported.

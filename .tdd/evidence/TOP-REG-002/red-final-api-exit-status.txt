@@ -1,0 +1,2 @@
+101
+accepted=YES; final checked-in test shape fails only because resolve_session and UnknownFirmware status/provenance are absent in the temporarily restored REG001 baseline.

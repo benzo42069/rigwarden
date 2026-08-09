@@ -1,0 +1,2 @@
+0
+accepted=YES; focused unknown-firmware test passed with explicit UnknownFirmware status/provenance and false write capability.

@@ -1,0 +1,2 @@
+0
+accepted=YES; compatibility-preserving status/accessor refactor passes the focused unknown-firmware test.

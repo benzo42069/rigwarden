@@ -93,6 +93,10 @@ impl DeviceProfile {
             && self.model == *identity.model()
             && self.firmware == *identity.firmware()
     }
+
+    fn matches_device(&self, identity: &DeviceIdentity) -> bool {
+        self.family == *identity.family() && self.model == *identity.model()
+    }
 }
 
 /// Why a profile was selected for a session.
@@ -100,6 +104,8 @@ impl DeviceProfile {
 pub enum ResolutionProvenance {
     /// All identity fields matched one profile exactly.
     ExactProfile,
+    /// The family and model are known, but the observed firmware is unsupported.
+    UnknownFirmware,
 }
 
 /// Machine-readable resolution status.
@@ -107,6 +113,8 @@ pub enum ResolutionProvenance {
 pub enum ResolutionStatus {
     /// The returned profile matched family, model, and firmware exactly.
     ExactMatch,
+    /// The family and model are known, but the observed firmware is unsupported.
+    UnknownFirmware,
 }
 
 /// A profile together with the capability and provenance of its resolution.
@@ -115,6 +123,7 @@ pub struct ResolvedProfile {
     profile: DeviceProfile,
     provenance: ResolutionProvenance,
     status: ResolutionStatus,
+    unsupported_firmware: Option<FirmwareId>,
 }
 
 impl ResolvedProfile {
@@ -123,6 +132,18 @@ impl ResolvedProfile {
             profile,
             provenance: ResolutionProvenance::ExactProfile,
             status: ResolutionStatus::ExactMatch,
+            unsupported_firmware: None,
+        }
+    }
+
+    fn unknown_firmware(profile: DeviceProfile) -> Self {
+        let unsupported_firmware = profile.firmware().clone();
+
+        Self {
+            profile,
+            provenance: ResolutionProvenance::UnknownFirmware,
+            status: ResolutionStatus::UnknownFirmware,
+            unsupported_firmware: Some(unsupported_firmware),
         }
     }
 
@@ -144,6 +165,11 @@ impl ResolvedProfile {
     /// Return the machine-readable resolution status.
     pub const fn status(&self) -> ResolutionStatus {
         self.status
+    }
+
+    /// Return the observed firmware when resolution is read-only because it is unsupported.
+    pub fn unsupported_firmware(&self) -> Option<&FirmwareId> {
+        self.unsupported_firmware.as_ref()
     }
 
     /// Return the selected profile's verification status.
@@ -173,5 +199,26 @@ impl DeviceRegistry {
             .find(|profile| profile.matches(identity))
             .cloned()
             .map(ResolvedProfile::exact)
+    }
+
+    /// Resolve a known device into either an exact profile or an explicit
+    /// read-only result for an unsupported firmware.
+    pub fn resolve_session(&self, identity: &DeviceIdentity) -> Option<ResolvedProfile> {
+        if let Some(exact) = self.resolve(identity) {
+            return Some(exact);
+        }
+
+        self.profiles
+            .iter()
+            .any(|profile| profile.matches_device(identity))
+            .then(|| {
+                ResolvedProfile::unknown_firmware(DeviceProfile::new(
+                    identity.family().clone(),
+                    identity.model().clone(),
+                    identity.firmware().clone(),
+                    SessionCapabilities::new(false),
+                    VerificationStatus::ReadOnly,
+                ))
+            })
     }
 }

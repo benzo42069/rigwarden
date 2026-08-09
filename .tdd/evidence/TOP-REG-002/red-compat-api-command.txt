@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-device-registry unknown_firmware_never_inherits_write_capability -- --exact --nocapture
+cycle_note=Compatibility-preserving refactor RED after changing the final test to unit UnknownFirmware status plus unsupported_firmware accessor; production still had the prior payload status and no accessor.

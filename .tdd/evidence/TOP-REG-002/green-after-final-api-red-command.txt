@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-device-registry unknown_firmware_never_inherits_write_capability -- --exact --nocapture
+cycle_note=Run after restoring the exact candidate source snapshot; supplementary RED source mutation was fully reverted before this GREEN.

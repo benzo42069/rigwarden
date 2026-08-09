@@ -1,0 +1,95 @@
+id: TOP-REG-002
+kind: implementation
+epic: TOP-100
+title: Unknown firmware resolves to a non-writable session
+status: READY
+priority: high
+requirement_ids:
+- DEV-005
+- PACK-006
+- SEC-001
+depends_on:
+- TOP-REG-001
+parallel_group: core-registry-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_device_registry/**
+  - crates/topology_domain/**
+  write:
+  - crates/topology_device_registry/src/resolve.rs
+  - crates/topology_device_registry/tests/unknown_firmware.rs
+  - .tdd/evidence/TOP-REG-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: A nearby or future firmware must never silently inherit writable mappings.
+  given:
+  - Registry has a writable profile for test-model firmware `1.0`.
+  - Identity reports the same model with firmware `1.1`.
+  when:
+  - Resolution is requested.
+  then:
+  - Result identifies known device/unknown firmware.
+  - Result is read-only.
+  - Machine-readable reason contains the unsupported firmware.
+  - No nearest/lower fallback occurs.
+non_goals:
+- Offline best-effort decoding
+- Compatible-range evidence
+- Profile download UI
+preconditions:
+- TOP-REG-001 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_device_registry/tests/unknown_firmware.rs
+  name: unknown_firmware_never_inherits_write_capability
+  red_command: cargo test -p topology-device-registry unknown_firmware_never_inherits_write_capability -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Assertion fails because resolver returns writable exact/nearest fallback.
+    - Missing unknown-firmware result variant.
+    unacceptable:
+    - Fixture accidentally uses exact firmware.
+    - Unrelated registry compile failure.
+  green_command: cargo test -p topology-device-registry unknown_firmware_never_inherits_write_capability -- --exact --nocapture
+minimum_green:
+- Add explicit unknown-firmware result and read-only capability.
+- Do not add version ranges.
+- Preserve known device identity and reason.
+required_sweeps:
+- cargo test -p topology-device-registry
+- cargo test -p topology-domain
+- cargo fmt --all -- --check
+- cargo clippy -p topology-device-registry --all-targets -- -D warnings
+acceptance:
+- Unknown firmware cannot produce write capability.
+- Exact-match behavior remains green.
+- Reason is machine-readable.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+- READ_ONLY
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-CMD-002
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-REG-002
+amendments:
+- recorded_at: 2026-08-09T14:30:00-05:00
+  author: parent_orchestrator
+  reason: TOP-REG-001 is integrated with reviewed exact-match behavior; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false

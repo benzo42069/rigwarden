@@ -1,0 +1,26 @@
+   Compiling topology-device-registry v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry)
+error[E0599]: no method named `resolve_session` found for struct `DeviceRegistry` in the current scope
+  --> crates/topology_device_registry/tests/unknown_firmware.rs:32:10
+   |
+31 |       let resolved = registry
+   |  ____________________-
+32 | |         .resolve_session(&unknown_identity)
+   | |         -^^^^^^^^^^^^^^^ method not found in `DeviceRegistry`
+   | |_________|
+   |
+
+error[E0599]: no variant named `UnknownFirmware` found for enum `ResolutionStatus`
+  --> crates/topology_device_registry/tests/unknown_firmware.rs:37:27
+   |
+37 |         ResolutionStatus::UnknownFirmware {
+   |                           ^^^^^^^^^^^^^^^ variant not found in `ResolutionStatus`
+
+error[E0599]: no variant, associated function, or constant named `UnknownFirmware` found for enum `ResolutionProvenance` in the current scope
+  --> crates/topology_device_registry/tests/unknown_firmware.rs:41:61
+   |
+41 |     assert_eq!(resolved.provenance(), ResolutionProvenance::UnknownFirmware);
+   |                                                             ^^^^^^^^^^^^^^^ variant, associated function, or constant not found in `ResolutionProvenance`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-device-registry` (test "unknown_firmware") due to 3 previous errors
+warning: build failed, waiting for other jobs to finish...

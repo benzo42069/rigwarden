@@ -1,0 +1,8 @@
+scope_status_command=git status --short -- crates/topology_device_registry/src/resolve.rs crates/topology_device_registry/tests/unknown_firmware.rs .tdd/evidence/TOP-REG-002
+?? .tdd/evidence/TOP-REG-002/
+?? crates/topology_device_registry/src/resolve.rs
+?? crates/topology_device_registry/tests/unknown_firmware.rs
+
+production_scope_explanation=resolve.rs contains the pre-existing REG001 exact resolver plus this packet's additive unknown-firmware session result; unknown_firmware.rs is new. No lib.rs, manifest, lockfile, root, index, app, native, device-pack, or traceability files were edited by this packet.
+generated_artifacts=target/ build outputs are outside packet evidence and are not included. candidate.patch is an illustrative full-file patch regenerated after the final compatibility-preserving API because the shared worktree carries REG001 source as untracked integration material.
+final_sweep_evidence=sweep-final.log and sweep-final-exit-statuses.txt record the final four-command fail-fast sweep; all exits are 0.

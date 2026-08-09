@@ -1,0 +1,21 @@
+   Compiling topology-device-registry v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry)
+error[E0533]: expected value, found struct variant `ResolutionStatus::UnknownFirmware`
+  --> crates/topology_device_registry/tests/unknown_firmware.rs:35:35
+   |
+35 |     assert_eq!(resolved.status(), ResolutionStatus::UnknownFirmware);
+   |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ not a value
+   |
+help: you might have meant to create a new value of the struct
+   |
+35 |     assert_eq!(resolved.status(), ResolutionStatus::UnknownFirmware { firmware: /* value */ });
+   |                                                                     +++++++++++++++++++++++++
+
+error[E0599]: no method named `unsupported_firmware` found for struct `ResolvedProfile` in the current scope
+  --> crates/topology_device_registry/tests/unknown_firmware.rs:40:18
+   |
+40 |         resolved.unsupported_firmware(),
+   |                  ^^^^^^^^^^^^^^^^^^^^ method not found in `ResolvedProfile`
+
+Some errors have detailed explanations: E0533, E0599.
+For more information about an error, try `rustc --explain E0533`.
+error: could not compile `topology-device-registry` (test "unknown_firmware") due to 2 previous errors

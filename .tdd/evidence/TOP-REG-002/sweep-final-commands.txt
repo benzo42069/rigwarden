@@ -1,0 +1,5 @@
+set -euo pipefail fail-fast sequence after the compatibility-preserving final candidate:
+1. cargo test -p topology-device-registry
+2. cargo test -p topology-domain
+3. cargo fmt --all -- --check
+4. cargo clippy -p topology-device-registry --all-targets -- -D warnings
