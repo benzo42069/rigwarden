@@ -1,6 +1,6 @@
 # TOP-GRAPH-004 handoff
 
-Status: candidate complete; independent review and parent integration pending.
+Status: integrated after independent review and parent rerun; see `integration-sweep.txt`.
 
 ## Behavior delivered
 
@@ -29,7 +29,7 @@ No protocol or hardware fixture is used; this is an L1 Rust unit behavior with l
 
 ## Review/integration
 
-`review.md` is intentionally left for an independent `topology_reviewer`. This worker does not self-approve or update `work-items/index.yaml`. Parent integration must apply the candidate, rerun the focused test and required sweeps, then promote the packet status.
+`review.md` records the independent `topology_reviewer` approval. Parent integration published the candidate, reran the focused test and required sweeps, and promoted the packet status.
 
 Next packet: `TOP-GRAPH-005` (deterministic topological traversal), after this packet is integrated.
 

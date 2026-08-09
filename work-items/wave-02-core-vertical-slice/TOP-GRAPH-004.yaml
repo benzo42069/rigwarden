@@ -2,7 +2,7 @@ id: TOP-GRAPH-004
 kind: implementation
 epic: TOP-300
 title: Reject a prohibited routing cycle
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - GRAPH-006
@@ -33,9 +33,9 @@ scope:
 behavior:
   why: Acyclic device profiles must not receive a graph write that creates feedback.
   given:
-  - Graph contains A → B → C and the test profile disallows cycles.
+  - Graph contains A ��� B ��� C and the test profile disallows cycles.
   when:
-  - Connection C → A is attempted.
+  - Connection C ��� A is attempted.
   then:
   - Insertion is rejected with a cycle error.
   - Existing graph remains unchanged.

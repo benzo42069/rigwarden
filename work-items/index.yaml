@@ -237,7 +237,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-003.yaml
   - id: TOP-GRAPH-004
     title: Reject a prohibited routing cycle
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-GRAPH-002
@@ -245,7 +245,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-004.yaml
   - id: TOP-GRAPH-005
     title: Produce deterministic topological traversal for the same graph
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-GRAPH-004
@@ -380,7 +380,7 @@ waves:
     - TOP-DOM-003
     path: work-items/wave-03-am4-bootstrap/TOP-AM4-PROTO-002.yaml
   - id: TOP-AM4-PROTO-003
-    title: Decode the AM4 preset fixture’s identity, name, and opaque remainder
+    title: Decode the AM4 preset fixture���s identity, name, and opaque remainder
     status: BLOCKED_FIXTURE
     priority: high
     depends_on:
