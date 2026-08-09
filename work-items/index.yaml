@@ -230,7 +230,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-002.yaml
   - id: TOP-GRAPH-003
     title: Reject a connection whose source node or port does not exist
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-GRAPH-002
