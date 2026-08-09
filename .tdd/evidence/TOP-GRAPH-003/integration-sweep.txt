@@ -1,0 +1,7 @@
+Public candidate: 0dcfecc54acfa5b371cd958acdfc98ee2eaef80f
+Focused missing source port mutation-proven test: 0
+Routing package suite: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-routing --all-targets -- -D warnings: 0
+
+Scope note: this integration proves only the missing-source-port branch. Missing source-node behavior is intentionally not claimed by this packet.

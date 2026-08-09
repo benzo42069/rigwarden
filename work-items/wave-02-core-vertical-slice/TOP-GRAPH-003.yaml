@@ -2,7 +2,7 @@ id: TOP-GRAPH-003
 kind: implementation
 epic: TOP-300
 title: Reject a connection whose source node or port does not exist
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - GRAPH-005
