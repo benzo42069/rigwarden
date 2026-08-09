@@ -1,0 +1,17 @@
+timestamp_utc=2026-08-09T17:08:30Z
+os=macOS
+os_version=26.5
+cpu_architecture=arm64
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+local_start_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+public_dependency_harness_head=a4823fd92a9bb216224068e7a759364dc48da89e
+dirty_entries_at_start=174 (pre-existing shared workspace state; not modified by this worker)
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+flutter=Flutter 3.44.9 (stable)
+dart=Dart SDK version: 3.12.2 (stable) on macos_arm64
+codex_client=desktop_context_unavailable
+hardware=none required for Rust L1 unit test
+environment_variable_names=PATH,RUSTUP_HOME,CARGO_HOME (values omitted)
+precondition=TOP-DOM-001 is INTEGRATED in public work-items/index.yaml; routing harness is public at a4823fd

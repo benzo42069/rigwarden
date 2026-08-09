@@ -1,0 +1,3 @@
+shell=zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-routing moving_a_node_preserves_its_stable_identity -- --exact --nocapture

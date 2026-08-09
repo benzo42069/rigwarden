@@ -1,0 +1,8 @@
+Worker-owned candidate files:
+?? crates/topology_routing/src/lib.rs (exports graph module)
+?? crates/topology_routing/src/graph.rs (NodeId, GridPosition, Node, GraphError, Graph insert/move/lookup)
+?? crates/topology_routing/tests/node_identity.rs (focused stable identity/duplicate test)
+Evidence:
+?? .tdd/evidence/TOP-GRAPH-001/*
+
+No Cargo.toml, Cargo.lock, work-items/index.yaml, apps, native, or device-packs files were modified by this worker. The root harness files were parent-owned preconditions.

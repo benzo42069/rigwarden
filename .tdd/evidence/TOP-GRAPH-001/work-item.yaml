@@ -1,0 +1,92 @@
+id: TOP-GRAPH-001
+kind: implementation
+epic: TOP-300
+title: Create graph nodes with stable typed identities
+status: READY
+amendments:
+- recorded_at: '2026-08-09T12:35:00-05:00'
+  author: parent_orchestrator
+  field: scope.write and scope.forbidden
+  old: Root Cargo.toml was forbidden although the packet required a new crate to be discovered by the workspace.
+  new: Permit the parent integration owner to add only crates/topology_routing to the workspace members and its generated Cargo.lock package entry before the worker's RED; both remain parent-owned.
+  reason: A product-empty crate harness is required for Cargo to reach the packet's focused missing-graph-API RED. No graph behavior or verification claim changes.
+  claim_changed: false
+priority: high
+requirement_ids:
+- GRAPH-007
+depends_on:
+- TOP-DOM-001
+parallel_group: core-graph-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_domain/**
+  - docs/ARCHITECTURE.md
+  write:
+  - Cargo.toml (parent integration owner only; add topology_routing workspace member)
+  - Cargo.lock (parent integration owner only; generated topology-routing package entry)
+  - crates/topology_routing/Cargo.toml
+  - crates/topology_routing/src/lib.rs
+  - crates/topology_routing/src/graph.rs
+  - crates/topology_routing/tests/node_identity.rs
+  - .tdd/evidence/TOP-GRAPH-001/**
+  forbidden:
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Movement and diff/undo require stable node IDs independent from row/column position.
+  given:
+  - A graph receives a block node ID `amp-1` at position row 1 column 2.
+  when:
+  - The node is inserted and later its position is changed.
+  then:
+  - The stable ID remains `amp-1`.
+  - The new position is observable.
+  - Duplicate IDs are rejected.
+non_goals:
+- Connections
+- Block catalog
+- Device placement constraints
+- Serialization
+preconditions:
+- Rust harness integrated.
+- New crate can be discovered by workspace.
+test:
+  layer: rust_unit
+  file: crates/topology_routing/tests/node_identity.rs
+  name: moving_a_node_preserves_its_stable_identity
+  red_command: cargo test -p topology-routing moving_a_node_preserves_its_stable_identity -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing graph API.
+    - Assertion fails because moving recreates identity or duplicates are accepted.
+    unacceptable:
+    - Workspace membership missing.
+    - Test relies on private storage.
+  green_command: cargo test -p topology-routing moving_a_node_preserves_its_stable_identity -- --exact --nocapture
+minimum_green:
+- Add stable NodeId, position, graph insert/move.
+- Reject duplicates.
+- No connections yet.
+required_sweeps:
+- cargo test -p topology-routing
+- cargo fmt --all -- --check
+- cargo clippy -p topology-routing --all-targets -- -D warnings
+acceptance:
+- Stable identity preserved.
+- Duplicate rejected.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-GRAPH-002
+- TOP-GRAPH-003
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-GRAPH-001

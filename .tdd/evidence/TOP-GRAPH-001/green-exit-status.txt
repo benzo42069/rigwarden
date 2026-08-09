@@ -1,0 +1,3 @@
+0
+accepted_as_green=true
+reason=The focused node identity test passes with stable identity retained after movement and duplicate insertion rejected.

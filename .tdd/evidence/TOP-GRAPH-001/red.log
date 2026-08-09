@@ -1,0 +1,10 @@
+   Compiling topology-routing v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_routing)
+error[E0432]: unresolved import `topology_routing::graph`
+ --> crates/topology_routing/tests/node_identity.rs:1:23
+  |
+1 | use topology_routing::graph::{Graph, GridPosition, Node, NodeId};
+  |                       ^^^^^ could not find `graph` in `topology_routing`
+  |
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-routing` (test "node_identity") due to 1 previous error

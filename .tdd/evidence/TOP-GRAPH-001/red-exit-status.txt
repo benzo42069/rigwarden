@@ -1,0 +1,3 @@
+101
+accepted_as_intended_red=true
+reason=The focused test reaches the routing crate and fails only because the requested public graph module/API is absent; workspace discovery and unrelated dependencies compile.

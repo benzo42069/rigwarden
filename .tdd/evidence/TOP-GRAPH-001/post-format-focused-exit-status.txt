@@ -1,0 +1,2 @@
+0
+reason=Focused selector rerun after rustfmt remains green.

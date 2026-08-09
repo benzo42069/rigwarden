@@ -1,0 +1,8 @@
+1. cargo test -p topology-routing (initial package sweep)
+2. cargo fmt --all -- --check (initial format check; failed on new files)
+3. cargo fmt --all (mechanical formatting correction)
+4. cargo test -p topology-routing moving_a_node_preserves_its_stable_identity -- --exact --nocapture (focused rerun after formatting)
+5. cargo test -p topology-routing (package sweep after formatting)
+6. cargo fmt --all -- --check (format check after formatting)
+7. cargo clippy -p topology-routing --all-targets -- -D warnings (lint sweep)
+8. set -euo pipefail; cargo test -p topology-routing; cargo fmt --all -- --check; cargo clippy -p topology-routing --all-targets -- -D warnings (final fail-fast composite)

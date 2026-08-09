@@ -1,0 +1,8 @@
+1. cargo test -p topology-routing: 0
+2. cargo fmt --all -- --check (initial): 1 (format drift only; corrected by command 3)
+3. cargo fmt --all: 0
+4. focused post-format rerun: 0
+5. cargo test -p topology-routing (post-format): 0
+6. cargo fmt --all -- --check (post-format): 0
+7. cargo clippy -p topology-routing --all-targets -- -D warnings: 0
+8. final fail-fast composite: 0
