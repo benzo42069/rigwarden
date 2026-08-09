@@ -42,6 +42,10 @@ behavior:
   - Phone uses a single primary content region with explicit navigation.
   - Tablet exposes persistent navigation plus content.
   - Both retain the same reachable feature destinations.
+  - Navigation exposes role, selected state, action, deterministic focus order,
+    and an announced current destination without relying on color.
+  - Large text reflows without clipped destination labels, and reduced-motion
+    mode avoids selection animation.
   - No final decorative assets are fabricated.
 non_goals:
 - Complete navigation destinations
@@ -66,6 +70,9 @@ test:
   green_command: cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart --plain-name "session shell adapts without hiding editor destinations"
 minimum_green:
 - Add minimal structural shell and semantic destination labels.
+- Add an explicit semantic selection/action and focus policy for both layouts.
+- Announce destination changes through the Flutter semantics tree.
+- Cover large-text reflow and reduced-motion selection behavior in the widget test.
 - Use SDK widgets/tokens only; no fake production art.
 - Do not implement destination screens.
 required_sweeps:
@@ -76,7 +83,8 @@ required_sweeps:
 acceptance:
 - Phone/tablet structures differ intentionally.
 - All declared destinations reachable.
-- Semantics labels present.
+- Semantics roles, selected state, actions, focus order, and destination-change announcement are asserted.
+- Large-text and reduced-motion paths are asserted.
 - Accessibility reviewer approves.
 available_claims_after_completion:
 - SEMANTICS_VERIFIED
@@ -95,4 +103,11 @@ amendments:
   reason: TOP-BOOT-003 and TOP-FFI-001 are integrated on public main; the dependency block was stale.
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
+- recorded_at: 2026-08-09T18:44:00-05:00
+  author: parent_orchestrator
+  reason: Independent accessibility review rejected the first candidate because label-only layout checks did not support the packet's SEMANTICS_VERIFIED claim.
+  changes:
+  - behavior and acceptance now require explicit navigation action/selection, focus-order, announcement, large-text reflow, and reduced-motion evidence within the same bounded shell.
+  - minimum_green now requires a second focused RED/GREEN cycle for those accessibility behaviors.
   claim_changed: false
