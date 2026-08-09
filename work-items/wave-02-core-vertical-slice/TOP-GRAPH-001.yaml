@@ -2,7 +2,15 @@ id: TOP-GRAPH-001
 kind: implementation
 epic: TOP-300
 title: Create graph nodes with stable typed identities
-status: BLOCKED_DEPENDENCY
+status: READY
+amendments:
+- recorded_at: '2026-08-09T12:35:00-05:00'
+  author: parent_orchestrator
+  field: scope.write and scope.forbidden
+  old: Root Cargo.toml was forbidden although the packet required a new crate to be discovered by the workspace.
+  new: Permit the parent integration owner to add only crates/topology_routing to the workspace members and its generated Cargo.lock package entry before the worker's RED; both remain parent-owned.
+  reason: A product-empty crate harness is required for Cargo to reach the packet's focused missing-graph-API RED. No graph behavior or verification claim changes.
+  claim_changed: false
 priority: high
 requirement_ids:
 - GRAPH-007
@@ -18,14 +26,14 @@ scope:
   - crates/topology_domain/**
   - docs/ARCHITECTURE.md
   write:
+  - Cargo.toml (parent integration owner only; add topology_routing workspace member)
+  - Cargo.lock (parent integration owner only; generated topology-routing package entry)
   - crates/topology_routing/Cargo.toml
   - crates/topology_routing/src/lib.rs
   - crates/topology_routing/src/graph.rs
   - crates/topology_routing/tests/node_identity.rs
   - .tdd/evidence/TOP-GRAPH-001/**
   forbidden:
-  - Cargo.toml
-  - Cargo.lock
   - apps/**
   - native/**
   - device-packs/**

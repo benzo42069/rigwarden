@@ -216,7 +216,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
   - id: TOP-GRAPH-001
     title: Create graph nodes with stable typed identities
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-DOM-001

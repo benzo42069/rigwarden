@@ -1,3 +1,7 @@
 [workspace]
-members = ["crates/topology_domain", "crates/topology_devtools"]
+members = [
+    "crates/topology_domain",
+    "crates/topology_devtools",
+    "crates/topology_routing",
+]
 resolver = "2"
