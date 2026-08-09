@@ -267,7 +267,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-PRESET-002.yaml
   - id: TOP-REG-001
     title: Resolve an exact device and firmware profile as writable
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-DOM-003

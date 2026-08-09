@@ -2,6 +2,7 @@
 members = [
     "crates/topology_domain",
     "crates/topology_devtools",
+    "crates/topology_device_registry",
     "crates/topology_routing",
 ]
 resolver = "2"

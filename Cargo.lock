@@ -3,6 +3,13 @@
 version = 4
 
 [[package]]
+name = "topology-device-registry"
+version = "0.0.0"
+dependencies = [
+ "topology-domain",
+]
+
+[[package]]
 name = "topology-devtools"
 version = "0.0.0"
 

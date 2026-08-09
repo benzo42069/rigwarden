@@ -2,7 +2,7 @@ id: TOP-REG-001
 kind: implementation
 epic: TOP-100
 title: Resolve an exact device and firmware profile as writable
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - DEV-004
@@ -90,3 +90,11 @@ required_followups:
 - TOP-CMD-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-REG-001
+amendments:
+- recorded_at: 2026-08-09T14:00:00-05:00
+  author: parent_orchestrator
+  reason: TOP-DOM-003 is integrated. The parent created a product-empty workspace harness and path dependency so the packet's focused RED can fail on the intended missing registry API rather than workspace membership.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  - integration owner added the root workspace member, lockfile entry, and empty crate harness outside worker scope.
+  claim_changed: false

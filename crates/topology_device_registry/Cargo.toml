@@ -1,0 +1,11 @@
+[package]
+name = "topology-device-registry"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+topology-domain = { path = "../topology_domain" }
