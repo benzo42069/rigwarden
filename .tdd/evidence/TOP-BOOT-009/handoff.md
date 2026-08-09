@@ -1,6 +1,6 @@
 # TOP-BOOT-009 implementer handoff
 
-Status: GREEN_OBSERVED; candidate patch awaiting independent review and parent integration.
+Status: INTEGRATED. Candidate public commit: `c4c4ecc4c2019702228c6db658d48c59bdcb28dc`; post-landing checks are recorded in `integration-sweep.*`.
 
 ## Behavior delivered
 

@@ -1,0 +1,5 @@
+=== post-landing c4c4ecc integration sweep ===
+focused: fixture_cli_returns_truthful_exit_status ... ok (1 passed)
+package: asset, evidence, fixture CLI, fixture provenance, and work-item tests ... ok (6 passed)
+format: cargo fmt --all -- --check produced no output
+lint: cargo clippy -p topology-devtools --all-targets -- -D warnings exited 0 without warnings

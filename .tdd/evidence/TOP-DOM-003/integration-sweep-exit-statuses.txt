@@ -1,0 +1,4 @@
+focused device identity test: 0
+topology-domain package tests: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-domain --all-targets -- -D warnings: 0

@@ -133,7 +133,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-008.yaml
   - id: TOP-BOOT-009
     title: Expose fixture provenance validation as a deterministic command-line tool
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-006
@@ -190,7 +190,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-DOM-002.yaml
   - id: TOP-DOM-003
     title: Represent an identified device with family, model, firmware, and transport endpoint
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-DOM-001

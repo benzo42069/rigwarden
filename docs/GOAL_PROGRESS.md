@@ -12,7 +12,7 @@
 
 - **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`–`TOP-BOOT-008`, `TOP-DOM-001`–`TOP-DOM-002`.
 - **Historical review failure:** `TOP-BOOT-002`; superseded only for its missing audit evidence by `TOP-BOOT-002R`, whose source scope is product-empty and independently reviewed.
-- **Running:** `TOP-BOOT-009` and `TOP-DOM-003` after dependency-status promotion; both retain their own observed TDD cycle, independent review, and integration gate.
+- **Integrated:** `TOP-BOOT-009` (truthful local fixture-validation CLI) and `TOP-DOM-003` (typed read-only device identity) after independent review and post-landing Rust sweeps.
 - **Blocked contract:** `TOP-GRAPH-001` needs a parent-owned workspace-membership amendment before its new crate can compile; no graph behavior has been started.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
@@ -26,6 +26,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-BOOT-008` focused test, package tests, workspace formatter, and Clippy with warnings denied exited 0 after reviewed public source/evidence commit `4135735288120240d4b8d6461dff460c5c244218`.
+**Last completed integration sweep:** `TOP-BOOT-009` and `TOP-DOM-003` focused/package tests, workspace formatter, and package Clippy with warnings denied exited 0 after reviewed public source/evidence commit `c4c4ecc4c2019702228c6db658d48c59bdcb28dc`.
 
-**Next dependency-complete group:** `TOP-BOOT-009` (devtools CLI) and `TOP-DOM-003` (domain identity), with disjoint source/evidence paths. `TOP-GRAPH-001` follows its workspace-harness amendment.
+**Next dependency-complete group:** `TOP-GRAPH-001` after its parent-owned workspace-harness amendment, then registry/preset leaves unlocked by `TOP-DOM-003`. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

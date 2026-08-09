@@ -1,0 +1,7 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Public candidate: c4c4ecc4c2019702228c6db658d48c59bdcb28dc
+1. cargo test -p topology-domain device_identity_does_not_imply_write_capability -- --exact --nocapture
+2. cargo test -p topology-domain
+3. cargo fmt --all -- --check
+4. cargo clippy -p topology-domain --all-targets -- -D warnings

@@ -1,0 +1,5 @@
+=== post-landing c4c4ecc integration sweep ===
+focused: device_identity_does_not_imply_write_capability ... ok (1 passed)
+package: device-family, device identity, firmware identifier, and harness tests ... ok (4 passed)
+format: cargo fmt --all -- --check produced no output
+lint: cargo clippy -p topology-domain --all-targets -- -D warnings exited 0 without warnings

@@ -1,4 +1,4 @@
-status=CANDIDATE_READY_FOR_REVIEW
+status=INTEGRATED
 work_item=TOP-DOM-003
 behavior=DeviceIdentity retains typed family, model, firmware, and transport endpoint values and exposes read-only accessors; identity itself adds no write capability or endpoint-opening behavior.
 files_changed=crates/topology_domain/src/device.rs; crates/topology_domain/src/lib.rs; crates/topology_domain/tests/device_identity.rs; .tdd/evidence/TOP-DOM-003/**
@@ -11,4 +11,4 @@ claims_unavailable=DEVICE_DISCOVERY_VERIFIED; HARDWARE_VERIFIED; FFI_VERIFIED.
 shared_changes_proposed=none.
 pitfalls=Local worktree is dirty and does not represent public main; source device.rs is untracked because prior public domain work was integrated through the parent workflow. Parent must reconcile this candidate against public main and rerun all required commands before setting INTEGRATED.
 next_packet=TOP-REG-001 after TOP-DOM-003 integration.
-blockers=Independent reviewer and parent integration are still required. No environment, fixture, or hardware blocker applies to this unit-layer packet.
+blockers=None. Independent review approved and the parent integration rerun passed after public candidate commit `c4c4ecc4c2019702228c6db658d48c59bdcb28dc`.
