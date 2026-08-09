@@ -2,7 +2,7 @@ id: TOP-PRESET-002
 kind: implementation
 epic: TOP-200
 title: Round-trip the initial RigWarden offline container without losing opaque bytes
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - PRESET-007
@@ -88,3 +88,10 @@ required_followups:
 - TOP-UNDO-002
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-PRESET-002
+amendments:
+- recorded_at: 2026-08-09T15:10:00-05:00
+  author: parent_orchestrator
+  reason: TOP-PRESET-001 is integrated with reviewed synthetic opaque-segment preservation evidence; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false

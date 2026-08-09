@@ -260,7 +260,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-PRESET-001.yaml
   - id: TOP-PRESET-002
     title: Round-trip the initial RigWarden offline container without losing opaque bytes
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-PRESET-001
