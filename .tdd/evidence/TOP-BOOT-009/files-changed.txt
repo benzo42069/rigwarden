@@ -1,0 +1,11 @@
+git status --short (scoped paths):
+?? crates/topology_devtools/src/bin/topology-devtools.rs
+?? crates/topology_devtools/tests/fixture_cli.rs
+?? .tdd/evidence/TOP-BOOT-009/
+
+Authorized production/test changes:
+- crates/topology_devtools/src/bin/topology-devtools.rs — deterministic validate-fixture command.
+- crates/topology_devtools/tests/fixture_cli.rs — CLI integration test with valid and denied sidecars.
+
+Evidence-only files are under .tdd/evidence/TOP-BOOT-009/.
+No Cargo manifest, lockfile, library module, app, native, or device-pack files changed.

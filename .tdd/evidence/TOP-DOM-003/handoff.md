@@ -1,0 +1,14 @@
+status=CANDIDATE_READY_FOR_REVIEW
+work_item=TOP-DOM-003
+behavior=DeviceIdentity retains typed family, model, firmware, and transport endpoint values and exposes read-only accessors; identity itself adds no write capability or endpoint-opening behavior.
+files_changed=crates/topology_domain/src/device.rs; crates/topology_domain/src/lib.rs; crates/topology_domain/tests/device_identity.rs; .tdd/evidence/TOP-DOM-003/**
+design=DeviceModelId and TransportEndpointId are opaque nonblank identifiers matching the existing DeviceFamilyId validation shape. DeviceIdentity owns four typed values and exposes shared references through family(), model(), firmware(), and transport_endpoint().
+red=cargo test -p topology-domain device_identity_does_not_imply_write_capability -- --exact --nocapture exited 101 for the intended missing API; see red.log.
+green=cargo test -p topology-domain device_identity_does_not_imply_write_capability -- --exact --nocapture exited 0; see green.log.
+sweeps=cargo test -p topology-domain exited 0; cargo fmt --all -- --check exited 0; scoped rustfmt check exited 0; cargo clippy -p topology-domain --all-targets -- -D warnings exited 0; see sweep.log.
+claims_earned_candidate=UNIT_VERIFIED after independent review and integration rerun only.
+claims_unavailable=DEVICE_DISCOVERY_VERIFIED; HARDWARE_VERIFIED; FFI_VERIFIED.
+shared_changes_proposed=none.
+pitfalls=Local worktree is dirty and does not represent public main; source device.rs is untracked because prior public domain work was integrated through the parent workflow. Parent must reconcile this candidate against public main and rerun all required commands before setting INTEGRATED.
+next_packet=TOP-REG-001 after TOP-DOM-003 integration.
+blockers=Independent reviewer and parent integration are still required. No environment, fixture, or hardware blocker applies to this unit-layer packet.

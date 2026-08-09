@@ -1,0 +1,84 @@
+id: TOP-DOM-003
+kind: implementation
+epic: TOP-100
+title: Represent an identified device with family, model, firmware, and transport endpoint
+status: READY
+priority: high
+requirement_ids:
+- DEV-003
+- TRANSPORT-001
+depends_on:
+- TOP-DOM-001
+- TOP-DOM-002
+parallel_group: core-domain-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_domain/**
+  write:
+  - crates/topology_domain/src/device.rs
+  - crates/topology_domain/src/lib.rs
+  - crates/topology_domain/tests/device_identity.rs
+  - .tdd/evidence/TOP-DOM-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: Session/profile resolution needs one typed identity without mixing protocol bytes into transport metadata.
+  given:
+  - Valid family/model/firmware IDs and a transport endpoint ID are available.
+  when:
+  - DeviceIdentity is constructed.
+  then:
+  - All identities are retained as typed fields.
+  - Transport endpoint is represented separately from device family/model.
+  - No writable capability is implied by identity alone.
+non_goals:
+- Discovery protocol
+- Profile lookup
+- Endpoint opening
+- Hardware variant inference
+preconditions:
+- TOP-DOM-001 and TOP-DOM-002 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_domain/tests/device_identity.rs
+  name: device_identity_does_not_imply_write_capability
+  red_command: cargo test -p topology-domain device_identity_does_not_imply_write_capability -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing DeviceIdentity API.
+    - Assertion fails because construction requires or defaults writable capability.
+    unacceptable:
+    - Unrelated type compile failure.
+    - Test asserts private layout rather than observable access.
+  green_command: cargo test -p topology-domain device_identity_does_not_imply_write_capability -- --exact --nocapture
+minimum_green:
+- Add only model/endpoint IDs and DeviceIdentity.
+- Expose typed read access.
+- Do not add capabilities or profile matching.
+required_sweeps:
+- cargo test -p topology-domain
+- cargo fmt --all -- --check
+- cargo clippy -p topology-domain --all-targets -- -D warnings
+acceptance:
+- Identity stores all required fields.
+- No write flag/default exists.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- DEVICE_DISCOVERY_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-REG-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-DOM-003

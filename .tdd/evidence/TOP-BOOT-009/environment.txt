@@ -1,0 +1,19 @@
+timestamp_utc: 2026-08-09T16:53:20Z
+timestamp_local: 2026-08-09T11:53:20-0500
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_local_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+public_dependency_head: a44ee8d19f40cf8cdbc734347af2e9a15b2b4623
+worktree: shared integration worktree; extensive pre-existing changes from earlier public API integrations and concurrent packet candidates are present. This packet owns only the paths in files-changed.txt.
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f486 2026-06-30)
+os: Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0 RELEASE_ARM64_T8132 arm64
+flutter: not required for TOP-BOOT-009
+xcode_ios_sdk: Xcode 26.5 (17F42); not required
+android_sdk_jdk_gradle: unavailable; not required
+native_compiler: Apple clang 21.0.0 (clang-2100.1.1.101)
+codex_client: codex-cli 0.147.0-alpha.6.5
+hardware: not required; local temporary YAML sidecars only
+network: CLI behavior must not perform network access
+effective_subagent_route: OpenAI gpt-5.6-luna / max (configured by parent; worker cannot independently prove runtime metadata)
+environment_variables: Cargo test-provided `CARGO_BIN_EXE_topology-devtools`; no secrets

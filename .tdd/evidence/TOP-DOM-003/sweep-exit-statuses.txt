@@ -1,0 +1,7 @@
+1: 0 (package tests passed)
+2: 0 (workspace format check passed after unrelated devtools formatting settled)
+3: 0 (all TOP-DOM-003 Rust files formatted)
+4: 0 (clippy passed with -D warnings)
+5: 0 (rerun package tests passed)
+6: 0 (rerun workspace format check passed)
+7: 0 (rerun clippy passed with -D warnings)

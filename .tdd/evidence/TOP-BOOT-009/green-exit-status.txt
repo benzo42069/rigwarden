@@ -1,0 +1,2 @@
+0
+Accepted GREEN: the focused test proves truthful local valid/invalid fixture CLI exit behavior and deterministic diagnostics.

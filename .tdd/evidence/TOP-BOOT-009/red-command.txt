@@ -1,0 +1,3 @@
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+shell: zsh
+command: cargo test -p topology-devtools fixture_cli_returns_truthful_exit_status -- --exact --nocapture

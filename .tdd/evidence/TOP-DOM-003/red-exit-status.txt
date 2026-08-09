@@ -1,0 +1,3 @@
+101
+accepted_as_intended_red=true
+reason=The focused integration test reaches topology-domain and reports only the intentionally absent DeviceIdentity, DeviceModelId, and TransportEndpointId API.

@@ -1,0 +1,7 @@
+1. cargo test -p topology-domain
+2. cargo fmt --all -- --check
+3. rustfmt --check crates/topology_domain/src/device.rs crates/topology_domain/src/lib.rs crates/topology_domain/tests/device_identity.rs
+4. cargo clippy -p topology-domain --all-targets -- -D warnings
+5. rerun: cargo test -p topology-domain
+6. rerun: cargo fmt --all -- --check
+7. rerun: cargo clippy -p topology-domain --all-targets -- -D warnings

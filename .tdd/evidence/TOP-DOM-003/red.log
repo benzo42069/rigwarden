@@ -1,0 +1,13 @@
+   Compiling topology-domain v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_domain)
+error[E0432]: unresolved imports `topology_domain::DeviceIdentity`, `topology_domain::DeviceModelId`, `topology_domain::TransportEndpointId`
+ --> crates/topology_domain/tests/device_identity.rs:2:21
+  |
+2 |     DeviceFamilyId, DeviceIdentity, DeviceModelId, FirmwareId, TransportEndpointId,
+  |                     ^^^^^^^^^^^^^^ ^^^^^^^^^^^^^              ^^^^^^^^^^^^^^^^^^^ no `TransportEndpointId` in the root
+  |                     |               |
+  |                     |               no `DeviceModelId` in the root
+  |                     no `DeviceIdentity` in the root
+  |
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-domain` (test "device_identity") due to 1 previous error

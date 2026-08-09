@@ -1,0 +1,7 @@
+scope-check=git status --short -- crates/topology_domain/src/device.rs crates/topology_domain/src/lib.rs crates/topology_domain/tests/device_identity.rs .tdd/evidence/TOP-DOM-003
+ M crates/topology_domain/src/lib.rs
+?? crates/topology_domain/src/device.rs
+?? crates/topology_domain/tests/device_identity.rs
+?? .tdd/evidence/TOP-DOM-003/
+
+The working tree predates the public DOM-001/DOM-002 integration and already contains an untracked device.rs with those value objects. This candidate extends that file with DeviceModelId, TransportEndpointId, DeviceIdentity, and their exports; it does not modify any forbidden/shared path. No generated or build artifacts are part of the candidate.

@@ -1,0 +1,3 @@
+0
+accepted_as_focused_green=true
+reason=The requested typed identity can be constructed and all four read accessors return the exact supplied values.

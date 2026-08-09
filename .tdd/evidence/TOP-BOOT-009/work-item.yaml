@@ -1,0 +1,87 @@
+id: TOP-BOOT-009
+kind: implementation
+epic: TOP-000
+title: Expose fixture provenance validation as a deterministic command-line tool
+status: READY
+priority: high
+requirement_ids:
+- CAPTURE-003
+- CAPTURE-004
+- QA-002
+depends_on:
+- TOP-BOOT-006
+- TOP-BOOT-007
+parallel_group: null
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_devtools/**
+  - schemas/fixture-provenance.schema.json
+  write:
+  - crates/topology_devtools/src/bin/topology-devtools.rs
+  - crates/topology_devtools/tests/fixture_cli.rs
+  - .tdd/evidence/TOP-BOOT-009/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Capture and CI workflows need one reproducible command that validates a specific fixture sidecar and returns a truthful exit code.
+  given:
+  - A temporary valid sidecar and an invalid sidecar with redistribution denied.
+  when:
+  - '`topology-devtools validate-fixture <path>` is invoked.'
+  then:
+  - Valid sidecar exits zero.
+  - Invalid sidecar exits nonzero.
+  - Diagnostic identifies the invalid path and stable error code.
+  - No network access occurs.
+non_goals:
+- Validating raw protocol bytes
+- Scanning whole repositories
+- Signature verification
+preconditions:
+- TOP-BOOT-006 and TOP-BOOT-007 integrated.
+test:
+  layer: cli_integration
+  file: crates/topology_devtools/tests/fixture_cli.rs
+  name: fixture_cli_returns_truthful_exit_status
+  red_command: cargo test -p topology-devtools fixture_cli_returns_truthful_exit_status -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing binary/subcommand.
+    - Assertion fails because invalid input exits zero.
+    unacceptable:
+    - Test shells out to a nonexistent build path rather than using Cargo test support.
+    - Fixture syntax broken.
+    - Unrelated validator failure.
+  green_command: cargo test -p topology-devtools fixture_cli_returns_truthful_exit_status -- --exact --nocapture
+minimum_green:
+- Add one binary and `validate-fixture` subcommand.
+- Use existing library validator.
+- Deterministic stdout/stderr and exit codes.
+- No broad CLI framework unless needed.
+required_sweeps:
+- cargo test -p topology-devtools
+- cargo fmt --all -- --check
+- cargo clippy -p topology-devtools --all-targets -- -D warnings
+acceptance:
+- Valid/invalid exit codes correct.
+- No network.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+- CLI_INTEGRATION_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- CAPTURE_VERIFIED
+required_followups:
+- TOP-AM4-FIX-001
+- TOP-FM3-FIX-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-BOOT-009

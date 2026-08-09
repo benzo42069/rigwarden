@@ -1,0 +1,6 @@
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+shell: zsh
+fail_fast: set -euo pipefail
+1. cargo test -p topology-devtools
+2. cargo fmt --all -- --check
+3. cargo clippy -p topology-devtools --all-targets -- -D warnings
