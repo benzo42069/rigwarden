@@ -42,7 +42,7 @@ Generated from 65 detailed packets.
 | `TOP-DOM-003` | BLOCKED_DEPENDENCY | high | Represent an identified device with family, model, firmware, and transport endpoint | TOP-DOM-001, TOP-DOM-002 |
 | `TOP-E2E-001` | BLOCKED_DEPENDENCY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
 | `TOP-FFI-000` | INTEGRATED | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
-| `TOP-FFI-001` | READY | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
+| `TOP-FFI-001` | INTEGRATED | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
 | `TOP-GRAPH-001` | BLOCKED_DEPENDENCY | high | Create graph nodes with stable typed identities | TOP-DOM-001 |
 | `TOP-GRAPH-002` | BLOCKED_DEPENDENCY | high | Accept one valid serial connection between existing compatible ports | TOP-GRAPH-001 |
 | `TOP-GRAPH-003` | BLOCKED_DEPENDENCY | high | Reject a connection whose source node or port does not exist | TOP-GRAPH-002 |

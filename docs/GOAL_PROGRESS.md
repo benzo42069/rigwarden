@@ -17,6 +17,7 @@
 - **Integrated:** `TOP-REG-001` (exact in-memory device/firmware profile resolution with explicit profile-derived write capability), `TOP-REG-002` (known-family/model unknown firmware becomes read-only), and `TOP-REG-003` (profile-owned fixed-point numeric metadata) after independent review and post-landing sweeps.
 - **Integrated:** `TOP-FFI-000` (pinned Flutter Rust Bridge 2.12.0 generated harness and Cargokit wiring; `BUILD_CODEGEN_VERIFIED` only) and `TOP-CMD-001` (profile-bound semantic numeric mutation validation; `UNIT_VERIFIED` only) after public candidate commit `a4cbb8d` matched reviewed blobs and passed immutable-tree sweeps.
 - **Integrated:** `TOP-CMD-002` (unknown-firmware sessions and contradictory read-only profiles both reject write planning before parameter mapping; `UNIT_VERIFIED` and `READ_ONLY` only) after independent security review and public candidate commit `b9ac4b8` matched reviewed blobs and passed its focused and required integration sweeps.
+- **Integrated:** `TOP-FFI-001` (a Rust-owned opaque `DeviceIdentity` handle round-trips across the generated Flutter bridge; `FFI_VERIFIED` only) after independent review and public candidate commit `4fc226b` matched reviewed blobs and passed the release-library build, real Flutter FFI test, analyzer, formatter, and Clippy sweep.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -29,6 +30,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** public candidate `b9ac4b8` matched the reviewed command blobs; both read-only focused tests plus command package, registry package, workspace format, and command Clippy checks all exited 0.
+**Last completed integration sweep:** public candidate `4fc226b` matched the reviewed generated bridge blobs; release bridge build, focused and full Flutter FFI tests, Flutter analyze, bridge package tests, workspace format, and bridge Clippy all exited 0.
 
-**Next dependency-complete group:** `TOP-FFI-001` and `TOP-CMD-003` are unblocked. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** `TOP-UI-001` and `TOP-CMD-003` are unblocked. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

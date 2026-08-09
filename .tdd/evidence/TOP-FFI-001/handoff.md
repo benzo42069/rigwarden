@@ -1,6 +1,6 @@
 # TOP-FFI-001 candidate handoff
 
-status: GREEN_OBSERVED; candidate complete; independent review/integration pending
+status: INTEGRATED
 work_item: TOP-FFI-001
 requirement_ids: DEV-003, PLAT-001, PLAT-002
 
@@ -74,9 +74,10 @@ or any broader device support claim.
 
 ## Handoff actions
 
-1. Independent topology reviewer audits the opaque-handle shape, generated
-   bindings, test layer, and evidence.
-2. Parent integration applies the candidate, resolves the shared lockfile,
-   reruns the focused test and all required sweeps in the integration tree.
-3. Keep review status pending; this worker does not self-approve or update the
-   work-item index.
+Independent review approved the candidate after confirming the test calls
+`RustLib.init()` and the generated native bridge rather than a fake. Parent
+published the bounded patch in public commit
+`4fc226b1a3904eb539d149b413400077708c7e93`, matched the reviewed blobs, and
+reran the release build, focused/full Flutter tests, analyzer, Rust package
+test, formatter, and Clippy checks successfully. Packet and index status are
+now `INTEGRATED`; see `integration-sweep.md`.

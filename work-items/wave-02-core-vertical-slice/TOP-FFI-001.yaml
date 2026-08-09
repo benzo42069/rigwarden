@@ -2,7 +2,7 @@ id: TOP-FFI-001
 kind: implementation
 epic: TOP-800
 title: Round-trip a typed device identity across the Rust-Dart boundary
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-003
@@ -114,4 +114,10 @@ amendments:
   changes:
   - scope.write gained Cargo.lock.
   - scope.forbidden no longer includes Cargo.lock.
+  claim_changed: false
+- recorded_at: 2026-08-09T17:18:00-05:00
+  author: parent_orchestrator
+  reason: Reviewed candidate 4fc226b was published on public main and its release bridge build, real generated Flutter test, package/analyzer/format/Clippy integration sweep passed against matching blobs.
+  changes:
+  - status advanced from READY to INTEGRATED.
   claim_changed: false
