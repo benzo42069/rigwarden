@@ -2,7 +2,7 @@ id: TOP-BOOT-004
 kind: bootstrap
 epic: TOP-000
 title: Establish fail-fast CI for the current minimal Rust and Flutter harnesses
-status: READY
+status: INTEGRATED
 amendments:
 - recorded_at: '2026-08-09T09:30:00-05:00'
   author: parent_orchestrator

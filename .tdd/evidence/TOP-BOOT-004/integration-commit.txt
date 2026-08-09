@@ -1,0 +1,5 @@
+Reviewed public source/evidence commit: 066501ef8f249da5bbd5a2b4b937db3c04d4dada
+Integration rerun: bash scripts/ci-local.sh
+Result: exit 0 (Rust fmt, clippy, workspace tests; Flutter format, analyze, tests)
+Status promotion: TOP-BOOT-004 is INTEGRATED in the subsequent integration-state commit.
+

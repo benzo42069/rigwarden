@@ -96,7 +96,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-003.yaml
   - id: TOP-BOOT-004
     title: Establish fail-fast CI for the current minimal Rust and Flutter harnesses
-    status: READY
+    status: INTEGRATED
     priority: critical
     depends_on:
     - TOP-BOOT-002R
