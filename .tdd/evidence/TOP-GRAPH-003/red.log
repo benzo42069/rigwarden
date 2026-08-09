@@ -1,0 +1,24 @@
+   Compiling topology-routing v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_routing)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.99s
+     Running unittests src/lib.rs (target/debug/deps/topology_routing-c46a3f50ed30d218)
+
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/missing_endpoint.rs (target/debug/deps/missing_endpoint-192dfdf7898586ca)
+
+running 1 test
+
+thread 'missing_source_connection_is_rejected_without_mutation' (10036045) panicked at crates/topology_routing/tests/missing_endpoint.rs:38:5:
+a missing source port must return its node and port identity
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test missing_source_connection_is_rejected_without_mutation ... FAILED
+
+failures:
+
+failures:
+    missing_source_connection_is_rejected_without_mutation
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p topology-routing --test missing_endpoint`

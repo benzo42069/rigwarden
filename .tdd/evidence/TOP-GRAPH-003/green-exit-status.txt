@@ -1,0 +1,3 @@
+0
+accepted_as_green=true
+reason=Restoring the pre-existing source endpoint validation makes the focused missing-source-port test pass; it observes the structured node/port identity and an unchanged connection set.

@@ -1,0 +1,4 @@
+shell: zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-routing missing_source_connection_is_rejected_without_mutation -- --exact --nocapture
+purpose: test-first baseline before the mutation probe

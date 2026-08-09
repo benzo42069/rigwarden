@@ -1,0 +1,3 @@
+0
+accepted_as_baseline_green=true
+reason=The focused test passes before any production edit because TOP-GRAPH-002 already validates both connection endpoints before insertion. This is not claimed as the packet RED; the mutation probe below establishes test sensitivity.

@@ -1,0 +1,3 @@
+101
+accepted_as_mutation_red=true
+reason=With only source endpoint validation removed, the test reached the intended topology-routing behavior and failed because the missing source port was accepted and the graph was mutated. This is deliberate mutation-sanity evidence because the required behavior pre-existed in the integrated GRAPH-002 implementation; no absent-API RED was available without inventing a new contract.

@@ -1,0 +1,6 @@
+M crates/topology_routing/src/graph.rs (temporary mutation probe only; exact source guard restored; no final production diff)
+A crates/topology_routing/tests/missing_endpoint.rs
+A .tdd/evidence/TOP-GRAPH-003/*
+
+Final candidate source change: none. The required endpoint validation already exists in the integrated TOP-GRAPH-002 graph implementation. The only durable product change in this packet is the focused regression test; mutation edits were restored before GREEN and are not part of the candidate.
+Build artifacts under target/ are ignored and not included.
