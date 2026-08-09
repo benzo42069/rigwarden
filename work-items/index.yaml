@@ -493,7 +493,7 @@ waves:
     path: work-items/wave-04-fm3-bootstrap/TOP-FM3-PROTO-001.yaml
   - id: TOP-FM3-RSCH-001
     title: Lock the FM3 transport and adapter matrix for iOS and Android
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: critical
     depends_on:
     - TOP-RSCH-004

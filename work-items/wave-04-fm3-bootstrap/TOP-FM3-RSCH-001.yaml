@@ -2,7 +2,7 @@ id: TOP-FM3-RSCH-001
 kind: research
 epic: TOP-1300
 title: Lock the FM3 transport and adapter matrix for iOS and Android
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: critical
 requirement_ids:
 - TRANSPORT-005
@@ -81,3 +81,10 @@ block_conditions:
 - Required source cannot be accessed.
 - A material legal conclusion would require counsel rather than engineering inference.
 evidence_directory: .tdd/evidence/TOP-FM3-RSCH-001
+amendments:
+- recorded_at: 2026-08-09T14:15:00-05:00
+  author: parent_orchestrator
+  reason: TOP-RSCH-002, TOP-RSCH-003, and TOP-RSCH-004 are integrated with recorded independent review; the packet's dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
