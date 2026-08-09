@@ -1,0 +1,6 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+1. cargo test -p topology-devtools
+2. cargo fmt --all -- --check
+3. cargo clippy -p topology-devtools --all-targets -- -D warnings
+4. cmp -s work-items/wave-01-bootstrap/TOP-BOOT-008.yaml .tdd/evidence/TOP-BOOT-008/work-item.yaml

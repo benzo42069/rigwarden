@@ -1,0 +1,2 @@
+101
+Accepted RED: the added packet-required procedural-knob declaration reached the focused test and failed only for its intended missing constructor.

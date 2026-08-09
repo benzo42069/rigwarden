@@ -1,0 +1,2 @@
+101
+Accepted RED: the focused test reached `topology-devtools` and failed only because the intended `AssetEntry` and `AssetManifest` API was absent.

@@ -1,0 +1,39 @@
+   Compiling topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+error[E0432]: unresolved imports `topology_devtools::assets::AssetEntry`, `topology_devtools::assets::AssetManifest`
+ --> crates/topology_devtools/tests/asset_policy.rs:1:33
+  |
+1 | use topology_devtools::assets::{AssetEntry, AssetManifest, validate_manifest};
+  |                                 ^^^^^^^^^^  ^^^^^^^^^^^^^ no `AssetManifest` in `assets`
+  |                                 |
+  |                                 no `AssetEntry` in `assets`
+
+error[E0599]: no method named `len` found for struct `AssetPolicyError` in the current scope
+  --> crates/topology_devtools/tests/asset_policy.rs:11:23
+   |
+11 |     assert_eq!(errors.len(), 1);
+   |                       ^^^ method not found in `AssetPolicyError`
+   |
+help: some of the expressions' fields have a method of the same name
+   |
+11 |     assert_eq!(errors.code.len(), 1);
+   |                       +++++
+11 |     assert_eq!(errors.message.len(), 1);
+   |                       ++++++++
+11 |     assert_eq!(errors.path.len(), 1);
+   |                       +++++
+
+error[E0608]: cannot index into a value of type `AssetPolicyError`
+  --> crates/topology_devtools/tests/asset_policy.rs:12:22
+   |
+12 |     assert_eq!(errors[0].code, "production_svg_forbidden");
+   |                      ^^^
+
+error[E0608]: cannot index into a value of type `AssetPolicyError`
+  --> crates/topology_devtools/tests/asset_policy.rs:13:22
+   |
+13 |     assert_eq!(errors[0].path, "icons/device.SvG");
+   |                      ^^^
+
+Some errors have detailed explanations: E0432, E0599, E0608.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `topology-devtools` (test "asset_policy") due to 4 previous errors

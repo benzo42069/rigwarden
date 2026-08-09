@@ -1,0 +1,16 @@
+Captured local: 2026-08-09T11:37:54-0500
+Captured UTC: 2026-08-09T16:37:54Z
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch/worktree: main; shared integration worktree
+Starting local commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+Dirty state: extensive pre-existing shared-worktree changes from prior and concurrent packets; this packet owns only the paths in files-changed.txt.
+OS/CPU: macOS 26.5 (25F71), arm64
+Rust/Cargo: rustc 1.97.0 (2d8144b78 2026-07-07); cargo 1.97.0 (c980f4866 2026-06-30)
+Flutter/Dart: Flutter 3.44.9 stable; Dart 3.12.2
+Xcode/iOS SDK: Xcode 26.5 (17F42)
+Android SDK/JDK/Gradle: Android SDK/Gradle unavailable; Java runtime unavailable
+Native compiler: Apple clang 21.0.0 (clang-2100.1.1.101)
+Codex: codex-cli 0.147.0-alpha.6.5; parent route Terra/high; implementer route configured OpenAI gpt-5.6-luna/max
+Hardware/emulator: no emulator, mobile device, or modeler used
+Environment variables: none
+Claim boundary: Rust L1 policy validation only; no visual asset, platform-device, or hardware verification.

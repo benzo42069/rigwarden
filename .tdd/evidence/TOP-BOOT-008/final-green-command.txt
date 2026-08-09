@@ -1,0 +1,3 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Command: cargo test -p topology-devtools production_svg_asset_is_rejected -- --exact --nocapture

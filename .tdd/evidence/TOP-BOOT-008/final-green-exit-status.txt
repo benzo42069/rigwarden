@@ -1,0 +1,2 @@
+0
+Final GREEN after the procedural-knob cycle: production SVG rejection, PNG acceptance, test-only SVG acceptance, dynamic-graphic acceptance, and procedural-knob acceptance all pass.

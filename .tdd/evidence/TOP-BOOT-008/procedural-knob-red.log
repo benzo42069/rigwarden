@@ -1,0 +1,30 @@
+   Compiling topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+error[E0599]: no associated function or constant named `procedural_knob` found for struct `AssetEntry` in the current scope
+ --> crates/topology_devtools/tests/asset_policy.rs:8:21
+  |
+8 |         AssetEntry::procedural_knob("gain"),
+  |                     ^^^^^^^^^^^^^^^ associated function or constant not found in `AssetEntry`
+  |
+note: if you're trying to build a new `AssetEntry` consider using one of the following associated functions:
+      AssetEntry::production
+      AssetEntry::test_only
+      AssetEntry::dynamic
+ --> crates/topology_devtools/src/assets.rs:19:5
+  |
+19 |     pub fn production(path: impl Into<String>) -> Self {
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+27 |     pub fn test_only(path: impl Into<String>) -> Self {
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+35 |     pub fn dynamic(path: impl Into<String>) -> Self {
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `procedural_knob` found for struct `AssetEntry` in the current scope
+  --> crates/topology_devtools/tests/asset_policy.rs:24:21
+   |
+24 |         AssetEntry::procedural_knob("gain"),
+   |                     ^^^^^^^^^^^^^^^ associated function or constant not found in `AssetEntry`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-devtools` (test "asset_policy") due to 2 previous errors

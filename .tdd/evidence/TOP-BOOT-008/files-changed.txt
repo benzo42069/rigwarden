@@ -1,0 +1,11 @@
+Equivalent shared-worktree inventory; local Git diff cannot isolate this packet because public integrations are applied through the GitHub API while the local worktree remains at the starter commit.
+
+Packet-owned source/test paths:
+  crates/topology_devtools/src/lib.rs (module export)
+  crates/topology_devtools/src/assets.rs (declared-manifest SVG policy)
+  crates/topology_devtools/tests/asset_policy.rs (focused unit test)
+
+Packet-owned evidence:
+  .tdd/evidence/TOP-BOOT-008/*
+
+No Cargo.toml, Cargo.lock, Flutter presentation/assets, native, or device-pack path was changed for this packet. No generated or build artifact is retained.
