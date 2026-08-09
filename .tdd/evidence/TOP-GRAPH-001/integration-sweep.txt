@@ -1,0 +1,5 @@
+Public candidate: a3f77f540978d5c4315a689133587634520a336c
+Focused `moving_a_node_preserves_its_stable_identity`: 0 (1 passed)
+`cargo test -p topology-routing`: 0 (1 passed)
+`cargo fmt --all -- --check`: 0
+`cargo clippy -p topology-routing --all-targets -- -D warnings`: 0

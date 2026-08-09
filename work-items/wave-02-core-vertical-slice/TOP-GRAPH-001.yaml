@@ -2,7 +2,7 @@ id: TOP-GRAPH-001
 kind: implementation
 epic: TOP-300
 title: Create graph nodes with stable typed identities
-status: READY
+status: INTEGRATED
 amendments:
 - recorded_at: '2026-08-09T12:35:00-05:00'
   author: parent_orchestrator
