@@ -2,7 +2,7 @@ id: TOP-GRAPH-004
 kind: implementation
 epic: TOP-300
 title: Reject a prohibited routing cycle
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - GRAPH-006

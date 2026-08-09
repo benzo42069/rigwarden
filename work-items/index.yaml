@@ -237,7 +237,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-003.yaml
   - id: TOP-GRAPH-004
     title: Reject a prohibited routing cycle
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-GRAPH-002
