@@ -1,0 +1,12 @@
+   Compiling topology-preset v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_preset)
+error[E0432]: unresolved imports `topology_preset::OpaqueSegment`, `topology_preset::PresetDocument`, `topology_preset::PresetMetadata`
+ --> crates/topology_preset/tests/opaque_segment.rs:1:23
+  |
+1 | use topology_preset::{OpaqueSegment, PresetDocument, PresetMetadata};
+  |                       ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^ no `PresetMetadata` in the root
+  |                       |              |
+  |                       |              no `PresetDocument` in the root
+  |                       no `OpaqueSegment` in the root
+  |
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-preset` (test "opaque_segment") due to 1 previous error

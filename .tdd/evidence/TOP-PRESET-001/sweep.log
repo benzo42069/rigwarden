@@ -1,0 +1,82 @@
+----- 1: cargo test -p topology-preset -----
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_preset-5baa300de8be2cb1)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/opaque_segment.rs (target/debug/deps/opaque_segment-82aab21bf6fdbf2e)
+
+running 1 test
+test editing_known_field_preserves_opaque_segment_exactly ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_preset
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+----- 2: cargo test -p topology-routing -----
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_routing-c46a3f50ed30d218)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/cycle.rs (target/debug/deps/cycle-0dcea2d7460afc65)
+
+running 1 test
+test prohibited_cycle_is_rejected_without_mutating_graph ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/missing_endpoint.rs (target/debug/deps/missing_endpoint-192dfdf7898586ca)
+
+running 1 test
+test missing_source_connection_is_rejected_without_mutation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/node_identity.rs (target/debug/deps/node_identity-36d2c0a98f51d599)
+
+running 1 test
+test moving_a_node_preserves_its_stable_identity ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/serial_connection.rs (target/debug/deps/serial_connection-da1b714fc803dd8f)
+
+running 3 tests
+test connection_direction_is_enforced_before_mutation ... ok
+test output_to_output_connection_is_rejected_before_mutation ... ok
+test valid_serial_connection_is_queryable_from_both_ends ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/traversal.rs (target/debug/deps/traversal-e31094a548ebb470)
+
+running 1 test
+test topological_traversal_is_deterministic_across_insertion_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_routing
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+----- 3: cargo fmt --all -- --check -----
+(no output; exit 0)
+
+----- 4: cargo clippy -p topology-preset --all-targets -- -D warnings -----
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Checking topology-preset v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_preset)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s

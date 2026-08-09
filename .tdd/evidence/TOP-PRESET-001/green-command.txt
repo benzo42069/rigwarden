@@ -1,0 +1,3 @@
+shell=zsh
+cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-preset editing_known_field_preserves_opaque_segment_exactly -- --exact --nocapture

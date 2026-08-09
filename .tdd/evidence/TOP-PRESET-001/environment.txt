@@ -1,0 +1,16 @@
+timestamp_utc=2026-08-09T19:03:36Z
+timestamp_local=2026-08-09T14:03:36-0500
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree=shared main worktree; pre-existing parent/integration changes present
+dirty_state=192 paths reported by git status before packet edits; unrelated changes preserved
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+rust_toolchain=1.97.0-aarch64-apple-darwin (rust-toolchain.toml override)
+flutter=Flutter 3.44.9 stable; Dart 3.12.2
+os=macOS 26.5 arm64
+codex_routing=requested gpt-5.6-luna/max per packet; effective runtime metadata unavailable in this worker evidence
+workspace_harness=topology-preset is present as parent-created product-empty workspace member; root Cargo.toml/Cargo.lock are forbidden worker paths
+fixture_environment=synthetic in-test values only; no protocol or hardware fixture required
+baseline=cargo test -p topology-preset -- --nocapture exited 0 with zero tests

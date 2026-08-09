@@ -1,0 +1,3 @@
+exit_status=101
+accepted_as=RED_OBSERVED
+reason=The focused test reached topology-preset and failed only because the intended OpaqueSegment, PresetDocument, and PresetMetadata APIs are absent; no unrelated dependency or workspace failure occurred.

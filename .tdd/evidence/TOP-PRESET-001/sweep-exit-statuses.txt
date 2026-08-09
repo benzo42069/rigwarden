@@ -1,0 +1,10 @@
+1=cargo test -p topology-preset: 0
+2=cargo test -p topology-routing: 0
+3=cargo fmt --all -- --check: 0
+4=cargo clippy -p topology-preset --all-targets -- -D warnings: 0
+composite=0
+final_rerun_1=cargo test -p topology-preset: 0
+final_rerun_2=cargo test -p topology-routing: 0
+final_rerun_3=cargo fmt --all -- --check: 0
+final_rerun_4=cargo clippy -p topology-preset --all-targets -- -D warnings: 0
+final_composite=0

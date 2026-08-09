@@ -1,0 +1,8 @@
+shell=zsh
+cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+fail_fast_script=set -euo pipefail; cargo test -p topology-preset; cargo test -p topology-routing; cargo fmt --all -- --check; cargo clippy -p topology-preset --all-targets -- -D warnings
+1=cargo test -p topology-preset
+2=cargo test -p topology-routing
+3=cargo fmt --all -- --check
+4=cargo clippy -p topology-preset --all-targets -- -D warnings
+post_refactor_rerun=see post-refactor-sweep.log; same fail-fast sequence, all statuses 0

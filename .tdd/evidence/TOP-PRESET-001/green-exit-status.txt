@@ -1,0 +1,3 @@
+exit_status=0
+accepted_as=GREEN_OBSERVED
+reason=The focused preservation test passes after the minimum document metadata, ordered opaque segment, and known-name edit implementation; the test asserts the edited name and literal segment ID/order/bytes.

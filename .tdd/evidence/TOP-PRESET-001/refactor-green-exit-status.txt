@@ -1,0 +1,2 @@
+exit_status=0
+reason=After test-only refactor to assert each opaque segment ID, position, and literal bytes independently, the focused behavior remains green.
