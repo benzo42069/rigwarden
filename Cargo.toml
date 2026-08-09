@@ -1,3 +1,3 @@
 [workspace]
-members = ["crates/topology_domain"]
+members = ["crates/topology_domain", "crates/topology_devtools"]
 resolver = "2"

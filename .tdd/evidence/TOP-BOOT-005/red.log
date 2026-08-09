@@ -1,0 +1,9 @@
+   Compiling topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+error[E0432]: unresolved import `topology_devtools::work_item::validate_yaml`
+ --> crates/topology_devtools/tests/work_item_validation.rs:1:5
+  |
+1 | use topology_devtools::work_item::validate_yaml;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `validate_yaml` in `work_item`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-devtools` (test "work_item_validation") due to 1 previous error

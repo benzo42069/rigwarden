@@ -1,0 +1,4 @@
+cargo test -p topology-devtools: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-devtools --all-targets -- -D warnings: 0
+cargo test --workspace: 0

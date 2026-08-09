@@ -1,0 +1,160 @@
+=== 1. cargo test -p topology-domain (exit 0) ===
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_domain-99e3311830c6fd81)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/device_family_id.rs (target/debug/deps/device_family_id-5a19de3267e5069d)
+
+running 1 test
+test blank_device_family_id_is_rejected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/harness.rs (target/debug/deps/harness-d012a4a7d28c0870)
+
+running 1 test
+test harness_compiles ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_domain
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+=== 2. cargo fmt --all -- --check (exit 1) ===
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_domain/src/device.rs:37:
+ impl fmt::Display for DeviceFamilyIdError {
+     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+         match self {
+-            Self::BlankOrWhitespace => formatter.write_str("device family identifier is blank or whitespace-only"),
++            Self::BlankOrWhitespace => {
++                formatter.write_str("device family identifier is blank or whitespace-only")
++            }
+         }
+     }
+ }
+
+=== 3. cargo fmt --all (exit 0) ===
+
+=== 4. cargo test -p topology-domain blank_device_family_id_is_rejected -- --exact --nocapture (exit 0) ===
+   Compiling topology-domain v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_domain)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running unittests src/lib.rs (target/debug/deps/topology_domain-99e3311830c6fd81)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/device_family_id.rs (target/debug/deps/device_family_id-5a19de3267e5069d)
+
+running 1 test
+test blank_device_family_id_is_rejected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/harness.rs (target/debug/deps/harness-d012a4a7d28c0870)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+=== 5. cargo fmt --all -- --check (exit 0) ===
+
+=== 6. cargo clippy -p topology-domain --all-targets -- -D warnings (exit 0) ===
+    Checking topology-domain v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_domain)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s
+
+=== 7. cargo test -p topology-domain (exit 0) ===
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_domain-99e3311830c6fd81)
+
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/device_family_id.rs (target/debug/deps/device_family_id-5a19de3267e5069d)
+running 1 test
+test blank_device_family_id_is_rejected ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/harness.rs (target/debug/deps/harness-d012a4a7d28c0870)
+running 1 test
+test harness_compiles ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests topology_domain
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+=== 8. set -euo pipefail; cargo test -p topology-domain; cargo fmt --all -- --check; cargo clippy -p topology-domain --all-targets -- -D warnings (exit 1) ===
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_domain-99e3311830c6fd81)
+
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/device_family_id.rs (target/debug/deps/device_family_id-5a19de3267e5069d)
+running 1 test
+test blank_device_family_id_is_rejected ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/harness.rs (target/debug/deps/harness-d012a4a7d28c0870)
+running 1 test
+test harness_compiles ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests topology_domain
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/work_item.rs:1:
+ //! Work-item packet validation.
+-
+ 
+=== 9. cargo test -p topology-domain (exit 0) ===
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.30s
+     Running unittests src/lib.rs (target/debug/deps/topology_domain-99e3311830c6fd81)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/device_family_id.rs (target/debug/deps/device_family_id-5a19de3267e5069d)
+running 1 test
+test blank_device_family_id_is_rejected ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/harness.rs (target/debug/deps/harness-d012a4a7d28c0870)
+running 1 test
+test harness_compiles ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests topology_domain
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+=== 10. cargo fmt --all -- --check (exit 1) ===
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/work_item.rs:79:
+             continue;
+         }
+ 
+-        let indent = line.chars().take_while(|character| *character == ' ').count();
++        let indent = line
++            .chars()
++            .take_while(|character| *character == ' ')
++            .count();
+         if line[..indent].contains('\t') {
+             return Err(vec![ValidationError::invalid_yaml(
+                 line_number,
+@@
+             }
+ 
+             let value = strip_unquoted_comment(value).trim();
+-            if value == "|" || value == ">" || value.starts_with("|-") || value.starts_with(">-")
+-            {
++            if value == "|" || value == ">" || value.starts_with("|-") || value.starts_with(">-") {
+                 block_scalar_indent = Some(indent);
+             }
+             document.id = Some(unquote_scalar(value).to_owned());
+
+=== 11. cargo clippy -p topology-domain --all-targets -- -D warnings (exit 0) ===
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+
+=== 12. cargo fmt --manifest-path crates/topology_domain/Cargo.toml -- --check (exit 0) ===
+

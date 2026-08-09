@@ -104,10 +104,10 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
   - id: TOP-BOOT-005
     title: Reject a work packet that omits its immutable work-item ID
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
-    - TOP-BOOT-002
+    - TOP-BOOT-002R
     - TOP-BOOT-004
     path: work-items/wave-01-bootstrap/TOP-BOOT-005.yaml
   - id: TOP-BOOT-006
@@ -175,10 +175,10 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-CMD-003.yaml
   - id: TOP-DOM-001
     title: Reject blank device-family identifiers
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
-    - TOP-BOOT-002
+    - TOP-BOOT-002R
     - TOP-BOOT-004
     path: work-items/wave-02-core-vertical-slice/TOP-DOM-001.yaml
   - id: TOP-DOM-002

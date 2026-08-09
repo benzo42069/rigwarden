@@ -1,0 +1,12 @@
+1. cargo test -p topology-domain
+2. cargo fmt --all -- --check
+3. cargo fmt --all (format-only correction after command 2 identified device.rs formatting)
+4. cargo test -p topology-domain blank_device_family_id_is_rejected -- --exact --nocapture (post-format focused rerun)
+5. cargo fmt --all -- --check
+6. cargo clippy -p topology-domain --all-targets -- -D warnings
+7. cargo test -p topology-domain (post-format adjacent/package rerun)
+8. set -euo pipefail; cargo test -p topology-domain; cargo fmt --all -- --check; cargo clippy -p topology-domain --all-targets -- -D warnings
+9. cargo test -p topology-domain (final retry while concurrent Cargo work was active)
+10. cargo fmt --all -- --check (final shared-worktree check)
+11. cargo clippy -p topology-domain --all-targets -- -D warnings (final retry)
+12. cargo fmt --manifest-path crates/topology_domain/Cargo.toml -- --check (packet-scope formatting check)

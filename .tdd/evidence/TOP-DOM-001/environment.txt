@@ -1,0 +1,35 @@
+work_item: TOP-DOM-001
+captured_at_utc: 2026-08-09T15:31:18Z
+captured_at_local: 2026-08-09T10:31:18-0500
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree: shared main worktree; no isolated worker branch was available
+dirty_state:
+  packet_scope_tracked_changes_before_cycle: none observed
+  packet_scope_untracked_during_cycle:
+  - crates/topology_domain/src/device.rs
+  - crates/topology_domain/src/lib.rs (tracked bootstrap file modified in packet scope)
+  - crates/topology_domain/tests/device_family_id.rs
+  - .tdd/evidence/TOP-DOM-001/**
+  global_untracked_count_at_capture: 55 (includes concurrent work from other packets)
+  forbidden_or_shared_paths_changed_by_this_worker: none
+os: macOS 26.5 (build 25F71)
+cpu_architecture: arm64
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f486 2026-06-30)
+rust_toolchain: 1.97.0-aarch64-apple-darwin (rust-toolchain.toml override)
+flutter: Flutter 3.44.9 stable (revision 6b182d2c75, 2026-08-05)
+dart: Dart SDK 3.12.2 stable (2026-06-09), macos_arm64
+xcode: Xcode 26.5, build 17F42
+android_sdk: unavailable/not configured
+jdk: unavailable (java runtime not found)
+gradle: unavailable
+native_compiler: Apple clang 21.0.0 (clang-2100.1.1.101)
+emulator_or_device: none required for Rust L1 unit behavior
+physical_modeler: none required for Rust L1 unit behavior
+codex_client_or_build: not exposed in worker environment
+requested_subagent_model: gpt-5.6-luna, max (topology_implementer routing)
+effective_subagent_model: inherited worker route; runtime metadata not exposed in this shell
+environment_variable_names_used: PATH, RUST_LOG, RUSTUP_TOOLCHAIN, CARGO_HOME, TMPDIR (values not recorded; secrets omitted)
+network_or_fixture_requirements: none; no protocol fixture or network dependency

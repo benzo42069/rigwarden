@@ -1,0 +1,3 @@
+exit_status: 101
+accepted: RED_OBSERVED
+reason: The intended topology-domain test target compiled far enough to report only the missing DeviceFamilyId and DeviceFamilyIdError APIs; no unrelated dependency, fixture, or environment failure occurred.

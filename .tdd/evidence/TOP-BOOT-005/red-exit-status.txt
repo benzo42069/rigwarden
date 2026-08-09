@@ -1,0 +1,1 @@
+101 — accepted intended RED: topology-devtools compiled far enough to report only the missing validator API (`validate_yaml`); no unrelated crate failure was present.

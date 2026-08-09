@@ -1,0 +1,4 @@
+Command: cargo test -p topology-devtools missing_id_is_rejected -- --exact --nocapture
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Expected result: GREEN after the minimum missing-id validator is implemented.

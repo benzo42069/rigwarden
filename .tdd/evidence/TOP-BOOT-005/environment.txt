@@ -1,0 +1,28 @@
+utc=2026-08-09T15:36:22Z
+local=2026-08-09T10:36:22-0500
+os=macOS 26.5
+kernel=Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:41:26 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T8132 arm64
+arch=arm64
+repo=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+current_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+flutter=Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+dart=Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+xcodebuild=Xcode 26.5
+Build version 17F42
+android_sdk=ANDROID_HOME=unset ANDROID_SDK_ROOT=unset
+java=The operation couldn’t be completed. Unable to locate a Java Runtime.
+gradle=zsh:19: command not found: gradle
+native_compiler=Apple clang version 21.0.0 (clang-2100.1.1.101)
+codex_client=not exposed in shell
+requested_subagent=topology_implementer (gpt-5.6-luna/max per project contract)
+effective_subagent=not runtime-visible; do not claim routing proof in this packet
+hardware/emulator=not required for rust_unit; none attached
+environment_variable_names=ANDROID_HOME ANDROID_SDK_ROOT
+packet_amendment_observed_before_setup=true
+packet_copy_before_baseline_and_red=true
+tracked_diff_scope=Cargo.toml 
+known_untracked_scope=crates/topology_devtools .tdd/evidence/TOP-BOOT-005

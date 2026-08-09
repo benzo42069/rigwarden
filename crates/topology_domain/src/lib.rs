@@ -1,3 +1,5 @@
-//! Empty domain-crate linkage boundary.
-//!
-//! Product domain types begin only in a later packet with an observed RED.
+//! Deterministic domain value objects for RigWarden.
+
+mod device;
+
+pub use device::{DeviceFamilyId, DeviceFamilyIdError};

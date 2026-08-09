@@ -1,0 +1,4 @@
+command: cargo test -p topology-domain blank_device_family_id_is_rejected -- --exact --nocapture
+shell: /bin/bash (login=false)
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+purpose: Required focused rerun after cargo fmt and the domain-module documentation cleanup.

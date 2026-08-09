@@ -1,0 +1,14 @@
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+working_tree: shared main worktree; no commit created by implementer
+
+packet-owned production/test files:
+A crates/topology_domain/src/device.rs
+M crates/topology_domain/src/lib.rs
+A crates/topology_domain/tests/device_family_id.rs
+
+packet-owned evidence files:
+A .tdd/evidence/TOP-DOM-001/**
+
+forbidden/shared paths changed by this worker: none
+root Cargo.toml/Cargo.lock/index/traceability/apps/native/device-packs: untouched
+build artifacts: existing target/ outputs only; not part of the patch
