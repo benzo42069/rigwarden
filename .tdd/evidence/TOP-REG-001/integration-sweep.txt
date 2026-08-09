@@ -1,0 +1,12 @@
+Integration base: a24244cd849658f9758adbf86c7b505ec8b9bf65
+Integration date: 2026-08-09
+
+Commands rerun by parent integration owner from the reviewed candidate worktree:
+
+- cargo test -p topology-device-registry exact_profile_match_can_enable_write -- --exact --nocapture: 0
+- cargo test -p topology-device-registry: 0
+- cargo test -p topology-domain: 0
+- cargo fmt --all -- --check: 0
+- cargo clippy -p topology-device-registry --all-targets -- -D warnings: 0
+
+Scope/claim disposition: candidate source/evidence were published at the base commit above. This transition earns only UNIT_VERIFIED for in-memory exact profile resolution. Pack signature, protocol, simulator, platform, and hardware claims remain unavailable.

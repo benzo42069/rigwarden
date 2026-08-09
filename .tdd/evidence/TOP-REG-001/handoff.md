@@ -1,4 +1,4 @@
-status=REVIEW_APPROVED_CANDIDATE
+status=INTEGRATED
 work_item=TOP-REG-001
 behavior=An in-memory registry resolves only an exact family/model/opaque-firmware profile; the resolved result exposes the profile's explicit write capability and exact-match provenance/status.
 files_changed=crates/topology_device_registry/src/lib.rs; crates/topology_device_registry/src/resolve.rs; crates/topology_device_registry/tests/exact_resolution.rs; .tdd/evidence/TOP-REG-001/**
@@ -12,5 +12,5 @@ shared_changes_proposed=none.
 fixture_source=synthetic typed in-memory values; no protocol fixture or external source used.
 pitfalls=The shared worktree is pre-existing and dirty. The parent-created registry Cargo.toml harness is unmodified. A first post-implementation workspace format sweep found only the new test's rustfmt layout; scoped rustfmt fixed it, focused GREEN was rerun, and the final required format sweep passed.
 next_packet=TOP-REG-002 (unknown firmware read-only result), then TOP-CMD-001.
-review=REVIEW_APPROVED by /root/reg001_independent_audit; integration rerun remains pending.
-blockers=Parent integration rerun and packet/index promotion are pending; implementation agent must not mark INTEGRATED.
+review=REVIEW_APPROVED by /root/reg001_independent_audit; parent integration rerun passed and is recorded in integration-sweep.txt.
+blockers=None for this pure Rust packet; downstream packet eligibility is recorded in the index.

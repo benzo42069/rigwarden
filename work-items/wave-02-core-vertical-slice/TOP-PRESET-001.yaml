@@ -2,7 +2,7 @@ id: TOP-PRESET-001
 kind: implementation
 epic: TOP-200
 title: Preserve an opaque preset segment beside known normalized data
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - PRESET-007
@@ -84,3 +84,10 @@ required_followups:
 - TOP-UNDO-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-PRESET-001
+amendments:
+- recorded_at: 2026-08-09T14:30:00-05:00
+  author: parent_orchestrator
+  reason: TOP-DOM-003 and TOP-GRAPH-002 are integrated with reviewed unit evidence; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false

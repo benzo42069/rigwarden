@@ -2,7 +2,7 @@ id: TOP-REG-001
 kind: implementation
 epic: TOP-100
 title: Resolve an exact device and firmware profile as writable
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-004

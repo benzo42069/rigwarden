@@ -152,7 +152,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-A11Y-001.yaml
   - id: TOP-CMD-001
     title: Validate one typed parameter mutation against an exact writable profile
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-REG-001
@@ -252,7 +252,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-005.yaml
   - id: TOP-PRESET-001
     title: Preserve an opaque preset segment beside known normalized data
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-DOM-003
@@ -267,14 +267,14 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-PRESET-002.yaml
   - id: TOP-REG-001
     title: Resolve an exact device and firmware profile as writable
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-DOM-003
     path: work-items/wave-02-core-vertical-slice/TOP-REG-001.yaml
   - id: TOP-REG-002
     title: Unknown firmware resolves to a non-writable session
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-REG-001

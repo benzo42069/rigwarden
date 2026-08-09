@@ -2,7 +2,7 @@ id: TOP-REG-002
 kind: implementation
 epic: TOP-100
 title: Unknown firmware resolves to a non-writable session
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - DEV-005
@@ -86,3 +86,10 @@ required_followups:
 - TOP-CMD-002
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-REG-002
+amendments:
+- recorded_at: 2026-08-09T14:30:00-05:00
+  author: parent_orchestrator
+  reason: TOP-REG-001 is integrated with reviewed exact-match behavior; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false

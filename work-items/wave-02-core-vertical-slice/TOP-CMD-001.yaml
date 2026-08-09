@@ -2,7 +2,7 @@ id: TOP-CMD-001
 kind: implementation
 epic: TOP-400
 title: Validate one typed parameter mutation against an exact writable profile
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - BLOCK-003
@@ -34,7 +34,7 @@ scope:
 behavior:
   why: Manual and AI edits need the same typed local validation before protocol encoding.
   given:
-  - Exact writable test profile declares block `amp-1`, parameter `gain`, numeric range 0.0–10.0.
+  - Exact writable test profile declares block `amp-1`, parameter `gain`, numeric range 0.0���10.0.
   - Mutation requests 4.5.
   when:
   - Mutation validation runs.
@@ -90,3 +90,10 @@ required_followups:
 - TOP-UNDO-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-CMD-001
+amendments:
+- recorded_at: 2026-08-09T14:30:00-05:00
+  author: parent_orchestrator
+  reason: TOP-REG-001 is integrated with reviewed exact-profile capability behavior; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
