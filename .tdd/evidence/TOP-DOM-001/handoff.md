@@ -36,4 +36,4 @@ claims unavailable:
 shared-file changes proposed: none
 next executable packet: TOP-DOM-002 (after this packet is reviewed/integrated)
 review: `REVIEW_APPROVED` by `/root/dom001_review`; the parent reran the required workspace-wide sweeps after concurrent formatting completed.
-blocker: none; integration status promotion remains pending.
+integration: reviewed source/evidence were published at `bfaf0ae08568a13975ed234e20236b8117cf3aa4`; focused tests, workspace formatter, workspace clippy, and workspace tests exited 0 before promotion to `INTEGRATED`.

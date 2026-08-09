@@ -104,7 +104,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
   - id: TOP-BOOT-005
     title: Reject a work packet that omits its immutable work-item ID
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-002R
@@ -175,7 +175,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-CMD-003.yaml
   - id: TOP-DOM-001
     title: Reject blank device-family identifiers
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-002R

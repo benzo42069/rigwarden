@@ -2,7 +2,7 @@
 
 **Goal started:** 2026-08-09T09:35:00-05:00  
 **Goal-start commit:** `536d8901ac91ecdbc15e09356800d9f46be401dd` (local worktree; public integration commits are recorded in packet evidence)  
-**Phase:** Core vertical-slice contract implementation
+**Phase:** Core vertical-slice dependency chain
 
 ## Frozen in-scope work items
 
@@ -10,9 +10,9 @@
 
 ## Current status
 
-- **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`, `TOP-BOOT-003`, `TOP-BOOT-004`.
+- **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`–`TOP-BOOT-005`, `TOP-DOM-001`.
 - **Historical review failure:** `TOP-BOOT-002`; superseded only for its missing audit evidence by `TOP-BOOT-002R`, whose source scope is product-empty and independently reviewed.
-- **Ready after CI integration:** `TOP-BOOT-005` and `TOP-DOM-001`; each still requires its own observed TDD cycle, independent review, and integration.
+- **Ready after this integration:** `TOP-BOOT-006`, `TOP-BOOT-007`, `TOP-BOOT-008`, and `TOP-DOM-002`; each still requires its own observed TDD cycle, independent review, and integration.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -25,6 +25,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-BOOT-004` full local CI (Rust fmt, clippy with warnings denied, workspace tests, Flutter format/analyze/tests) exited 0 after reviewed public source/evidence commit `066501ef8f249da5bbd5a2b4b937db3c04d4dada`.
+**Last completed integration sweep:** `TOP-BOOT-005` and `TOP-DOM-001` focused tests, workspace formatter, clippy with warnings denied, and workspace tests exited 0 after reviewed public source/evidence commit `bfaf0ae08568a13975ed234e20236b8117cf3aa4`.
 
-**Next dependency-complete group:** `TOP-BOOT-005` and `TOP-DOM-001`, executed with non-overlapping Rust/evidence scopes.
+**Next dependency-complete group:** `TOP-BOOT-006`, `TOP-BOOT-007`, `TOP-BOOT-008`, and `TOP-DOM-002`, scheduled by their disjoint source scopes.

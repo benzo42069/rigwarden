@@ -51,5 +51,4 @@ Pitfalls/deferred behavior:
 Next executable packets: TOP-BOOT-006 and TOP-BOOT-007 after integration.
 Review: `REVIEW_APPROVED` by `/root/boot005_review`.
 
-Blockers: none for this local Rust cycle; the integration owner must own the
-generated shared Cargo.lock entry, rerun tests, and mark the packet integrated.
+Integration: reviewed source/evidence were published at `bfaf0ae08568a13975ed234e20236b8117cf3aa4`. The integration owner adopted the deterministic shared Cargo.lock entry, reran focused tests, workspace formatter, workspace clippy, and workspace tests with exit 0, and promoted this packet to `INTEGRATED`.
