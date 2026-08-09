@@ -1,0 +1,4 @@
+shell: zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-routing output_to_output_connection_is_rejected_before_mutation -- --exact --nocapture
+mutation: destination-direction validation was temporarily removed from graph.rs solely to verify this regression test; production source was restored immediately after RED.

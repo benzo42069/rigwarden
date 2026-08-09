@@ -1,0 +1,3 @@
+0
+accepted_as_green=true
+reason=The focused serial connection test passes after adding typed ports, direction validation, single-connection storage, bidirectional queries, and explicit duplicate rejection.

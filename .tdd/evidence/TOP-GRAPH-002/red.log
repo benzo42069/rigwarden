@@ -1,0 +1,71 @@
+   Compiling topology-routing v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_routing)
+error[E0432]: unresolved imports `topology_routing::graph::Port`, `topology_routing::graph::PortDirection`, `topology_routing::graph::PortId`, `topology_routing::graph::PortRef`
+ --> crates/topology_routing/tests/serial_connection.rs:2:40
+  |
+2 |     Graph, GridPosition, Node, NodeId, Port, PortDirection, PortId, PortRef,
+  |                                        ^^^^  ^^^^^^^^^^^^^  ^^^^^^  ^^^^^^^ no `PortRef` in `graph`
+  |                                        |     |              |
+  |                                        |     |              no `PortId` in `graph`
+  |                                        |     no `PortDirection` in `graph`
+  |                                        no `Port` in `graph`
+
+error[E0599]: no associated function or constant named `with_ports` found for struct `Node` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:12:28
+   |
+12 |     let input_node = Node::with_ports(
+   |                            ^^^^^^^^^^ associated function or constant not found in `Node`
+   |
+note: if you're trying to build a new `Node`, consider using `Node::new` which returns `Node`
+  --> crates/topology_routing/src/graph.rs:65:5
+   |
+65 |     pub fn new(id: NodeId, position: GridPosition) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_ports` found for struct `Node` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:18:26
+   |
+18 |     let amp_node = Node::with_ports(
+   |                          ^^^^^^^^^^ associated function or constant not found in `Node`
+   |
+note: if you're trying to build a new `Node`, consider using `Node::new` which returns `Node`
+  --> crates/topology_routing/src/graph.rs:65:5
+   |
+65 |     pub fn new(id: NodeId, position: GridPosition) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no method named `connect` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:36:10
+   |
+35 | / graph
+36 | |         .connect(source.clone(), destination.clone())
+   | |         -^^^^^^^ method not found in `Graph`
+   | |_________|
+   |
+
+error[E0599]: no method named `outgoing_connections` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:39:26
+   |
+39 |     let outgoing = graph.outgoing_connections(&source);
+   |                          ^^^^^^^^^^^^^^^^^^^^ method not found in `Graph`
+
+error[E0599]: no method named `incoming_connections` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:44:26
+   |
+44 |     let incoming = graph.incoming_connections(&destination);
+   |                          ^^^^^^^^^^^^^^^^^^^^ method not found in `Graph`
+
+error[E0599]: no method named `connect` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:49:27
+   |
+49 |     let duplicate = graph.connect(source.clone(), destination.clone());
+   |                           ^^^^^^^ method not found in `Graph`
+
+error[E0599]: no method named `outgoing_connections` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/serial_connection.rs:51:22
+   |
+51 |     assert_eq!(graph.outgoing_connections(&source).len(), 1);
+   |                      ^^^^^^^^^^^^^^^^^^^^ method not found in `Graph`
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `topology-routing` (test "serial_connection") due to 8 previous errors

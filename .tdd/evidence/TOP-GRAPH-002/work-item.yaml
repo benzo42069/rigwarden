@@ -1,0 +1,87 @@
+id: TOP-GRAPH-002
+kind: implementation
+epic: TOP-300
+title: Accept one valid serial connection between existing compatible ports
+status: READY
+priority: high
+requirement_ids:
+- GRAPH-003
+- GRAPH-004
+depends_on:
+- TOP-GRAPH-001
+parallel_group: core-graph-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_routing/**
+  write:
+  - crates/topology_routing/src/graph.rs
+  - crates/topology_routing/src/connection.rs
+  - crates/topology_routing/tests/serial_connection.rs
+  - .tdd/evidence/TOP-GRAPH-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: The smallest useful preset graph connects one output port to one input port.
+  given:
+  - Graph contains input node and amp node with typed output/input ports.
+  - No connection exists.
+  when:
+  - A connection from input output to amp input is added.
+  then:
+  - Connection is stored once.
+  - Outgoing/incoming queries return it.
+  - Adding the exact duplicate is rejected or idempotent according to one documented choice.
+non_goals:
+- Splits/merges
+- Cycles
+- Device-specific limits
+- Visual cables
+preconditions:
+- TOP-GRAPH-001 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_routing/tests/serial_connection.rs
+  name: valid_serial_connection_is_queryable_from_both_ends
+  red_command: cargo test -p topology-routing valid_serial_connection_is_queryable_from_both_ends -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing connection API.
+    - Assertion fails because connection is absent from one direction.
+    unacceptable:
+    - Ports not included in fixture.
+    - Unrelated node identity failure.
+  green_command: cargo test -p topology-routing valid_serial_connection_is_queryable_from_both_ends -- --exact --nocapture
+minimum_green:
+- Add typed PortId/direction and connection storage.
+- Validate source output and destination input.
+- No cycle/device constraints yet except those required.
+required_sweeps:
+- cargo test -p topology-routing
+- cargo fmt --all -- --check
+- cargo clippy -p topology-routing --all-targets -- -D warnings
+acceptance:
+- Connection queryable both directions.
+- Direction enforced.
+- Duplicate behavior explicit.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-GRAPH-003
+- TOP-GRAPH-004
+- TOP-A11Y-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-GRAPH-002

@@ -1,0 +1,3 @@
+101
+accepted_as_mutation_red=true
+reason=With only the destination-direction guard temporarily removed, a valid Output-to-Output fixture was accepted and the focused assertion failed. This proves the test detects the exact missing expected-Input validation; the production guard was restored before GREEN.

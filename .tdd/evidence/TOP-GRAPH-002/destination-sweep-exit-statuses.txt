@@ -1,0 +1,8 @@
+1 cargo test -p topology-routing output_to_output_connection_is_rejected_before_mutation -- --exact --nocapture (post-format focused rerun): 0
+2 cargo test -p topology-routing: 0
+3 cargo fmt --all -- --check (initial probe): 1
+4 cargo fmt --all (mechanical correction): 0
+5 cargo test -p topology-routing output_to_output_connection_is_rejected_before_mutation -- --exact --nocapture (post-format rerun): 0
+6 cargo test -p topology-routing (final): 0
+7 cargo fmt --all -- --check (final): 0
+8 cargo clippy -p topology-routing --all-targets -- -D warnings (final): 0

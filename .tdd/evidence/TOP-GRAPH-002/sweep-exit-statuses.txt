@@ -1,0 +1,6 @@
+1 cargo test -p topology-routing valid_serial_connection_is_queryable_from_both_ends -- --exact --nocapture: 0
+2 cargo test -p topology-routing: 0
+3 cargo fmt --all -- --check (initial probe): 1
+4 cargo fmt --all (mechanical correction): 0
+5 cargo fmt --all -- --check (final): 0
+6 cargo clippy -p topology-routing --all-targets -- -D warnings: 0

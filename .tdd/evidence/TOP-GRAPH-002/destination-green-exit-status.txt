@@ -1,0 +1,3 @@
+0
+accepted_as_green=true
+reason=After restoring the production destination-direction guard, the focused output-to-output regression test passes and observes the expected structured error plus an unchanged connection set.

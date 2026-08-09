@@ -1,0 +1,11 @@
+Worktree paths at candidate freeze (local HEAD predates public integration mirrors, so untracked status is expected):
+?? crates/topology_routing/src/graph.rs (existing integrated node graph extended with ports, validation, connection storage/queries)
+?? crates/topology_routing/src/connection.rs (new typed port/direction/reference/connection types)
+?? crates/topology_routing/tests/serial_connection.rs (focused serial connection plus source/destination direction and duplicate tests)
+?? .tdd/evidence/TOP-GRAPH-002/** (strict-TDD evidence)
+
+No Cargo.toml, Cargo.lock, apps/**, native/**, device-packs/**, work-items/index.yaml, or docs/requirements/traceability.yaml changes were made.
+No generated/build artifacts are part of the candidate.
+
+Follow-up cycle evidence added under the same packet directory:
+`destination-{cycle,red-command,red.log,red-exit-status,green-command,green.log,green-exit-status,sweep-commands,sweep.log,sweep-exit-statuses}.{md,txt,log}` as applicable.

@@ -1,0 +1,3 @@
+101
+accepted_as_intended_red=true
+reason=The focused test reaches the topology-routing crate and reports only the missing typed port, connection, and query APIs required by this packet; the existing node harness and unrelated dependencies compile.

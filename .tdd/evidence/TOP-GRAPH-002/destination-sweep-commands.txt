@@ -1,0 +1,8 @@
+1. cargo test -p topology-routing output_to_output_connection_is_rejected_before_mutation -- --exact --nocapture (post-format focused rerun; exit 0)
+2. cargo test -p topology-routing (adjacent package suite; exit 0)
+3. cargo fmt --all -- --check (initial probe for the added test; exit 1, mechanical layout only)
+4. cargo fmt --all (mechanical formatter correction; exit 0)
+5. cargo test -p topology-routing output_to_output_connection_is_rejected_before_mutation -- --exact --nocapture (post-format rerun; exit 0)
+6. cargo test -p topology-routing (final package suite; exit 0)
+7. cargo fmt --all -- --check (final formatter sweep; exit 0)
+8. cargo clippy -p topology-routing --all-targets -- -D warnings (final lint sweep; exit 0)
