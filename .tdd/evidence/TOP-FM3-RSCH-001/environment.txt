@@ -1,0 +1,21 @@
+Recorded UTC: 2026-08-09T19:01:13Z
+Recorded local: 2026-08-09T14:01:13-0500 CDT (America/Chicago)
+Repository path: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Git state: worktree exists; branch main; starting commit 536d8901ac91ecdbc15e09356800d9f46be401dd; 191 pre-existing changed/untracked paths at capture time (not owned by this packet)
+OS: macOS 26.5 (25F71), Darwin arm64
+CPU architecture: arm64
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+Flutter/Dart: Flutter 3.44.9 stable; Dart 3.12.2; Flutter framework revision 6b182d2c75
+Xcode/iOS SDK: Xcode 26.5 (17F42); iphoneos SDK 26.5
+Android SDK/sdkmanager: ANDROID_HOME and ANDROID_SDK_ROOT unset; sdkmanager not found
+Android/JDK/Gradle: adb 1.0.41 / 37.0.0-14910828 present; Java runtime unavailable; Gradle command unavailable
+Python/Git/rg: Python 3.14.6; git 2.50.1; rg /opt/homebrew/bin/rg
+PyYAML/jsonschema: unavailable; repository starter-kit validator is expected to be BLOCKED_ENVIRONMENT if invoked
+External source access: official Fractal, Android, and Apple pages/PDFs reopened on 2026-08-09; pinned community URLs retained as secondary provenance leads
+Requested/effective subagent route: OpenAI gpt-5.6-luna, max (parent packet configuration)
+Hardware: no FM3, Android device, iPhone/iPad, MIDI interface, BLE adapter, powered hub, or network bridge attached or exercised
+Simulator/device: none used; no native transport or protocol cycle was run
+Network: browsing/reopen only; no bridge endpoint, cloud service, or credential used
+Secrets/environment variables: none used; no secrets recorded
+TDD mode: research packet; strict-TDD references make RED/GREEN inapplicable because no executable production behavior was written

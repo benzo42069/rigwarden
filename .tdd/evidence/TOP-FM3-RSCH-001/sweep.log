@@ -1,0 +1,74 @@
+=== 1 packet-copy ===
+packet-copy: PASS
+
+=== 2 coverage-and-follow-up-labels ===
+coverage-and-follow-up-labels: PASS
+
+=== 3 initial raw-byte/forbidden-token harness ===
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:32:  - apps/**
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:33:  - crates/**
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:34:  - native/**
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:35:  - device-packs/**
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:36:  - Cargo.toml
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:37:  - Cargo.lock
+.tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml:38:  - pubspec.yaml
+forbidden-path-token-scan: FAIL
+Interpretation: harness false-positive. These strings are required copied packet `scope.forbidden` data, not edited production paths. The raw-byte half had no match; a corrected scoped-path check follows.
+
+=== 4 corrected raw-byte/scoped-path check ===
+?? .tdd/evidence/TOP-FM3-RSCH-001/
+?? docs/research/fm3-transport-matrix.md
+raw-protocol-byte-scan: PASS (no byte sequence)
+scoped-write-path-check: PASS (only packet paths)
+
+=== 5 source-link-check ===
+All 25 Fractal, Android, Apple, and pinned community URLs (including Apple EASession and community LICENSE/NOTICE links) returned HTTP 200 with the research User-Agent. The exact status/content-type inventory is in `source-link-check.txt`.
+
+=== 6 source-label index ===
+source-label index check: PASS
+labels: A-BT, A-FGS, A-LAN, A-MIDI, A-USB, APPLE-BLE, APPLE-BT-PERM, APPLE-CORE, APPLE-EA, APPLE-IOUSBHOST, APPLE-IPAD-DRIVER, APPLE-LAN, APPLE-NET, APPLE-SYSEX, APPLE-USBKIT, F-FM3-DOWNLOADS, F-FM3-MANUAL, FORGEFX, MCP-FRACTAL, MIT, NOTICE, WAVE-00-LICENSE-AUDIT
+
+=== 7 initial whitespace check ===
+trailing whitespace: docs/research/fm3-transport-matrix.md:3, docs/research/fm3-transport-matrix.md:4, docs/research/fm3-transport-matrix.md:7, docs/research/fm3-transport-matrix.md:9, docs/research/fm3-transport-matrix.md:10
+Interpretation: false-positive from intentional Markdown hard breaks; no file change was made to remove the formatting. A corrected check follows.
+
+=== 8 corrected whitespace check ===
+documentation whitespace check (Markdown hard breaks allowed): PASS
+
+=== 9 starter-kit validator ===
+Missing validation dependency. Install PyYAML and jsonschema, then retry: python -m pip install PyYAML jsonschema
+Interpretation: `BLOCKED_ENVIRONMENT`; no schema-validation claim earned.
+
+=== 10 YAML/report marker check ===
+Ruby YAML parse: PASS
+report marker check: PASS
+
+=== 11 scoped status check ===
+?? .tdd/evidence/TOP-FM3-RSCH-001/
+?? docs/research/fm3-transport-matrix.md
+Only the two packet write scopes are listed; pre-existing unrelated worktree changes were not touched.
+
+=== 12 corrected relative-link check ===
+local-link: PASS docs/research/fm3-transport-matrix.md -> open-source-source-and-license-audit.md
+local-link: PASS .tdd/evidence/TOP-FM3-RSCH-001/source-index.md -> ../../../docs/research/open-source-source-and-license-audit.md
+relative-link check: PASS
+
+=== 13 post-correction fail-fast composite ===
+packet-copy: PASS
+raw-protocol-byte-scan: PASS
+source-label index: PASS
+corrected whitespace: PASS
+?? .tdd/evidence/TOP-FM3-RSCH-001/
+?? docs/research/fm3-transport-matrix.md
+scoped-write-path-check: PASS
+
+=== 14 post-wording-correction fail-fast composite ===
+packet-copy: PASS
+source-label index: PASS (19 hyphenated citation labels)
+status/no-raw-byte scan: PASS (`BLOCKED_DEVICE` absent; no protocol-byte sequence)
+whitespace: PASS
+local-link: PASS docs/research/fm3-transport-matrix.md -> open-source-source-and-license-audit.md
+local-link: PASS .tdd/evidence/TOP-FM3-RSCH-001/source-index.md -> ../../../docs/research/open-source-source-and-license-audit.md
+relative-link check: PASS
+scoped write allowlist: PASS (11 packet paths only)
+post-wording-correction fail-fast composite: PASS

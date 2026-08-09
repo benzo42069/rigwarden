@@ -1,0 +1,21 @@
+?? docs/research/fm3-transport-matrix.md
+?? .tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml
+?? .tdd/evidence/TOP-FM3-RSCH-001/environment.txt
+?? .tdd/evidence/TOP-FM3-RSCH-001/source-index.md
+?? .tdd/evidence/TOP-FM3-RSCH-001/source-link-check.txt
+?? .tdd/evidence/TOP-FM3-RSCH-001/sweep-commands.txt
+?? .tdd/evidence/TOP-FM3-RSCH-001/sweep.log
+?? .tdd/evidence/TOP-FM3-RSCH-001/sweep-exit-statuses.txt
+?? .tdd/evidence/TOP-FM3-RSCH-001/files-changed.txt
+?? .tdd/evidence/TOP-FM3-RSCH-001/review.md
+?? .tdd/evidence/TOP-FM3-RSCH-001/handoff.md
+
+The scoped status check listed only the packet's two allowed write paths:
+`docs/research/fm3-transport-matrix.md` and
+`.tdd/evidence/TOP-FM3-RSCH-001/**`.
+
+No files under `apps/`, `crates/`, `native/`, `device-packs/`, or root/shared
+manifests were edited. No fixture bytes, raw captures, protocol implementation,
+vendor binary/artwork, credentials, or generated build artifacts were created.
+The worktree contained 191 pre-existing changed/untracked paths before this
+packet; they remain outside this inventory and were not touched.

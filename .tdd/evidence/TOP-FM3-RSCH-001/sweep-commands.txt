@@ -1,0 +1,16 @@
+Research packet has no executable RED/GREEN cycle; the following bounded evidence sweeps were run independently, with fail-fast shell settings where a composite check was safe.
+
+1. `set -euo pipefail; cmp -s work-items/wave-04-fm3-bootstrap/TOP-FM3-RSCH-001.yaml .tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml; printf 'packet-copy: PASS\\n'`
+2. `set -euo pipefail; rg -q` assertions for packet ID, Android raw USB, ordinary iPhone direct serial, M-series iPadOS, existing FM3 follow-up packet IDs, and `TOP-ADR-004`.
+3. `set -euo pipefail; rg -n '0x[0-9A-Fa-f]+|[0-9A-Fa-f]{2} [0-9A-Fa-f]{2} [0-9A-Fa-f]{2}' docs/research/fm3-transport-matrix.md .tdd/evidence/TOP-FM3-RSCH-001; ...` (initial combined raw-byte/forbidden-token harness; failed because the copied packet intentionally contains its forbidden-path declarations).
+4. `set -euo pipefail; rg` raw-protocol-byte scan followed by scoped `git status --short -- docs/research/fm3-transport-matrix.md .tdd/evidence/TOP-FM3-RSCH-001` path allowlist.
+5. `python3` urllib GET source-link check extracting every unique `http(s)` URL from both the report and `source-index.md`; output is preserved in `source-link-check.txt`.
+6. `set -euo pipefail; python3` source-label index check: every bracketed source label in the report must occur in `source-index.md`.
+7. `set -euo pipefail; python3` whitespace check (initial generic check; failed because Markdown hard-break lines intentionally end in two spaces).
+8. `set -euo pipefail; python3` corrected whitespace check allowing Markdown hard breaks but rejecting more than two trailing spaces and all non-Markdown trailing whitespace.
+9. `python3 tools/validate_starter_kit.py` (repository validator; expected environment probe).
+10. `set -euo pipefail; ruby -e 'require "yaml"; YAML.load_file(".tdd/evidence/TOP-FM3-RSCH-001/work-item.yaml")'` plus Python report-marker assertions.
+11. `set -euo pipefail; git status --short -- docs/research/fm3-transport-matrix.md .tdd/evidence/TOP-FM3-RSCH-001` and verify only packet write paths are listed.
+12. `set -euo pipefail; python3` relative-link checker resolving all non-HTTP Markdown links from the report and source index.
+13. Post-correction fail-fast composite: packet copy, no-byte scan, source-label index, corrected whitespace, and scoped status allowlist.
+14. Post-wording-correction fail-fast composite: packet copy; source-label index restricted to hyphenated citation labels; `BLOCKED_DEVICE`/no-raw-byte scan; corrected whitespace; both local-link resolutions; and an explicit packet-path status allowlist.

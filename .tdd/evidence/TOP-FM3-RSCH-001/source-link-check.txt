@@ -1,0 +1,32 @@
+Checked 2026-08-09 with Python urllib GET requests and User-Agent `RigWarden research source check/1.0`.
+URLs were extracted from both `docs/research/fm3-transport-matrix.md` and
+`.tdd/evidence/TOP-FM3-RSCH-001/source-index.md`.
+
+URL_COUNT=25
+200 text/html; charset=utf-8 https://developer.android.com/develop/background-work/services/fgs/service-types
+200 text/html; charset=utf-8 https://developer.android.com/develop/connectivity/bluetooth/bt-permissions
+200 text/html; charset=utf-8 https://developer.android.com/develop/connectivity/usb/host
+200 text/html; charset=utf-8 https://developer.android.com/privacy-and-security/local-network-permission
+200 text/html; charset=utf-8 https://developer.android.com/reference/android/hardware/usb/UsbManager
+200 text/html; charset=utf-8 https://developer.android.com/reference/android/media/midi/package-summary
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/bundleresources/information-property-list/nsbluetoothalwaysusagedescription
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/bundleresources/information-property-list/nslocalnetworkusagedescription
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/coremidi
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/coremidi/midi-bluetooth
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/coremidi/midinetworksession
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/coremidi/midisysexsendrequest
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/driverkit/creating-drivers-for-ipados
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/externalaccessory
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/externalaccessory/easession
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/iousbhost
+200 text/html; charset=utf-8 https://developer.apple.com/documentation/usbdriverkit
+200 text/html; charset=utf-8 https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/LICENSE
+200 text/html; charset=utf-8 https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/NOTICE
+200 text/html; charset=utf-8 https://github.com/TheAndrewStaker/mcp-midi-control/tree/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi
+200 text/html; charset=utf-8 https://github.com/sKuhLight/ForgeFX/blob/c22862a5b2f2078f3cb92a2735e51f94c39a0062/LICENSE
+200 text/html; charset=utf-8 https://github.com/sKuhLight/ForgeFX/blob/c22862a5b2f2078f3cb92a2735e51f94c39a0062/NOTICE
+200 text/html; charset=utf-8 https://github.com/sKuhLight/ForgeFX/tree/c22862a5b2f2078f3cb92a2735e51f94c39a0062
+200 application/pdf https://www.fractalaudio.com/downloads/manuals/FM3/FM3-Owners-Manual.pdf
+200 text/html; charset=UTF-8 https://www.fractalaudio.com/fm3-downloads/
+
+No endpoint descriptor, protocol frame, firmware payload, or capture was downloaded or retained.

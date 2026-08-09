@@ -1,0 +1,14 @@
+1 packet-copy: exit 0 — PASS
+2 coverage-and-follow-up-labels: exit 0 — PASS
+3 initial raw-byte/forbidden-token harness: exit 1 — harness false-positive because copied packet scope intentionally contains forbidden-path tokens; corrected in command 4
+4 corrected raw-byte/scoped-path check: exit 0 — PASS; no protocol-byte sequence and only packet paths listed
+5 source-link-check: exit 0 — PASS; all 25 report/source-index URLs HTTP 200, including EASession and community LICENSE/NOTICE; inventory in source-link-check.txt
+6 source-label index: exit 0 — PASS
+7 initial whitespace check: exit 1 — harness false-positive from intentional Markdown hard breaks; corrected in command 8
+8 corrected whitespace check: exit 0 — PASS
+9 python3 tools/validate_starter_kit.py: exit 2 — BLOCKED_ENVIRONMENT because PyYAML and jsonschema are unavailable; no validation claim
+10 YAML/report marker check: exit 0 — PASS
+11 scoped status check: exit 0 — PASS; only docs/research/fm3-transport-matrix.md and .tdd/evidence/TOP-FM3-RSCH-001/** are packet paths
+12 corrected relative-link check: exit 0 — PASS; both local documentation links resolve
+13 post-correction fail-fast composite: exit 0 — PASS; packet copy, no-byte scan, source labels, whitespace, and scoped writes
+14 post-wording-correction fail-fast composite: exit 0 — PASS; packet copy, hyphenated source labels, no-raw-byte/status scan, whitespace, local links, and explicit 11-path allowlist
