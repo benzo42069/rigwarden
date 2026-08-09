@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+
+cargo test -p topology-command-engine read_only_session_cannot_plan_a_write -- --exact --nocapture

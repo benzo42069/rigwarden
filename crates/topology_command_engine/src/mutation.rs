@@ -1,4 +1,4 @@
-use topology_device_registry::DeviceProfile;
+use topology_device_registry::{DeviceProfile, VerificationStatus};
 
 /// One requested numeric edit in the profile's literal stored units.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -59,6 +59,8 @@ impl ValidatedParameterMutation {
 pub enum MutationValidationError {
     /// The selected profile has no explicit write capability.
     ProfileNotWritable,
+    /// The selected session is read-only because its firmware is unknown.
+    ReadOnly { firmware: String },
     /// The exact block/parameter pair has no numeric declaration on the profile.
     ParameterNotDeclared {
         block_id: String,
@@ -77,6 +79,12 @@ pub fn validate_parameter_mutation(
     profile: &DeviceProfile,
     request: ParameterMutationRequest,
 ) -> Result<ValidatedParameterMutation, MutationValidationError> {
+    if profile.verification_status() == VerificationStatus::ReadOnly {
+        return Err(MutationValidationError::ReadOnly {
+            firmware: profile.firmware().as_str().to_owned(),
+        });
+    }
+
     if !profile.capabilities().can_write() {
         return Err(MutationValidationError::ProfileNotWritable);
     }

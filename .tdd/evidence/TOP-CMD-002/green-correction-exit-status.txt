@@ -1,0 +1,3 @@
+exit_status: 0
+accepted_as_green: true
+reason: The reordered guard rejects ReadOnly status before consulting the contradictory write capability or parameter metadata, returning the structured firmware-bearing ReadOnly error.

@@ -1,0 +1,31 @@
+   Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running unittests src/lib.rs (target/debug/deps/topology_command_engine-ae19bf2568d195b3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parameter_mutation.rs (target/debug/deps/parameter_mutation-e9001a1fdae2a7c6)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/read_only.rs (target/debug/deps/read_only-42e7fd7bd5899f04)
+
+running 1 test
+
+thread 'read_only_status_cannot_plan_a_write_even_if_capability_is_true' (10475669) panicked at crates/topology_command_engine/tests/read_only.rs:73:6:
+read-only status must fail closed before planning a write: ValidatedParameterMutation { block_id: "amp-1", parameter_id: "gain", stored_value: 45, decimal_places: 1 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test read_only_status_cannot_plan_a_write_even_if_capability_is_true ... FAILED
+
+failures:
+
+failures:
+    read_only_status_cannot_plan_a_write_even_if_capability_is_true
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p topology-command-engine --test read_only`

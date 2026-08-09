@@ -1,0 +1,18 @@
+TOP-CMD-002 candidate inventory (shared worktree; no integration commit claimed):
+
+- crates/topology_command_engine/src/mutation.rs: added the structured
+  `MutationValidationError::ReadOnly { firmware }` reason and a capability/
+  verification-status guard before profile parameter lookup. The guard now
+  rejects `VerificationStatus::ReadOnly` unconditionally (including a
+  contradictory write=true capability) and preserves generic
+  `ProfileNotWritable` behavior for other non-writable profiles.
+- crates/topology_command_engine/tests/read_only.rs: added the focused test
+  that resolves known test-family/test-model firmware 1.1 as unknown firmware,
+  submits the valid amp-1/gain stored value 45 request, and asserts the
+  read-only rejection with firmware 1.1; a tightly coupled fail-closed test
+  covers a ReadOnly profile whose capability bit is inconsistently true.
+- .tdd/evidence/TOP-CMD-002/**: packet copy, environment, observed RED/GREEN,
+  correction RED/GREEN, final fail-fast sweeps, and handoff/review records.
+
+No Cargo manifest, lockfile, registry source/test, protocol, transport, UI,
+device-pack, index, or traceability files were changed by this packet.

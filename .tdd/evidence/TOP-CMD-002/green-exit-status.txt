@@ -1,0 +1,3 @@
+exit_status: 0
+accepted_as_green: true
+reason: The focused registry-resolved unknown-firmware session is rejected before parameter lookup with the structured ReadOnly variant carrying firmware 1.1; the existing writable parameter test remains available for the adjacent package sweep.

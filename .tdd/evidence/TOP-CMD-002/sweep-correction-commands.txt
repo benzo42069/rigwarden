@@ -1,0 +1,8 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Fail-fast policy: `set -euo pipefail`; each command's pipeline status is recorded before the next command.
+
+1. cargo test -p topology-command-engine
+2. cargo test -p topology-device-registry
+3. cargo fmt --all -- --check
+4. cargo clippy -p topology-command-engine --all-targets -- -D warnings

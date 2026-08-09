@@ -1,0 +1,3 @@
+exit_status: 101
+accepted_as_intended_red: true
+reason: The focused test reached the command-engine crate and failed only because the deliberate structured ReadOnly rejection variant is absent; the registry-resolved unknown-firmware fixture compiled and established a syntactically valid parameter request before the missing API diagnostic.

@@ -1,0 +1,16 @@
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine/tests/read_only.rs:2:
+     MutationValidationError, ParameterMutationRequest, validate_parameter_mutation,
+ };
+ use topology_device_registry::{
+-    DeviceProfile, DeviceRegistry, NumericParameterMetadata, ResolutionStatus,
+-    SessionCapabilities, VerificationStatus,
++    DeviceProfile, DeviceRegistry, NumericParameterMetadata, ResolutionStatus, SessionCapabilities,
++    VerificationStatus,
+ };
+-use topology_domain::{DeviceFamilyId, DeviceIdentity, DeviceModelId, FirmwareId, TransportEndpointId};
++use topology_domain::{
++    DeviceFamilyId, DeviceIdentity, DeviceModelId, FirmwareId, TransportEndpointId,
++};
+ 
+ fn identity(family: &str, model: &str, firmware: &str) -> DeviceIdentity {
+     DeviceIdentity::new(

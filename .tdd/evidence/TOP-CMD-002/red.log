@@ -1,0 +1,9 @@
+   Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+error[E0599]: no variant named `ReadOnly` found for enum `MutationValidationError`
+  --> crates/topology_command_engine/tests/read_only.rs:50:34
+   |
+50 |         MutationValidationError::ReadOnly {
+   |                                  ^^^^^^^^ variant not found in `MutationValidationError`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-command-engine` (test "read_only") due to 1 previous error

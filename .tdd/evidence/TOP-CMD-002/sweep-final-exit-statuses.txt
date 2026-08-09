@@ -1,0 +1,4 @@
+1 cargo test -p topology-command-engine: 0
+2 cargo test -p topology-device-registry: 0
+3 cargo fmt --all -- --check: 0
+4 cargo clippy -p topology-command-engine --all-targets -- -D warnings: 0

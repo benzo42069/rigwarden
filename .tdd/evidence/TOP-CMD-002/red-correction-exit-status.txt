@@ -1,0 +1,3 @@
+exit_status: 101
+accepted_as_intended_red: true
+reason: The tightly coupled fail-closed test reached the existing validator and failed because a contradictory ReadOnly profile with an explicit write capability produced a ValidatedParameterMutation instead of the structured ReadOnly rejection. The profile declared the parameter and the stored value was in range, so the failure is specifically guard ordering/capability precedence.

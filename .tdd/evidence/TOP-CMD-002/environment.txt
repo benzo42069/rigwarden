@@ -1,0 +1,15 @@
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch: main (shared worktree; candidate is not an integrated commit)
+Cycle start timestamp: 2026-08-09T15:56:00-05:00
+Starting commit: 536d8901ac91ecdbc15e09356800d9f46be401dd (`chore: publish RigWarden pre-alpha foundation`)
+Host: macOS 26.5 (Darwin 25.5.0) on arm64
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: 1.97.0 (c980f4866 2026-06-30)
+Flutter: 3.44.9 stable; Dart 3.12.2
+Worktree: shared and extensively dirty from parent/bootstrap and reviewed dependency candidates. At cycle start, command-engine dependency sources were untracked candidate files from TOP-CMD-001; TOP-CMD-002 read_only.rs and evidence were then created in this bounded scope.
+Selected packet: TOP-CMD-002, READY
+Dependencies: TOP-REG-002 and TOP-CMD-001 are INTEGRATED in work-items/index.yaml; registry/API paths and focused baseline harness are present.
+Test layer: Rust unit (L1); no transport, protocol bytes, simulator, platform, UI, fixture, or hardware requirement.
+Fixture: in-memory writable profile for known test-family/test-model firmware 1.0, registry-resolved identity firmware 1.1; no external fixture or hardware required.
+Claim boundary: candidate cycle can earn UNIT_VERIFIED and READ_ONLY only after independent review and parent integration rerun. BYTE_FIXTURE_VERIFIED and HARDWARE_VERIFIED remain unavailable.
+Environment variables: none required; no secrets captured.

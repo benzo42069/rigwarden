@@ -1,0 +1,2 @@
+1 cargo test -p topology-command-engine: 0
+2 cargo test -p topology-device-registry: 0
