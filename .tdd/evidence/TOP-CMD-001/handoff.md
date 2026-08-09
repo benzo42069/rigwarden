@@ -1,6 +1,6 @@
 # TOP-CMD-001 handoff
 
-Status: `REVIEW_PENDING`
+Status: `REVIEW_APPROVED_INTEGRATION_PENDING_STATUS_COMMIT`
 
 ## Delivered
 

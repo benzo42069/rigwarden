@@ -2,7 +2,7 @@ id: TOP-FFI-001
 kind: implementation
 epic: TOP-800
 title: Round-trip a typed device identity across the Rust-Dart boundary
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - DEV-003
@@ -101,4 +101,10 @@ amendments:
   changes:
   - depends_on gained TOP-FFI-000.
   - preconditions now name the accepted ADR and integrated bootstrap.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:48:00-05:00
+  author: parent_orchestrator
+  reason: TOP-FFI-000 is integrated with reviewed generated bridge wiring and an immutable-tree integration sweep.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
   claim_changed: false

@@ -2,7 +2,7 @@ id: TOP-CMD-001
 kind: implementation
 epic: TOP-400
 title: Validate one typed parameter mutation against an exact writable profile
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - BLOCK-003
@@ -117,4 +117,10 @@ amendments:
   changes:
   - scope.write gained Cargo.toml and Cargo.lock.
   - scope.forbidden no longer includes Cargo.toml or Cargo.lock.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:48:00-05:00
+  author: parent_orchestrator
+  reason: Candidate commit a4cbb8d matched the reviewed local blobs and passed the focused command test plus every required sweep.
+  changes:
+  - status advanced from READY to INTEGRATED.
   claim_changed: false

@@ -2,7 +2,7 @@ id: TOP-FFI-000
 kind: implementation
 epic: TOP-800
 title: Bootstrap the generated Rust-Dart bridge harness without a product API
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-003
@@ -124,4 +124,10 @@ amendments:
   changes:
   - scope.write gained apps/mobile_flutter/ios/Flutter/Debug.xcconfig and apps/mobile_flutter/ios/Flutter/Release.xcconfig.
   - reviewer recheck required for the scope/provenance record.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:48:00-05:00
+  author: parent_orchestrator
+  reason: Candidate commit a4cbb8d matched the reviewed local blobs and passed generator, Rust, Flutter, formatting, demo-absence, and podspec-license integration checks.
+  changes:
+  - status advanced from READY to INTEGRATED.
   claim_changed: false

@@ -152,7 +152,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-A11Y-001.yaml
   - id: TOP-CMD-001
     title: Validate one typed parameter mutation against an exact writable profile
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-REG-001
@@ -209,7 +209,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-E2E-001.yaml
   - id: TOP-FFI-001
     title: Round-trip a typed device identity across the Rust-Dart boundary
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-DOM-003
@@ -218,7 +218,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
   - id: TOP-FFI-000
     title: Bootstrap the generated Rust-Dart bridge harness without a product API
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-003

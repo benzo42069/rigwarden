@@ -34,15 +34,15 @@ Generated from 65 detailed packets.
 | ID | Status | Priority | Title | Dependencies |
 |---|---|---|---|---|
 | `TOP-A11Y-001` | BLOCKED_DEPENDENCY | high | Expose a serial signal path as an ordered nonvisual route | TOP-GRAPH-002, TOP-GRAPH-005, TOP-UI-001 |
-| `TOP-CMD-001` | READY | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001, TOP-REG-003 |
+| `TOP-CMD-001` | INTEGRATED | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001, TOP-REG-003 |
 | `TOP-CMD-002` | BLOCKED_DEPENDENCY | high | Reject every write mutation in an unknown-firmware read-only session | TOP-REG-002, TOP-CMD-001 |
 | `TOP-CMD-003` | BLOCKED_DEPENDENCY | high | Order independent graph mutations deterministically | TOP-CMD-001, TOP-GRAPH-005 |
 | `TOP-DOM-001` | BLOCKED_DEPENDENCY | high | Reject blank device-family identifiers | TOP-BOOT-002, TOP-BOOT-004 |
 | `TOP-DOM-002` | BLOCKED_DEPENDENCY | high | Preserve a nonblank firmware identifier without semantic-version assumptions | TOP-DOM-001 |
 | `TOP-DOM-003` | BLOCKED_DEPENDENCY | high | Represent an identified device with family, model, firmware, and transport endpoint | TOP-DOM-001, TOP-DOM-002 |
 | `TOP-E2E-001` | BLOCKED_DEPENDENCY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
-| `TOP-FFI-000` | READY | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
-| `TOP-FFI-001` | BLOCKED_DEPENDENCY | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
+| `TOP-FFI-000` | INTEGRATED | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
+| `TOP-FFI-001` | READY | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
 | `TOP-GRAPH-001` | BLOCKED_DEPENDENCY | high | Create graph nodes with stable typed identities | TOP-DOM-001 |
 | `TOP-GRAPH-002` | BLOCKED_DEPENDENCY | high | Accept one valid serial connection between existing compatible ports | TOP-GRAPH-001 |
 | `TOP-GRAPH-003` | BLOCKED_DEPENDENCY | high | Reject a connection whose source node or port does not exist | TOP-GRAPH-002 |

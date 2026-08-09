@@ -1,5 +1,6 @@
 # TOP-FFI-000 parent integration sweep
 
+Candidate commit: `a4cbb8da85654721a55f7ad869fd71777893c4ae`
 Date: 2026-08-09
 
 After independent review and the podspec-license correction, the parent
