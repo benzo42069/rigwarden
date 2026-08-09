@@ -1,0 +1,6 @@
+Public candidate: 09ad903020c76f9f551ee334c88d449813c9e08e
+Focused valid serial connection: 0
+Focused output-to-output destination rejection: 0
+Routing package suite: 0 (node identity plus three serial connection tests)
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-routing --all-targets -- -D warnings: 0

@@ -223,7 +223,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-001.yaml
   - id: TOP-GRAPH-002
     title: Accept one valid serial connection between existing compatible ports
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-GRAPH-001

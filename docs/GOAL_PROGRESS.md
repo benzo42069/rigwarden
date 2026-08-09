@@ -13,7 +13,7 @@
 - **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`–`TOP-BOOT-008`, `TOP-DOM-001`–`TOP-DOM-002`.
 - **Historical review failure:** `TOP-BOOT-002`; superseded only for its missing audit evidence by `TOP-BOOT-002R`, whose source scope is product-empty and independently reviewed.
 - **Integrated:** `TOP-BOOT-009` (truthful local fixture-validation CLI) and `TOP-DOM-003` (typed read-only device identity) after independent review and post-landing Rust sweeps.
-- **Integrated:** `TOP-GRAPH-001` (stable routing node identity) after a parent-owned product-empty workspace-harness amendment, independent review, and post-landing sweep.
+- **Integrated:** `TOP-GRAPH-001` (stable routing node identity) and `TOP-GRAPH-002` (typed output-to-input connection with source/destination guards) after independent review and post-landing sweeps.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -26,6 +26,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-GRAPH-001` focused/package tests, workspace formatter, and package Clippy with warnings denied exited 0 after reviewed public source/evidence commit `a3f77f540978d5c4315a689133587634520a336c`.
+**Last completed integration sweep:** `TOP-GRAPH-002` positive/destination-negative focused tests, routing package tests, workspace formatter, and Clippy with warnings denied exited 0 after reviewed public source/evidence commit `09ad903020c76f9f551ee334c88d449813c9e08e`.
 
 **Next dependency-complete group:** `TOP-GRAPH-001`, then registry/preset leaves unlocked by `TOP-DOM-003`. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
