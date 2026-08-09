@@ -1,0 +1,6 @@
+Integration base: a5421e08e546fd4a7d5f60b3d8395332bcf24cd8
+Integration date: 2026-08-09
+
+Parent integration verified the packet copy, reviewed approval, scoped write inventory, no-raw-byte/source-label/relative-link evidence, and the final fail-fast static composite recorded as command 14 (exit 0). The repository validator remains exit 2 `BLOCKED_ENVIRONMENT` because PyYAML/jsonschema are unavailable; no schema-validation claim is made.
+
+This transition integrates source-backed research only. It does not verify FM3 endpoint identity, framing, editor/SysEx, adapter throughput, native platform behavior, or hardware compatibility.

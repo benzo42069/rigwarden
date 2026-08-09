@@ -2,7 +2,7 @@ id: TOP-FM3-RSCH-001
 kind: research
 epic: TOP-1300
 title: Lock the FM3 transport and adapter matrix for iOS and Android
-status: READY
+status: INTEGRATED
 priority: critical
 requirement_ids:
 - TRANSPORT-005
