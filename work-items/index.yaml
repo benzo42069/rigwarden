@@ -112,7 +112,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-005.yaml
   - id: TOP-BOOT-006
     title: Reject fixture provenance that lacks explicit redistribution permission
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-005
@@ -183,7 +183,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-DOM-001.yaml
   - id: TOP-DOM-002
     title: Preserve a nonblank firmware identifier without semantic-version assumptions
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-DOM-001

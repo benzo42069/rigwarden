@@ -2,7 +2,7 @@ id: TOP-BOOT-006
 kind: implementation
 epic: TOP-000
 title: Reject fixture provenance that lacks explicit redistribution permission
-status: READY
+status: INTEGRATED
 amendments:
 - recorded_at: '2026-08-09T11:15:00-05:00'
   author: parent_orchestrator

@@ -2,7 +2,7 @@ id: TOP-DOM-002
 kind: implementation
 epic: TOP-100
 title: Preserve a nonblank firmware identifier without semantic-version assumptions
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-003
