@@ -2,7 +2,7 @@ id: TOP-GRAPH-005
 kind: implementation
 epic: TOP-300
 title: Produce deterministic topological traversal for the same graph
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - GRAPH-008
@@ -17,6 +17,7 @@ scope:
   read:
   - crates/topology_routing/**
   write:
+  - crates/topology_routing/src/graph.rs
   - crates/topology_routing/src/traversal.rs
   - crates/topology_routing/src/lib.rs
   - crates/topology_routing/tests/traversal.rs
@@ -80,3 +81,11 @@ required_followups:
 - TOP-CMD-003
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-GRAPH-005
+amendments:
+- recorded_at: 2026-08-09T13:30:00-05:00
+  author: parent_orchestrator
+  reason: Traversal must include isolated nodes to satisfy the packet's every-node acceptance criterion; the prior scope exposed connections but no node identities. Granting a read-only node-ID iterator is the minimal required API surface.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY after TOP-GRAPH-004 integration.
+  - added crates/topology_routing/src/graph.rs to write scope for a minimal node-ID iterator only.
+  claim_changed: false
