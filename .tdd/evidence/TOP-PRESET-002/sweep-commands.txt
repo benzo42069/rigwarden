@@ -1,0 +1,6 @@
+shell=zsh
+cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+fail_fast_script=set -euo pipefail; cargo test -p topology-preset; cargo fmt --all -- --check; cargo clippy -p topology-preset --all-targets -- -D warnings
+1=cargo test -p topology-preset
+2=cargo fmt --all -- --check
+3=cargo clippy -p topology-preset --all-targets -- -D warnings

@@ -1,0 +1,16 @@
+scope_check_command=git status --short --untracked-files=all -- crates/topology_preset .tdd/evidence/TOP-PRESET-002
+scope_check_note=The shared worktree contains pre-existing parent/integration files; this worker touched only the listed packet paths below.
+
+worker_changes:
+- crates/topology_preset/src/container.rs: adds the versioned internal offline container, bounded serialization/deserialization, metadata/edge/value models, opaque preservation, and structured parse errors.
+- crates/topology_preset/src/lib.rs: exports the container API.
+- crates/topology_preset/tests/container_roundtrip.rs: focused synthetic round-trip and truncation tests with independent literal expectations.
+- .tdd/evidence/TOP-PRESET-002/**: packet copy, environment, RED/GREEN logs, fail-fast sweep logs/statuses, and handoff/review records.
+
+preexisting_parent_or_dependency_files_not_modified:
+- crates/topology_preset/Cargo.toml: parent-created workspace harness.
+- crates/topology_preset/src/document.rs: TOP-PRESET-001 integrated document model.
+- crates/topology_preset/tests/opaque_segment.rs: TOP-PRESET-001 integrated preservation test.
+
+forbidden_paths_untouched_by_worker=Root Cargo.toml, Cargo.lock, apps/**, native/**, device-packs/**, work-items/index.yaml, docs/requirements/traceability.yaml.
+generated_artifacts=Cargo target outputs are ignored build artifacts and are not part of the packet patch.

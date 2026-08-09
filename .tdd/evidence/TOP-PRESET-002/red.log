@@ -1,0 +1,15 @@
+   Compiling topology-preset v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_preset)
+error[E0432]: unresolved imports `topology_preset::DeviceMetadata`, `topology_preset::GraphEdge`, `topology_preset::KnownValue`, `topology_preset::OfflineContainer`, `topology_preset::CONTAINER_SCHEMA_VERSION`
+ --> crates/topology_preset/tests/container_roundtrip.rs:4:5
+  |
+4 |     DeviceMetadata, GraphEdge, KnownValue, OfflineContainer, OpaqueSegment, PresetDocument,
+  |     ^^^^^^^^^^^^^^  ^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^^^^^^^ no `OfflineContainer` in the root
+  |     |               |          |
+  |     |               |          no `KnownValue` in the root
+  |     |               no `GraphEdge` in the root
+  |     no `DeviceMetadata` in the root
+5 |     PresetMetadata, CONTAINER_SCHEMA_VERSION,
+  |                     ^^^^^^^^^^^^^^^^^^^^^^^^ no `CONTAINER_SCHEMA_VERSION` in the root
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-preset` (test "container_roundtrip") due to 1 previous error

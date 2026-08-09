@@ -1,0 +1,3 @@
+shell=zsh
+cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-preset offline_container_preserves_normalized_and_opaque_data -- --exact --nocapture

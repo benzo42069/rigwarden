@@ -1,0 +1,3 @@
+exit_status=0
+accepted_as=GREEN_OBSERVED
+reason=The focused round-trip test passes after the minimum versioned internal container, bounded reader/writer, normalized fields, and opaque-segment preservation implementation.

@@ -1,0 +1,3 @@
+exit_status=0
+accepted_as=GREEN_OBSERVED_AFTER_TEST_REFACTOR
+reason=After strengthening the focused assertions with independent literal metadata, graph-edge, known-value, and opaque-byte expectations, the focused test remains green.

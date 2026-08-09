@@ -1,0 +1,17 @@
+timestamp_utc=2026-08-09T19:32:44Z
+timestamp_local=2026-08-09T14:32:44-0500
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+requested_public_base=ef305c8f8f42e66e9419f0de6322c9f85b6265ca; shared worktree was already at the parent/integration commit above when this packet began
+worktree=shared main worktree; pre-existing parent/integration and other-agent changes present
+dirty_state=572 paths reported by git status before final evidence; unrelated changes preserved
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+rust_toolchain=1.97.0-aarch64-apple-darwin (overridden by rust-toolchain.toml)
+flutter=Flutter 3.44.9 stable; Dart version not required by this Rust packet
+os=macOS 26.5 arm64
+codex_routing=requested gpt-5.6-luna/max per packet; effective runtime metadata unavailable in this worker evidence
+workspace_harness=topology-preset is present as parent-created product-empty workspace member; root Cargo.toml/Cargo.lock are forbidden worker paths
+fixture_environment=synthetic in-test values only; no protocol/vendor/hardware fixture required
+baseline=cargo test -p topology-preset -- --nocapture exited 0 before adding container test
