@@ -1,6 +1,6 @@
 # TOP-CMD-002 handoff
 
-Status: `REVIEW_APPROVED_INTEGRATION_PENDING`
+Status: `INTEGRATED`
 Work-item: `TOP-CMD-002`
 
 ## Behavior delivered
@@ -59,13 +59,13 @@ Unavailable:
 
 ## Review and integration
 
-This is an uncommitted candidate in the shared worktree. The first independent
-security review recorded a valid fail-open finding; the tightly coupled
-test-first correction is now implemented, independently re-reviewed, and
-approved at candidate level. It is not integrated and is not self-approved.
-Parent should land only the bounded source/test/evidence paths, rerun the
-focused commands plus all four required sweeps from the integration state, and
-update packet/index status.
+The first independent security review recorded a valid fail-open finding; the
+tightly coupled test-first correction was independently re-reviewed and
+approved. Parent landed the bounded source/test/evidence paths in public
+candidate commit `b9ac4b8af81e86feedfa6992c095d7c436147c7b`, confirmed the
+published source and review blobs match this evidence, and reran both focused
+tests plus all four required sweeps successfully. Packet and index status are
+now `INTEGRATED`; see `integration-sweep.md`.
 
 Suggested next packet: none required by TOP-CMD-002; dependent work remains
 parent-scheduled after integration.

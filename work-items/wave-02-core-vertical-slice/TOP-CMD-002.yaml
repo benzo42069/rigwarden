@@ -2,7 +2,7 @@ id: TOP-CMD-002
 kind: implementation
 epic: TOP-400
 title: Reject every write mutation in an unknown-firmware read-only session
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-005
@@ -90,4 +90,10 @@ amendments:
   reason: TOP-REG-002 and TOP-CMD-001 are integrated with reviewed immutable-tree sweeps; the packet's dependency status was stale.
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:43:00-05:00
+  author: parent_orchestrator
+  reason: Reviewed candidate b9ac4b8 was landed on public main and the two focused tests plus all four required integration sweeps passed against matching published blobs.
+  changes:
+  - status advanced from READY to INTEGRATED.
   claim_changed: false

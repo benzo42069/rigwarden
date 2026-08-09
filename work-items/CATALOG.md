@@ -35,7 +35,7 @@ Generated from 65 detailed packets.
 |---|---|---|---|---|
 | `TOP-A11Y-001` | BLOCKED_DEPENDENCY | high | Expose a serial signal path as an ordered nonvisual route | TOP-GRAPH-002, TOP-GRAPH-005, TOP-UI-001 |
 | `TOP-CMD-001` | INTEGRATED | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001, TOP-REG-003 |
-| `TOP-CMD-002` | READY | high | Reject every write mutation in an unknown-firmware read-only session | TOP-REG-002, TOP-CMD-001 |
+| `TOP-CMD-002` | INTEGRATED | high | Reject every write mutation in an unknown-firmware read-only session | TOP-REG-002, TOP-CMD-001 |
 | `TOP-CMD-003` | BLOCKED_DEPENDENCY | high | Order independent graph mutations deterministically | TOP-CMD-001, TOP-GRAPH-005 |
 | `TOP-DOM-001` | BLOCKED_DEPENDENCY | high | Reject blank device-family identifiers | TOP-BOOT-002, TOP-BOOT-004 |
 | `TOP-DOM-002` | BLOCKED_DEPENDENCY | high | Preserve a nonblank firmware identifier without semantic-version assumptions | TOP-DOM-001 |

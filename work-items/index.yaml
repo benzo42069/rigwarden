@@ -160,7 +160,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-CMD-001.yaml
   - id: TOP-CMD-002
     title: Reject every write mutation in an unknown-firmware read-only session
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-REG-002

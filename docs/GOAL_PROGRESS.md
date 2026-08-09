@@ -16,6 +16,7 @@
 - **Integrated:** `TOP-GRAPH-001` (stable routing node identity), `TOP-GRAPH-002` (typed output-to-input connection with source/destination guards), `TOP-GRAPH-003` (missing-source-port rejection without mutation), `TOP-GRAPH-004` (explicit policy-based cycle rejection), and `TOP-GRAPH-005` (deterministic topological traversal) after independent review and post-landing sweeps.
 - **Integrated:** `TOP-REG-001` (exact in-memory device/firmware profile resolution with explicit profile-derived write capability), `TOP-REG-002` (known-family/model unknown firmware becomes read-only), and `TOP-REG-003` (profile-owned fixed-point numeric metadata) after independent review and post-landing sweeps.
 - **Integrated:** `TOP-FFI-000` (pinned Flutter Rust Bridge 2.12.0 generated harness and Cargokit wiring; `BUILD_CODEGEN_VERIFIED` only) and `TOP-CMD-001` (profile-bound semantic numeric mutation validation; `UNIT_VERIFIED` only) after public candidate commit `a4cbb8d` matched reviewed blobs and passed immutable-tree sweeps.
+- **Integrated:** `TOP-CMD-002` (unknown-firmware sessions and contradictory read-only profiles both reject write planning before parameter mapping; `UNIT_VERIFIED` and `READ_ONLY` only) after independent security review and public candidate commit `b9ac4b8` matched reviewed blobs and passed its focused and required integration sweeps.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -28,6 +29,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** public candidate `a4cbb8d` matched the reviewed bridge/command blobs; bridge generator/Rust/Flutter/format/static checks and command focused/package/registry/format/Clippy checks all exited 0.
+**Last completed integration sweep:** public candidate `b9ac4b8` matched the reviewed command blobs; both read-only focused tests plus command package, registry package, workspace format, and command Clippy checks all exited 0.
 
-**Next dependency-complete group:** `TOP-FFI-001`, `TOP-CMD-002`, and `TOP-CMD-003` are unblocked. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** `TOP-FFI-001` and `TOP-CMD-003` are unblocked. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
