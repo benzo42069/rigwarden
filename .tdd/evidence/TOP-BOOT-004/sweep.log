@@ -1,0 +1,21 @@
+[1] bash scripts/ci-local.sh (stdout excerpt)
+==> rust_fmt
+==> rust_clippy
+==> rust_test
+test harness_compiles ... ok
+==> flutter_format
+Formatted 2 files (0 changed)
+==> flutter_analyze
+No issues found!
+==> flutter_test
+00:00 +1: All tests passed!
+
+[2] bash -n scripts/ci-local.sh
+(no stdout or stderr)
+
+[3] trailing-whitespace scan
+(no stdout or stderr)
+
+[4] injected stage matrix
+rust_fmt=97; rust_clippy=97; rust_test=97; flutter_format=97; flutter_analyze=97; flutter_test=97.
+Each invocation stopped before later-stage headers.

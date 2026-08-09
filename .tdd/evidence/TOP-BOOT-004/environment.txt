@@ -1,0 +1,8 @@
+Recorded: 2026-08-09T09:22:36-0500
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch/worktree: main; primary worktree
+Starting commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+Dirty-state summary: pre-existing unpublished packet/evidence and public-API integration changes exist; CI writes are limited to this packet's granted workflow, script, and evidence paths.
+Host: macOS 26.5 arm64; Rust/Cargo 1.97.0; Flutter 3.44.9/Dart 3.12.2
+Xcode: 26.5; Android SDK/JDK/Gradle unavailable; no devices or hardware used.
+Claim boundary: local CI harness only; no release, platform-device, or hardware claim.

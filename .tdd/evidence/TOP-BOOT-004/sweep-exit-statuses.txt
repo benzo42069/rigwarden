@@ -1,0 +1,4 @@
+1. normal local CI: 0
+2. shell syntax: 0
+3. trailing-whitespace scan: 0
+4. injected stage matrix: 0 (each child exited 97 as required)

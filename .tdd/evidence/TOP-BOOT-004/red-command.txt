@@ -1,0 +1,4 @@
+Shell: bash
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Command:
+bash -n scripts/ci-local.sh && TOPOLOGY_CI_SELF_TEST_FAIL_STAGE=rust_fmt bash scripts/ci-local.sh

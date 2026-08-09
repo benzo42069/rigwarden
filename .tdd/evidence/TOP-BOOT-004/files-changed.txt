@@ -1,0 +1,7 @@
+- A scripts/ci-local.sh
+- A .github/workflows/ci.yml (installs rustfmt and clippy on the minimal Rust profile)
+- M work-items/wave-01-bootstrap/TOP-BOOT-004.yaml (dependency-status and focused-GREEN command amendments)
+- M work-items/index.yaml (TOP-BOOT-004 moves from BLOCKED_DEPENDENCY to READY after its integrated dependencies)
+- A .tdd/evidence/TOP-BOOT-004/**
+
+No product Rust/Dart/native/device-pack path changed.

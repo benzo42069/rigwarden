@@ -1,0 +1,3 @@
+Exit status: 0
+Decision: GREEN_OBSERVED
+Reason: test-only intermediate rust_clippy failure exits 97 after rust_fmt and prevents rust_test and every Flutter stage.

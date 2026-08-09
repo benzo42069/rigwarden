@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Command:
+set +e; TOPOLOGY_CI_SELF_TEST_FAIL_STAGE=rust_clippy bash scripts/ci-local.sh; exit_code=$?; test "$exit_code" -eq 97

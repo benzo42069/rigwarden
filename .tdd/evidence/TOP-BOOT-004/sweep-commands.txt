@@ -1,0 +1,4 @@
+1. bash scripts/ci-local.sh
+2. bash -n scripts/ci-local.sh
+3. fail-fast trailing-whitespace scan of scripts/ci-local.sh, .github/workflows/ci.yml, and work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
+4. Inject each declared CI stage and require exit status 97.

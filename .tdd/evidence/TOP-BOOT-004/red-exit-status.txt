@@ -1,0 +1,3 @@
+Exit status: 127
+Decision: ACCEPTED_RED
+Reason: the required CI script was absent; no existing product test or SDK failure caused RED.
