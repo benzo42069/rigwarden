@@ -126,7 +126,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-007.yaml
   - id: TOP-BOOT-008
     title: Reject production asset manifests containing SVG files
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-005

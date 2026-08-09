@@ -1,0 +1,4 @@
+Candidate public source/evidence commit: 4135735288120240d4b8d6461dff460c5c244218
+Integration owner: /root
+Commit message: Add reviewed SVG asset manifest policy
+The packet/index status update is committed separately after the recorded integration rerun.

@@ -1,0 +1,8 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Public candidate checked: 4135735288120240d4b8d6461dff460c5c244218
+1. gh api repos/benzo42069/rigwarden/git/commits/4135735288120240d4b8d6461dff460c5c244218 --jq .sha
+2. cargo test -p topology-devtools production_svg_asset_is_rejected -- --exact --nocapture
+3. cargo test -p topology-devtools
+4. cargo fmt --all -- --check
+5. cargo clippy -p topology-devtools --all-targets -- -D warnings

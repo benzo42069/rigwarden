@@ -2,7 +2,7 @@
 
 **Goal started:** 2026-08-09T09:35:00-05:00  
 **Goal-start commit:** `536d8901ac91ecdbc15e09356800d9f46be401dd` (local worktree; public integration commits are recorded in packet evidence)  
-**Phase:** Core vertical-slice dependency chain
+**Phase:** Bootstrap validator chain, then core vertical-slice dependency chain
 
 ## Frozen in-scope work items
 
@@ -10,9 +10,9 @@
 
 ## Current status
 
-- **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`–`TOP-BOOT-005`, `TOP-DOM-001`.
+- **Integrated:** `TOP-RSCH-001`–`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`–`TOP-BOOT-008`, `TOP-DOM-001`–`TOP-DOM-002`.
 - **Historical review failure:** `TOP-BOOT-002`; superseded only for its missing audit evidence by `TOP-BOOT-002R`, whose source scope is product-empty and independently reviewed.
-- **Ready after this integration:** `TOP-BOOT-006`, `TOP-BOOT-007`, `TOP-BOOT-008`, and `TOP-DOM-002`; each still requires its own observed TDD cycle, independent review, and integration.
+- **Ready after this integration:** `TOP-BOOT-009`, `TOP-DOM-003`, and `TOP-GRAPH-001`; each still requires its own observed TDD cycle, independent review, and integration.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -25,6 +25,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-BOOT-005` and `TOP-DOM-001` focused tests, workspace formatter, clippy with warnings denied, and workspace tests exited 0 after reviewed public source/evidence commit `bfaf0ae08568a13975ed234e20236b8117cf3aa4`.
+**Last completed integration sweep:** `TOP-BOOT-008` focused test, package tests, workspace formatter, and Clippy with warnings denied exited 0 after reviewed public source/evidence commit `4135735288120240d4b8d6461dff460c5c244218`.
 
-**Next dependency-complete group:** `TOP-BOOT-006`, `TOP-BOOT-007`, `TOP-BOOT-008`, and `TOP-DOM-002`, scheduled by their disjoint source scopes.
+**Next dependency-complete group:** `TOP-BOOT-009`, `TOP-DOM-003`, and `TOP-GRAPH-001`, after their packet statuses are promoted to `READY` by the integration owner and their write scopes are confirmed disjoint.

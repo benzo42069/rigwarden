@@ -2,7 +2,15 @@ id: TOP-BOOT-008
 kind: implementation
 epic: TOP-000
 title: Reject production asset manifests containing SVG files
-status: BLOCKED_DEPENDENCY
+status: INTEGRATED
+amendments:
+- recorded_at: '2026-08-09T12:05:00-05:00'
+  author: parent_orchestrator
+  field: scope.write
+  old: assets.rs and asset_policy.rs only
+  new: add crates/topology_devtools/src/lib.rs module export
+  reason: Mechanical Rust crate wiring needed to reach the declared validator from its integration test; behavior and claims are unchanged.
+  claim_changed: false
 priority: high
 requirement_ids:
 - UI-006
@@ -19,6 +27,7 @@ scope:
   - docs/THEME_AND_ASSET_SYSTEM.md
   - crates/topology_devtools/**
   write:
+  - crates/topology_devtools/src/lib.rs
   - crates/topology_devtools/src/assets.rs
   - crates/topology_devtools/tests/asset_policy.rs
   - .tdd/evidence/TOP-BOOT-008/**

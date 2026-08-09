@@ -1,0 +1,5 @@
+1. public commit identity: 0
+2. focused test: 0
+3. package tests: 0
+4. cargo fmt --all -- --check: 0
+5. cargo clippy -p topology-devtools --all-targets -- -D warnings: 0

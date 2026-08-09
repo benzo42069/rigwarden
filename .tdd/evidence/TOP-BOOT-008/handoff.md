@@ -1,6 +1,6 @@
 # TOP-BOOT-008 handoff
 
-Status: REVIEW_APPROVED; integration rerun and public status update pending.
+Status: INTEGRATED.
 
 Delivered behavior: `validate_manifest` rejects each declared production static asset whose extension is `.svg`, case-insensitively, with stable `production_svg_forbidden` diagnostics. PNG declarations are accepted. Test-only SVG fixtures, dynamically rendered functional graphics, and declared procedural knobs are accepted because they are not production static assets.
 
@@ -10,6 +10,6 @@ Files changed: `crates/topology_devtools/src/lib.rs`, `src/assets.rs`, `tests/as
 
 Evidence: the first focused RED exits 101 solely for the missing asset-manifest API; the second focused RED exits 101 solely for the packet-required procedural-knob constructor; `final-green.*` and `final-sweep.*` were recaptured against the final candidate and all exit 0. Earlier green/sweep records are retained rather than rewritten.
 
-Claims after review/integration: `UNIT_VERIFIED` only. Unavailable: `VISUAL_ASSET_COMPLETE`, `PLATFORM_DEVICE_VERIFIED`, and any hardware verification.
+Claims after review/integration: `UNIT_VERIFIED` only. Unavailable: `VISUAL_ASSET_COMPLETE`, `PLATFORM_DEVICE_VERIFIED`, and any hardware verification. Public source commit: `4135735288120240d4b8d6461dff460c5c244218`; integration rerun is recorded in `integration-sweep.*`.
 
 Shared-file proposals: none. Next independent bootstrap packet: TOP-BOOT-009 once its status is made READY from its already integrated dependencies.
