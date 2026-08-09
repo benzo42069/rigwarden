@@ -1,0 +1,22 @@
+Candidate scope (local Git HEAD is stale; bootstrap files are untracked in this extraction):
+
+M  Cargo.lock
+   Added the topology-bridge -> topology-domain path dependency edge and its resolved package graph. This path was explicitly granted by the 17:02 packet amendment.
+A  crates/topology_bridge/Cargo.toml
+   Existing TOP-FFI-000 bridge manifest; this cycle adds only topology-domain = { path = "../topology_domain" }.
+A  crates/topology_bridge/src/api/mod.rs
+   Adds the Rust-owned DeviceIdentityHandle, validated fixture factory, and read-only generated getters.
+A  crates/topology_bridge/src/frb_generated.rs
+   Regenerated FRB Rust glue for the factory and four sync getters.
+A  apps/mobile_flutter/lib/core/bridge/generated/api.dart
+   Regenerated typed Dart endpoint and opaque-handle field interface.
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.dart
+   Regenerated Dart FRB runtime/API glue.
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.io.dart
+   Regenerated IO platform glue for the generated handle.
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.web.dart
+   Regenerated web platform glue for the generated handle.
+A  apps/mobile_flutter/test/core/bridge/device_identity_test.dart
+   Focused integration test calling generated readFixtureDeviceIdentity and asserting exact fields.
+
+Pre-existing TOP-FFI-000 files visible as untracked because local Git HEAD predates the parent integration are not behavior changes from this cycle: crates/topology_bridge/.gitignore and src/lib.rs. The ignored crates/topology_bridge/target/** release/debug artifacts are build outputs only and are not in the candidate patch. No root Cargo.toml, Flutter pubspec, native, device-pack, index, or traceability files were edited.

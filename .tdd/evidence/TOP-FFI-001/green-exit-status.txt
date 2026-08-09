@@ -1,0 +1,3 @@
+0
+accepted: YES (minimum GREEN)
+reason: The test initialized the generated FRB runtime, called the generated readFixtureDeviceIdentity endpoint, and asserted exact family/model/firmware/transportEndpoint values returned from Rust.

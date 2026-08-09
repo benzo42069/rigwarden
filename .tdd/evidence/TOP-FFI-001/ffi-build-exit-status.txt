@@ -1,0 +1,3 @@
+0
+artifact: crates/topology_bridge/target/release/libtopology_bridge.dylib
+note: target/ is ignored build output; no build artifact is part of the candidate patch.

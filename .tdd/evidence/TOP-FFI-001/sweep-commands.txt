@@ -1,0 +1,18 @@
+Each command was run separately from the recorded working directory; required commands were not chained past a failure. The final global formatter command is preserved even though it exposes an unrelated pre-existing workspace diff.
+
+1. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+   flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error
+2. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+   CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release
+3. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+   cargo test -p topology-bridge
+4. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+   flutter test test/core/bridge/device_identity_test.dart
+5. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+   flutter analyze
+6. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+   cargo fmt -p topology-bridge -- --check
+7. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+   cargo fmt --all -- --check
+8. cwd=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1 (rerun after concurrent CMD002 formatting correction)
+   cargo fmt --all -- --check

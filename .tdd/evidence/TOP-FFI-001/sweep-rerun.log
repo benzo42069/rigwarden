@@ -1,0 +1,2 @@
+===== rerun: cargo fmt --all -- --check (repository root) =====
+exit=0

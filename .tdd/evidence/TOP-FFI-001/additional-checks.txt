@@ -1,0 +1,9 @@
+Additional non-required checks run after the required packet cycle:
+
+- `cargo test --workspace` (repository root): exit 0; all workspace unit/integration/doc tests passed.
+- `cargo test -p topology-bridge --locked` (repository root): exit 0; bridge crate test target passed with the amended lockfile.
+- `cargo clippy -p topology-bridge --all-targets -- -D warnings` (repository root): exit 0; no warnings.
+- `dart format --output=none --set-exit-if-changed test/core/bridge/device_identity_test.dart` (apps/mobile_flutter): exit 0; file unchanged.
+- Presentation API token check (`rg` for `ffi|Pointer|Uint8List|bytes|raw` in generated api.dart): no matches; exit 0.
+
+These checks do not replace the required commands or the independent review/integration rerun.

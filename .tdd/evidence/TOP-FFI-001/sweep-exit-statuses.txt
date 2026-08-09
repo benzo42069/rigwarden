@@ -1,0 +1,8 @@
+1. flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error: 0
+2. CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release: 0
+3. cargo test -p topology-bridge: 0
+4. flutter test test/core/bridge/device_identity_test.dart: 0
+5. flutter analyze: 0
+6. cargo fmt -p topology-bridge -- --check: 0
+7. cargo fmt --all -- --check: 1 (initial run; BLOCKED_CONCURRENT pre-existing formatting diff in crates/topology_command_engine/tests/read_only.rs, outside packet scope)
+8. cargo fmt --all -- --check (rerun after CMD002 correction): 0
