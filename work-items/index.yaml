@@ -168,7 +168,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-CMD-002.yaml
   - id: TOP-CMD-003
     title: Order independent graph mutations deterministically
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-CMD-001

@@ -2,7 +2,7 @@ id: TOP-CMD-003
 kind: implementation
 epic: TOP-400
 title: Order independent graph mutations deterministically
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - GRAPH-008
@@ -91,4 +91,10 @@ amendments:
   reason: TOP-CMD-001 and TOP-GRAPH-005 are both integrated on public main; the prior dependency block was stale.
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
+- recorded_at: 2026-08-09T17:36:00-05:00
+  author: parent_orchestrator
+  reason: Reviewed candidate 906816f was landed on public main and the focused deterministic-order test plus every required integration sweep passed against matching published blobs.
+  changes:
+  - status advanced from READY to INTEGRATED.
   claim_changed: false

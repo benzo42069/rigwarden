@@ -1,6 +1,6 @@
 # TOP-CMD-003 handoff
 
-Status: `GREEN_OBSERVED` (independent review and integration rerun pending)
+Status: `INTEGRATED`
 
 ## Delivered
 
@@ -36,9 +36,11 @@ behavior.
 
 ## Integration notes
 
-- No commit was created; this is a shared dirty worktree candidate. The parent
-  must land the bounded source/test/evidence paths and rerun the focused test
-  plus all required sweeps from the immutable integration commit.
+- Independent review approved the candidate. Parent published the bounded
+  source/test/evidence paths in public commit
+  `906816f16b5dde8465dc4f7a7899c497d59385f3`, matched the reviewed blobs, and
+  reran the focused test plus all required sweeps successfully. Packet and
+  index status are now `INTEGRATED`; see `integration-sweep.md`.
 - The plan API intentionally uses semantic IDs/dependencies only. Later
   simulator/protocol packets may consume `SemanticCommandPlan` but must define
   their own wire and acknowledgement contracts.
