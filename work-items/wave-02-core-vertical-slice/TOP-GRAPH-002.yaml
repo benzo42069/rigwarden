@@ -2,7 +2,7 @@ id: TOP-GRAPH-002
 kind: implementation
 epic: TOP-300
 title: Accept one valid serial connection between existing compatible ports
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - GRAPH-003
