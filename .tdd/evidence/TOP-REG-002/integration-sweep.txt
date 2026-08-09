@@ -1,0 +1,12 @@
+Integration base: fa47e981c082f713e045ef88dc68036028e3f334
+Integration date: 2026-08-09
+
+Commands rerun by parent integration owner from the final reviewed candidate worktree:
+
+- cargo test -p topology-device-registry unknown_firmware_never_inherits_write_capability -- --exact --nocapture: 0
+- cargo test -p topology-device-registry: 0
+- cargo test -p topology-domain: 0
+- cargo fmt --all -- --check: 0
+- cargo clippy -p topology-device-registry --all-targets -- -D warnings: 0
+
+This transition earns only UNIT_VERIFIED and READ_ONLY for the tested in-memory unknown-firmware outcome. Byte fixture, protocol, transport, simulator, platform, accessibility, and hardware claims remain unavailable.

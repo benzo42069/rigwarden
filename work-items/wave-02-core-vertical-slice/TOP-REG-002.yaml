@@ -2,7 +2,7 @@ id: TOP-REG-002
 kind: implementation
 epic: TOP-100
 title: Unknown firmware resolves to a non-writable session
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - DEV-005
