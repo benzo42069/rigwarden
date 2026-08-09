@@ -1,0 +1,1 @@
+zsh:5: command not found: cargo test -p topology-device-registry exact_numeric_parameter_metadata_is_profile_owned -- --exact --nocapture

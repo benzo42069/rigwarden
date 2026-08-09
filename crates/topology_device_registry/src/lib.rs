@@ -3,6 +3,6 @@
 mod resolve;
 
 pub use resolve::{
-    DeviceProfile, DeviceRegistry, ResolutionProvenance, ResolutionStatus, ResolvedProfile,
-    SessionCapabilities, VerificationStatus,
+    DeviceProfile, DeviceRegistry, NumericParameterMetadata, ResolutionProvenance,
+    ResolutionStatus, ResolvedProfile, SessionCapabilities, VerificationStatus,
 };

@@ -1,0 +1,3 @@
+127
+accepted_as_intended_red=no
+reason=invalid harness: zsh attempted to execute the entire command string as one command and never reached Cargo or the target registry test.

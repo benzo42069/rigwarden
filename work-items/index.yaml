@@ -156,6 +156,7 @@ waves:
     priority: high
     depends_on:
     - TOP-REG-001
+    - TOP-REG-003
     path: work-items/wave-02-core-vertical-slice/TOP-CMD-001.yaml
   - id: TOP-CMD-002
     title: Reject every write mutation in an unknown-firmware read-only session
@@ -213,7 +214,15 @@ waves:
     depends_on:
     - TOP-DOM-003
     - TOP-BOOT-003
+    - TOP-FFI-000
     path: work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
+  - id: TOP-FFI-000
+    title: Bootstrap the generated Rust-Dart bridge harness without a product API
+    status: READY
+    priority: high
+    depends_on:
+    - TOP-BOOT-003
+    path: work-items/wave-02-core-vertical-slice/TOP-FFI-000.yaml
   - id: TOP-GRAPH-001
     title: Create graph nodes with stable typed identities
     status: INTEGRATED
@@ -279,6 +288,13 @@ waves:
     depends_on:
     - TOP-REG-001
     path: work-items/wave-02-core-vertical-slice/TOP-REG-002.yaml
+  - id: TOP-REG-003
+    title: Expose one exact numeric parameter range from an in-memory device profile
+    status: INTEGRATED
+    priority: high
+    depends_on:
+    - TOP-REG-001
+    path: work-items/wave-02-core-vertical-slice/TOP-REG-003.yaml
   - id: TOP-SIM-001
     title: Complete one scripted request-response exchange with deterministic correlation
     status: BLOCKED_DEPENDENCY

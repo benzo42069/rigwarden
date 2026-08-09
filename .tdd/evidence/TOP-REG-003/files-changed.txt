@@ -1,0 +1,11 @@
+TOP-REG-003 candidate files (integration owner must review shared worktree):
+M crates/topology_device_registry/src/lib.rs (re-export NumericParameterMetadata)
+M crates/topology_device_registry/src/resolve.rs (profile-owned fixed-point metadata catalog and exact lookup)
+A crates/topology_device_registry/tests/numeric_parameter_metadata.rs (focused exact lookup/missing/unknown-firmware test)
+A .tdd/evidence/TOP-REG-003/** (packet copy, environment, RED/GREEN/sweep logs, handoff, pending review)
+
+git status for owned paths:
+?? .tdd/evidence/TOP-REG-003/
+?? crates/topology_device_registry/
+
+tracked diff summary (registry files are currently untracked in this shared worktree):

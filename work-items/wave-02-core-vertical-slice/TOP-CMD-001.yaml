@@ -9,6 +9,7 @@ requirement_ids:
 - TRANSPORT-001
 depends_on:
 - TOP-REG-001
+- TOP-REG-003
 parallel_group: core-command-a
 agent:
   preferred_role: topology_implementer
@@ -34,7 +35,7 @@ scope:
 behavior:
   why: Manual and AI edits need the same typed local validation before protocol encoding.
   given:
-  - Exact writable test profile declares block `amp-1`, parameter `gain`, numeric range 0.0���10.0.
+  - Exact writable test profile declares block `amp-1`, parameter `gain`, numeric range 0.0–10.0.
   - Mutation requests 4.5.
   when:
   - Mutation validation runs.
@@ -94,6 +95,19 @@ amendments:
 - recorded_at: 2026-08-09T14:30:00-05:00
   author: parent_orchestrator
   reason: TOP-REG-001 is integrated with reviewed exact-profile capability behavior; dependency status was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
+- recorded_at: 2026-08-09T15:05:00-05:00
+  author: parent_orchestrator
+  reason: Architecture assigns parameter catalogs to device profiles, but TOP-CMD-001's original write scope could only create a command-local duplicate. TOP-REG-003 now provides the smallest typed profile-owned numeric metadata prerequisite.
+  changes:
+  - status changed from READY to BLOCKED_DEPENDENCY until TOP-REG-003 is integrated.
+  - depends_on gained TOP-REG-003.
+  claim_changed: false
+- recorded_at: 2026-08-09T15:18:00-05:00
+  author: parent_orchestrator
+  reason: TOP-REG-003 is integrated with reviewed profile-owned fixed-point metadata, satisfying the command packet's metadata prerequisite without a duplicate command-local source of truth.
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
   claim_changed: false

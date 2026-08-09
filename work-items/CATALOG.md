@@ -1,6 +1,6 @@
 # Work Item Catalog
 
-Generated from 62 detailed packets.
+Generated from 65 detailed packets.
 
 ## wave-00-research
 
@@ -34,14 +34,15 @@ Generated from 62 detailed packets.
 | ID | Status | Priority | Title | Dependencies |
 |---|---|---|---|---|
 | `TOP-A11Y-001` | BLOCKED_DEPENDENCY | high | Expose a serial signal path as an ordered nonvisual route | TOP-GRAPH-002, TOP-GRAPH-005, TOP-UI-001 |
-| `TOP-CMD-001` | BLOCKED_DEPENDENCY | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001 |
+| `TOP-CMD-001` | READY | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001, TOP-REG-003 |
 | `TOP-CMD-002` | BLOCKED_DEPENDENCY | high | Reject every write mutation in an unknown-firmware read-only session | TOP-REG-002, TOP-CMD-001 |
 | `TOP-CMD-003` | BLOCKED_DEPENDENCY | high | Order independent graph mutations deterministically | TOP-CMD-001, TOP-GRAPH-005 |
 | `TOP-DOM-001` | BLOCKED_DEPENDENCY | high | Reject blank device-family identifiers | TOP-BOOT-002, TOP-BOOT-004 |
 | `TOP-DOM-002` | BLOCKED_DEPENDENCY | high | Preserve a nonblank firmware identifier without semantic-version assumptions | TOP-DOM-001 |
 | `TOP-DOM-003` | BLOCKED_DEPENDENCY | high | Represent an identified device with family, model, firmware, and transport endpoint | TOP-DOM-001, TOP-DOM-002 |
 | `TOP-E2E-001` | BLOCKED_DEPENDENCY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
-| `TOP-FFI-001` | BLOCKED_DEPENDENCY | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003 |
+| `TOP-FFI-000` | READY | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
+| `TOP-FFI-001` | BLOCKED_DEPENDENCY | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
 | `TOP-GRAPH-001` | BLOCKED_DEPENDENCY | high | Create graph nodes with stable typed identities | TOP-DOM-001 |
 | `TOP-GRAPH-002` | BLOCKED_DEPENDENCY | high | Accept one valid serial connection between existing compatible ports | TOP-GRAPH-001 |
 | `TOP-GRAPH-003` | BLOCKED_DEPENDENCY | high | Reject a connection whose source node or port does not exist | TOP-GRAPH-002 |
@@ -51,6 +52,7 @@ Generated from 62 detailed packets.
 | `TOP-PRESET-002` | BLOCKED_DEPENDENCY | high | Round-trip the initial RigWarden offline container without losing opaque bytes | TOP-PRESET-001 |
 | `TOP-REG-001` | BLOCKED_DEPENDENCY | high | Resolve an exact device and firmware profile as writable | TOP-DOM-003 |
 | `TOP-REG-002` | BLOCKED_DEPENDENCY | high | Unknown firmware resolves to a non-writable session | TOP-REG-001 |
+| `TOP-REG-003` | INTEGRATED | high | Expose one exact numeric parameter range from an in-memory device profile | TOP-REG-001 |
 | `TOP-SIM-001` | BLOCKED_DEPENDENCY | high | Complete one scripted request-response exchange with deterministic correlation | TOP-CMD-003 |
 | `TOP-SIM-002` | BLOCKED_DEPENDENCY | high | Reject a stale response from a previous connection generation | TOP-SIM-001 |
 | `TOP-UI-001` | BLOCKED_DEPENDENCY | high | Adapt the session shell between narrow phone and wide tablet layouts | TOP-BOOT-003, TOP-FFI-001 |

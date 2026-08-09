@@ -1,0 +1,52 @@
+   Compiling topology-device-registry v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry)
+error[E0432]: unresolved import `topology_device_registry::NumericParameterMetadata`
+ --> crates/topology_device_registry/tests/numeric_parameter_metadata.rs:2:36
+  |
+2 |     DeviceProfile, DeviceRegistry, NumericParameterMetadata, SessionCapabilities,
+  |                                    ^^^^^^^^^^^^^^^^^^^^^^^^ no `NumericParameterMetadata` in the root
+
+error[E0599]: no method named `with_numeric_parameter` found for struct `DeviceProfile` in the current scope
+  --> crates/topology_device_registry/tests/numeric_parameter_metadata.rs:27:6
+   |
+20 |       let profile = DeviceProfile::new(
+   |  ___________________-
+21 | |         DeviceFamilyId::new("test-family").expect("family fixture should be valid"),
+22 | |         DeviceModelId::new("test-model").expect("model fixture should be valid"),
+23 | |         FirmwareId::new("1.0").expect("firmware fixture should be valid"),
+...  |
+27 | |     .with_numeric_parameter(
+   | |     -^^^^^^^^^^^^^^^^^^^^^^ method not found in `DeviceProfile`
+   | |_____|
+   |
+
+error[E0599]: no method named `numeric_parameter` found for reference `&DeviceProfile` in the current scope
+  --> crates/topology_device_registry/tests/numeric_parameter_metadata.rs:39:10
+   |
+37 |       let gain = resolved
+   |  ________________-
+38 | |         .profile()
+39 | |         .numeric_parameter("amp-1", "gain")
+   | |         -^^^^^^^^^^^^^^^^^ method not found in `&DeviceProfile`
+   | |_________|
+   |
+
+error[E0599]: no method named `numeric_parameter` found for reference `&DeviceProfile` in the current scope
+  --> crates/topology_device_registry/tests/numeric_parameter_metadata.rs:45:32
+   |
+45 |     assert!(resolved.profile().numeric_parameter("amp-1", "missing").is_none());
+   |                                ^^^^^^^^^^^^^^^^^ method not found in `&DeviceProfile`
+
+error[E0599]: no method named `numeric_parameter` found for reference `&DeviceProfile` in the current scope
+  --> crates/topology_device_registry/tests/numeric_parameter_metadata.rs:52:10
+   |
+50 |       assert!(unknown
+   |  _____________-
+51 | |         .profile()
+52 | |         .numeric_parameter("amp-1", "gain")
+   | |         -^^^^^^^^^^^^^^^^^ method not found in `&DeviceProfile`
+   | |_________|
+   |
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `topology-device-registry` (test "numeric_parameter_metadata") due to 5 previous errors

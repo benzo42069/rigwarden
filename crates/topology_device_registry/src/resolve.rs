@@ -1,5 +1,50 @@
 use topology_domain::{DeviceFamilyId, DeviceIdentity, DeviceModelId, FirmwareId};
 
+/// An exact numeric parameter definition owned by a device profile.
+///
+/// Values are represented in the profile's literal stored integer units. The
+/// decimal precision is metadata for presentation/entry and never requires a
+/// floating-point representation.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NumericParameterMetadata {
+    min_stored: i32,
+    max_stored: i32,
+    decimal_places: u8,
+}
+
+impl NumericParameterMetadata {
+    /// Construct a numeric definition from literal stored bounds and precision.
+    pub const fn new(min_stored: i32, max_stored: i32, decimal_places: u8) -> Self {
+        Self {
+            min_stored,
+            max_stored,
+            decimal_places,
+        }
+    }
+
+    /// Return the inclusive minimum in the profile's stored integer units.
+    pub const fn min_stored(self) -> i32 {
+        self.min_stored
+    }
+
+    /// Return the inclusive maximum in the profile's stored integer units.
+    pub const fn max_stored(self) -> i32 {
+        self.max_stored
+    }
+
+    /// Return the number of decimal places used to present the stored value.
+    pub const fn decimal_places(self) -> u8 {
+        self.decimal_places
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+struct NumericParameterDefinition {
+    block_id: String,
+    parameter_id: String,
+    metadata: NumericParameterMetadata,
+}
+
 /// The capabilities granted to a resolved device session.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SessionCapabilities {
@@ -43,6 +88,7 @@ pub struct DeviceProfile {
     firmware: FirmwareId,
     capabilities: SessionCapabilities,
     verification_status: VerificationStatus,
+    numeric_parameters: Vec<NumericParameterDefinition>,
 }
 
 impl DeviceProfile {
@@ -60,7 +106,57 @@ impl DeviceProfile {
             firmware,
             capabilities,
             verification_status,
+            numeric_parameters: Vec::new(),
         }
+    }
+
+    /// Add or replace one profile-owned numeric parameter definition.
+    pub fn add_numeric_parameter(
+        &mut self,
+        block_id: impl Into<String>,
+        parameter_id: impl Into<String>,
+        metadata: NumericParameterMetadata,
+    ) {
+        let block_id = block_id.into();
+        let parameter_id = parameter_id.into();
+
+        if let Some(existing) = self.numeric_parameters.iter_mut().find(|definition| {
+            definition.block_id == block_id && definition.parameter_id == parameter_id
+        }) {
+            existing.metadata = metadata;
+            return;
+        }
+
+        self.numeric_parameters.push(NumericParameterDefinition {
+            block_id,
+            parameter_id,
+            metadata,
+        });
+    }
+
+    /// Add or replace a numeric parameter definition using builder-style chaining.
+    pub fn with_numeric_parameter(
+        mut self,
+        block_id: impl Into<String>,
+        parameter_id: impl Into<String>,
+        metadata: NumericParameterMetadata,
+    ) -> Self {
+        self.add_numeric_parameter(block_id, parameter_id, metadata);
+        self
+    }
+
+    /// Return an exact numeric definition owned by this profile, if present.
+    pub fn numeric_parameter(
+        &self,
+        block_id: &str,
+        parameter_id: &str,
+    ) -> Option<&NumericParameterMetadata> {
+        self.numeric_parameters
+            .iter()
+            .find(|definition| {
+                definition.block_id == block_id && definition.parameter_id == parameter_id
+            })
+            .map(|definition| &definition.metadata)
     }
 
     /// Return the profile's exact family identifier.

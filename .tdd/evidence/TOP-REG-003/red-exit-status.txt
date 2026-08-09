@@ -1,0 +1,3 @@
+101
+accepted_as_intended_red=yes
+reason=the focused registry test reaches the target package and fails because the requested NumericParameterMetadata/profile lookup API is absent.

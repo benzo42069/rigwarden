@@ -1,0 +1,3 @@
+cargo test -p topology-device-registry exact_numeric_parameter_metadata_is_profile_owned -- --exact --nocapture
+shell=zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
