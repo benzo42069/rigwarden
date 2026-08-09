@@ -8,7 +8,7 @@ requirement_ids:
 - QA-001
 - QA-013
 depends_on:
-- TOP-BOOT-002
+- TOP-BOOT-002R
 - TOP-BOOT-003
 parallel_group: null
 agent:
@@ -49,7 +49,7 @@ non_goals:
 - Live AI tests
 - Creating caches that mask missing lockfiles
 preconditions:
-- TOP-BOOT-002 and TOP-BOOT-003 integrated.
+- TOP-BOOT-002R and TOP-BOOT-003 integrated.
 test:
   layer: build_tooling
   file: scripts/ci-local.sh

@@ -75,11 +75,18 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-001.yaml
   - id: TOP-BOOT-002
     title: Create the minimum Rust workspace and empty domain test harness
-    status: GREEN_OBSERVED
+    status: REVIEW_FAILED
     priority: critical
     depends_on:
     - TOP-BOOT-001
     path: work-items/wave-01-bootstrap/TOP-BOOT-002.yaml
+  - id: TOP-BOOT-002R
+    title: Re-execute the empty Rust bootstrap with auditable TDD evidence
+    status: READY
+    priority: critical
+    depends_on:
+    - TOP-BOOT-001
+    path: work-items/wave-01-bootstrap/TOP-BOOT-002R.yaml
   - id: TOP-BOOT-003
     title: Create the minimum Flutter mobile app and widget-test harness
     status: INTEGRATED
@@ -92,7 +99,7 @@ waves:
     status: BLOCKED_DEPENDENCY
     priority: critical
     depends_on:
-    - TOP-BOOT-002
+    - TOP-BOOT-002R
     - TOP-BOOT-003
     path: work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
   - id: TOP-BOOT-005

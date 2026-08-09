@@ -1,0 +1,9 @@
+Controlled rebootstrap scope:
+
+- Cargo.toml, Cargo.lock, rust-toolchain.toml
+- crates/topology_domain/Cargo.toml
+- crates/topology_domain/src/lib.rs
+- crates/topology_domain/tests/harness.rs
+- .tdd/evidence/TOP-BOOT-002R/**
+
+Only the listed product-empty bootstrap files were removed for RED and recreated unchanged in behavior. No apps, native adapters, device packs, protocol fixtures, or domain behavior changed.

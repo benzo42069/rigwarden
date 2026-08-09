@@ -1,0 +1,13 @@
+*** Begin Patch
+*** Delete File: Cargo.toml
+*** Delete File: Cargo.lock
+*** Delete File: rust-toolchain.toml
+*** Delete File: crates/topology_domain/Cargo.toml
+*** Delete File: crates/topology_domain/src/lib.rs
+*** Delete File: crates/topology_domain/tests/harness.rs
+*** End Patch
+
+Applied by the integration owner before the recorded RED. This patch removes only
+the product-empty bootstrap files listed in the packet; applying it to the
+pre-recreation tree recreates the missing-workspace RED setup without touching
+apps, native adapters, device packs, fixtures, or product behavior.

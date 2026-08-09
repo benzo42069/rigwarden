@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Command:
+cargo test -p topology-domain --test harness -- --nocapture

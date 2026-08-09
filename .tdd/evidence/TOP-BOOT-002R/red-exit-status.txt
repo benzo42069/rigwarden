@@ -1,0 +1,3 @@
+Exit status: 101
+Decision: ACCEPTED_RED
+Reason: after controlled removal of only the product-empty bootstrap files, Cargo reached the intended repository and failed solely because the workspace was absent.

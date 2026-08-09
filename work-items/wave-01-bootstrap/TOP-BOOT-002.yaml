@@ -2,7 +2,7 @@ id: TOP-BOOT-002
 kind: bootstrap
 epic: TOP-000
 title: Create the minimum Rust workspace and empty domain test harness
-status: GREEN_OBSERVED
+status: REVIEW_FAILED
 priority: critical
 requirement_ids:
 - QA-001

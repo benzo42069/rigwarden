@@ -1,0 +1,3 @@
+Exit status: 0
+Decision: GREEN_OBSERVED
+Reason: the recreated empty domain crate links and the focused harness executes successfully.

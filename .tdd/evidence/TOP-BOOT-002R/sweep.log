@@ -1,0 +1,12 @@
+[1] cargo fmt --all -- --check
+(no stdout or stderr; exit 0)
+
+[2] cargo clippy --workspace --all-targets -- -D warnings
+Checking topology-domain v0.0.0
+Finished dev profile with no warnings.
+
+[3] cargo test --workspace
+running 0 tests in topology_domain
+test harness_compiles ... ok
+test result: ok. 1 passed; 0 failed.
+Doc-tests topology_domain: 0 passed; 0 failed.

@@ -1,0 +1,93 @@
+id: TOP-BOOT-002R
+kind: bootstrap
+epic: TOP-000
+title: Re-execute the empty Rust bootstrap with auditable TDD evidence
+status: READY
+priority: critical
+requirement_ids:
+- QA-001
+depends_on:
+- TOP-BOOT-001
+parallel_group: bootstrap-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/ARCHITECTURE.md
+  - AGENTS.md
+  - .tdd/evidence/TOP-BOOT-002/**
+  write:
+  - rust-toolchain.toml
+  - Cargo.toml
+  - Cargo.lock
+  - crates/topology_domain/Cargo.toml
+  - crates/topology_domain/src/lib.rs
+  - crates/topology_domain/tests/harness.rs
+  - .tdd/evidence/TOP-BOOT-002R/**
+  forbidden:
+  - apps/**
+  - native/**
+  - device-packs/**
+  - crates/topology_domain/src/**/*.rs except lib.rs
+  - crates/topology_domain/tests/**/*.rs except harness.rs
+behavior:
+  why: TOP-BOOT-002's candidate harness is product-empty but its historical TDD evidence is incomplete. A clean re-execution is required before later CI or domain work may depend on Rust bootstrap truth.
+  given:
+  - TOP-BOOT-001 is integrated.
+  - Rust/Cargo 1.97.0 are installed.
+  - The current Rust bootstrap is product-empty and may be removed and recreated without data loss.
+  when:
+  - The integration owner removes only the candidate bootstrap files, observes the missing-workspace RED, then recreates the minimum workspace and linkage harness.
+  then:
+  - The focused cargo test reaches the intended absent-workspace RED before recreation.
+  - The focused harness and required Rust sweeps pass after recreation.
+  - Complete raw evidence exists at the resulting immutable public commit.
+non_goals:
+- Implementing a domain type or device identifier
+- Creating future crates or APIs
+- Adding dependencies beyond the standard empty crate
+- Repairing or rewriting TOP-BOOT-002 historical evidence
+preconditions:
+- TOP-BOOT-001 is integrated.
+- The listed bootstrap files still contain no product behavior.
+test:
+  layer: bootstrap_harness
+  file: crates/topology_domain/tests/harness.rs
+  name: harness_compiles
+  red_command: cargo test -p topology-domain --test harness --no-run
+  expected_red:
+    acceptable:
+    - Command fails because Cargo.toml/workspace/test target does not exist after the controlled bootstrap removal.
+    unacceptable:
+    - Rust toolchain is missing.
+    - An unrelated existing Rust package fails.
+    - A network dependency failure occurs.
+  green_command: cargo test -p topology-domain --test harness -- --nocapture
+minimum_green:
+- Use one empty library crate and one linkage test with no product types.
+- Pin the existing 1.97.0 Rust toolchain and lock dependency state.
+- Preserve the historical TOP-BOOT-002 evidence unchanged.
+required_sweeps:
+- cargo fmt --all -- --check
+- cargo clippy --workspace --all-targets -- -D warnings
+- cargo test --workspace
+acceptance:
+- Controlled RED and focused GREEN are raw and command-complete.
+- No product behavior, future crate, dependency, fixture, or hardware claim exists.
+- Required Rust sweeps have separate statuses.
+- Independent reviewer approves the evidence before integration.
+available_claims_after_completion:
+- RUST_HARNESS_EXECUTABLE
+unavailable_claims:
+- UNIT_VERIFIED
+- BYTE_FIXTURE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-004
+- TOP-DOM-001
+block_conditions:
+- Rust/Cargo cannot execute.
+- Existing bootstrap files contain product behavior and cannot be safely re-executed.
+evidence_directory: .tdd/evidence/TOP-BOOT-002R
