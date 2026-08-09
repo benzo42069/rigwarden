@@ -1,0 +1,100 @@
+id: TOP-FM3-E2E-001
+kind: hardware
+epic: TOP-1300
+title: Read a complete physical FM3 preset into the normalized editor
+status: BLOCKED_FIXTURE
+priority: critical
+requirement_ids:
+- PRESET-002
+- GRAPH-001
+- QA-011
+depends_on:
+- TOP-FM3-HIL-001
+- TOP-FM3-HIL-002
+- TOP-PRESET-002
+- TOP-A11Y-001
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_accessibility_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - fixtures/fm3/**
+  - crates/topology_protocol_fm3/**
+  - crates/topology_preset/**
+  - crates/topology_routing/**
+  - apps/mobile_flutter/**
+  - native/**
+  write:
+  - apps/mobile_flutter/integration_test/fm3_preset_read_test.dart
+  - .tdd/evidence/TOP-FM3-E2E-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - device-packs/index.*
+behavior:
+  why: FM3 is the first complete-grid flagship; beta needs a real preset read represented visually and nonvisually.
+  given:
+  - A provenance-approved simple FM3 preset fixture and decoder coverage.
+  - Physical FM3 connected on each advertised primary path under test.
+  when:
+  - Current preset is read.
+  then:
+  - Preset metadata, block instances, connections, channels/scenes, and preserved unknown data enter normalized document.
+  - Visual grid matches known simple preset.
+  - Nonvisual route description is complete.
+  - Offline container saves/reopens without loss.
+  - No write occurs.
+non_goals:
+- Editing every parameter
+- Preset save
+- All firmware
+- Complex factory preset initially
+preconditions:
+- Separate fixture/codec packets for full simple preset are integrated.
+- Physical discovery verified.
+test:
+  layer: hardware_end_to_end
+  file: apps/mobile_flutter/integration_test/fm3_preset_read_test.dart
+  name: physical_fm3_simple_preset_reads_into_visual_and_nonvisual_editor
+  red_command: Run focused test before complete decoder exists; expected RED must identify unsupported/missing proven section, not silently drop it.
+  expected_red:
+    acceptable:
+    - Decoder reports unsupported required section.
+    - UI assertion identifies missing graph state.
+    unacceptable:
+    - Test skips due hardware.
+    - Unknown bytes silently discarded.
+    - Guessed decode.
+  green_command: Run with physical FM3/simple test preset over declared transport.
+minimum_green:
+- Complete the chosen simple preset only through proven fields.
+- Preserve all remainder.
+- No writes.
+required_sweeps:
+- Byte fixtures.
+- Simulator replay.
+- Physical Android path.
+- Physical iOS path where advertised.
+- Flutter visual/semantics.
+- Offline round trip.
+acceptance:
+- Known graph exact.
+- Opaque data preserved.
+- Visual/nonvisual agree.
+- Physical read verified.
+- Accessibility reviewers approve.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- FM3_COMPLETE_PARAMETER_EDITOR_VERIFIED
+- FM3_WRITE_VERIFIED
+required_followups:
+- TOP-FM3-E2E-002
+- TOP-FM3-E2E-003
+block_conditions:
+- Incomplete lawful preset fixture/decoder.
+- Physical paths unavailable.
+evidence_directory: .tdd/evidence/TOP-FM3-E2E-001

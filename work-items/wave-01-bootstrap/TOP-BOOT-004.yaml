@@ -1,0 +1,92 @@
+id: TOP-BOOT-004
+kind: bootstrap
+epic: TOP-000
+title: Establish fail-fast CI for the current minimal Rust and Flutter harnesses
+status: BLOCKED_DEPENDENCY
+priority: critical
+requirement_ids:
+- QA-001
+- QA-013
+depends_on:
+- TOP-BOOT-002
+- TOP-BOOT-003
+parallel_group: null
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - Cargo.toml
+  - Cargo.lock
+  - crates/**
+  - apps/mobile_flutter/**
+  - docs/research/distribution-constraints.md
+  write:
+  - .github/workflows/ci.yml
+  - scripts/ci-local.sh
+  - .tdd/evidence/TOP-BOOT-004/**
+  forbidden:
+  - crates/**/src/**
+  - apps/mobile_flutter/lib/**
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+behavior:
+  why: Every later packet needs one reproducible fail-fast baseline that cannot hide intermediate failures.
+  given:
+  - Minimal Rust and Flutter harnesses pass locally.
+  when:
+  - CI and a local equivalent run the declared checks.
+  then:
+  - Rust fmt, clippy, and tests execute fail-fast.
+  - Flutter format, analyze, and tests execute fail-fast.
+  - Each stage has visible independent status.
+  - No signing, store, hardware, or network-dependent test is part of clean-clone CI.
+non_goals:
+- Release packaging
+- Hardware tests
+- Live AI tests
+- Creating caches that mask missing lockfiles
+preconditions:
+- TOP-BOOT-002 and TOP-BOOT-003 integrated.
+test:
+  layer: build_tooling
+  file: scripts/ci-local.sh
+  name: ci_fails_when_an_intermediate_command_fails
+  red_command: bash -n scripts/ci-local.sh && TOPOLOGY_CI_SELF_TEST_FAIL_STAGE=rust_fmt bash scripts/ci-local.sh
+  expected_red:
+    acceptable:
+    - Script is absent.
+    - Self-test continues past an injected failure or exits zero, demonstrating missing fail-fast behavior.
+    unacceptable:
+    - Shell is unavailable.
+    - Product tests already fail unrelated to injection.
+  green_command: set +e; TOPOLOGY_CI_SELF_TEST_FAIL_STAGE=rust_fmt bash scripts/ci-local.sh; status=$?; test "$status" -ne 0
+minimum_green:
+- One readable local script mirrors CI stages.
+- Use set -euo pipefail.
+- Add an explicit test-only failure injection that cannot activate in normal CI unless set.
+- Do not add product dependencies.
+required_sweeps:
+- bash scripts/ci-local.sh
+- git diff --check
+acceptance:
+- Injected intermediate failure returns nonzero and prevents later stages.
+- Normal script passes.
+- CI workflow calls equivalent commands.
+- Reviewer confirms no final-command-only false success.
+available_claims_after_completion:
+- CI_HARNESS_VERIFIED
+unavailable_claims:
+- RELEASE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-005
+- TOP-BOOT-006
+- TOP-BOOT-007
+- TOP-BOOT-008
+block_conditions:
+- Hosted CI credentials are not required; local workflow must still be completed if GitHub cannot be contacted.
+evidence_directory: .tdd/evidence/TOP-BOOT-004

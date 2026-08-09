@@ -1,0 +1,17 @@
+Command: `test -f LICENSE && test -f CONTRIBUTING.md && test -f CODE_OF_CONDUCT.md && test -f SECURITY.md`
+
+Raw stdout: empty
+Raw stderr: empty
+Observed exit status: 1
+
+The direct pre-baseline invocation was observed before `git init` and before
+any target file was created. Its tool-call audit record is mutable runtime
+diagnostic row `306906056` in `/Users/benzo/.codex/logs_2.sqlite`; the wrapped
+terminal output was `RED_EXIT=1`.
+
+The shipped `MANIFEST.sha256` independently supports the pre-state: its 120
+original-kit paths include `LICENSE_POLICY.md` but contain no root `LICENSE`,
+`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, or `SECURITY.md` entry. Its current
+SHA-256 is `ed6f0dd1c923dfe72cc8498afcedc565110d53e058e1be38cef2d8464c5ec090`.
+The new Git repository has no historical commit, so this is an evidence-backed
+pre-state reconstruction, not an immutable pre-baseline Git snapshot.

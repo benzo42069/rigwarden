@@ -1,0 +1,4 @@
+packet-copy cmp: 0 (exact match)
+required device coverage scan: 0 (AM4, VP4, Axe-Fx III, FM9, FM3, Axe-Fx II, AX8, FX8 present)
+byte-derivation scan: 1/no matches (expected; no raw SysEx or hex write bytes)
+python3 tools/validate_starter_kit.py: exit 2 — BLOCKED_ENVIRONMENT because PyYAML and jsonschema are not installed; no report/source-map failure was reported.

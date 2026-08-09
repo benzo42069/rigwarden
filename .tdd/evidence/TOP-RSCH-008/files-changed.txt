@@ -1,0 +1,12 @@
+docs/research/capture-and-fixture-plan.md — new documentation-only research report.
+.tdd/evidence/TOP-RSCH-008/work-item.yaml — copied executed packet contract.
+.tdd/evidence/TOP-RSCH-008/environment.txt — environment and blocker record.
+.tdd/evidence/TOP-RSCH-008/sweep-commands.txt — declared research/evidence sweeps.
+.tdd/evidence/TOP-RSCH-008/sweep.log — command results summary; validator failure retained.
+.tdd/evidence/TOP-RSCH-008/sweep-exit-statuses.txt — per-command exit statuses.
+.tdd/evidence/TOP-RSCH-008/files-changed.txt — this inventory.
+.tdd/evidence/TOP-RSCH-008/research-sources.md — source and commit audit record.
+.tdd/evidence/TOP-RSCH-008/review.md — independent review handoff status.
+.tdd/evidence/TOP-RSCH-008/handoff.md — parent handoff and claims/blockers.
+
+No files under apps/, crates/, native/, device-packs/, root manifests, or other production paths were edited. No fixture bytes, raw captures, binaries, artwork, or credentials were created.

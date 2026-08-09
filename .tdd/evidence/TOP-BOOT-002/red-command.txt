@@ -1,0 +1,1 @@
+cargo test -p topology-domain --test harness --no-run

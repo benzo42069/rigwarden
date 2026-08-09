@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://topology.invalid/schemas/requirement.schema.json",
+  "title": "Topology Requirement",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "priority",
+    "statement",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "priority": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "Research"
+      ]
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 10
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "in_progress",
+        "implemented",
+        "verified",
+        "deferred",
+        "removed"
+      ]
+    },
+    "work_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "applies_to": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

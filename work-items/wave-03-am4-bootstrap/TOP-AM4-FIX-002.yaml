@@ -1,0 +1,87 @@
+id: TOP-AM4-FIX-002
+kind: hardware
+epic: TOP-1200
+title: Acquire an AM4 live preset/read-buffer fixture with independently recorded metadata
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- PRESET-002
+- CAPTURE-003
+- QA-002
+depends_on:
+- TOP-AM4-HIL-001
+- TOP-BOOT-009
+parallel_group: null
+agent:
+  preferred_role: topology_fixture_researcher
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/PROTOCOL_RESEARCH_AND_PROVENANCE.md
+  - fixtures/am4/identity/**
+  write:
+  - fixtures/am4/preset-read/**
+  - .tdd/evidence/TOP-AM4-FIX-002/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Preset parsing requires real independently described bytes, not a codec-generated sample.
+  given:
+  - A disposable AM4 preset has a known name and simple known state.
+  - A safe read/dump request is documented.
+  when:
+  - The live/edit buffer is requested and captured repeatedly.
+  then:
+  - Request/response chunks are captured and ordered.
+  - Known preset metadata is recorded from the device UI independently.
+  - Variable/session fields are identified.
+  - Sanitized public fixture and sidecar pass validation.
+non_goals:
+- Editing/writing the preset
+- Decoding every parameter
+- Using a complex personal preset
+preconditions:
+- TOP-AM4-HIL-001 verified.
+- Safe read request established.
+- Disposable known preset prepared.
+test:
+  layer: hardware_capture
+  file: fixtures/am4/preset-read
+  name: am4_preset_read_fixture
+  red_command: cargo run -p topology-devtools -- validate-fixture fixtures/am4/preset-read
+  expected_red:
+    acceptable:
+    - Fixture absent.
+    unacceptable:
+    - Validator unavailable.
+    - Unknown write required.
+  green_command: cargo run -p topology-devtools -- validate-fixture fixtures/am4/preset-read
+minimum_green:
+- Use the simplest known preset.
+- Read only.
+- Record chunking/ordering.
+- No decoder yet.
+required_sweeps:
+- Repeated capture comparison.
+- Secret scan.
+- Provenance review.
+acceptance:
+- Fixture lawful/sanitized/reproducible.
+- Known name/metadata independent.
+- Variable bytes documented.
+- Reviewer approved.
+available_claims_after_completion:
+- CAPTURE_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- AM4_PRESET_READ_VERIFIED
+required_followups:
+- TOP-AM4-PROTO-003
+block_conditions:
+- No safe preset read procedure.
+- Capture cannot be redistributed/sanitized.
+evidence_directory: .tdd/evidence/TOP-AM4-FIX-002

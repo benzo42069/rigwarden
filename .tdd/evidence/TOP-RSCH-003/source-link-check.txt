@@ -1,0 +1,12 @@
+Checked 2026-08-08 with urllib HEAD requests and a descriptive User-Agent.
+
+All Fractal support/manual/MIDI/release-package URLs, the archived 2014 MIDI
+spec, the VP4 FAQ, FC manual, and pinned GitHub repositories returned HTTP 200.
+The six Fractal Wiki URLs returned HTTP 403 to the automated fetch; they remain
+explicitly labeled secondary/inaccessible in the report and are not used as
+primary authority.
+
+Independent review additionally re-opened the six newly recorded pinned GitHub
+LICENSE/NOTICE/package-metadata links (Axis, ForgeFX, and mcp-midi-control);
+each returned HTTP 200 on 2026-08-08. The reviewer record preserves the exact
+links and the scope boundary.

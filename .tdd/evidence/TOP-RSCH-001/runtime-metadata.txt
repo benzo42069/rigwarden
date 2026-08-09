@@ -1,0 +1,9 @@
+Source: /Users/benzo/.codex/logs_2.sqlite, table logs
+Runtime capture time: 2026-08-08T22:03:05Z
+Observed source SHA-256 at this follow-up capture: e3f6c2d5652e2aa447eb578346d2a769eb336ba04561ff208703269bc67f2f9e
+Parent selection: row 306862840 records spawn_agent with agent_type="topology_explorer".
+Selected child thread: 019fe35d-47a1-7f42-b721-0a2fbb85f51c
+Child runtime row: 306864064
+Sanitized excerpt: model=gpt-5.6-luna; codex.turn.reasoning_effort=max; approval_policy=Never; sandbox_policy=DangerFullAccess; effort=Some(Max); auth_mode=Some(Chatgpt); features include Collab and MultiAgentV2.
+Parent model/effort: rows 306832976–306832977 record gpt-5.6-terra / high.
+Runtime diagnostics are mutable. This bounded excerpt records the query target and evidence boundary; it does not prove a provider field or durable sandbox enforcement. The historical source hash from the initial report revision was superseded rather than treated as a current-file checksum.

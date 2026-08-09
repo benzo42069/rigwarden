@@ -1,0 +1,82 @@
+id: TOP-BOOT-008
+kind: implementation
+epic: TOP-000
+title: Reject production asset manifests containing SVG files
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- UI-006
+- UI-009
+depends_on:
+- TOP-BOOT-005
+parallel_group: bootstrap-tools-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/THEME_AND_ASSET_SYSTEM.md
+  - crates/topology_devtools/**
+  write:
+  - crates/topology_devtools/src/assets.rs
+  - crates/topology_devtools/tests/asset_policy.rs
+  - .tdd/evidence/TOP-BOOT-008/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/lib/**
+  - apps/mobile_flutter/assets/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: The approved art policy requires PNG assets and forbids production SVG assets.
+  given:
+  - A production asset manifest includes `icons/device.svg` and an allowed knob renderer declaration.
+  when:
+  - The asset policy validator is invoked.
+  then:
+  - The SVG path is rejected with a stable policy error.
+  - A PNG-only manifest is accepted.
+  - The validator does not reject dynamically rendered functional graphics declarations.
+non_goals:
+- Creating actual art
+- Scanning every repository file
+- Rendering knobs
+preconditions:
+- TOP-BOOT-005 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_devtools/tests/asset_policy.rs
+  name: production_svg_asset_is_rejected
+  red_command: cargo test -p topology-devtools production_svg_asset_is_rejected -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing asset validator API.
+    - Assertion fails because SVG is accepted.
+    unacceptable:
+    - Manifest fixture syntax error.
+    - No distinction between production and test assets.
+    - Unrelated test failure.
+  green_command: cargo test -p topology-devtools production_svg_asset_is_rejected -- --exact --nocapture
+minimum_green:
+- Implement extension/policy validation for declared production assets.
+- Case-insensitive extension handling.
+- Do not scan build caches.
+required_sweeps:
+- cargo test -p topology-devtools
+- cargo fmt --all -- --check
+- cargo clippy -p topology-devtools --all-targets -- -D warnings
+acceptance:
+- SVG production path rejected.
+- PNG manifest accepted.
+- Test-only fixture path policy remains configurable.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- VISUAL_ASSET_COMPLETE
+- PLATFORM_DEVICE_VERIFIED
+required_followups: []
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-BOOT-008

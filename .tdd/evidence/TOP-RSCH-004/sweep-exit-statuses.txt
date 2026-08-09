@@ -1,0 +1,3 @@
+matrix status legend/schema consistency: exit status 0 — PASS
+documented device-only realtime scope labels: exit status 0 — PASS
+report transport/hardware boundary assertion: exit status 0 — PASS

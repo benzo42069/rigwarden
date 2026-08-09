@@ -1,0 +1,25 @@
+`git diff --check`: raw stdout/stderr empty; exit 0. It does not inspect
+untracked files in this zero-commit repository.
+
+`git status --short`: exit 0; it listed the untracked starter kit and baseline
+files. No remote or commit was created.
+
+`grep -R "Abyssal" ... || true`: exit 0 because the command masks the grep
+exit status. One existing README match prohibits Abyssal branding; this is not
+a clean no-match result.
+
+The initial focused contract-manifest command used an overly exact ADR phrase
+and exited 1; it is superseded, not treated as a pass. The corrected final
+command checks `internal working identifier`, emits no output, and exits 0. It
+checks every declared root baseline file, naming ADR/decision IDs, MIT heading,
+and absence of created product-skeleton contents.
+
+After `git add -N` records intent-to-add for only the packet-owned baseline and
+evidence paths, `git diff --check` exits 0 and `git diff --name-status` lists
+only those allowed paths. This makes the whitespace/scope sweep meaningful in a
+new zero-commit repository without creating a content commit.
+
+After ADR-0002 and the immutable packet copy were refreshed, the corrected
+root-contract check, packet `cmp`, intent-to-add scope check, and `git diff
+--check` were rerun together and exited 0. Their command emits no output before
+the optional diagnostic summary.

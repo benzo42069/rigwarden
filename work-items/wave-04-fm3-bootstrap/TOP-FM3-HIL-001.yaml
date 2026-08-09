@@ -1,0 +1,98 @@
+id: TOP-FM3-HIL-001
+kind: hardware
+epic: TOP-1300
+title: Discover a physical FM3 over Android direct USB serial
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- TRANSPORT-005
+- DEV-001
+- QA-011
+depends_on:
+- TOP-FM3-NATIVE-002
+- TOP-FM3-SIM-001
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - apps/mobile_flutter/android/**
+  - crates/topology_protocol_fm3/**
+  - crates/topology_simulator/**
+  - docs/research/fm3-transport-matrix.md
+  write:
+  - .tdd/evidence/TOP-FM3-HIL-001/**
+  - fixtures/fm3/identity/android-hardware-validation/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Android direct USB serial is a flagship transport claim and requires real endpoint/lifecycle/protocol proof.
+  given:
+  - Supported Android device, OTG/USB-C path, FM3 exact firmware, integrated build.
+  when:
+  - User grants USB permission and runs discovery.
+  then:
+  - Correct endpoint enumerates.
+  - Permission flow is explicit.
+  - Session opens.
+  - Identity exchange decodes.
+  - Unplug/replug changes session generation and stale data cannot confirm.
+  - No writes occur.
+non_goals:
+- Preset read
+- Parameter write
+- iOS
+- Other Android hardware
+preconditions:
+- Physical Android device/FM3/cable available.
+- Exact profile/fixture available.
+- Other editor closed.
+test:
+  layer: hardware_in_loop
+  file: .tdd/evidence/TOP-FM3-HIL-001/hardware-matrix.yaml
+  name: android_fm3_direct_usb_discovery
+  red_command: Run focused physical integration with FM3 disconnected; record explicit no-device/permission state.
+  expected_red:
+    acceptable:
+    - No matching endpoint; test does not skip/pass.
+    unacceptable:
+    - Simulator selected.
+    - Crash.
+    - Unrelated serial device auto-selected.
+  green_command: Connect FM3, grant permission, run discovery, unplug/replug, and rerun.
+minimum_green:
+- Read-only discovery.
+- No writes.
+- Sanitized logs.
+- One exact Android/OS/device matrix.
+required_sweeps:
+- Initial connect.
+- Permission denial and retry.
+- Unplug/replug.
+- Other-editor conflict if safely reproducible.
+- Final state check.
+acceptance:
+- Direct USB serial works for declared matrix.
+- Lifecycle truthful.
+- Stale response safe.
+- Only discovery marked hardware verified.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- FM3_PRESET_READ_VERIFIED
+- FM3_WRITE_VERIFIED
+- IOS_FM3_VERIFIED
+required_followups:
+- TOP-FM3-E2E-001
+- TOP-FM3-E2E-003
+block_conditions:
+- Physical equipment unavailable.
+- Android USB path cannot open.
+- Firmware/profile mismatch.
+evidence_directory: .tdd/evidence/TOP-FM3-HIL-001

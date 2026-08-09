@@ -1,0 +1,10 @@
+docs/research/fractal-primary-source-map.md
+.tdd/evidence/TOP-RSCH-003/work-item.yaml
+.tdd/evidence/TOP-RSCH-003/environment.txt
+.tdd/evidence/TOP-RSCH-003/source-index.md
+.tdd/evidence/TOP-RSCH-003/handoff.md
+.tdd/evidence/TOP-RSCH-003/review.md
+.tdd/evidence/TOP-RSCH-003/files-changed.txt
+.tdd/evidence/TOP-RSCH-003/sweep-commands.txt
+.tdd/evidence/TOP-RSCH-003/sweep-exit-statuses.txt
+.tdd/evidence/TOP-RSCH-003/source-link-check.txt

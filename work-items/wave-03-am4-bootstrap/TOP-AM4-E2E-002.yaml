@@ -1,0 +1,99 @@
+id: TOP-AM4-E2E-002
+kind: implementation
+epic: TOP-1200
+title: Apply and undo one proven safe AM4 parameter change with read-back
+status: BLOCKED_FIXTURE
+priority: high
+requirement_ids:
+- BLOCK-003
+- UNDO-003
+- QA-011
+depends_on:
+- TOP-AM4-E2E-001
+- TOP-UNDO-001
+parallel_group: null
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - fixtures/am4/**
+  - crates/topology_protocol_am4/**
+  - crates/topology_command_engine/**
+  - crates/topology_undo/**
+  - apps/mobile_flutter/**
+  - native/**
+  - device-packs/am4/**
+  write:
+  - apps/mobile_flutter/integration_test/am4_parameter_write_test.dart
+  - .tdd/evidence/TOP-AM4-E2E-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - device-packs/index.*
+behavior:
+  why: AM4 beta verification requires one complete safe write/read-back/undo path, not only discovery/read.
+  given:
+  - Disposable AM4 test preset and one independently proven low-risk parameter mapping/value range.
+  - Current value read and confirmed.
+  - Exact writable profile connected.
+  when:
+  - User changes the parameter, waits for confirmation, then undoes.
+  then:
+  - Validator accepts only the proven parameter/range.
+  - Exact bytes follow approved fixtures/spec.
+  - Acknowledgement/read-back confirms new value.
+  - Journal stores prior confirmed value.
+  - Undo restores and read-back confirms original.
+  - Partial/failure state is truthful.
+non_goals:
+- Mass writes
+- Unknown parameters
+- Output-level changes
+- Other firmware/transport
+preconditions:
+- A separate fixture/codec packet has proven the parameter read/write messages.
+- Hardware read path and journal integrated.
+- Safety procedure approved.
+test:
+  layer: hardware_end_to_end
+  file: apps/mobile_flutter/integration_test/am4_parameter_write_test.dart
+  name: physical_am4_safe_parameter_write_readback_and_undo
+  red_command: Run the focused test before write codec/mapping exists; expected RED must be a precise missing mapping/API or rejected unsupported parameter, not a hardware error.
+  expected_red:
+    acceptable:
+    - Missing proven mapping/API.
+    - Unsupported parameter rejection.
+    unacceptable:
+    - Blind guessed bytes.
+    - Device unavailable.
+    - Test alters a valuable preset.
+    - Output level parameter selected.
+  green_command: Run focused test with physical AM4 and approved mapping.
+minimum_green:
+- Implement/use only one proven parameter mapping.
+- Bound values/rate.
+- Require read-back.
+- Use disposable preset.
+required_sweeps:
+- Protocol exact-byte tests.
+- Simulator E2E.
+- Physical mobile E2E.
+- Undo confirmation.
+- Reconnect final-state check.
+acceptance:
+- New value and restored value physically confirmed.
+- Evidence exact.
+- No adjacent state corruption.
+- Hardware/security/accessibility reviews approve.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- AM4_COMPLETE_EDITOR_VERIFIED
+required_followups: []
+block_conditions:
+- No proven safe parameter fixtures/mapping.
+- Physical AM4 unavailable.
+evidence_directory: .tdd/evidence/TOP-AM4-E2E-002

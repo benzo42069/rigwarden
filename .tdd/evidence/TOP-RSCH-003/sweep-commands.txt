@@ -1,0 +1,4 @@
+cmp -s work-items/wave-00-research/TOP-RSCH-003.yaml .tdd/evidence/TOP-RSCH-003/work-item.yaml
+for n in AM4 VP4 'Axe-Fx III' FM9 FM3 'Axe-Fx II' AX8 FX8; do rg -q "$n" docs/research/fractal-primary-source-map.md; done
+rg -n '0x[0-9A-Fa-f]+|[0-9A-Fa-f]{2} [0-9A-Fa-f]{2} [0-9A-Fa-f]{2}' docs/research/fractal-primary-source-map.md
+python3 tools/validate_starter_kit.py

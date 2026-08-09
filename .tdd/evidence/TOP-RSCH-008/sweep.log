@@ -1,0 +1,55 @@
+COMMAND 1: python3 tools/validate_starter_kit.py
+STDOUT/STDERR:
+Missing validation dependency. Install PyYAML and jsonschema, then retry: python -m pip install PyYAML jsonschema
+EXIT STATUS: 2
+RESULT: blocked before schema validation because PyYAML and jsonschema are not installed in this environment. See sweep-exit-statuses.txt.
+
+COMMAND 2: /opt/homebrew/bin/rg -n 'TOP-RSCH-008|CAPTURE-001|CAPTURE-002|CAPTURE-003|CAPTURE-004|QA-002' docs/research/capture-and-fixture-plan.md .tdd/evidence/TOP-RSCH-008/work-item.yaml
+STDOUT:
+docs/research/capture-and-fixture-plan.md:3:**Packet:** `TOP-RSCH-008`  
+docs/research/capture-and-fixture-plan.md:4:**Requirements:** `CAPTURE-001`, `CAPTURE-002`, `CAPTURE-003`, `CAPTURE-004`, `QA-002`  
+docs/research/capture-and-fixture-plan.md:346:- `TOP-BOOT-006`: validator rejects missing/false redistribution permission (`CAPTURE-004`).
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:1:id: TOP-RSCH-008
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:8:- CAPTURE-001
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:9:- CAPTURE-002
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:10:- CAPTURE-003
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:11:- CAPTURE-004
+.tdd/evidence/TOP-RSCH-008/work-item.yaml:12:- QA-002
+EXIT STATUS: 0
+RESULT: report contains packet ID and all five requirement IDs; work-item evidence contains the packet ID and requirement IDs.
+
+COMMAND 3: find .tdd/evidence/TOP-RSCH-008 -maxdepth 1 -type f -print | sort
+STDOUT:
+.tdd/evidence/TOP-RSCH-008/environment.txt
+.tdd/evidence/TOP-RSCH-008/files-changed.txt
+.tdd/evidence/TOP-RSCH-008/handoff.md
+.tdd/evidence/TOP-RSCH-008/research-sources.md
+.tdd/evidence/TOP-RSCH-008/review.md
+.tdd/evidence/TOP-RSCH-008/sweep-commands.txt
+.tdd/evidence/TOP-RSCH-008/sweep-exit-statuses.txt
+.tdd/evidence/TOP-RSCH-008/sweep.log
+.tdd/evidence/TOP-RSCH-008/work-item.yaml
+EXIT STATUS: 0
+RESULT: evidence files are present under the packet-owned directory.
+
+COMMAND 4: sha256sum docs/research/capture-and-fixture-plan.md .tdd/evidence/TOP-RSCH-008/work-item.yaml .tdd/evidence/TOP-RSCH-008/research-sources.md
+STDOUT:
+cf9705b04a0cfa17400aec5fe68b41966e30b4df9814d95580b9f5c2333f5074  docs/research/capture-and-fixture-plan.md
+49808ac137424980ec540cf40fe653d9ce659756c8bbab90e1cc05792947a6e6  .tdd/evidence/TOP-RSCH-008/work-item.yaml
+95a825836071c9d098b3760b356a526878a6bf9d9e6a8a2617b933740c4cf76c  .tdd/evidence/TOP-RSCH-008/research-sources.md
+EXIT STATUS: 0
+RESULT: checksums recorded by the command at execution time; no fixture bytes were created.
+
+COMMAND 5: post-review passive/read-probe and sidecar-status boundary assertions
+STDOUT:
+passive/read-probe and sidecar-status boundaries: PASS
+EXIT STATUS: 0
+RESULT: passive capture forbids all outbound messages; identity/read is confined to READ_PROBE; feature/session policy terms are explicitly distinct from sidecar verification_status values.
+
+COMMAND 6: current report/evidence checksum refresh after reviewer-requested corrections
+STDOUT:
+b7a9d77ff6a0690835f2e80e424e98a1a356f1adc2e716ba38570a4712a7432f  docs/research/capture-and-fixture-plan.md
+49808ac137424980ec540cf40fe653d9ce659756c8bbab90e1cc05792947a6e6  .tdd/evidence/TOP-RSCH-008/work-item.yaml
+95a825836071c9d098b3760b356a526878a6bf9d9e6a8a2617b933740c4cf76c  .tdd/evidence/TOP-RSCH-008/research-sources.md
+EXIT STATUS: 0
+RESULT: current report snapshot recorded after passive/read-probe and status-boundary corrections; no fixture bytes were created.

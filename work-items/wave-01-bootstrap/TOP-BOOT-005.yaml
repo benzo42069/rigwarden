@@ -1,0 +1,88 @@
+id: TOP-BOOT-005
+kind: implementation
+epic: TOP-000
+title: Reject a work packet that omits its immutable work-item ID
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- QA-001
+depends_on:
+- TOP-BOOT-002
+- TOP-BOOT-004
+parallel_group: bootstrap-tools-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - schemas/work-item.schema.json
+  - work-items/WORK_ITEM_TEMPLATE.yaml
+  - crates/topology_domain/**
+  write:
+  - crates/topology_devtools/Cargo.toml
+  - crates/topology_devtools/src/lib.rs
+  - crates/topology_devtools/src/work_item.rs
+  - crates/topology_devtools/tests/work_item_validation.rs
+  - .tdd/evidence/TOP-BOOT-005/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Subagent orchestration is unsafe if malformed packets can enter READY state.
+  given:
+  - A YAML work packet contains every minimum field except `id`.
+  when:
+  - The devtools validator is invoked.
+  then:
+  - Validation fails with a machine-readable missing-field error whose path identifies `id`.
+  - The validator does not panic.
+non_goals:
+- Validating all packet fields
+- Changing packet statuses
+- Building a CLI
+- Validating fixture provenance
+preconditions:
+- Rust harness is integrated.
+- Integration owner has created the `topology_devtools` crate manifest/root membership or grants this packet shared-file ownership through an amendment.
+test:
+  layer: rust_unit
+  file: crates/topology_devtools/tests/work_item_validation.rs
+  name: missing_id_is_rejected
+  red_command: cargo test -p topology-devtools missing_id_is_rejected -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing validator API diagnostic with the crate otherwise compiling.
+    - Assertion fails because malformed YAML is accepted.
+    unacceptable:
+    - Root workspace membership is missing because the integration owner did not perform the dependency action.
+    - YAML fixture syntax is invalid.
+    - Unrelated crate failure.
+  green_command: cargo test -p topology-devtools missing_id_is_rejected -- --exact --nocapture
+minimum_green:
+- Parse YAML through one validator entry point.
+- Return a structured validation error including field path.
+- Do not implement status/dependency semantics.
+required_sweeps:
+- cargo test -p topology-devtools
+- cargo fmt --all -- --check
+- cargo clippy -p topology-devtools --all-targets -- -D warnings
+acceptance:
+- Focused RED/GREEN evidence exists.
+- Valid companion packet remains accepted.
+- No panic on missing field.
+- Independent reviewer approves test quality.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- RELEASE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-006
+- TOP-BOOT-007
+block_conditions:
+- Integration owner has not added the required crate to the workspace.
+evidence_directory: .tdd/evidence/TOP-BOOT-005

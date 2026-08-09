@@ -1,0 +1,89 @@
+id: TOP-FM3-FIX-001
+kind: hardware
+epic: TOP-1300
+title: Acquire an FM3 identity exchange fixture over the selected control transport
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- DEV-003
+- CAPTURE-003
+- QA-002
+depends_on:
+- TOP-FM3-RSCH-001
+- TOP-RSCH-008
+- TOP-BOOT-006
+- TOP-BOOT-009
+parallel_group: null
+agent:
+  preferred_role: topology_fixture_researcher
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/research/fm3-transport-matrix.md
+  - docs/research/capture-and-fixture-plan.md
+  - schemas/fixture-provenance.schema.json
+  write:
+  - fixtures/fm3/identity/**
+  - .tdd/evidence/TOP-FM3-FIX-001/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: FM3 codec and simulator work need lawful bytes from the actual selected control path.
+  given:
+  - Physical FM3/firmware and a safe identity query procedure.
+  - Capture host can isolate the transport.
+  when:
+  - Identity exchange is captured repeatedly.
+  then:
+  - Request/response bytes, chunk boundaries if material, expected identity, transport, firmware, sanitization, permission,
+    and checksums are recorded.
+non_goals:
+- Parameter writes
+- Preset read
+- Assuming bytes from another device are identical
+preconditions:
+- Physical FM3 and selected adapter/cable available.
+- Read-only procedure approved.
+test:
+  layer: hardware_capture
+  file: fixtures/fm3/identity
+  name: fm3_identity_fixture_capture
+  red_command: cargo run -p topology-devtools -- validate-fixture fixtures/fm3/identity
+  expected_red:
+    acceptable:
+    - Fixture absent.
+    unacceptable:
+    - Validator missing.
+    - Unknown write required.
+    - Unisolated capture.
+  green_command: cargo run -p topology-devtools -- validate-fixture fixtures/fm3/identity
+minimum_green:
+- Read-only exchange only.
+- Record transport chunking separately from protocol bytes.
+- No decoder.
+required_sweeps:
+- Repeated capture comparison.
+- Secret scan.
+- Provenance review.
+acceptance:
+- Fixture approved and redistributable.
+- Expected identity independent.
+- Transport exact.
+- No unrelated traffic.
+available_claims_after_completion:
+- CAPTURE_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-FM3-PROTO-001
+- TOP-FM3-SIM-001
+block_conditions:
+- Physical FM3 unavailable.
+- No safe read-only query.
+- Capture rights/sanitization unresolved.
+evidence_directory: .tdd/evidence/TOP-FM3-FIX-001

@@ -1,0 +1,92 @@
+id: TOP-FM3-E2E-003
+kind: hardware
+epic: TOP-1300
+title: Recover truthfully from FM3 disconnect during a pending edit
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- UNDO-007
+- TRANSPORT-004
+- QA-008
+depends_on:
+- TOP-FM3-E2E-001
+- TOP-SIM-002
+- TOP-UNDO-001
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_command_engine/**
+  - crates/topology_undo/**
+  - apps/mobile_flutter/**
+  - native/**
+  write:
+  - apps/mobile_flutter/integration_test/fm3_disconnect_pending_edit_test.dart
+  - .tdd/evidence/TOP-FM3-E2E-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - device-packs/**
+behavior:
+  why: Mobile cables disconnect; the app must never call a pending hardware edit confirmed or corrupt undo history.
+  given:
+  - Physical FM3 connected and safe proven parameter current value known.
+  - Edit is pending at a controlled point.
+  when:
+  - Cable/adapter is disconnected before confirmation.
+  then:
+  - Edit becomes failed/unknown, not confirmed.
+  - Completed undo entry is not created for an unconfirmed write.
+  - Offline document preserves user intent separately if designed.
+  - Reconnect creates a new generation and reconciles actual device state.
+  - Screen reader announces disconnect and reconciliation.
+non_goals:
+- Automatic retry across reconnect unless explicitly designed
+- Other devices
+- Random destructive cable pulls during large transfers
+preconditions:
+- Safe controlled parameter path or test command.
+- Physical equipment.
+- Simulator stale-response behavior integrated.
+test:
+  layer: hardware_end_to_end
+  file: apps/mobile_flutter/integration_test/fm3_disconnect_pending_edit_test.dart
+  name: fm3_disconnect_during_pending_edit_never_reports_false_confirmation
+  red_command: Run on pre-fix build/simulator reproduction to observe false confirmation or missing reconciliation; physical RED only when safe and controlled.
+  expected_red:
+    acceptable:
+    - Focused assertion fails because pending state is mishandled.
+    unacceptable:
+    - Hardware damage risk.
+    - Unrelated transport failure.
+    - No deterministic control point.
+  green_command: Run controlled disconnect/reconnect procedure and verify state.
+minimum_green:
+- Truthful failed/unknown pending state.
+- New generation.
+- Read actual state after reconnect.
+- No blind retry.
+required_sweeps:
+- Simulator stale-response test.
+- Android physical disconnect.
+- iOS adapter path where advertised.
+- Accessibility announcement.
+- Final device state.
+acceptance:
+- No false confirmation.
+- Journal truthful.
+- Reconnect reconciles.
+- Security/accessibility reviewers approve.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- ALL_DISCONNECT_SCENARIOS_VERIFIED
+required_followups: []
+block_conditions:
+- No safe deterministic pending point.
+- Physical hardware unavailable.
+evidence_directory: .tdd/evidence/TOP-FM3-E2E-003

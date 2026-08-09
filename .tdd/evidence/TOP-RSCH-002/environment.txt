@@ -1,0 +1,7 @@
+Recorded UTC/local: 2026-08-08T22:15:58Z / America/Chicago (UTC-05:00)
+OS/CPU: macOS 26.5 (25F71), Darwin 25.5.0 arm64
+Repository/worktree: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1; NOT_A_GIT_WORKTREE, so branch/commit/dirty state are unavailable
+Researcher route: selected read-only research assignment; effective Luna/Max routing is separately recorded by TOP-RSCH-001
+Toolchains: Rust 1.97.0; Cargo 1.97.0; Python 3.14.6; Git 2.50.1; no product source was executed
+Sources/access result: exact upstream GitHub commit, LICENSE/NOTICE/package metadata links named in docs/research/open-source-source-and-license-audit.md were read on 2026-08-08; no binary/capture was downloaded or retained
+No production code, fixture, binary, capture, or shared file was created.

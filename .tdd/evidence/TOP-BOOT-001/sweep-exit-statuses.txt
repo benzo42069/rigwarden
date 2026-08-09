@@ -1,0 +1,9 @@
+1. git diff --check (before intent-to-add): exit 0; did not inspect untracked files.
+2. git status --short: exit 0.
+3. grep -R "Abyssal" ... || true: exit 0 (masked match; one existing README prohibition, not a clean no-match).
+4. starter-kit validator in isolated environment: BLOCKED_ENVIRONMENT (interactive filesystem-read diagnostic did not complete; no numeric exit observed after Git initialization).
+5. focused root contract-manifest check, initial ADR selector: exit 1 (stale command; not a pass).
+6. focused root contract-manifest check, corrected selector: exit 0.
+7. initial intent-to-add scope check: exit 0.
+8. cmp immutable packet copy: exit 0.
+9. post-amendment packet copy + ADR-0002 + scope sweep: exit 0.

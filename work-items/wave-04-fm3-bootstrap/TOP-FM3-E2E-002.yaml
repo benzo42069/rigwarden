@@ -1,0 +1,94 @@
+id: TOP-FM3-E2E-002
+kind: hardware
+epic: TOP-1300
+title: Apply and undo one proven safe FM3 parameter change
+status: BLOCKED_FIXTURE
+priority: critical
+requirement_ids:
+- BLOCK-003
+- UNDO-003
+- QA-011
+depends_on:
+- TOP-FM3-E2E-001
+- TOP-UNDO-001
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - fixtures/fm3/**
+  - crates/topology_protocol_fm3/**
+  - crates/topology_command_engine/**
+  - crates/topology_undo/**
+  - apps/mobile_flutter/**
+  - native/**
+  write:
+  - apps/mobile_flutter/integration_test/fm3_parameter_write_test.dart
+  - .tdd/evidence/TOP-FM3-E2E-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - device-packs/index.*
+behavior:
+  why: FM3 beta support needs a safe verified write/read-back/undo path.
+  given:
+  - Disposable simple test preset.
+  - One independently proven parameter read/write mapping and safe values.
+  - Current value confirmed.
+  when:
+  - User edits, confirms, and undoes.
+  then:
+  - Local validation precedes bytes.
+  - Write/read-back confirms new value.
+  - Journal prior state exact.
+  - Undo/read-back restores original.
+  - No partial or stale response is reported as success.
+non_goals:
+- Output-level changes
+- Bulk writes
+- Unknown parameters
+- Other firmware
+preconditions:
+- Exact fixtures/codec/profile packet for selected parameter.
+- Physical FM3 paths available.
+test:
+  layer: hardware_end_to_end
+  file: apps/mobile_flutter/integration_test/fm3_parameter_write_test.dart
+  name: physical_fm3_safe_parameter_write_readback_and_undo
+  red_command: Before mapping exists, run focused test and observe precise unsupported mapping RED.
+  expected_red:
+    acceptable:
+    - Unsupported/missing mapping.
+    unacceptable:
+    - Guessed bytes.
+    - Hardware unavailable.
+    - Valuable preset used.
+  green_command: Run focused physical test with approved mapping and disposable preset.
+minimum_green:
+- One safe parameter.
+- Bounded rate/range.
+- Read-back required.
+- Undo required.
+required_sweeps:
+- Byte exact.
+- Simulator.
+- Physical Android.
+- Physical iOS path where advertised.
+- Undo/reconnect final state.
+acceptance:
+- New/original values physically confirmed.
+- No adjacent corruption.
+- Evidence exact.
+- Security/accessibility review.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- FM3_COMPLETE_EDITOR_VERIFIED
+required_followups: []
+block_conditions:
+- No proven parameter mapping.
+- Hardware unavailable.
+evidence_directory: .tdd/evidence/TOP-FM3-E2E-002

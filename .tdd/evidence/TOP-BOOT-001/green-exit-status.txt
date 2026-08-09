@@ -1,0 +1,3 @@
+Exit status: 0
+
+Minimum GREEN observed: all five declared repository-contract files exist.

@@ -1,0 +1,29 @@
+fixture_id: replace-me
+device:
+  family: replace-me
+  model: replace-me
+  variant: null
+firmware: replace-me
+transport: replace-me
+direction: device_to_host
+feature: replace-me
+captured_at: null
+source:
+  category: user_owned_capture
+  reference: replace-me
+  license: null
+  commit: null
+derivation: null
+sanitization: []
+redistribution:
+  permitted: false
+  basis: Awaiting contributor declaration
+sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+expected: {}
+confidence: direct_capture_single
+verification_status: PLANNED
+contributor: null
+review:
+  status: pending
+  reviewer: null
+  notes: null

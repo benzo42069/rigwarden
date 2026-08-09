@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://topology.invalid/schemas/fixture-provenance.schema.json",
+  "title": "Topology Protocol Fixture Provenance",
+  "type": "object",
+  "required": [
+    "fixture_id",
+    "device",
+    "firmware",
+    "transport",
+    "direction",
+    "feature",
+    "source",
+    "sanitization",
+    "redistribution",
+    "sha256",
+    "expected",
+    "confidence",
+    "verification_status",
+    "review"
+  ],
+  "properties": {
+    "fixture_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "device": {
+      "type": "object",
+      "required": [
+        "family",
+        "model"
+      ],
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "transport": {
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "host_to_device",
+        "device_to_host",
+        "bidirectional",
+        "file"
+      ]
+    },
+    "feature": {
+      "type": "string"
+    },
+    "captured_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "category",
+        "reference"
+      ],
+      "properties": {
+        "category": {
+          "enum": [
+            "published_vendor_spec",
+            "vendor_manual",
+            "permissive_open_source",
+            "user_owned_capture",
+            "community_capture",
+            "simulator_fixture",
+            "behavioral_observation"
+          ]
+        },
+        "reference": {
+          "type": "string"
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "derivation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sanitization": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redistribution": {
+      "type": "object",
+      "required": [
+        "permitted",
+        "basis"
+      ],
+      "properties": {
+        "permitted": {
+          "type": "boolean"
+        },
+        "basis": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "expected": {
+      "type": "object"
+    },
+    "confidence": {
+      "enum": [
+        "published_spec",
+        "direct_capture_single",
+        "direct_capture_repeated",
+        "cross_implementation",
+        "community_unreplicated",
+        "simulator_only"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "PLANNED",
+        "BYTE_FIXTURE_VERIFIED",
+        "CAPTURE_VERIFIED",
+        "SIMULATOR_VERIFIED",
+        "COMMUNITY_CONFIRMED",
+        "HARDWARE_VERIFIED",
+        "BLOCKED"
+      ]
+    },
+    "contributor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,13 @@
+Recorded: 2026-08-08 America/Chicago
+
+Host: macOS 26.5 (25F71), Darwin 25.5.0 arm64.
+Toolchain observed: Git 2.50.1; Codex CLI 0.147.0-alpha.6.5; Flutter 3.44.9
+(Dart bundled). `java` is not on PATH, so no JDK/Gradle claim is made.
+
+The starter kit was initialized as a new local Git repository on branch `main`
+before the baseline files were created. No remote was configured, no commit was
+created, and no public repository/package/store/domain/handle action occurred.
+
+Validator environment: `/tmp/topology-validator.r8Pm0X` Python virtual
+environment with PyYAML and jsonschema. This is a local validation aid, not a
+project dependency or production artifact.

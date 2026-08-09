@@ -1,0 +1,29 @@
+1. python3 tools/validate_starter_kit.py
+2. Exact shell command:
+   set -euo pipefail
+   for id in A01 A02 A03 A04 A05 A06 A07 A08 A09 A10 A11 A12 A13 A14; do rg -q "\\| $id " docs/research/accessibility-test-plan.md; done
+   for source in F1 F2 F3 F4 A1 A2 A3 A4 A5 A6 G1 G2 G3 G4 G5 G6 G7; do rg -q "\\*\\*\\[$source\\]\\*\\*" docs/research/accessibility-test-plan.md; done
+   rg -q '^## Physical-testing gap list \\(open\\)$' docs/research/accessibility-test-plan.md
+   rg -q '^### Contradiction check$' docs/research/accessibility-test-plan.md
+   python3 - <<'PY'
+   from pathlib import Path
+   import re
+   s=Path('docs/research/accessibility-test-plan.md').read_text().splitlines()
+   rows=[line for line in s if line.startswith('| A') and line.count('|') >= 7]
+   assert len(rows)==14
+   assert all(line.count('|')==7 for line in rows)
+   urls=re.findall(r'<(https?://[^>]+)>', '\\n'.join(s))
+   assert len(urls)==16
+   assert all(url.startswith(('https://docs.flutter.dev/','https://developer.apple.com/','https://developer.android.com/','https://support.google.com/')) for url in urls)
+   known=set(re.findall(r'\\*\\*\\[([A-Z]\\d+)\\]\\*\\*', '\\n'.join(s)))
+   refs=set(re.findall(r'\\[([A-Z]\\d+)\\]', '\\n'.join(s)))
+   assert refs <= known
+   assert known == set('F1 F2 F3 F4 A1 A2 A3 A4 A5 A6 G1 G2 G3 G4 G5 G6 G7'.split())
+   print('Task/source/physical-gap assertions: PASS')
+   print('Contradiction-check section: PASS')
+   print('Beta evidence matrix shape: PASS (14 rows, 5 evidence columns)')
+   print('Official source URL assertions: PASS (16 URLs)')
+   print('Source-reference closure: PASS (17 source IDs)')
+   PY
+
+3. Re-run command 2 after independent-review corrections to Android-native automation boundaries, all-A01–A14 release blocker coverage, and mandatory iPad/Android-tablet matrix coverage.

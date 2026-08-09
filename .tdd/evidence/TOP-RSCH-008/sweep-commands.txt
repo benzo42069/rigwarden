@@ -1,0 +1,6 @@
+python3 tools/validate_starter_kit.py
+/opt/homebrew/bin/rg -n 'TOP-RSCH-008|CAPTURE-001|CAPTURE-002|CAPTURE-003|CAPTURE-004|QA-002' docs/research/capture-and-fixture-plan.md .tdd/evidence/TOP-RSCH-008/work-item.yaml
+find .tdd/evidence/TOP-RSCH-008 -maxdepth 1 -type f -print | sort
+sha256sum docs/research/capture-and-fixture-plan.md .tdd/evidence/TOP-RSCH-008/work-item.yaml .tdd/evidence/TOP-RSCH-008/research-sources.md
+set -euo pipefail; rg -q 'without \*\*any\*\* outbound message from Topology' docs/research/capture-and-fixture-plan.md; rg -q 'An identity/read request is outbound and belongs only to `READ_PROBE`' docs/research/capture-and-fixture-plan.md; rg -q 'A sidecar must use only the enum accepted by `schemas/fixture-provenance.schema.json`' docs/research/capture-and-fixture-plan.md
+shasum -a 256 docs/research/capture-and-fixture-plan.md .tdd/evidence/TOP-RSCH-008/work-item.yaml .tdd/evidence/TOP-RSCH-008/research-sources.md

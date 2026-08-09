@@ -1,0 +1,19 @@
+app_commit: replace-me
+device:
+  model: replace-me
+  variant: null
+firmware: replace-me
+host:
+  model: replace-me
+  os: replace-me
+  os_version: replace-me
+transport:
+  family: replace-me
+  adapter: null
+features: {}
+test_suite_version: replace-me
+verified_at: replace-me
+verifier: replace-me
+status: EXPERIMENTAL
+evidence: []
+notes: []

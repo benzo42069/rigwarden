@@ -1,0 +1,14 @@
+--- command 1 ---
+$ python3 tools/validate_starter_kit.py
+Missing validation dependency. Install PyYAML and jsonschema, then retry: python -m pip install PyYAML jsonschema
+EXIT_STATUS=2
+
+--- command 2 ---
+$ ruby -e 'require "yaml"; x=YAML.load_file(".tdd/evidence/TOP-RSCH-007/work-item.yaml"); abort "wrong id" unless x["id"] == "TOP-RSCH-007"; abort "wrong kind" unless x["kind"] == "research"; puts "work_item_yaml_check: PASS id=#{x["id"]} kind=#{x["kind"]}"'
+work_item_yaml_check: PASS id=TOP-RSCH-007 kind=research
+EXIT_STATUS=0
+
+--- command 3 ---
+$ python3 [standard-library static report check]
+report_static_check: PASS sections=9 urls=43
+EXIT_STATUS=0

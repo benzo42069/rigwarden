@@ -1,0 +1,3 @@
+1. `python3 tools/validate_starter_kit.py`: exit status 2 — `BLOCKED_ENVIRONMENT`; documented PyYAML and jsonschema dependencies are absent.
+2. Work-item YAML parse/check: exit status 0 — PASS.
+3. Report static section/source URL check: exit status 0 — PASS (9 required sections, 43 URLs).

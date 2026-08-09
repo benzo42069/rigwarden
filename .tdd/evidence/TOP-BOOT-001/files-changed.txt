@@ -1,0 +1,19 @@
+TOP-BOOT-001 allowed-path inventory:
+
+- .gitignore
+- README.md
+- LICENSE
+- THIRD_PARTY_NOTICES.md
+- CONTRIBUTING.md
+- CODE_OF_CONDUCT.md
+- SECURITY.md
+- docs/decisions/ADR-0001-working-name-gate.md (precondition decision)
+- docs/decisions/ADR-0002-bootstrap-red-evidence-exception.md (one-packet evidence exception)
+- .tdd/evidence/TOP-BOOT-001/**
+
+No `apps/`, `crates/`, `native/`, `device-packs/`, Cargo manifest/lockfile, or
+Flutter manifest was created or edited by this packet.
+
+Git evidence: intent-to-add is recorded only for the paths above. The scoped
+`git diff --name-status` output is recorded in `sweep.log`; it lists only this
+packet's allowed root/evidence paths. No content commit or remote exists.

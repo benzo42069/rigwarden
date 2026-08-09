@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://topology.invalid/schemas/device-pack.schema.json",
+  "title": "Topology Declarative Device/Firmware Pack (Initial Contract)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pack_id",
+    "vendor",
+    "device",
+    "firmware",
+    "identity_match",
+    "capabilities",
+    "transports",
+    "provenance",
+    "verification"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "device": {
+      "type": "object",
+      "required": [
+        "family",
+        "model"
+      ],
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "firmware": {
+      "type": "object",
+      "required": [
+        "match_policy",
+        "versions"
+      ],
+      "properties": {
+        "match_policy": {
+          "enum": [
+            "exact",
+            "verified_range",
+            "read_only_fallback"
+          ]
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "identity_match": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "transports": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "routing": {
+      "type": "object"
+    },
+    "catalogs": {
+      "type": "object"
+    },
+    "protocol_mappings": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "EXPERIMENTAL",
+            "READ_ONLY",
+            "CAPTURE_VERIFIED",
+            "COMMUNITY_CONFIRMED",
+            "HARDWARE_VERIFIED",
+            "UNSUPPORTED"
+          ]
+        }
+      }
+    },
+    "signature": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

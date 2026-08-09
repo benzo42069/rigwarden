@@ -1,0 +1,28 @@
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Shell: zsh
+
+1. `python3 tools/validate_starter_kit.py`
+2. `ruby -e 'require "yaml"; x=YAML.load_file(".tdd/evidence/TOP-RSCH-007/work-item.yaml"); abort "wrong id" unless x["id"] == "TOP-RSCH-007"; abort "wrong kind" unless x["kind"] == "research"; puts "work_item_yaml_check: PASS id=#{x["id"]} kind=#{x["kind"]}"'`
+3. Exact Python standard-library static report check:
+   ```sh
+   python3 - <<'PY'
+   from pathlib import Path
+   import re
+   p = Path('docs/research/distribution-constraints.md')
+   t = p.read_text()
+   required = [
+       'Recommended release matrix', 'Permissions and entitlements by capability',
+       'F-Droid inclusion, flavors, and signing', 'Signing, identity, and owner-controlled tasks',
+       'Privacy and data-safety disclosure inventory', 'Prohibited assumptions and uncertainty ledger',
+       'ADR and follow-up packet inputs', 'Blockers', 'Source register (official sources, accessed 2026-08-08)'
+   ]
+   missing = [s for s in required if s not in t]
+   urls = re.findall(r'<(https?://[^>]+)>', t)
+   assert not missing, missing
+   assert len(urls) >= 25, len(urls)
+   assert '[A1]' in t and '[G1]' in t and '[F1]' in t and '[H1]' in t
+   print(f'report_static_check: PASS sections={len(required)} urls={len(urls)}')
+   PY
+   ```
+
+Research packet: no RED/GREEN cycle applies; this packet writes bounded documentation/evidence only.

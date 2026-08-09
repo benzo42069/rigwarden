@@ -1,0 +1,8 @@
+Command: `set -euo pipefail; test -f LICENSE; test -f CONTRIBUTING.md; test -f CODE_OF_CONDUCT.md; test -f SECURITY.md; test -f THIRD_PARTY_NOTICES.md`
+
+Raw stdout: empty
+Raw stderr: empty
+Observed exit status: 0
+
+The earlier terminal wrapper printed a convenience `PASS` message after this
+command; that wrapper output is not attributed to the exact green command.

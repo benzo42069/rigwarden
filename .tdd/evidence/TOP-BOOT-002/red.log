@@ -1,0 +1,4 @@
+Raw stderr: `error: could not find Cargo.toml in the repository root or any parent directory`.
+
+Exit status: 101. Accepted RED: the workspace/test target did not yet exist;
+Rust and Cargo were installed (`rustc`/`cargo` 1.97.0).

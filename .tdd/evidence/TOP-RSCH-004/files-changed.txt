@@ -1,0 +1,8 @@
+docs/research/mobile-transport-feasibility.md
+.tdd/evidence/TOP-RSCH-004/work-item.yaml
+.tdd/evidence/TOP-RSCH-004/environment.txt
+.tdd/evidence/TOP-RSCH-004/sources.md
+.tdd/evidence/TOP-RSCH-004/platform-matrix.yaml
+.tdd/evidence/TOP-RSCH-004/handoff.md
+.tdd/evidence/TOP-RSCH-004/review.md
+.tdd/evidence/TOP-RSCH-004/files-changed.txt

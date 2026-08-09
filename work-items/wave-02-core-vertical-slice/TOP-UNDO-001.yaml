@@ -1,0 +1,91 @@
+id: TOP-UNDO-001
+kind: implementation
+epic: TOP-500
+title: Create an undo entry only after recording the confirmed previous value
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- UNDO-001
+- UNDO-002
+depends_on:
+- TOP-PRESET-001
+- TOP-CMD-001
+parallel_group: core-undo-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_preset/**
+  - crates/topology_command_engine/**
+  - docs/ARCHITECTURE.md
+  write:
+  - crates/topology_undo/Cargo.toml
+  - crates/topology_undo/src/lib.rs
+  - crates/topology_undo/src/journal.rs
+  - crates/topology_undo/tests/confirmed_previous.rs
+  - .tdd/evidence/TOP-UNDO-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Undo must restore actual prior device state, not an assumed/default value.
+  given:
+  - Confirmed value is 3.0.
+  - A pending mutation requests 4.5.
+  - The mutation is later confirmed.
+  when:
+  - The journal records the completed mutation.
+  then:
+  - Undo entry stores prior 3.0 and new 4.5.
+  - No undo entry is finalized before confirmation.
+  - Failed mutation leaves no completed undo entry.
+non_goals:
+- Disk persistence
+- Branches
+- Protocol acknowledgement
+- Redo
+preconditions:
+- TOP-PRESET-001 and TOP-CMD-001 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_undo/tests/confirmed_previous.rs
+  name: undo_entry_uses_confirmed_previous_value
+  red_command: cargo test -p topology-undo undo_entry_uses_confirmed_previous_value -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing journal API.
+    - Assertion fails because prior/default is wrong or pending mutation is journaled complete.
+    unacceptable:
+    - Test never models pending/confirmed distinction.
+    - Workspace membership missing.
+  green_command: cargo test -p topology-undo undo_entry_uses_confirmed_previous_value -- --exact --nocapture
+minimum_green:
+- Add minimal semantic journal entry and pending→confirmed transition.
+- No filesystem yet.
+- Failure path explicit.
+required_sweeps:
+- cargo test -p topology-undo
+- cargo test -p topology-command-engine
+- cargo fmt --all -- --check
+- cargo clippy -p topology-undo --all-targets -- -D warnings
+acceptance:
+- Prior/new exact.
+- Pending not completed.
+- Failure not undoable as completed.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- PERSISTENCE_VERIFIED
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-UNDO-002
+- TOP-E2E-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-UNDO-001

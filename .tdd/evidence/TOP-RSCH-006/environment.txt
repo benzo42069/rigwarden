@@ -1,0 +1,21 @@
+Recorded UTC: 2026-08-08T20:53:10Z
+Repository path: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Git state: NOT_A_GIT_WORKTREE; no starting commit available
+OS: macOS 26.5 (25F71), Darwin 25.5.0 arm64
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+Xcode: Xcode 26.5 (17F42)
+Android Debug Bridge: Android Debug Bridge 1.0.41, 37.0.0-14910828
+Python: Python 3.14.6
+Git: git version 2.50.1 (Apple Git-155)
+Flutter/Dart: MISSING (commands not found)
+Java/JDK: MISSING (macOS reports no Java Runtime)
+Gradle: MISSING (command not found)
+Physical iOS devices: NOT_ATTACHED
+Physical Android devices: NOT_ATTACHED
+AM4/FM3 or other modeler hardware: NOT_ATTACHED
+Flutter, native, and hardware tests: NOT_RUN; this packet is documentation-only research
+Requested child route: OpenAI gpt-5.6-luna, max
+Effective child route: OpenAI gpt-5.6-luna, max (parent runtime route evidence; no separate probe run for this packet)
+Secrets/environment variables: none used or recorded
+External source access date: 2026-08-08

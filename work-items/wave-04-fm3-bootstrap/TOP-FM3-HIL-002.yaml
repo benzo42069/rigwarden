@@ -1,0 +1,88 @@
+id: TOP-FM3-HIL-002
+kind: hardware
+epic: TOP-1300
+title: Discover a physical FM3 through the approved iOS-compatible interface path
+status: BLOCKED_HARDWARE
+priority: high
+requirement_ids:
+- TRANSPORT-005
+- DEV-001
+- PLAT-001
+depends_on:
+- TOP-FM3-IOS-001
+- TOP-FM3-SIM-001
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - apps/mobile_flutter/ios/**
+  - docs/research/fm3-transport-matrix.md
+  - crates/topology_protocol_fm3/**
+  write:
+  - .tdd/evidence/TOP-FM3-HIL-002/**
+  - fixtures/fm3/identity/ios-hardware-validation/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: iOS support must prove the documented adapter/interface path instead of implying unsupported direct USB behavior.
+  given:
+  - Physical iPhone/iPad, approved interface/BLE adapter/bridge path, FM3 exact firmware.
+  when:
+  - Discovery runs.
+  then:
+  - Correct CoreMIDI/network endpoint is selectable.
+  - Connection-path explanation is accurate.
+  - Identity resolves.
+  - Disconnect is announced.
+  - No unsupported direct-serial label appears.
+non_goals:
+- Android
+- Preset write
+- All adapters
+preconditions:
+- Physical iOS device/FM3/approved adapter available.
+- Native enumeration/session path integrated.
+test:
+  layer: hardware_in_loop
+  file: .tdd/evidence/TOP-FM3-HIL-002/hardware-matrix.yaml
+  name: ios_fm3_interface_discovery
+  red_command: Run with adapter/FM3 unavailable and record explicit no-compatible-path result.
+  expected_red:
+    acceptable:
+    - No compatible endpoint; no silent fallback.
+    unacceptable:
+    - Unrelated MIDI device auto-selected.
+    - Test skips/pass.
+  green_command: Connect approved path and run discovery/disconnect.
+minimum_green:
+- Read-only discovery.
+- Truthful connection path.
+- Sanitized logs.
+required_sweeps:
+- Connect/disconnect.
+- Manual endpoint fallback.
+- VoiceOver connection-status announcement.
+acceptance:
+- Declared iOS path works.
+- UI does not misrepresent direct connection.
+- Matrix exact.
+- Accessibility review.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- FM3_PRESET_READ_VERIFIED
+- FM3_WRITE_VERIFIED
+- ALL_IOS_ADAPTERS_VERIFIED
+required_followups:
+- TOP-FM3-E2E-001
+block_conditions:
+- Approved adapter/path unavailable.
+- iOS platform limitation prevents chosen path.
+evidence_directory: .tdd/evidence/TOP-FM3-HIL-002

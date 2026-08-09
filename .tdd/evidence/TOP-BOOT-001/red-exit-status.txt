@@ -1,0 +1,7 @@
+Exit status: 1
+
+Label: `OBSERVED_ONCE` / `NON_REPRODUCIBLE_BASELINE`
+
+The declared repository-contract files were absent before the minimal baseline
+implementation. ADR-0002 narrowly accepts this one pre-Git RED record for a
+non-production baseline only; it is not reproducible or `RED_VERIFIED` evidence.

@@ -1,0 +1,90 @@
+id: TOP-A11Y-001
+kind: implementation
+epic: TOP-900
+title: Expose a serial signal path as an ordered nonvisual route
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- A11Y-002
+- A11Y-003
+- GRAPH-010
+depends_on:
+- TOP-GRAPH-002
+- TOP-GRAPH-005
+- TOP-UI-001
+parallel_group: core-ui-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_accessibility_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_routing/**
+  - apps/mobile_flutter/**
+  - docs/ACCESSIBILITY.md
+  write:
+  - apps/mobile_flutter/lib/features/routing/accessible_route_list.dart
+  - apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+  - .tdd/evidence/TOP-A11Y-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/assets/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: A blind user must understand a route without interpreting cable position.
+  given:
+  - Graph represents Input 1 → Drive 1 → Output 1 and is exposed through the typed bridge or an approved test boundary.
+  when:
+  - Accessible route list is built.
+  then:
+  - Semantic traversal is Input 1, Drive 1, Output 1.
+  - Each node announces incoming/outgoing context.
+  - Each connection is individually navigable and exposes a remove action.
+  - No understanding depends on color or spatial cable position.
+non_goals:
+- Split/merge language
+- Actual removal mutation
+- VoiceOver/TalkBack physical verification
+- Visual canvas
+preconditions:
+- TOP-GRAPH-002, TOP-GRAPH-005, and TOP-UI-001 integrated.
+test:
+  layer: flutter_semantics
+  file: apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+  name: serial_route_is_completely_navigable_without_canvas
+  red_command: cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart --plain-name "serial route is completely navigable without canvas"
+  expected_red:
+    acceptable:
+    - Missing accessible route view.
+    - Semantic assertion fails because order/context/action is absent.
+    unacceptable:
+    - Test uses a hand-built Dart graph that duplicates Rust traversal without approved boundary.
+    - Flutter SDK failure.
+    - Pure visual golden failure.
+  green_command: cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart --plain-name "serial route is completely navigable without canvas"
+minimum_green:
+- Add smallest list-based semantic view.
+- Use stable traversal output rather than reimplement graph logic in Dart.
+- Expose remove action callback without implementing hardware mutation.
+required_sweeps:
+- cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart
+- cd apps/mobile_flutter && flutter test test/features/routing/
+- cd apps/mobile_flutter && flutter analyze
+acceptance:
+- Semantic order complete.
+- Context/actions present.
+- No color/position dependency.
+- Accessibility reviewer approves.
+available_claims_after_completion:
+- SEMANTICS_VERIFIED
+unavailable_claims:
+- VOICEOVER_VERIFIED
+- TALKBACK_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-E2E-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-A11Y-001

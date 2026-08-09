@@ -1,0 +1,17 @@
+Work item: TOP-RSCH-005
+Repository path: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Evidence captured (UTC): 2026-08-08T21:59:46Z
+Evidence captured (local): 2026-08-08T16:59:46-0500
+Host: macOS 26.5 (Build 25F71), Darwin 25.5.0, arm64
+rustc: 1.97.0 (2d8144b78 2026-07-07)
+cargo: 1.97.0 (c980f4866 2026-06-30)
+Xcode: 26.5 (Build 17F42)
+Python: 3.14.6
+Node: v22.22.3
+Flutter: 3.44.9 stable (revision 6b182d2c75)
+Dart: 3.12.2 stable (macos_arm64)
+Java: unavailable (Unable to locate a Java Runtime)
+Git repository: NOT_A_GIT_REPOSITORY (git rev-parse failed; no starting commit or clean/dirty state is available)
+Network research: available for the cited direct pages/APIs; WIPO quick search blocked by Altcha; GitLab exact-handle page blocked by anti-bot response
+Environment secrets: names were inspected with values redacted; no credential values recorded
+Source access date used in report: 2026-08-08

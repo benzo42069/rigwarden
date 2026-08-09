@@ -1,0 +1,5 @@
+1. `python3 tools/validate_starter_kit.py`: exit 2 — missing PyYAML/jsonschema; validator could not run.
+2. Static `rg` assertions: exit 0 — PASS.
+3. `find` evidence inventory: exit 0 — PASS.
+4. `shasum -a 256`: exit 0 — PASS; hashes recorded in sweep.log.
+5. Git probes: non-zero / NOT_A_GIT_REPOSITORY — expected environment limitation; no starting commit or diff status available.

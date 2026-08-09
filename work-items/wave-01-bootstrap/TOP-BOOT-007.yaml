@@ -1,0 +1,79 @@
+id: TOP-BOOT-007
+kind: implementation
+epic: TOP-000
+title: Reject a completed evidence directory that is missing focused RED output
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- QA-001
+depends_on:
+- TOP-BOOT-005
+parallel_group: bootstrap-tools-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_devtools/**
+  - .codex/skills/enforce-topology-strict-tdd/references/evidence-record.md
+  write:
+  - crates/topology_devtools/src/evidence.rs
+  - crates/topology_devtools/tests/evidence_validation.rs
+  - .tdd/evidence/TOP-BOOT-007/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: A green-only evidence folder must not be accepted as strict TDD completion.
+  given:
+  - A temporary evidence directory contains required metadata and GREEN files but no `red.log`.
+  when:
+  - The evidence validator checks completion.
+  then:
+  - Validation fails with a stable missing-red-log error.
+  - An otherwise complete test directory is accepted.
+non_goals:
+- Interpreting whether RED was semantically intended
+- Review approval
+- CI artifact upload
+preconditions:
+- TOP-BOOT-005 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_devtools/tests/evidence_validation.rs
+  name: completed_evidence_without_red_log_is_rejected
+  red_command: cargo test -p topology-devtools completed_evidence_without_red_log_is_rejected -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing evidence validator API.
+    - Assertion fails because green-only evidence is accepted.
+    unacceptable:
+    - Temporary directory permission failure.
+    - Fixture setup omits unrelated required files.
+    - Unrelated test failure.
+  green_command: cargo test -p topology-devtools completed_evidence_without_red_log_is_rejected -- --exact --nocapture
+minimum_green:
+- Validate required file presence for a completed implementation packet.
+- Return all missing required paths deterministically.
+- Do not parse log semantics yet.
+required_sweeps:
+- cargo test -p topology-devtools
+- cargo fmt --all -- --check
+- cargo clippy -p topology-devtools --all-targets -- -D warnings
+acceptance:
+- Green-only evidence rejected.
+- Complete evidence fixture accepted.
+- Missing paths sorted deterministically.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- TDD_SEMANTIC_REVIEW_VERIFIED
+- HARDWARE_VERIFIED
+required_followups: []
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-BOOT-007

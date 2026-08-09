@@ -1,0 +1,91 @@
+id: TOP-AM4-E2E-001
+kind: implementation
+epic: TOP-1200
+title: Read a physical AM4 preset name into visual and nonvisual UI
+status: BLOCKED_HARDWARE
+priority: high
+requirement_ids:
+- PRESET-002
+- A11Y-001
+- QA-011
+depends_on:
+- TOP-AM4-HIL-001
+- TOP-AM4-PROTO-003
+- TOP-A11Y-001
+parallel_group: null
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_accessibility_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_protocol_am4/**
+  - device-packs/am4/**
+  - apps/mobile_flutter/**
+  - native/**
+  write:
+  - apps/mobile_flutter/integration_test/am4_preset_read_test.dart
+  - .tdd/evidence/TOP-AM4-E2E-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - device-packs/index.*
+behavior:
+  why: The AM4 vertical slice must cross native transport, protocol, core state, UI, and accessibility on real hardware.
+  given:
+  - Physical AM4 exact firmware connected through one supported native transport.
+  - Known preset loaded.
+  when:
+  - User connects and reads current preset.
+  then:
+  - Visual UI displays exact preset name/device state.
+  - Screen reader semantics expose the same name and read-only/write status.
+  - Opaque bytes are retained internally.
+  - Disconnect produces an announced error without losing offline copy.
+non_goals:
+- Full preset editor
+- Parameter writes
+- Other transport/firmware
+preconditions:
+- Native transport packet for selected OS is integrated.
+- Physical AM4 discovery verified.
+- Preset decoder integrated.
+test:
+  layer: hardware_end_to_end
+  file: apps/mobile_flutter/integration_test/am4_preset_read_test.dart
+  name: physical_am4_preset_name_reaches_visual_and_nonvisual_ui
+  red_command: Run the exact integration test with AM4 disconnected to establish expected no-device failure, then capture it.
+  expected_red:
+    acceptable:
+    - Test fails with explicit required-hardware/no-device result before connection.
+    unacceptable:
+    - Simulator is silently used.
+    - Test skips/passes without hardware.
+    - Different device selected.
+  green_command: Run the same integration test with connected AM4 and exact preset.
+minimum_green:
+- Wire existing layers only.
+- Persist an offline read copy.
+- No writes.
+required_sweeps:
+- Run platform native tests.
+- Run Flutter integration test on physical device.
+- Run protocol/core suites.
+- VoiceOver or TalkBack task check for preset name/status.
+acceptance:
+- Real name exact.
+- Visual and semantic state agree.
+- Disconnect handled.
+- Matrix complete.
+- Accessibility and hardware reviewers approve.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+unavailable_claims:
+- AM4_PARAMETER_WRITE_VERIFIED
+required_followups:
+- TOP-AM4-E2E-002
+block_conditions:
+- Physical AM4/native mobile path unavailable.
+- No physical screen-reader test device.
+evidence_directory: .tdd/evidence/TOP-AM4-E2E-001

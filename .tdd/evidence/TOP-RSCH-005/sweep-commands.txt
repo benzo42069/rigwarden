@@ -1,0 +1,5 @@
+1. python3 tools/validate_starter_kit.py
+2. rg assertions for report status, non-legal boundary, USPTO/CIPO findings, WIPO limitation, provisional IDs, and follow-up ADR
+3. find docs/research/topology-name-screen.md .tdd/evidence/TOP-RSCH-005 -type f -maxdepth 3 -print | sort
+4. shasum -a 256 docs/research/topology-name-screen.md .tdd/evidence/TOP-RSCH-005/*
+5. git rev-parse --show-toplevel; git rev-parse HEAD; git status --short --branch (expected not-a-git-repository in this starter kit)

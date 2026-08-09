@@ -1,0 +1,1 @@
+NOT APPLICABLE — TOP-RSCH-005 is a documentation/source-research packet. The strict-TDD research mode replaces production RED/GREEN with a bounded evidence question and source log; no behavior test was defined or run.

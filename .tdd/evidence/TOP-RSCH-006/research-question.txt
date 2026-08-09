@@ -1,0 +1,6 @@
+Work item: TOP-RSCH-006
+Requirements: A11Y-001, A11Y-011, QA-007
+Bounded question: Which Flutter, iOS, Android, hardware, and community test methods can prove Topology's blind-user workflows rather than only semantics snapshots?
+Research mode: documentation/source survey only; no production behavior or executable accessibility test was created.
+Expected deliverables: beta task evidence ladder; automation limits; iOS/Android device matrix; focus/announcement log method; privacy-safe contributor feedback; release blockers; explicit uncertainty and physical-testing gaps.
+Sources used: official Flutter, Apple, Android, and Google accessibility documentation plus Topology project contracts.

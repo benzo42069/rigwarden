@@ -1,0 +1,95 @@
+id: TOP-AM4-HIL-001
+kind: hardware
+epic: TOP-1200
+title: Discover a physical AM4 and select the exact profile
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- DEV-001
+- DEV-003
+- QA-011
+depends_on:
+- TOP-AM4-SIM-001
+- TOP-RSCH-004
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/research/**
+  - crates/topology_protocol_am4/**
+  - device-packs/am4/**
+  - crates/topology_simulator/**
+  write:
+  - .tdd/evidence/TOP-AM4-HIL-001/**
+  - fixtures/am4/identity/hardware-validation/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+  - Cargo.toml
+  - Cargo.lock
+behavior:
+  why: Simulator evidence must be promoted through a real AM4 connection before device support is claimed.
+  given:
+  - Physical AM4 with exact captured firmware and declared supported transport.
+  - Built diagnostic path at integrated commit.
+  when:
+  - Discovery is run on the physical connection.
+  then:
+  - Endpoint is enumerated/opened.
+  - Identity query/response matches approved semantics.
+  - Exact pack is selected.
+  - Displayed session status names device/firmware/transport and current verification.
+  - No writes occur.
+non_goals:
+- Preset read
+- Parameter write
+- Other firmware/OS/transport
+preconditions:
+- Physical AM4/cable/mobile or host available.
+- Native/diagnostic transport for selected path exists; if not, create separate native packet first.
+- Other editor closed when required.
+test:
+  layer: hardware_in_loop
+  file: .tdd/evidence/TOP-AM4-HIL-001/hardware-matrix.yaml
+  name: physical_am4_discovery
+  red_command: Run the integrated AM4 discovery diagnostic before the physical device is connected/recognized and record the expected no-device result.
+  expected_red:
+    acceptable:
+    - No matching physical endpoint/device is available before connection.
+    unacceptable:
+    - Simulator is selected.
+    - A different device responds.
+    - Diagnostic crashes.
+  green_command: Run the same diagnostic against the connected AM4 and record successful exact identity/profile selection.
+minimum_green:
+- Read-only discovery only.
+- Use exact integrated codec/profile.
+- Capture/sanitize transcript.
+required_sweeps:
+- Repeat discovery after unplug/replug.
+- Confirm unknown firmware simulation remains read-only.
+- Independent hardware evidence review.
+acceptance:
+- Physical endpoint and identity confirmed.
+- Exact firmware/profile confirmed.
+- No write.
+- Matrix records OS/transport/adapter/commit.
+- Only discovery feature may be marked hardware verified.
+available_claims_after_completion:
+- HARDWARE_VERIFIED
+unavailable_claims:
+- AM4_PRESET_READ_VERIFIED
+- AM4_WRITE_VERIFIED
+required_followups:
+- TOP-AM4-FIX-002
+- TOP-AM4-E2E-001
+block_conditions:
+- Physical AM4/transport unavailable.
+- Native transport path not implemented.
+- Firmware differs from pack.
+evidence_directory: .tdd/evidence/TOP-AM4-HIL-001

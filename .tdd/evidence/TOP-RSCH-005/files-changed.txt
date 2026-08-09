@@ -1,0 +1,9 @@
+Owned write scope only:
+- docs/research/topology-name-screen.md
+- .tdd/evidence/TOP-RSCH-005/**
+
+No files under apps/, crates/, native/, device-packs/, Cargo.toml,
+Cargo.lock, pubspec.yaml, shared matrices, manifests, or production source
+were edited by this packet. Git cannot verify the inventory because this
+starter kit is not a Git repository; the find inventory and work packet scope
+are the evidence boundary.

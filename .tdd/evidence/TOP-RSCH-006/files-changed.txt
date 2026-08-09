@@ -1,0 +1,17 @@
+Git diff unavailable because the extracted starter kit is not a Git worktree.
+
+Files created by TOP-RSCH-006:
+  docs/research/accessibility-test-plan.md — cited accessibility research plan and beta task matrix.
+  .tdd/evidence/TOP-RSCH-006/work-item.yaml — exact packet copy.
+  .tdd/evidence/TOP-RSCH-006/environment.txt — environment and unavailable physical/toolchain inventory.
+  .tdd/evidence/TOP-RSCH-006/research-question.txt — bounded research statement.
+  .tdd/evidence/TOP-RSCH-006/source-notes.md — source-to-claim map.
+  .tdd/evidence/TOP-RSCH-006/sweep-commands.txt — executed validation/assertion commands.
+  .tdd/evidence/TOP-RSCH-006/sweep.log — raw compact command output.
+  .tdd/evidence/TOP-RSCH-006/sweep-exit-statuses.txt — per-command statuses and blocker.
+  .tdd/evidence/TOP-RSCH-006/files-changed.txt — this manifest.
+  .tdd/evidence/TOP-RSCH-006/review.md — independent-review handoff state.
+  .tdd/evidence/TOP-RSCH-006/handoff.md — parent handoff and claim boundaries.
+
+No files under apps/, crates/, native/, device-packs/, manifests, lockfiles, or
+other shared production paths were created or edited.

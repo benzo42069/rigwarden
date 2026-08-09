@@ -1,0 +1,12 @@
+# Topology project-scoped Codex defaults.
+# Verify effective child routing in the current runtime before a large fan-out.
+
+model = "gpt-5.6-terra"
+model_reasoning_effort = "high"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 16
+default_subagent_model = "gpt-5.6-luna"
+default_subagent_reasoning_effort = "max"
+interrupt_message = true

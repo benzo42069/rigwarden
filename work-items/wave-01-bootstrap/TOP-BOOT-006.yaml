@@ -1,0 +1,82 @@
+id: TOP-BOOT-006
+kind: implementation
+epic: TOP-000
+title: Reject fixture provenance that lacks explicit redistribution permission
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- CAPTURE-004
+- QA-002
+depends_on:
+- TOP-BOOT-005
+parallel_group: bootstrap-tools-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - schemas/fixture-provenance.schema.json
+  - templates/provenance/fixture-provenance.yaml
+  - crates/topology_devtools/**
+  write:
+  - crates/topology_devtools/src/fixture.rs
+  - crates/topology_devtools/tests/fixture_validation.rs
+  - .tdd/evidence/TOP-BOOT-006/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Unknown-rights captures must never enter the compatibility suite.
+  given:
+  - A syntactically valid provenance record sets redistribution.permitted to false or omits the basis.
+  when:
+  - The fixture validator is invoked.
+  then:
+  - Validation rejects the record with a redistribution-specific machine-readable error.
+  - A complete permitted record is accepted.
+non_goals:
+- Checking fixture bytes
+- Legal interpretation beyond the declaration
+- Signature verification
+preconditions:
+- TOP-BOOT-005 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_devtools/tests/fixture_validation.rs
+  name: fixture_without_redistribution_permission_is_rejected
+  red_command: cargo test -p topology-devtools fixture_without_redistribution_permission_is_rejected -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing fixture validator API.
+    - Assertion fails because the prohibited record is accepted.
+    unacceptable:
+    - Broken YAML.
+    - Schema file missing due wrong path.
+    - Unrelated work-item validator failure.
+  green_command: cargo test -p topology-devtools fixture_without_redistribution_permission_is_rejected -- --exact --nocapture
+minimum_green:
+- Add the minimum fixture provenance validator.
+- Return stable error code/path.
+- Do not infer permission from source category.
+required_sweeps:
+- cargo test -p topology-devtools
+- cargo fmt --all -- --check
+- cargo clippy -p topology-devtools --all-targets -- -D warnings
+acceptance:
+- Prohibited record rejected.
+- Permitted record accepted.
+- No source category silently overrides permission.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- CAPTURE_VERIFIED
+required_followups:
+- TOP-BOOT-007
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-BOOT-006

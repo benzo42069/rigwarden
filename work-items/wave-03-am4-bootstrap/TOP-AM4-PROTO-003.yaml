@@ -1,0 +1,90 @@
+id: TOP-AM4-PROTO-003
+kind: implementation
+epic: TOP-1200
+title: Decode the AM4 preset fixture’s identity, name, and opaque remainder
+status: BLOCKED_FIXTURE
+priority: high
+requirement_ids:
+- PRESET-002
+- PRESET-007
+depends_on:
+- TOP-AM4-FIX-002
+- TOP-PRESET-001
+parallel_group: am4-proto-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - fixtures/am4/preset-read/**
+  - crates/topology_protocol_am4/**
+  - crates/topology_preset/**
+  write:
+  - crates/topology_protocol_am4/src/preset.rs
+  - crates/topology_protocol_am4/tests/preset_header.rs
+  - .tdd/evidence/TOP-AM4-PROTO-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: A minimal real preset read can enter the normalized document while unknown bytes remain lossless.
+  given:
+  - Approved preset fixture has independently known name and source device/firmware.
+  when:
+  - Decoder parses only established header/name fields.
+  then:
+  - Known metadata matches.
+  - Unparsed remainder is preserved exactly as opaque data.
+  - Truncation/malformed input fails safely.
+  - No unsupported parameters are invented.
+non_goals:
+- Full parameter catalog
+- Routing decode
+- Preset write
+- Save semantics
+preconditions:
+- TOP-AM4-FIX-002 and TOP-PRESET-001 integrated.
+test:
+  layer: byte_exact_protocol
+  file: crates/topology_protocol_am4/tests/preset_header.rs
+  name: decodes_known_am4_preset_metadata_and_preserves_remainder
+  red_command: cargo test -p topology-protocol-am4 decodes_known_am4_preset_metadata_and_preserves_remainder -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing preset decoder.
+    - Assertion fails on name/opaque bytes.
+    unacceptable:
+    - Expected name derived only from decoder.
+    - Fixture invalid.
+    - Decoder discards unknown remainder.
+  green_command: cargo test -p topology-protocol-am4 decodes_known_am4_preset_metadata_and_preserves_remainder -- --exact --nocapture
+minimum_green:
+- Parse only proven fields.
+- Preserve remainder exact.
+- Structured errors.
+- No write codec.
+required_sweeps:
+- cargo test -p topology-protocol-am4
+- cargo test -p topology-preset
+- cargo fmt --all -- --check
+- cargo clippy -p topology-protocol-am4 --all-targets -- -D warnings
+acceptance:
+- Known metadata exact.
+- Opaque remainder exact.
+- Malformed cases safe.
+- Reviewer approves.
+available_claims_after_completion:
+- BYTE_FIXTURE_VERIFIED
+unavailable_claims:
+- AM4_PRESET_READ_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-AM4-E2E-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-AM4-PROTO-003

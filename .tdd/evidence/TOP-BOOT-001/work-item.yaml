@@ -1,0 +1,112 @@
+id: TOP-BOOT-001
+kind: bootstrap
+epic: TOP-000
+title: Establish the minimal repository, license, and instruction baseline
+status: REVIEW_APPROVED
+priority: critical
+requirement_ids:
+- QA-001
+- SEC-007
+depends_on:
+- TOP-RSCH-001
+- TOP-RSCH-002
+- TOP-RSCH-003
+- TOP-RSCH-004
+- TOP-RSCH-005
+- TOP-RSCH-006
+- TOP-RSCH-007
+- TOP-RSCH-008
+parallel_group: null
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - '**'
+  write:
+  - .gitignore
+  - README.md
+  - AGENTS.md
+  - LICENSE
+  - LICENSE_POLICY.md
+  - THIRD_PARTY_NOTICES.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - SECURITY.md
+  - docs/decisions/**
+  - .tdd/evidence/TOP-BOOT-001/**
+  forbidden:
+  - apps/**
+  - crates/**
+  - native/**
+  - device-packs/**
+  - Cargo.toml
+  - Cargo.lock
+  - pubspec.yaml
+behavior:
+  why: The repository needs truthful legal/contribution/security/instruction foundations before source is added.
+  given:
+  - Research reports are integrated and the working name decision is recorded.
+  when:
+  - The integration owner initializes only the minimum public repository contract.
+  then:
+  - Original code has an MIT license file.
+  - Third-party notices are present as an initially empty/structured manifest rather than falsely complete.
+  - Contribution, conduct, and security policies reflect the decisions.
+  - No product source or speculative architecture directories are created.
+non_goals:
+- Creating crates or apps
+- Publishing the repository
+- Claiming trademark clearance
+- Populating notices with unaudited material
+preconditions:
+- All wave-00 reports have independent review.
+- Any name/license blocker has an ADR or explicit block.
+test:
+  layer: bootstrap_harness
+  file: repository root
+  name: repository_contract_baseline
+  red_command: test -f LICENSE && test -f CONTRIBUTING.md && test -f CODE_OF_CONDUCT.md && test -f SECURITY.md
+  expected_red:
+    acceptable:
+    - Command fails because one or more baseline files do not yet exist.
+    - One-time extracted-kit exception: an `OBSERVED_ONCE` pre-Git RED may be
+      corroborated by the shipped manifest and runtime audit record only for
+      this non-production repository-contract baseline; it is not reproducible
+      RED evidence and must not be reused by any later packet.
+    unacceptable:
+    - Repository path is wrong.
+    - Permission failure.
+    - Files exist but are being overwritten without audit.
+  green_command: set -euo pipefail; test -f LICENSE; test -f CONTRIBUTING.md; test -f CODE_OF_CONDUCT.md; test -f SECURITY.md; test -f THIRD_PARTY_NOTICES.md
+minimum_green:
+- Create only the declared repository contract files.
+- Preserve this starter kit or intentionally move it through a documented integration action.
+- Do not add dependencies or product behavior.
+required_sweeps:
+- git diff --check
+- git status --short
+- grep -R "Abyssal" -n README.md AGENTS.md CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md || true
+acceptance:
+- All declared files exist and agree with DECISION_LOG.md.
+- No product code or speculative package skeleton appears.
+- Independent reviewer checks license/conduct/security wording and absence of competitor harassment.
+available_claims_after_completion:
+- REPOSITORY_CONTRACT_ESTABLISHED
+unavailable_claims:
+- UNIT_VERIFIED
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-002
+- TOP-BOOT-003
+block_conditions:
+- Name/license research identifies a material unresolved conflict that affects repository identity.
+evidence_directory: .tdd/evidence/TOP-BOOT-001
+amendments:
+- date: '2026-08-08'
+  author: parent integration owner (`/root`)
+  scope: evidence-only exception for the extracted-kit, non-production baseline RED
+  reference: docs/decisions/ADR-0002-bootstrap-red-evidence-exception.md
+  rationale: The observed pre-Git RED is corroborated but cannot be recreated from an immutable pre-state; it is permanently labeled OBSERVED_ONCE/NON_REPRODUCIBLE_BASELINE and is not precedent.

@@ -1,0 +1,15 @@
+Git diff unavailable: repository is not a Git worktree (`git rev-parse --show-toplevel` failed).
+
+Packet-owned files created/changed:
+- docs/research/distribution-constraints.md — bounded official-source distribution research report.
+- .tdd/evidence/TOP-RSCH-007/work-item.yaml — executed packet copy.
+- .tdd/evidence/TOP-RSCH-007/environment.txt — environment and credential boundary record.
+- .tdd/evidence/TOP-RSCH-007/source-access-log.md — official source access/findings log.
+- .tdd/evidence/TOP-RSCH-007/sweep-commands.txt — validation commands.
+- .tdd/evidence/TOP-RSCH-007/sweep.log — command-separated raw output.
+- .tdd/evidence/TOP-RSCH-007/sweep-exit-statuses.txt — per-command statuses.
+- .tdd/evidence/TOP-RSCH-007/files-changed.txt — this scope record.
+- .tdd/evidence/TOP-RSCH-007/review.md — independent-review status.
+- .tdd/evidence/TOP-RSCH-007/handoff.md — parent handoff.
+
+No files under apps/, crates/, native/, device-packs/, Cargo.toml, Cargo.lock, or pubspec.yaml were touched by this packet.

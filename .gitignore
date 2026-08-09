@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Future local build/editor artifacts; no product skeleton is created by this baseline.
+.dart_tool/
+.idea/
+.vscode/
+build/
+target/

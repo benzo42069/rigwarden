@@ -1,0 +1,5 @@
+set -euo pipefail
+ruby -e 'require "yaml"; x=YAML.load_file(".tdd/evidence/TOP-RSCH-004/platform-matrix.yaml"); allowed=x.fetch("legend").keys; values=[]; x.fetch("devices").each_value{|d| d.each_value{|v| values.concat(v.is_a?(Hash) ? v.values : [v]) }}; unknown=values.flatten.map(&:to_s).uniq.reject{|v| allowed.include?(v)}; abort("undefined statuses: #{unknown.join(\", \")}") unless unknown.empty?; puts "platform-matrix status legend: PASS"'
+rg -q 'FACT_DEVICE_ONLY: documented device-side feature fact' .tdd/evidence/TOP-RSCH-004/platform-matrix.yaml
+rg -q 'FACT_NEGATIVE_DEVICE_ONLY: documented device-side absence' .tdd/evidence/TOP-RSCH-004/platform-matrix.yaml
+rg -q 'A simulator pass, a single note-on' docs/research/mobile-transport-feasibility.md

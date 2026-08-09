@@ -1,0 +1,108 @@
+id: TOP-AM4-FIX-001
+kind: hardware
+epic: TOP-1200
+title: Acquire and approve one AM4 identity-query exchange fixture
+status: BLOCKED_HARDWARE
+priority: critical
+requirement_ids:
+- DEV-003
+- CAPTURE-001
+- CAPTURE-004
+- QA-002
+depends_on:
+- TOP-RSCH-002
+- TOP-RSCH-003
+- TOP-RSCH-008
+- TOP-BOOT-006
+- TOP-BOOT-009
+parallel_group: null
+agent:
+  preferred_role: topology_fixture_researcher
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/research/**
+  - sources/RESEARCH_TARGETS.md
+  - schemas/fixture-provenance.schema.json
+  - templates/provenance/fixture-provenance.yaml
+  write:
+  - fixtures/am4/identity/**
+  - .tdd/evidence/TOP-AM4-FIX-001/**
+  forbidden:
+  - crates/**
+  - apps/**
+  - native/**
+  - device-packs/**
+  - Cargo.toml
+  - Cargo.lock
+behavior:
+  why: AM4 protocol implementation needs a lawful independent identity vector before bytes are encoded or decoded.
+  given:
+  - An AM4 with known firmware is physically available.
+  - A documented or provenance-audited identity query procedure exists.
+  - Capture tooling can isolate the selected endpoint.
+  when:
+  - The read-only identity exchange is captured at least twice.
+  then:
+  - Host-to-device and device-to-host bytes are stored separately.
+  - Repeated captures are compared.
+  - Device/firmware/transport and expected semantic identity are recorded independently.
+  - Serials/personal data are sanitized.
+  - Redistribution permission is explicit.
+  - SHA-256 sidecars validate.
+non_goals:
+- Any write command
+- Preset modification
+- Guessing undocumented fields
+- Capturing unrelated editor traffic
+- Distributing official binaries
+preconditions:
+- Required AM4, cable/adapter, and host are available.
+- Capture plan approved.
+- Other exclusive editor sessions are closed as instructed.
+test:
+  layer: hardware_capture
+  file: fixtures/am4/identity
+  name: am4_identity_fixture_capture
+  red_command: 'cargo run -p topology-devtools -- validate-fixture fixtures/am4/identity  # or integrated equivalent'
+  expected_red:
+    acceptable:
+    - Fixture directory/sidecar is absent before capture.
+    unacceptable:
+    - Validator tool absent due unmet dependency.
+    - Hardware query procedure is unverified.
+    - Capture contains unknown-rights material.
+  green_command: 'cargo run -p topology-devtools -- validate-fixture fixtures/am4/identity  # or integrated equivalent'
+minimum_green:
+- Capture only the read-only identity exchange.
+- Retain raw local copy outside public fixture if sanitization changes the public vector.
+- Use project provenance schema.
+- Do not infer unobserved messages.
+required_sweeps:
+- Validate every fixture sidecar.
+- Verify SHA-256.
+- Independent reviewer compares repeated captures and expected identity.
+- Secret/serial scan.
+acceptance:
+- Two consistent exchanges or documented explanation of variable fields.
+- Provenance approved.
+- Redistribution permitted.
+- Expected identity independently established.
+- No private/irrelevant bytes.
+- Status becomes CAPTURE_VERIFIED only for this exchange.
+available_claims_after_completion:
+- CAPTURE_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-AM4-PROTO-001
+- TOP-AM4-PROTO-002
+block_conditions:
+- AM4 unavailable.
+- No safe read-only query procedure.
+- Redistribution permission absent.
+- Capture cannot be isolated/sanitized.
+evidence_directory: .tdd/evidence/TOP-AM4-FIX-001

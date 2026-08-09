@@ -1,0 +1,86 @@
+id: TOP-PRESET-001
+kind: implementation
+epic: TOP-200
+title: Preserve an opaque preset segment beside known normalized data
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- PRESET-007
+depends_on:
+- TOP-DOM-003
+- TOP-GRAPH-002
+parallel_group: core-preset-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_domain/**
+  - crates/topology_routing/**
+  - docs/ARCHITECTURE.md
+  write:
+  - crates/topology_preset/Cargo.toml
+  - crates/topology_preset/src/lib.rs
+  - crates/topology_preset/src/document.rs
+  - crates/topology_preset/tests/opaque_segment.rs
+  - .tdd/evidence/TOP-PRESET-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: Unknown bytes must survive editing so Topology does not corrupt data it does not yet understand.
+  given:
+  - A synthetic preset document has known metadata plus opaque segment ID `unknown-1` with bytes `[0x01,0x02,0x03]`.
+  when:
+  - The known name field is edited.
+  then:
+  - Opaque segment ID/order/bytes remain unchanged.
+  - Known edit is reflected.
+  - No claim of vendor file compatibility is made.
+non_goals:
+- Serialization format
+- Real SysEx fixture
+- Opaque semantic interpretation
+- Cross-device conversion
+preconditions:
+- TOP-DOM-003 and TOP-GRAPH-002 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_preset/tests/opaque_segment.rs
+  name: editing_known_field_preserves_opaque_segment_exactly
+  red_command: cargo test -p topology-preset editing_known_field_preserves_opaque_segment_exactly -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing preset document API.
+    - Assertion fails because opaque bytes are discarded/changed.
+    unacceptable:
+    - Workspace membership missing.
+    - Test compares a clone without invoking edit.
+  green_command: cargo test -p topology-preset editing_known_field_preserves_opaque_segment_exactly -- --exact --nocapture
+minimum_green:
+- Add minimal document metadata and ordered opaque segment type.
+- Add one known-field edit method.
+- No serialization dependency yet.
+required_sweeps:
+- cargo test -p topology-preset
+- cargo test -p topology-routing
+- cargo fmt --all -- --check
+- cargo clippy -p topology-preset --all-targets -- -D warnings
+acceptance:
+- Opaque data exact.
+- Known edit works.
+- Reviewer approves test independence.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- LOSSLESS_FILE_CODEC_VERIFIED
+- BYTE_FIXTURE_VERIFIED
+required_followups:
+- TOP-PRESET-002
+- TOP-UNDO-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-PRESET-001

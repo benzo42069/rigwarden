@@ -1,0 +1,17 @@
+===== 1. python3 tools/validate_starter_kit.py =====
+Missing validation dependency. Install PyYAML and jsonschema, then retry: python -m pip install PyYAML jsonschema
+
+===== 2. task/source/physical-gap/matrix/source URL assertions =====
+Task/source/physical-gap assertions: PASS
+Contradiction-check section: PASS
+Beta evidence matrix shape: PASS (14 rows, 5 evidence columns)
+Official source URL assertions: PASS (16 URLs)
+Source-reference closure: PASS (17 source IDs)
+
+===== 3. post-review exact static assertions =====
+Task/source/physical-gap assertions: PASS
+Contradiction-check section: PASS
+Beta evidence matrix shape: PASS (14 rows, 5 evidence columns)
+Official source URL assertions: PASS (16 URLs)
+Source-reference closure: PASS (17 source IDs)
+Post-review scope: PASS (mandatory iPad and Android tablet rows; native Android automation explicitly not Flutter semantics)

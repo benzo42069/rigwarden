@@ -1,0 +1,28 @@
+TOP-RSCH-005 sweep evidence (captured 2026-08-08)
+
+Validator result:
+  python3 tools/validate_starter_kit.py
+  exit 2
+  Missing validation dependency. Install PyYAML and jsonschema, then retry.
+
+Static report assertions: PASS (exit 0)
+  - preliminary status and non-legal boundary present
+  - USPTO and CIPO findings present
+  - WIPO limitation and UNKNOWN / NOT CLEARED language present
+  - keep/modify/replace disposition and provisional IDs present
+  - TOP-ADR-NAMING-001 follow-up present
+
+Evidence inventory: PASS (exit 0)
+  - docs/research/topology-name-screen.md
+  - .tdd/evidence/TOP-RSCH-005/{environment,work-item,research-question,source-notes,red*,green*,sweep*,files-changed,handoff,review}
+
+SHA-256 (pre-handoff snapshot):
+  938627d6cafffff313eb714362c3ee31a6c9e92228d1b975a912e5a1dabdd28d  docs/research/topology-name-screen.md
+  2d35cf0ecf27fabc2c371ed9ec456c37ef907e35ff1cea53e9fbe95892ec4ee8  .tdd/evidence/TOP-RSCH-005/environment.txt
+
+Git probes: NOT_A_GIT_REPOSITORY. The starter kit has no `.git` metadata, so no commit/diff evidence is claimed.
+
+Direct-source recheck: USPTO, CIPO, Apple, Google Play, GitHub API, pub.dev,
+RDAP, and Topology Music returned HTTP 200 on the selected links. crates.io
+returned HTTP 403 on the final recheck (rate limiting/edge policy); the report
+keeps the initial dated JSON capture and marks the registry facts for recheck.

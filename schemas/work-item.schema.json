@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://topology.invalid/schemas/work-item.schema.json",
+  "title": "Topology Work Item",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "epic",
+    "title",
+    "status",
+    "priority",
+    "requirement_ids",
+    "depends_on",
+    "parallel_group",
+    "agent",
+    "scope",
+    "behavior",
+    "non_goals",
+    "preconditions",
+    "acceptance",
+    "evidence_directory"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TOP-[A-Z0-9-]+$"
+    },
+    "kind": {
+      "enum": [
+        "research",
+        "bootstrap",
+        "implementation",
+        "hardware",
+        "release"
+      ]
+    },
+    "epic": {
+      "type": "string",
+      "pattern": "^TOP-[A-Z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "READY",
+        "BLOCKED_CONTRACT",
+        "BLOCKED_DEPENDENCY",
+        "BLOCKED_ENVIRONMENT",
+        "BLOCKED_FIXTURE",
+        "BLOCKED_HARDWARE",
+        "IN_PROGRESS",
+        "RED_OBSERVED",
+        "GREEN_OBSERVED",
+        "REVIEW_FAILED",
+        "REVIEW_APPROVED",
+        "INTEGRATION_FAILED",
+        "INTEGRATED",
+        "VERIFIED"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "requirement_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "parallel_group": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "required": [
+        "preferred_role",
+        "reviewer_role",
+        "integrator_role"
+      ],
+      "properties": {
+        "preferred_role": {
+          "type": "string"
+        },
+        "reviewer_role": {
+          "type": "string"
+        },
+        "integrator_role": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "read",
+        "write",
+        "forbidden"
+      ],
+      "properties": {
+        "read": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "write": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forbidden": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "behavior": {
+      "type": "object"
+    },
+    "non_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "research": {
+      "type": "object"
+    },
+    "test": {
+      "type": "object"
+    },
+    "minimum_green": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_sweeps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "available_claims_after_completion": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unavailable_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_followups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "block_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_directory": {
+      "type": "string",
+      "pattern": "^\\.tdd/evidence/TOP-"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "research"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "research"
+        ]
+      },
+      "else": {
+        "required": [
+          "test",
+          "minimum_green",
+          "required_sweeps",
+          "available_claims_after_completion",
+          "unavailable_claims"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": true
+}

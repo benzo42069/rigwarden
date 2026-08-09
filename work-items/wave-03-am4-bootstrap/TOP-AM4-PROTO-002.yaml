@@ -1,0 +1,88 @@
+id: TOP-AM4-PROTO-002
+kind: implementation
+epic: TOP-1200
+title: Decode the provenance-approved AM4 identity response
+status: BLOCKED_FIXTURE
+priority: high
+requirement_ids:
+- DEV-003
+- QA-002
+depends_on:
+- TOP-AM4-FIX-001
+- TOP-DOM-003
+parallel_group: am4-proto-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - fixtures/am4/identity/**
+  - crates/topology_domain/**
+  write:
+  - crates/topology_protocol_am4/Cargo.toml
+  - crates/topology_protocol_am4/src/lib.rs
+  - crates/topology_protocol_am4/src/identity.rs
+  - crates/topology_protocol_am4/tests/identity_response.rs
+  - .tdd/evidence/TOP-AM4-PROTO-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+behavior:
+  why: AM4 discovery requires converting a real response into typed identity without losing or inventing fields.
+  given:
+  - Approved device-to-host fixture and independent expected model/firmware are available.
+  when:
+  - Decoder receives complete bytes.
+  then:
+  - Typed identity fields match expected values.
+  - Frame is consumed exactly.
+  - Unknown/variable bytes are preserved or reported according to the fixture contract.
+  - Truncated and invalid-checksum variants return errors without panic.
+non_goals:
+- Preset decoding
+- Device-pack resolution
+- Transport
+- Other response forms
+preconditions:
+- TOP-AM4-FIX-001 and TOP-DOM-003 integrated.
+test:
+  layer: byte_exact_protocol
+  file: crates/topology_protocol_am4/tests/identity_response.rs
+  name: decodes_approved_am4_identity_response
+  red_command: cargo test -p topology-protocol-am4 decodes_approved_am4_identity_response -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing decoder API.
+    - Semantic assertion fails.
+    unacceptable:
+    - Fixture missing/checksum invalid.
+    - Expected values derived from decoder.
+    - Unrelated domain failure.
+  green_command: cargo test -p topology-protocol-am4 decodes_approved_am4_identity_response -- --exact --nocapture
+minimum_green:
+- Implement only captured response form.
+- Return explicit unsupported/error for others.
+- Add length/checksum guards required by evidence.
+required_sweeps:
+- cargo test -p topology-protocol-am4
+- cargo fmt --all -- --check
+- cargo clippy -p topology-protocol-am4 --all-targets -- -D warnings
+acceptance:
+- Known fixture decoded.
+- Truncated/checksum cases rejected.
+- No panic.
+- Reviewer approves provenance and expected-value independence.
+available_claims_after_completion:
+- BYTE_FIXTURE_VERIFIED
+unavailable_claims:
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-AM4-SIM-001
+- TOP-AM4-REG-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-AM4-PROTO-002

@@ -1,0 +1,1 @@
+python3 tools/validate_starter_kit.py: exit status 2 — BLOCKED_ENVIRONMENT because documented validator dependencies are absent.

@@ -1,0 +1,86 @@
+id: TOP-FM3-IOS-001
+kind: implementation
+epic: TOP-1000
+title: Enumerate the evidenced iOS FM3-compatible MIDI/interface path
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- TRANSPORT-002
+- PLAT-001
+depends_on:
+- TOP-FM3-RSCH-001
+- TOP-BOOT-003
+parallel_group: fm3-native-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/research/fm3-transport-matrix.md
+  - apps/mobile_flutter/ios/**
+  write:
+  - apps/mobile_flutter/ios/Runner/Fm3MidiEndpointEnumerator.swift
+  - apps/mobile_flutter/ios/RunnerTests/Fm3MidiEndpointEnumeratorTests.swift
+  - apps/mobile_flutter/lib/core/native_transport/**
+  - .tdd/evidence/TOP-FM3-IOS-001/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/android/**
+  - device-packs/**
+behavior:
+  why: iOS must expose only transport paths supported by current platform/device evidence and clearly require an interface/adapter when direct access is unavailable.
+  given:
+  - CoreMIDI fake contains one compatible interface endpoint and unrelated endpoints.
+  when:
+  - Enumerator runs.
+  then:
+  - Compatible endpoint is listed with connection-path explanation.
+  - Unrelated endpoint is not auto-selected.
+  - No claim of direct serial is made unless research proved it.
+  - Manual selection remains possible.
+non_goals:
+- Physical interface
+- Sending bytes
+- BLE pairing
+- Android
+preconditions:
+- TOP-FM3-RSCH-001 integrated with selected iOS path.
+- Xcode test harness available.
+test:
+  layer: native_unit
+  file: apps/mobile_flutter/ios/RunnerTests/Fm3MidiEndpointEnumeratorTests.swift
+  name: enumerates_only_evidenced_fm3_compatible_midi_path
+  red_command: cd apps/mobile_flutter/ios && xcodebuild test -scheme Runner -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:RunnerTests/Fm3MidiEndpointEnumeratorTests/testEnumeratesOnlyEvidencedFm3CompatibleMidiPath
+  expected_red:
+    acceptable:
+    - Missing enumerator API.
+    - Assertion auto-selects unrelated endpoint or mislabels direct path.
+    unacceptable:
+    - Xcode/simulator unavailable.
+    - Research unresolved.
+    - Test uses real endpoint nondeterministically.
+  green_command: cd apps/mobile_flutter/ios && xcodebuild test -scheme Runner -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:RunnerTests/Fm3MidiEndpointEnumeratorTests/testEnumeratesOnlyEvidencedFm3CompatibleMidiPath
+minimum_green:
+- Add narrow CoreMIDI enumeration adapter.
+- Preserve manual fallback.
+- No send/open beyond enumeration.
+required_sweeps:
+- Run iOS unit tests.
+- cd apps/mobile_flutter && flutter analyze
+- cd apps/mobile_flutter && flutter test
+acceptance:
+- Evidenced endpoint path truthful.
+- No unsupported direct-serial claim.
+- Reviewer approves.
+available_claims_after_completion:
+- PLATFORM_SIMULATOR_VERIFIED
+unavailable_claims:
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-FM3-HIL-002
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-FM3-IOS-001

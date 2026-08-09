@@ -1,0 +1,83 @@
+id: TOP-UNDO-002
+kind: implementation
+epic: TOP-500
+title: Create a new journal branch when preset context changes
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- UNDO-004
+depends_on:
+- TOP-UNDO-001
+- TOP-PRESET-002
+parallel_group: core-undo-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_undo/**
+  - crates/topology_preset/**
+  write:
+  - crates/topology_undo/src/journal.rs
+  - crates/topology_undo/tests/branch.rs
+  - .tdd/evidence/TOP-UNDO-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: Undo must not blindly apply edits from one preset to another.
+  given:
+  - Branch A contains one confirmed edit for preset A.
+  - Session switches to preset B.
+  when:
+  - A new edit is recorded.
+  then:
+  - A named branch for preset B is created.
+  - Undo on B does not expose A’s operation.
+  - Branch A remains inspectable.
+non_goals:
+- Disk persistence
+- Branch merge
+- UI branch picker
+preconditions:
+- TOP-UNDO-001 and TOP-PRESET-002 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_undo/tests/branch.rs
+  name: preset_change_creates_isolated_journal_branch
+  red_command: cargo test -p topology-undo preset_change_creates_isolated_journal_branch -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing branch API.
+    - Assertion fails because histories mix.
+    unacceptable:
+    - Preset IDs identical by mistake.
+    - Unrelated container failure.
+  green_command: cargo test -p topology-undo preset_change_creates_isolated_journal_branch -- --exact --nocapture
+minimum_green:
+- Add branch identity/context and isolated current branch.
+- Keep old branch readable.
+- No merge/GUI.
+required_sweeps:
+- cargo test -p topology-undo
+- cargo test -p topology-preset
+- cargo fmt --all -- --check
+- cargo clippy -p topology-undo --all-targets -- -D warnings
+acceptance:
+- Branches isolated.
+- Old branch retained.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- PERSISTENCE_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+required_followups: []
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-UNDO-002

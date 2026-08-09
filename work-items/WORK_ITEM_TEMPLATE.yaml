@@ -1,0 +1,55 @@
+id: TOP-EXAMPLE-001
+kind: implementation
+epic: TOP-EXAMPLE
+title: Replace with one observable behavior
+status: READY
+priority: high
+
+requirement_ids:
+  - DEV-001
+
+depends_on: []
+parallel_group: example-a
+
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+
+scope:
+  read: []
+  write: []
+  forbidden:
+    - Cargo.toml
+    - Cargo.lock
+    - work-items/index.yaml
+
+behavior:
+  why: Explain user or safety value.
+  given: []
+  when: []
+  then: []
+
+non_goals: []
+preconditions: []
+
+test:
+  layer: rust_unit
+  file: path/to/test
+  name: exact_test_name
+  red_command: command
+  expected_red:
+    acceptable: []
+    unacceptable: []
+  green_command: command
+
+minimum_green: []
+required_sweeps: []
+acceptance: []
+available_claims_after_completion:
+  - UNIT_VERIFIED
+unavailable_claims:
+  - HARDWARE_VERIFIED
+required_followups: []
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-EXAMPLE-001

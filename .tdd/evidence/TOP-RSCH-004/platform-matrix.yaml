@@ -1,0 +1,84 @@
+packet: TOP-RSCH-004
+access_date: 2026-08-08
+status: RESEARCH_COMPLETE_PENDING_INDEPENDENT_REVIEW
+legend:
+  H: mobile transport hypothesis; physical capture required
+  B: blocked by documented device/API boundary
+  N/A: device does not expose that transport
+  U: feature/protocol remains unknown even if transport is H
+  FACT_DEVICE_ONLY: documented device-side feature fact; does not establish mobile transport, app, or realtime-editor availability
+  FACT_NEGATIVE_DEVICE_ONLY: documented device-side absence over the named physical port; does not establish another port or mobile path
+  UNKNOWN: unknown editor/protocol/mobile feature state; no write or compatibility inference
+devices:
+  axe_fx_iii:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    realtime_tuner_tempo: {usb_midi: FACT_NEGATIVE_DEVICE_ONLY, five_pin: FACT_DEVICE_ONLY, ble: U, bridge: U}
+  fm9:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    realtime_tuner_tempo: {usb_midi: U, five_pin: U, ble: U, bridge: U}
+  fm3:
+    direct_usb_midi: {ios: B, android: B}
+    direct_usb_serial: {ios: B, android: H}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    editor_protocol: UNKNOWN
+  am4:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    editor_protocol: UNKNOWN
+  vp4:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    editor_protocol: UNKNOWN
+  axe_fx_ii:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    mobile_editor: UNKNOWN
+  ax8:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    mobile_editor: UNKNOWN
+  fx8:
+    direct_usb_midi: {ios: H, android: H}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    mobile_editor: UNKNOWN
+  axe_fx_standard_ultra:
+    direct_usb_midi: {ios: B, android: B}
+    direct_usb_serial: {ios: N/A, android: N/A}
+    class_compliant_usb_midi_interface: {ios: H, android: H}
+    five_pin_or_trs_via_interface: {ios: H, android: H}
+    ble_midi_adapter: {ios: H, android: H}
+    local_network_bridge: {ios: H, android: H}
+    mobile_editor: UNKNOWN

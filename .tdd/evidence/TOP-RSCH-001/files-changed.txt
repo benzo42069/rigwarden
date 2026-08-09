@@ -1,0 +1,11 @@
+A docs/research/codex-runtime-routing.md
+A .tdd/evidence/TOP-RSCH-001/environment.txt
+A .tdd/evidence/TOP-RSCH-001/files-changed.txt
+A .tdd/evidence/TOP-RSCH-001/handoff.md
+A .tdd/evidence/TOP-RSCH-001/runtime-metadata.txt
+A .tdd/evidence/TOP-RSCH-001/runtime-metadata.txt.sha256
+A .tdd/evidence/TOP-RSCH-001/sweep-commands.txt
+A .tdd/evidence/TOP-RSCH-001/sweep-exit-statuses.txt
+A .tdd/evidence/TOP-RSCH-001/sweep.log
+A .tdd/evidence/TOP-RSCH-001/work-item.yaml
+No production behavior or shared product file changed.

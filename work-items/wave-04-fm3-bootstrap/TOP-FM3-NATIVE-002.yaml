@@ -1,0 +1,86 @@
+id: TOP-FM3-NATIVE-002
+kind: implementation
+epic: TOP-1100
+title: Open, cancel, and close an Android FM3 USB serial session through a bounded adapter
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- TRANSPORT-003
+- TRANSPORT-004
+- PLAT-002
+depends_on:
+- TOP-FM3-NATIVE-001
+parallel_group: fm3-native-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - apps/mobile_flutter/android/**
+  - docs/research/fm3-transport-matrix.md
+  write:
+  - apps/mobile_flutter/android/app/src/main/kotlin/**/Fm3UsbSerialSession.kt
+  - apps/mobile_flutter/android/app/src/test/**/Fm3UsbSerialSessionTest.kt
+  - .tdd/evidence/TOP-FM3-NATIVE-002/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/ios/**
+  - device-packs/**
+behavior:
+  why: The native adapter must have deterministic lifecycle and cancellation before protocol traffic is trusted.
+  given:
+  - Fake USB connection grants permission and records open/read/write/close calls.
+  - One read is pending.
+  when:
+  - Session is cancelled and closed.
+  then:
+  - Pending read ends with cancellation, not success.
+  - Underlying connection closes once.
+  - No callback arrives after close.
+  - Buffers and timeouts are bounded.
+non_goals:
+- FM3 protocol
+- Physical USB
+- Reconnect
+- Large transfer
+preconditions:
+- TOP-FM3-NATIVE-001 integrated.
+- Serial dependency/API selected by ADR if needed.
+test:
+  layer: native_unit
+  file: apps/mobile_flutter/android/app/src/test/**/Fm3UsbSerialSessionTest.kt
+  name: cancel_closes_pending_fm3_serial_session_once
+  red_command: cd apps/mobile_flutter/android && ./gradlew test --tests '*Fm3UsbSerialSessionTest.cancelClosesPendingFm3SerialSessionOnce'
+  expected_red:
+    acceptable:
+    - Missing session API.
+    - Assertion shows callback after close/double close/non-cancellation.
+    unacceptable:
+    - Dependency not integrated.
+    - Test uses physical USB.
+    - Unbounded sleep.
+  green_command: cd apps/mobile_flutter/android && ./gradlew test --tests '*Fm3UsbSerialSessionTest.cancelClosesPendingFm3SerialSessionOnce'
+minimum_green:
+- Implement lifecycle around abstracted serial connection.
+- Bound queues/timeouts.
+- No protocol parsing.
+required_sweeps:
+- cd apps/mobile_flutter/android && ./gradlew test
+- cd apps/mobile_flutter && flutter analyze
+- cd apps/mobile_flutter && flutter test
+acceptance:
+- Cancel/close deterministic.
+- No late callback.
+- Reviewer/security reviewer approve.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-FM3-HIL-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-FM3-NATIVE-002

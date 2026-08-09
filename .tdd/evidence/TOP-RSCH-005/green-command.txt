@@ -1,0 +1,1 @@
+NOT APPLICABLE — TOP-RSCH-005 is a documentation/source-research packet. No production implementation or GREEN test is authorized by the work packet.

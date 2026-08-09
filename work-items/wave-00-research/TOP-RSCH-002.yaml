@@ -1,0 +1,82 @@
+id: TOP-RSCH-002
+kind: research
+epic: TOP-000
+title: Audit Axis, ForgeFX, fractal-midi, and related source licenses and provenance
+status: INTEGRATED
+priority: high
+requirement_ids:
+- PACK-002
+- QA-002
+depends_on: []
+parallel_group: research-a
+agent:
+  preferred_role: topology_fixture_researcher
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - README.md
+  - AGENTS.md
+  - docs/**
+  - sources/RESEARCH_TARGETS.md
+  - .codex/**
+  - work-items/**
+  write:
+  - docs/research/open-source-source-and-license-audit.md
+  - .tdd/evidence/TOP-RSCH-002/**
+  forbidden:
+  - apps/**
+  - crates/**
+  - native/**
+  - device-packs/**
+  - Cargo.toml
+  - Cargo.lock
+  - pubspec.yaml
+behavior:
+  why: What current open-source code, catalogs, fixtures, and protocol knowledge may Topology lawfully reuse, port, reimplement, or only cite?
+  given:
+  - The starter kit and current external documentation are available.
+  when:
+  - The assigned researcher investigates only the bounded question.
+  then:
+  - The deliverable distinguishes verified facts, hypotheses, unknowns, and blockers.
+  - Every external factual claim has a source reference and access date.
+  - No production behavior is created.
+non_goals:
+- Contacting upstream maintainers
+- Preserving upstream API compatibility
+- Copying code or data into production
+- Giving legal advice
+preconditions:
+- Repository contains this starter kit.
+- Research access required by the packet is available or the packet is marked BLOCKED_ENVIRONMENT.
+research:
+  question: What current open-source code, catalogs, fixtures, and protocol knowledge may Topology lawfully reuse, port, reimplement, or only cite?
+  source_priority:
+  - Repository LICENSE/NOTICE/package metadata at exact commits
+  - Relevant source files and generated data provenance
+  - Commit history/issues documenting hardware verification
+  - Primary vendor documentation used by those projects
+  deliverables:
+  - Pin exact repository commits and licenses.
+  - Map relevant modules/data files and their stated provenance.
+  - Classify each candidate as reuse, port with notice, independent reimplementation, reference-only, or reject.
+  - List attribution/NOTICE obligations.
+  - Identify copied-art/layout material that must not enter Topology.
+  - Produce a third-party provenance table and unresolved legal questions.
+  review:
+  - Independent reviewer checks source quality, license interpretation boundaries, contradictions, and actionable conclusions.
+acceptance:
+- Pin exact repository commits and licenses.
+- Map relevant modules/data files and their stated provenance.
+- Classify each candidate as reuse, port with notice, independent reimplementation, reference-only, or reject.
+- List attribution/NOTICE obligations.
+- Identify copied-art/layout material that must not enter Topology.
+- Produce a third-party provenance table and unresolved legal questions.
+- Uncertainty and contradictory sources are explicit.
+- The report names follow-up ADRs or implementation packets without editing production code.
+- Independent review is recorded.
+block_conditions:
+- Required source cannot be accessed.
+- A material legal conclusion would require counsel rather than engineering inference.
+evidence_directory: .tdd/evidence/TOP-RSCH-002

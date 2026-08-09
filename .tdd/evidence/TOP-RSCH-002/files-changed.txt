@@ -1,0 +1,7 @@
+A docs/research/open-source-source-and-license-audit.md
+A .tdd/evidence/TOP-RSCH-002/environment.txt
+A .tdd/evidence/TOP-RSCH-002/files-changed.txt
+A .tdd/evidence/TOP-RSCH-002/handoff.md
+A .tdd/evidence/TOP-RSCH-002/review.md
+A .tdd/evidence/TOP-RSCH-002/work-item.yaml
+No production behavior or shared product file changed.

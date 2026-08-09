@@ -1,0 +1,91 @@
+id: TOP-BOOT-002
+kind: bootstrap
+epic: TOP-000
+title: Create the minimum Rust workspace and empty domain test harness
+status: GREEN_OBSERVED
+priority: critical
+requirement_ids:
+- QA-001
+depends_on:
+- TOP-BOOT-001
+parallel_group: bootstrap-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/ARCHITECTURE.md
+  - docs/research/codex-runtime-routing.md
+  - AGENTS.md
+  write:
+  - rust-toolchain.toml
+  - Cargo.toml
+  - Cargo.lock
+  - crates/topology_domain/Cargo.toml
+  - crates/topology_domain/src/lib.rs
+  - crates/topology_domain/tests/harness.rs
+  - .tdd/evidence/TOP-BOOT-002/**
+  forbidden:
+  - apps/**
+  - native/**
+  - device-packs/**
+  - crates/topology_domain/src/**/*.rs except lib.rs
+  - crates/topology_domain/tests/**/*.rs except harness.rs
+behavior:
+  why: The first Rust behavior needs a reproducible compiler and runnable narrow test target.
+  given:
+  - The audited Rust toolchain is installed.
+  - No Rust workspace exists or the repository is still product-empty.
+  when:
+  - The worker creates the minimum workspace, one domain crate, and a harness test target containing no product behavior.
+  then:
+  - cargo test can discover and execute the harness.
+  - cargo fmt and clippy can run.
+  - No future crates, domain APIs, placeholder structs, or speculative dependencies are created.
+non_goals:
+- Implementing device identifiers
+- Creating all architecture crates
+- Selecting protocol/storage/FFI dependencies
+- Adding a meaningless always-true product test
+preconditions:
+- TOP-BOOT-001 is integrated.
+- Toolchain report names a supported Rust version.
+test:
+  layer: bootstrap_harness
+  file: crates/topology_domain/tests/harness.rs
+  name: harness_compiles
+  red_command: cargo test -p topology-domain --test harness --no-run
+  expected_red:
+    acceptable:
+    - Command fails because the Rust workspace/crate/test target does not exist.
+    unacceptable:
+    - Rust toolchain is missing.
+    - Unrelated existing Rust code fails.
+    - Network dependency failure caused by speculative dependencies.
+  green_command: cargo test -p topology-domain --test harness -- --nocapture
+minimum_green:
+- Use a minimal library crate with no product types.
+- The harness may verify crate linkage or a package metadata constant only if necessary; it must not be cited as product behavior.
+- Pin toolchain and lock dependency state.
+required_sweeps:
+- cargo fmt --all -- --check
+- cargo clippy --workspace --all-targets -- -D warnings
+- cargo test --workspace
+acceptance:
+- Clean-clone Rust harness runs offline after dependencies are fetched.
+- No empty future crates.
+- No unexplained warnings.
+- Reviewer confirms no product behavior was smuggled into bootstrap.
+available_claims_after_completion:
+- RUST_HARNESS_EXECUTABLE
+unavailable_claims:
+- UNIT_VERIFIED
+- BYTE_FIXTURE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-005
+- TOP-DOM-001
+block_conditions:
+- Required Rust toolchain cannot be installed/executed in the environment.
+evidence_directory: .tdd/evidence/TOP-BOOT-002
