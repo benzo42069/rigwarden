@@ -1,0 +1,3 @@
+0
+accepted_as_focused_green: yes
+reason: The focused cycle test passed with valid A-to-B and B-to-C insertions, deterministic C-to-A cycle error path, and unchanged connection storage.

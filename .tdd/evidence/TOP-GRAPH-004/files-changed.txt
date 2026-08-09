@@ -1,0 +1,12 @@
+Relative to public base b6d8e73b6fa68c5c2bd4012289b3452fa32520e1:
+M crates/topology_routing/src/graph.rs
+A crates/topology_routing/src/validation.rs
+A crates/topology_routing/tests/cycle.rs
+
+Scope explanation:
+- graph.rs adds the explicit GraphPolicy opt-in, structured CycleDetected error, deterministic pre-commit check, and no other graph behavior.
+- validation.rs contains the directed cycle-path validator and policy enum.
+- cycle.rs is the focused A/B/C unit test.
+- crates/topology_routing/src/lib.rs, Cargo.toml, Cargo.lock, work-items/index.yaml, apps, native, and device-pack files were not changed for this packet.
+- A temporary `false &&` mutation of the cycle guard was used only for post-GREEN mutation sanity and was restored before the final sweeps.
+- No fixture or build artifact was added.

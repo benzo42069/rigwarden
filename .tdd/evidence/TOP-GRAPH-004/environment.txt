@@ -1,0 +1,41 @@
+timestamp_local:
+2026-08-09 13:03:42 -0500
+timestamp_utc:
+2026-08-09T18:03:42Z
+os:
+ProductName:		macOS
+ProductVersion:		26.5
+BuildVersion:		25F71
+architecture:
+arm64
+repository:
+/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch:
+main
+local_head:
+536d8901ac91ecdbc15e09356800d9f46be401dd
+public_main_head:
+b6d8e73b6fa68c5c2bd4012289b3452fa32520e1
+rustc:
+rustc 1.97.0 (2d8144b78 2026-07-07)
+binary: rustc
+commit-hash: 2d8144b7880597b6e6d3dfd63a9a9efae3f533d3
+commit-date: 2026-07-07
+host: aarch64-apple-darwin
+release: 1.97.0
+LLVM version: 22.1.6
+cargo:
+cargo 1.97.0 (c980f4866 2026-06-30)
+flutter:
+Flutter 3.44.9 ��� channel stable ��� https://github.com/flutter/flutter.git
+Framework ��� revision 6b182d2c75 (4 days ago) ��� 2026-08-05 10:04:07 -0700
+Engine ��� hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (8 days ago) ��� 2026-07-31 18:31:59.000Z
+dart:
+Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+routing_scope_status:
+?? .tdd/evidence/TOP-GRAPH-004/
+?? crates/topology_routing/
+routing_effective_model:
+requested/effective route from orchestrator: OpenAI gpt-5.6-luna, max reasoning; shell runtime metadata unavailable
+hardware_fixture:
+not applicable: pure Rust unit behavior, no device/protocol fixture

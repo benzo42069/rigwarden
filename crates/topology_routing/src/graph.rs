@@ -1,9 +1,13 @@
 #[path = "connection.rs"]
 mod connection;
+#[path = "validation.rs"]
+mod validation;
 pub use connection::{Connection, Port, PortDirection, PortId, PortRef};
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt;
+
+pub use validation::GraphPolicy;
 
 /// Stable identity for a node in a routing graph.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -141,6 +145,8 @@ pub enum GraphError {
     },
     /// The exact directed connection already exists.
     DuplicateConnection(Connection),
+    /// A connection would introduce a prohibited directed cycle.
+    CycleDetected { path: Vec<NodeId> },
 }
 
 impl fmt::Display for GraphError {
@@ -168,6 +174,14 @@ impl fmt::Display for GraphError {
                 connection.source(),
                 connection.destination()
             ),
+            Self::CycleDetected { path } => write!(
+                formatter,
+                "routing cycle detected: {}",
+                path.iter()
+                    .map(ToString::to_string)
+                    .collect::<Vec<_>>()
+                    .join(" -> ")
+            ),
         }
     }
 }
@@ -179,12 +193,22 @@ impl std::error::Error for GraphError {}
 pub struct Graph {
     nodes: BTreeMap<NodeId, Node>,
     connections: BTreeSet<Connection>,
+    policy: GraphPolicy,
 }
 
 impl Graph {
     /// Construct an empty graph.
     pub fn new() -> Self {
         Self::default()
+    }
+
+    /// Construct an empty graph with an explicit validation policy.
+    pub fn with_policy(policy: GraphPolicy) -> Self {
+        Self {
+            nodes: BTreeMap::new(),
+            connections: BTreeSet::new(),
+            policy,
+        }
     }
 
     /// Insert a node without replacing an existing identity.
@@ -232,9 +256,17 @@ impl Graph {
         }
 
         let connection = Connection::new(source, destination);
-        if !self.connections.insert(connection.clone()) {
+        if self.connections.contains(&connection) {
             return Err(GraphError::DuplicateConnection(connection));
         }
+
+        if self.policy.rejects_cycles()
+            && let Some(path) = validation::cycle_path(&self.connections, &connection)
+        {
+            return Err(GraphError::CycleDetected { path });
+        }
+
+        self.connections.insert(connection);
         Ok(())
     }
 

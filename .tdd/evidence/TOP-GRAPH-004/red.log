@@ -1,0 +1,28 @@
+   Compiling topology-routing v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_routing)
+error[E0432]: unresolved import `topology_routing::graph::GraphPolicy`
+ --> crates/topology_routing/tests/cycle.rs:2:24
+  |
+2 |     Graph, GraphError, GraphPolicy, GridPosition, Node, NodeId, Port, PortDirection, PortId,
+  |                        ^^^^^^^^^^^ no `GraphPolicy` in `graph`
+
+error[E0599]: no associated function or constant named `with_policy` found for struct `Graph` in the current scope
+   --> crates/topology_routing/tests/cycle.rs:24:28
+    |
+ 24 |     let mut graph = Graph::with_policy(GraphPolicy::RejectCycles);
+    |                            ^^^^^^^^^^^ associated function or constant not found in `Graph`
+    |
+note: if you're trying to build a new `Graph`, consider using `Graph::new` which returns `Graph`
+   --> crates/topology_routing/src/graph.rs:186:5
+    |
+186 |     pub fn new() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no variant named `CycleDetected` found for enum `GraphError`
+  --> crates/topology_routing/tests/cycle.rs:42:29
+   |
+42 |             Err(GraphError::CycleDetected { path })
+   |                             ^^^^^^^^^^^^^ variant not found in `GraphError`
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `topology-routing` (test "cycle") due to 3 previous errors

@@ -1,0 +1,3 @@
+101
+accepted_as_intended_red: yes
+reason: The routing package compiled until the focused test reached the deliberately absent GraphPolicy, Graph::with_policy, and GraphError::CycleDetected cycle-policy API; the A/B/C fixture uses valid typed ports, so the failure is not an endpoint setup failure.

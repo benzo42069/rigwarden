@@ -1,0 +1,4 @@
+command: cargo test -p topology-routing prohibited_cycle_is_rejected_without_mutating_graph -- --exact --nocapture
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+final_candidate_after_restore_and_format: yes
