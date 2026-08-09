@@ -1,0 +1,3 @@
+command: cargo test -p topology-domain firmware_id_preserves_nonblank_vendor_text -- --exact --nocapture
+shell: /bin/zsh (login=true)
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1

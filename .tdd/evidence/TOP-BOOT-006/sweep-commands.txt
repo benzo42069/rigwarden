@@ -1,0 +1,9 @@
+Attempt 1 (fail-fast; formatting failure preserved):
+1. cargo test -p topology-devtools
+2. cargo fmt --all -- --check
+3. cargo clippy -p topology-devtools --all-targets -- -D warnings
+
+Attempt 2 / final (fail-fast; all pass):
+1. cargo test -p topology-devtools
+2. cargo fmt --all -- --check
+3. cargo clippy -p topology-devtools --all-targets -- -D warnings

@@ -1,0 +1,106 @@
+=== cargo test -p topology-devtools ===
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_devtools-e1413002f7836335)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/fixture_validation.rs (target/debug/deps/fixture_validation-c34b2571a517950e)
+
+running 1 test
+test fixture_without_redistribution_permission_is_rejected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/work_item_validation.rs (target/debug/deps/work_item_validation-e75870aa92cb986b)
+
+running 2 tests
+test valid_companion_packet_is_accepted ... ok
+test missing_id_is_rejected ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_devtools
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+=== cargo fmt --all -- --check ===
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/fixture.rs:108:
+             continue;
+         }
+ 
+-        let indent = line.chars().take_while(|character| *character == ' ').count();
++        let indent = line
++            .chars()
++            .take_while(|character| *character == ' ')
++            .count();
+         if line[..indent].contains('\t') {
+             return Err(vec![ValidationError::invalid_field(
+                 "<root>",
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/fixture.rs:216:
+                 _ => {
+                     return Err(vec![ValidationError::invalid_field(
+                         "redistribution.permitted",
+-                        format!(
+-                            "line {line_number}: redistribution.permitted must be a boolean"
+-                        ),
++                        format!("line {line_number}: redistribution.permitted must be a boolean"),
+                     )]);
+                 }
+             };
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/fixture.rs:241:
+     let Some(value) = value else {
+         return false;
+     };
+-    !matches!(value.trim(), "" | "null" | "Null" | "NULL" | "~" | "|" | ">")
++    !matches!(
++        value.trim(),
++        "" | "null" | "Null" | "NULL" | "~" | "|" | ">"
++    )
+ }
+ 
+ fn split_mapping_entry(line: &str) -> Option<(&str, &str)> {
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools/src/lib.rs:1:
+ //! Deterministic validators for repository and contribution tooling.
+ 
+-pub mod work_item;
+ pub mod fixture;
++pub mod work_item;
+ 
+=== FINAL SWEEP ATTEMPT (after formatting/refactor) ===
+=== cargo test -p topology-devtools ===
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/topology_devtools-e1413002f7836335)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/fixture_validation.rs (target/debug/deps/fixture_validation-c34b2571a517950e)
+
+running 1 test
+test fixture_without_redistribution_permission_is_rejected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/work_item_validation.rs (target/debug/deps/work_item_validation-e75870aa92cb986b)
+
+running 2 tests
+test missing_id_is_rejected ... ok
+test valid_companion_packet_is_accepted ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_devtools
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+=== cargo fmt --all -- --check ===
+=== cargo clippy -p topology-devtools --all-targets -- -D warnings ===
+    Checking topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s

@@ -1,0 +1,21 @@
+packet-scope changes (worker-owned):
+M crates/topology_domain/src/lib.rs
+A crates/topology_domain/src/firmware.rs
+A crates/topology_domain/tests/firmware_id.rs
+A .tdd/evidence/TOP-DOM-002/work-item.yaml
+A .tdd/evidence/TOP-DOM-002/environment.txt
+A .tdd/evidence/TOP-DOM-002/red-command.txt
+A .tdd/evidence/TOP-DOM-002/red.log
+A .tdd/evidence/TOP-DOM-002/red-exit-status.txt
+A .tdd/evidence/TOP-DOM-002/green-command.txt
+A .tdd/evidence/TOP-DOM-002/green.log
+A .tdd/evidence/TOP-DOM-002/green-exit-status.txt
+A .tdd/evidence/TOP-DOM-002/sweep-commands.txt
+A .tdd/evidence/TOP-DOM-002/sweep.log
+A .tdd/evidence/TOP-DOM-002/sweep-exit-statuses.txt
+A .tdd/evidence/TOP-DOM-002/files-changed.txt
+
+lib.rs note: the pre-existing TOP-DOM-001 device module/export remains untouched; this cycle added only `mod firmware` and the FirmwareId/FirmwareIdError re-exports.
+forbidden/shared paths changed by this worker: none.
+generated/build artifacts: Cargo test/clippy generated ignored target/ artifacts only; no tracked build output was added.
+concurrent worktree note: unrelated staged/unstaged files and TOP-DOM-001 files were present before this cycle and are not included in this packet's change set.

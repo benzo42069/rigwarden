@@ -1,0 +1,2 @@
+0
+Accepted as focused GREEN: denied permission and missing basis reject with stable diagnostics, while complete permission is accepted.

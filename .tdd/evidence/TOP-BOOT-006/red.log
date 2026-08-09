@@ -1,0 +1,9 @@
+   Compiling topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+error[E0432]: unresolved import `topology_devtools::fixture`
+ --> crates/topology_devtools/tests/fixture_validation.rs:1:24
+  |
+1 | use topology_devtools::fixture::validate_yaml;
+  |                        ^^^^^^^ could not find `fixture` in `topology_devtools`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-devtools` (test "fixture_validation") due to 1 previous error

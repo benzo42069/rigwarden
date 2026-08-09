@@ -1,0 +1,3 @@
+exit_status: 101
+accepted: RED_OBSERVED
+reason: The focused topology-domain test reached the intended crate and failed only because FirmwareId and FirmwareIdError are not exported yet; this is the missing behavior under test.

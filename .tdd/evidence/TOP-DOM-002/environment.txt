@@ -1,0 +1,40 @@
+work_item: TOP-DOM-002
+captured_at_utc: 2026-08-09T15:59:35Z
+captured_at_local: 2026-08-09T10:59:35-0500
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree: shared main worktree; no isolated worker branch was available
+dirty_state:
+  packet_scope_tracked_changes_before_cycle:
+  - crates/topology_domain/src/lib.rs (TOP-DOM-001 uncommitted shared-worktree change)
+  packet_scope_untracked_before_cycle:
+  - crates/topology_domain/src/device.rs (TOP-DOM-001 shared-worktree implementation)
+  - crates/topology_domain/tests/device_family_id.rs (TOP-DOM-001 shared-worktree test)
+  packet_scope_untracked_during_cycle:
+  - crates/topology_domain/src/firmware.rs
+  - crates/topology_domain/tests/firmware_id.rs
+  - .tdd/evidence/TOP-DOM-002/**
+  global_untracked_count_at_capture: concurrent packet work present; not owned by this cycle
+  forbidden_or_shared_paths_changed_by_this_worker: none
+dependencies:
+  TOP-DOM-001: INTEGRATED per work-items/index.yaml and TOP-DOM-001 evidence; no dependency source was rewritten
+os: macOS 26.5 (build 25F71)
+cpu_architecture: arm64
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+rust_toolchain: 1.97.0-aarch64-apple-darwin (rust-toolchain.toml override)
+flutter: Flutter 3.44.9 stable (revision 6b182d2c75, 2026-08-05)
+dart: Dart SDK 3.12.2 stable (2026-06-09), macos_arm64
+xcode: Xcode 26.5, build 17F42
+android_sdk: unavailable/not configured (ANDROID_HOME unset)
+jdk: unavailable (java runtime not found)
+gradle: unavailable (command not found)
+native_compiler: Apple clang 21.0.0 (clang-2100.1.1.101)
+emulator_or_device: none required for Rust L1 unit behavior
+physical_modeler: none required for Rust L1 unit behavior
+codex_client_or_build: not exposed in worker environment
+requested_subagent_model: gpt-5.6-luna, max (topology_implementer routing)
+effective_subagent_model: inherited worker route; runtime metadata not exposed in this shell
+environment_variable_names_used: PATH, RUST_LOG, TMPDIR (values not recorded; secrets omitted)
+network_or_fixture_requirements: none; no protocol fixture or network dependency

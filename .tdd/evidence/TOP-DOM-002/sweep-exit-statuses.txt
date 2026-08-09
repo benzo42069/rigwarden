@@ -1,0 +1,3 @@
+cargo test -p topology-domain: 0 (PASS)
+cargo fmt --all -- --check: 0 (PASS)
+cargo clippy -p topology-domain --all-targets -- -D warnings: 0 (PASS)

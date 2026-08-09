@@ -1,0 +1,4 @@
+Command: cargo test -p topology-devtools fixture_without_redistribution_permission_is_rejected -- --exact --nocapture
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Purpose: Focused GREEN for TOP-BOOT-006 fixture redistribution-permission validation.

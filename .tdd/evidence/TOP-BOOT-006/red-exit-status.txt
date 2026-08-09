@@ -1,0 +1,2 @@
+101
+Accepted as intended RED: the test reached topology-devtools and failed only because the amended fixture validator module/API was absent.

@@ -1,0 +1,25 @@
+timestamp_local: 2026-08-09T10:56:48-0500 (pre-cycle check)
+timestamp_utc: 2026-08-09T15:56:48Z (pre-cycle check)
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree: shared worktree; 161 paths were already changed or untracked at pre-cycle check
+os: Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0~2/RELEASE_ARM64_T8132 arm64
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+rust_toolchain: 1.97.0-aarch64-apple-darwin (rust-toolchain.toml override)
+flutter_dart: not required by this Rust unit packet
+xcode_ios_sdk: not required by this Rust unit packet
+android_sdk_jdk_gradle: not required by this Rust unit packet
+native_compiler: not required by this Rust unit packet
+codex_client_or_build: not exposed in worker shell; parent routing evidence is TOP-RSCH-001
+requested_agent_role: topology_implementer
+effective_subagent_model: not exposed in worker shell
+hardware_or_emulator: not required; no physical fixture bytes are consumed
+environment_variables: none used; no secrets
+packet_status_at_start: READY
+dependency_status_at_start: TOP-BOOT-005 INTEGRATED (work-items/index.yaml)
+mechanical_amendment: parent_orchestrator recorded 2026-08-09T11:15:00-05:00, granting crates/topology_devtools/src/lib.rs module export, claim_changed=false
+baseline_command: cargo test -p topology-devtools
+baseline_exit_status: 0
+scope_blocker_before_amendment: module export was absent from scope; recorded to parent before amendment, with no production behavior written
