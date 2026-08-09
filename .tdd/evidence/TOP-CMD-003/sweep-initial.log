@@ -1,0 +1,18 @@
+Initial fail-fast required sweep before the mechanical formatting correction:
+
+`cargo test -p topology-command-engine` exited 0. The deterministic plan, existing parameter mutation, and read-only tests passed; doctests passed.
+
+`cargo test -p topology-routing` exited 0. Cycle, missing-endpoint, node-identity, serial-connection, traversal, and doctests passed.
+
+`cargo fmt --all -- --check` exited 1 with this diff:
+
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine/src/lib.rs:7:
+     MutationValidationError, ParameterMutationRequest, ValidatedParameterMutation,
+     validate_parameter_mutation,
+ };
+-pub use plan::{
+-    GraphMutation, PlanError, SemanticCommandPlan, plan_graph_mutations,
+-};
++pub use plan::{GraphMutation, PlanError, SemanticCommandPlan, plan_graph_mutations};
+
+The fail-fast shell stopped at the formatter check, so Clippy was not run in this initial attempt. No production behavior was changed to manufacture the failure; this was a mechanical formatting diagnostic.

@@ -1,0 +1,13 @@
+Final fail-fast required sweep after the test-only/formatting correction:
+
+1. `cargo test -p topology-command-engine` — exit 0. The deterministic plan test, existing typed parameter mutation test, read-only tests, and command-engine doctests passed.
+
+2. `cargo test -p topology-routing` — exit 0. Cycle, missing-endpoint, node-identity, serial-connection, traversal, and routing doctests passed.
+
+3. `cargo fmt --all -- --check` — exit 0.
+
+4. `cargo clippy -p topology-command-engine --all-targets -- -D warnings` — exit 0; no warnings.
+
+5. Focused rerun after the mechanical formatter correction, `cargo test -p topology-command-engine equivalent_mutation_sets_produce_same_operation_order -- --exact --nocapture` — exit 0; one focused test passed.
+
+The initial fail-fast formatter exit 1 is preserved in `sweep-initial.log` and `sweep-initial-exit-statuses.txt`; it was a mechanical `lib.rs` formatting diagnostic, not a behavior failure. No required command was silently skipped in the final sweep.

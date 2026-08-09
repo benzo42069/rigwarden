@@ -1,0 +1,4 @@
+exit_status: 0
+wall_time_seconds: 11.07898325 (tool-reported)
+accepted_as_green: true
+reason: The focused test passed for reversed equivalent mutation/dependency insertion orders and asserted lexical stable-key tie-breaking plus dependency-before-dependent ordering; no bytes or transport are involved.

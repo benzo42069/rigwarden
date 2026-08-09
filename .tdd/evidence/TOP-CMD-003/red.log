@@ -1,0 +1,18 @@
+   Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+error[E0432]: unresolved imports `topology_command_engine::GraphMutation`, `topology_command_engine::plan_graph_mutations`
+ --> crates/topology_command_engine/tests/deterministic_plan.rs:1:31
+  |
+1 | use topology_command_engine::{GraphMutation, plan_graph_mutations};
+  |                               ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^ no `plan_graph_mutations` in the root
+  |                               |
+  |                               no `GraphMutation` in the root
+
+error[E0425]: cannot find type `SemanticCommandPlan` in crate `topology_command_engine`
+  --> crates/topology_command_engine/tests/deterministic_plan.rs:11:50
+   |
+11 | fn operation_ids(plan: &topology_command_engine::SemanticCommandPlan) -> Vec<&str> {
+   |                                                  ^^^^^^^^^^^^^^^^^^^ not found in `topology_command_engine`
+
+Some errors have detailed explanations: E0425, E0432.
+For more information about an error, try `rustc --explain E0425`.
+error: could not compile `topology-command-engine` (test "deterministic_plan") due to 2 previous errors

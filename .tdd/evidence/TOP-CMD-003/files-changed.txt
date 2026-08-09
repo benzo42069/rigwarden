@@ -1,0 +1,8 @@
+TOP-CMD-003 candidate inventory (shared dirty worktree; no integration commit claimed):
+
+- crates/topology_command_engine/src/plan.rs: new semantic `GraphMutation`, `SemanticCommandPlan`, `PlanError`, and stable dependency-aware topological planner. Ready operation ties use lexicographic operation IDs; the planner carries no bytes or transport handles.
+- crates/topology_command_engine/src/lib.rs: registers and publicly re-exports the plan API beside the existing typed mutation validator. This file was already an untracked TOP-CMD-001 candidate at cycle start; only the `mod plan` registration and plan re-exports are claimed by TOP-CMD-003.
+- crates/topology_command_engine/tests/deterministic_plan.rs: focused RED/GREEN test using equivalent reversed insertion-order semantic mutation sets, literal expected operation order, and dependency-before-dependent assertions.
+- .tdd/evidence/TOP-CMD-003/**: packet copy, executable statement, environment, RED/GREEN, fail-fast sweep records, inventory, review placeholder, and handoff.
+
+No Cargo.toml, Cargo.lock, workspace/index, app, native, profile, routing source, protocol, byte fixture, transport, or traceability file was edited by this packet. Existing untracked dependency candidates from TOP-CMD-001/TOP-GRAPH-005 remain outside this packet's claimed changes.

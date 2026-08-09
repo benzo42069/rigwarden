@@ -1,0 +1,4 @@
+exit_status: 101
+wall_time_seconds: 13.440027709 (tool-reported)
+accepted_as_intended_red: true
+reason: The focused test reached topology-command-engine and failed only because the deliberately absent plan API exports GraphMutation, SemanticCommandPlan, and plan_graph_mutations were not yet implemented; no unrelated dependency or fixture failure occurred.

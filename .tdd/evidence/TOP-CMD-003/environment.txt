@@ -1,0 +1,15 @@
+UTC timestamp at cycle start: 2026-08-09T21:47:41Z
+Local timestamp at cycle start: 2026-08-09T16:47:41-0500
+Operating system: macOS 26.5 (Darwin 25.5.0)
+CPU architecture: arm64
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch/worktree: main; shared and extensively dirty from parent/bootstrap and reviewed dependency candidates; this packet does not claim an integration commit.
+Starting commit: 536d8901ac91ecdbc15e09356800d9f46be401dd (`chore: publish RigWarden pre-alpha foundation`)
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: 1.97.0 (c980f4866 2026-06-30)
+Flutter/Dart: not required by this Rust-unit packet; repository baseline reports Flutter 3.44.9 stable and Dart 3.12.2.
+Selected packet: TOP-CMD-003, READY after parent amendment; dependencies TOP-CMD-001 and TOP-GRAPH-005 are marked integrated in the packet/index context and their APIs are present in this shared candidate worktree.
+Test layer: Rust unit (L1); no protocol bytes, transport, simulator, platform, UI, fixture, or hardware runtime required.
+Fixture: locally constructed semantic operation IDs and dependency lists; no external fixture or provenance sidecar required.
+Requested/effective subagent route: OpenAI gpt-5.6-luna, max reasoning (bounded topology implementer); runtime thread metadata is not exposed in the shell environment.
+Environment variables: none required; no secrets captured.

@@ -1,0 +1,94 @@
+id: TOP-CMD-003
+kind: implementation
+epic: TOP-400
+title: Order independent graph mutations deterministically
+status: READY
+priority: high
+requirement_ids:
+- GRAPH-008
+- UNDO-005
+depends_on:
+- TOP-CMD-001
+- TOP-GRAPH-005
+parallel_group: core-command-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_command_engine/**
+  - crates/topology_routing/**
+  write:
+  - crates/topology_command_engine/src/plan.rs
+  - crates/topology_command_engine/src/lib.rs
+  - crates/topology_command_engine/tests/deterministic_plan.rs
+  - .tdd/evidence/TOP-CMD-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: Repeated planning of the same semantic change must not produce order-dependent hardware behavior.
+  given:
+  - Two equivalent sets of independent mutations are supplied in opposite insertion order.
+  when:
+  - A semantic command plan is created.
+  then:
+  - Operation order is identical under a documented stable key.
+  - Dependencies still precede dependents.
+  - No wire bytes are implied.
+non_goals:
+- Atomic batches
+- Protocol-specific ordering
+- Retries
+- Transport
+preconditions:
+- TOP-CMD-001 and TOP-GRAPH-005 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_command_engine/tests/deterministic_plan.rs
+  name: equivalent_mutation_sets_produce_same_operation_order
+  red_command: cargo test -p topology-command-engine equivalent_mutation_sets_produce_same_operation_order -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing plan API.
+    - Assertion shows input-order-dependent plan.
+  unacceptable:
+    - Mutations are not semantically equivalent.
+    - Unrelated range validation.
+  green_command: cargo test -p topology-command-engine equivalent_mutation_sets_produce_same_operation_order -- --exact --nocapture
+minimum_green:
+- Add stable semantic plan ordering.
+- Use stable IDs/dependencies.
+- Do not encode.
+required_sweeps:
+- cargo test -p topology-command-engine
+- cargo test -p topology-routing
+- cargo fmt --all -- --check
+- cargo clippy -p topology-command-engine --all-targets -- -D warnings
+acceptance:
+- Deterministic order.
+- Dependency ordering preserved.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-SIM-001
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-CMD-003
+amendments:
+- recorded_at: 2026-08-09T16:48:00-05:00
+  author: parent_orchestrator
+  reason: TOP-CMD-001 and TOP-GRAPH-005 are both integrated on public main; the prior dependency block was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
