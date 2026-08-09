@@ -1,0 +1,9 @@
+   Compiling topology-devtools v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_devtools)
+error[E0432]: unresolved import `topology_devtools::evidence`
+ --> crates/topology_devtools/tests/evidence_validation.rs:3:24
+  |
+3 | use topology_devtools::evidence::validate_completed_evidence;
+  |                        ^^^^^^^^ could not find `evidence` in `topology_devtools`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-devtools` (test "evidence_validation") due to 1 previous error

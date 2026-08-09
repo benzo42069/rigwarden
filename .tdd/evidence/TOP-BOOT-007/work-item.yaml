@@ -2,7 +2,7 @@ id: TOP-BOOT-007
 kind: implementation
 epic: TOP-000
 title: Reject a completed evidence directory that is missing focused RED output
-status: INTEGRATED
+status: READY
 amendments:
 - recorded_at: '2026-08-09T12:05:00-05:00'
   author: parent_orchestrator

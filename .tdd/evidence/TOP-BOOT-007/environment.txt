@@ -1,0 +1,25 @@
+timestamp_utc: 2026-08-09T16:19:32Z (pre-cycle check)
+timestamp_local: 2026-08-09T11:19:32-0500 (pre-cycle check)
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree: shared worktree; 165 paths were already changed or untracked at pre-cycle check
+os: Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:41:26 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T8132 arm64
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+rust_toolchain: 1.97.0-aarch64-apple-darwin (rust-toolchain.toml override, if present)
+flutter_dart: Flutter 3.44.9 / Dart 3.12.2 (not required by this Rust unit packet)
+xcode_ios_sdk: Xcode 26.5, build 17F42 (not required by this Rust unit packet)
+android_sdk_jdk_gradle: not required by this Rust unit packet
+native_compiler: not required by this Rust unit packet
+codex_client_or_build: not exposed in worker shell; parent routing evidence is TOP-RSCH-001
+hardware_or_emulator: not required; temporary filesystem fixtures only; no physical fixture bytes consumed
+environment_variables: none used; no secrets
+packet_status_at_start: READY
+dependency_status_at_start: TOP-BOOT-005 INTEGRATED (work-items/index.yaml)
+packet_amendment_observed_before_setup: true; 2026-08-09T12:05:00-05:00 parent_orchestrator; scope.write grants crates/topology_devtools/src/lib.rs export; claim_changed=false
+baseline_command: cargo test -p topology-devtools
+baseline_exit_status: 0
+baseline_result: existing fixture and work-item validators passed before TOP-BOOT-007 test creation
+allowed_write_paths: crates/topology_devtools/src/lib.rs; crates/topology_devtools/src/evidence.rs; crates/topology_devtools/tests/evidence_validation.rs; .tdd/evidence/TOP-BOOT-007/**
+forbidden_write_paths: Cargo.toml; Cargo.lock; apps/**; native/**; device-packs/**

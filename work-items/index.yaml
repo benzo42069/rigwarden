@@ -119,7 +119,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-006.yaml
   - id: TOP-BOOT-007
     title: Reject a completed evidence directory that is missing focused RED output
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-005
