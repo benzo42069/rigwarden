@@ -2,7 +2,7 @@ id: TOP-BOOT-009
 kind: implementation
 epic: TOP-000
 title: Expose fixture provenance validation as a deterministic command-line tool
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - CAPTURE-003

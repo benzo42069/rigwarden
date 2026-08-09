@@ -2,7 +2,7 @@ id: TOP-DOM-003
 kind: implementation
 epic: TOP-100
 title: Represent an identified device with family, model, firmware, and transport endpoint
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - DEV-003
