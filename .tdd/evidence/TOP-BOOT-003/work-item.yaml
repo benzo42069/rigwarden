@@ -1,0 +1,92 @@
+id: TOP-BOOT-003
+kind: bootstrap
+epic: TOP-000
+title: Create the minimum Flutter mobile app and widget-test harness
+status: READY
+priority: critical
+requirement_ids:
+- PLAT-001
+- PLAT-002
+- QA-001
+depends_on:
+- TOP-BOOT-001
+parallel_group: bootstrap-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - docs/ARCHITECTURE.md
+  - docs/research/codex-runtime-routing.md
+  - docs/research/distribution-constraints.md
+  - AGENTS.md
+  write:
+  - apps/mobile_flutter/**
+  - .tdd/evidence/TOP-BOOT-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - crates/**
+  - native/**
+  - device-packs/**
+  - pubspec.yaml
+behavior:
+  why: Flutter UI behavior needs a minimal iOS/Android-capable test harness without default counter-app baggage.
+  given:
+  - Audited Flutter/Dart SDKs are installed.
+  - No mobile app exists.
+  when:
+  - The worker creates a minimal Flutter application and one widget harness that contains no RigWarden feature behavior.
+  then:
+  - flutter test and flutter analyze run.
+  - iOS and Android project shells exist only as generated platform scaffolding required by Flutter.
+  - The default counter demo, network dependencies, SVG packages, and speculative navigation/state frameworks are absent.
+non_goals:
+- Designing the final shell
+- Adding themes/assets
+- Adding Rust FFI
+- Adding native MIDI
+- Supporting desktop targets yet
+preconditions:
+- TOP-BOOT-001 is integrated.
+- Distribution research records minimum OS targets; if not final, generated values are documented provisional.
+test:
+  layer: bootstrap_harness
+  file: apps/mobile_flutter/test/harness_test.dart
+  name: minimal_app_mounts
+  red_command: cd apps/mobile_flutter && flutter test test/harness_test.dart --plain-name "minimal app mounts"
+  expected_red:
+    acceptable:
+    - Command fails because the app/test target does not exist.
+    unacceptable:
+    - Flutter SDK missing.
+    - Generated platform tooling is broken independently.
+    - A copied template counter test fails for unrelated reasons.
+  green_command: cd apps/mobile_flutter && flutter test test/harness_test.dart --plain-name "minimal app mounts"
+minimum_green:
+- Mount a minimal app root with no product workflow.
+- Remove counter-demo code/assets.
+- Use only Flutter SDK dependencies unless a dependency is required by the harness.
+required_sweeps:
+- cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .
+- cd apps/mobile_flutter && flutter analyze
+- cd apps/mobile_flutter && flutter test
+acceptance:
+- Minimal app mounts.
+- No counter demo or placeholder product screen.
+- No SVG dependency.
+- No Node/local server/WebView dependency.
+- Reviewer confirms generated platform files are minimal and deployment targets match the research decision.
+available_claims_after_completion:
+- FLUTTER_HARNESS_EXECUTABLE
+unavailable_claims:
+- SEMANTICS_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-BOOT-004
+- TOP-UI-001
+block_conditions:
+- Flutter/iOS/Android project generation cannot execute in the current environment.
+evidence_directory: .tdd/evidence/TOP-BOOT-003

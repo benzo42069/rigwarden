@@ -1,0 +1,3 @@
+Exit status: 1
+Decision: ACCEPTED_RED
+Reason: the focused widget test compiled through the intended test and failed only because the required RigWardenApp root was absent.

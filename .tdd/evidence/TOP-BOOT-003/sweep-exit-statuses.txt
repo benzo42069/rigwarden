@@ -1,0 +1,6 @@
+1. dart format check: 1 (expected formatting finding; corrected before rerun)
+2. dart format apply: 0
+3. dart format check rerun: 0
+4. flutter analyze: 0
+5. flutter test: 0
+6. static bootstrap contract: 0

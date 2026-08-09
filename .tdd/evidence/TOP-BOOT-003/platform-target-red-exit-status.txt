@@ -1,0 +1,3 @@
+Exit status: 1
+Decision: ACCEPTED_RED
+Reason: generated Flutter scaffold used Android's Flutter-default SDK values and iOS 13.0, not the packet's provisional research targets.

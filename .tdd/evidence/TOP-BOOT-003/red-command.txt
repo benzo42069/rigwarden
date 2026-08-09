@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Command:
+cd apps/mobile_flutter && flutter test test/harness_test.dart --plain-name "minimal app mounts"

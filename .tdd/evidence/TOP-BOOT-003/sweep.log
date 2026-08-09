@@ -1,0 +1,21 @@
+[1] dart format --output=none --set-exit-if-changed .
+Changed lib/main.dart
+Formatted 2 files (1 changed) in 0.00 seconds.
+
+[2] dart format .
+Formatted lib/main.dart
+Formatted 2 files (1 changed) in 0.00 seconds.
+
+[3] dart format --output=none --set-exit-if-changed .
+Formatted 2 files (0 changed) in 0.00 seconds.
+
+[4] flutter analyze
+Analyzing mobile_flutter...
+No issues found! (ran in 3.4s)
+
+[5] flutter test
+00:00 +0: minimal app mounts
+00:00 +1: All tests passed!
+
+[6] static bootstrap contract
+all TOP-BOOT-003 sweeps passed

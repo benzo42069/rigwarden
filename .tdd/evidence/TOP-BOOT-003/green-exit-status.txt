@@ -1,0 +1,3 @@
+Exit status: 0
+Decision: GREEN_OBSERVED
+Reason: the named root mounted under Flutter's widget test harness.

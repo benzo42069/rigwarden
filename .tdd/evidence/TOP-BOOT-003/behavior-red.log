@@ -1,0 +1,8 @@
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/harness_test.dart
+test/harness_test.dart:6:35: Error: Couldn't find constructor 'RigWardenApp'.
+    await tester.pumpWidget(const RigWardenApp());
+                                  ^^^^^^^^^^^^
+test/harness_test.dart:8:24: Error: Undefined name 'RigWardenApp'.
+    expect(find.byType(RigWardenApp), findsOneWidget);
+                       ^^^^^^^^^^^^
+00:00 +0 -1: Some tests failed.

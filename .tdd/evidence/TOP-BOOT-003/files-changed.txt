@@ -1,0 +1,8 @@
+Equivalent scope inventory from `git diff --name-status -- apps/mobile_flutter .tdd/evidence/TOP-BOOT-003`:
+
+- A apps/mobile_flutter/** — Flutter-generated iOS/Android scaffold, app metadata, lockfile, and required default platform launch/icon resources.
+- A apps/mobile_flutter/lib/main.dart — bare named RigWardenApp root; no product screen.
+- A apps/mobile_flutter/test/harness_test.dart — focused mount test.
+- A .tdd/evidence/TOP-BOOT-003/** — packet copy, RED/GREEN, target-contract, sweep, and handoff evidence.
+
+No Cargo workspace, native adapter, device-pack, root pubspec, fixture, or production asset-pack path changed.

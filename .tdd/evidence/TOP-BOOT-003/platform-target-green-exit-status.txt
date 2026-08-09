@@ -1,0 +1,3 @@
+Exit status: 0
+Decision: GREEN_OBSERVED
+Reason: generated Android/iOS shells now declare Android 10/API 29 minimum, API 36 target, and iOS/iPadOS 16.0 deployment target.

@@ -1,0 +1,8 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+Command:
+set -euo pipefail
+rg -q '^\s*minSdk = 29$' android/app/build.gradle.kts
+rg -q '^\s*targetSdk = 36$' android/app/build.gradle.kts
+[ "$(rg -c 'IPHONEOS_DEPLOYMENT_TARGET = 16\.0;' ios/Runner.xcodeproj/project.pbxproj)" -ge 3 ]
+echo 'platform target contract satisfied'

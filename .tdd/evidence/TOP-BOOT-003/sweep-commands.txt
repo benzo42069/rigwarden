@@ -1,0 +1,6 @@
+1. cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .
+2. cd apps/mobile_flutter && dart format .
+3. cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .
+4. cd apps/mobile_flutter && flutter analyze
+5. cd apps/mobile_flutter && flutter test
+6. cd apps/mobile_flutter && fail-fast static checks for no demo residue, no SVG/WebView/network dependency, and declared Android/iOS targets.
