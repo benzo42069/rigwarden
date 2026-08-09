@@ -1,0 +1,2 @@
+Immutable public integration commit: 3e1ceaafa127c14ff430b73879e2254297347e7a
+Post-commit local integration sweep: focused harness, cargo fmt, clippy -D warnings, and cargo test --workspace all exited 0.

@@ -2,7 +2,7 @@ id: TOP-BOOT-002R
 kind: bootstrap
 epic: TOP-000
 title: Re-execute the empty Rust bootstrap with auditable TDD evidence
-status: READY
+status: INTEGRATED
 priority: critical
 requirement_ids:
 - QA-001
