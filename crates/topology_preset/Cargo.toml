@@ -1,0 +1,12 @@
+[package]
+name = "topology-preset"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+topology-domain = { path = "../topology_domain" }
+topology-routing = { path = "../topology_routing" }

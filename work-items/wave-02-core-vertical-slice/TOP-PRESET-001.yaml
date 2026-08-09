@@ -91,3 +91,9 @@ amendments:
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
   claim_changed: false
+- recorded_at: 2026-08-09T14:40:00-05:00
+  author: parent_orchestrator
+  reason: The workspace had no topology-preset member. The parent created a product-empty harness so the packet's RED can exercise missing document behavior rather than workspace membership.
+  changes:
+  - integration owner added the root workspace member, lockfile entry, and empty crate harness outside worker scope.
+  claim_changed: false

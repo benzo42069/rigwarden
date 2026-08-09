@@ -18,5 +18,13 @@ name = "topology-domain"
 version = "0.0.0"
 
 [[package]]
+name = "topology-preset"
+version = "0.0.0"
+dependencies = [
+ "topology-domain",
+ "topology-routing",
+]
+
+[[package]]
 name = "topology-routing"
 version = "0.0.0"
