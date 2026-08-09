@@ -1,0 +1,4 @@
+exit_status: 0
+wall_time_seconds: 9.15 (cargo compile duration; tool call completed in approximately 9.15 seconds)
+accepted: GREEN_OBSERVED
+reason: The focused insertion-order fixture passes with stable NodeId tie-breaking, dependency-before-destination assertions, one appearance for every node including an isolated node, and no cycle fixture.

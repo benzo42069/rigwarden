@@ -1,0 +1,91 @@
+id: TOP-GRAPH-005
+kind: implementation
+epic: TOP-300
+title: Produce deterministic topological traversal for the same graph
+status: GREEN_OBSERVED
+priority: high
+requirement_ids:
+- GRAPH-008
+depends_on:
+- TOP-GRAPH-004
+parallel_group: core-graph-c
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_routing/**
+  write:
+  - crates/topology_routing/src/graph.rs
+  - crates/topology_routing/src/traversal.rs
+  - crates/topology_routing/src/lib.rs
+  - crates/topology_routing/tests/traversal.rs
+  - .tdd/evidence/TOP-GRAPH-005/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: Command planning, accessible route descriptions, and diffs require stable ordering across runs.
+  given:
+  - An acyclic graph contains one split whose branches were inserted in different orders.
+  when:
+  - Topological traversal is requested repeatedly.
+  then:
+  - Traversal order is deterministic under a documented stable tie-breaker.
+  - Every node appears once.
+  - Dependencies precede destinations.
+non_goals:
+- Device grid visual order beyond the chosen tie-breaker
+- Cycle detection changes
+- Command encoding
+preconditions:
+- TOP-GRAPH-004 integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_routing/tests/traversal.rs
+  name: topological_traversal_is_deterministic_across_insertion_order
+  red_command: cargo test -p topology-routing topological_traversal_is_deterministic_across_insertion_order -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing traversal API.
+    - Assertion shows insertion-order-dependent output.
+    unacceptable:
+    - Input graphs are not semantically equivalent.
+    - Cycle error due fixture.
+  green_command: cargo test -p topology-routing topological_traversal_is_deterministic_across_insertion_order -- --exact --nocapture
+minimum_green:
+- Implement stable traversal for current graph types.
+- Tie-break by stable node/port identity or explicit position; document choice.
+- Do not optimize prematurely.
+required_sweeps:
+- cargo test -p topology-routing
+- cargo fmt --all -- --check
+- cargo clippy -p topology-routing --all-targets -- -D warnings
+acceptance:
+- Stable output across insertion order.
+- Dependency ordering correct.
+- Reviewer approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- SIMULATOR_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-A11Y-001
+- TOP-CMD-003
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-GRAPH-005
+amendments:
+- recorded_at: 2026-08-09T13:30:00-05:00
+  author: parent_orchestrator
+  reason: Traversal must include isolated nodes to satisfy the packet's every-node acceptance criterion; the prior scope exposed connections but no node identities. Granting a read-only node-ID iterator is the minimal required API surface.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY after TOP-GRAPH-004 integration.
+  - added crates/topology_routing/src/graph.rs to write scope for a minimal node-ID iterator only.
+  claim_changed: false

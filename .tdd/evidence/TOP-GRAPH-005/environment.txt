@@ -1,0 +1,16 @@
+timestamp: 2026-08-09T13:27:49-05:00
+os: Darwin 25.5.0 (Mac.attlocal.net; arm64)
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree: dirty; pre-existing integration/bootstrap changes outside this packet; target crate was untracked before this packet
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+flutter_dart: not required for this Rust unit packet
+xcode_ios_sdk: not required for this Rust unit packet
+android_sdk_jdk_gradle: not required for this Rust unit packet
+codex_route: requested/effective packet route gpt-5.6-luna at max reasoning; worker-local runtime metadata not exposed
+hardware_fixture: not required; locally constructed acyclic graph only
+baseline_command: cargo test -p topology-routing
+baseline_result: exit 0; existing topology-routing tests passed before packet test creation
+secrets: none used

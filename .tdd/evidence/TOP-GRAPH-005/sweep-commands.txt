@@ -1,0 +1,7 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+fail_fast: set -euo pipefail
+1. cargo test -p topology-routing
+2. cargo fmt --all -- --check
+3. cargo clippy -p topology-routing --all-targets -- -D warnings
+Additional focused rerun after mechanical test formatting: cargo test -p topology-routing topological_traversal_is_deterministic_across_insertion_order -- --exact --nocapture

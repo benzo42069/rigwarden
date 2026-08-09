@@ -1,0 +1,4 @@
+exit_status: 101
+wall_time_seconds: 0.2 (tool-reported)
+accepted: RED_OBSERVED
+reason: The focused traversal fixture reached topology-routing and failed only because the requested Graph::topological_traversal API is intentionally absent; no fixture, cycle, dependency, or unrelated compiler failure occurred.

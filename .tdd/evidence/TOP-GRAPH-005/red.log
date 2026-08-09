@@ -1,0 +1,15 @@
+   Compiling topology-routing v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_routing)
+error[E0599]: no method named `topological_traversal` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/traversal.rs:62:29
+   |
+62 |     let first_order = first.topological_traversal();
+   |                             ^^^^^^^^^^^^^^^^^^^^^ method not found in `Graph`
+
+error[E0599]: no method named `topological_traversal` found for struct `Graph` in the current scope
+  --> crates/topology_routing/tests/traversal.rs:63:31
+   |
+63 |     let second_order = second.topological_traversal();
+   |                               ^^^^^^^^^^^^^^^^^^^^^ method not found in `Graph`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-routing` (test "traversal") due to 2 previous errors

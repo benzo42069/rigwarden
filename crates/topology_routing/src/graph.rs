@@ -310,4 +310,9 @@ impl Graph {
     pub fn node(&self, id: &NodeId) -> Option<&Node> {
         self.nodes.get(id)
     }
+
+    /// Iterate over every node identity in stable order.
+    pub(crate) fn node_ids(&self) -> impl Iterator<Item = &NodeId> {
+        self.nodes.keys()
+    }
 }

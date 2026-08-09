@@ -1,0 +1,4 @@
+exit_status: 101
+wall_time_seconds: 0.2 (tool-reported)
+accepted: RED_OBSERVED
+reason: The strengthened acyclic fixture (including one isolated node) reaches the intended package and still fails solely on the missing traversal API.

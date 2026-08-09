@@ -1,0 +1,20 @@
+Packet source/test paths changed:
+M  crates/topology_routing/src/graph.rs (parent-authorized minimal pub(crate) node-ID iterator only)
+M  crates/topology_routing/src/lib.rs (register traversal module)
+A  crates/topology_routing/src/traversal.rs (deterministic topological traversal)
+A  crates/topology_routing/tests/traversal.rs (focused insertion-order/isolated-node/dependency test)
+
+Evidence paths added:
+A  .tdd/evidence/TOP-GRAPH-005/**
+    (including statement.md work-item contract)
+
+Scope audit:
+- No Cargo.toml or Cargo.lock changes.
+- No apps/, native/, device-packs/, work-items/index.yaml, or traceability changes.
+- The routing crate directory was pre-existing untracked parent integration output at packet start; the four source/test paths above are the only packet edits.
+
+Candidate source SHA-256 (for review before integration):
+- graph.rs: 2e60505d4ef9243d83c71d4a4dd06452508ef679ec5e46a7bb431d649fffeef0
+- traversal.rs: 709c9009be4ecf264b5cd6bd243cb9352bc0859e3a662831aaf510d4ba6dd8bf
+- lib.rs: e1698c6e8792081abe9628675272ae1be3d61def27d0dbb2f4a0cac7f27a53ed
+- tests/traversal.rs: d9b5958cc708e671f1cef81d7d7f3cf80c5b6edc9d29304f9de9f50c56cd09ee
