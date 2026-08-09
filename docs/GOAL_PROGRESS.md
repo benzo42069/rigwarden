@@ -13,7 +13,7 @@
 - **Integrated:** `TOP-RSCH-001`���`TOP-RSCH-008`, `TOP-BOOT-001`, `TOP-BOOT-002R`���`TOP-BOOT-008`, `TOP-DOM-001`���`TOP-DOM-002`.
 - **Historical review failure:** `TOP-BOOT-002`; superseded only for its missing audit evidence by `TOP-BOOT-002R`, whose source scope is product-empty and independently reviewed.
 - **Integrated:** `TOP-BOOT-009` (truthful local fixture-validation CLI) and `TOP-DOM-003` (typed read-only device identity) after independent review and post-landing Rust sweeps.
-- **Integrated:** `TOP-GRAPH-001` (stable routing node identity), `TOP-GRAPH-002` (typed output-to-input connection with source/destination guards), `TOP-GRAPH-003` (missing-source-port rejection without mutation), and `TOP-GRAPH-004` (explicit policy-based cycle rejection) after independent review and post-landing sweeps.
+- **Integrated:** `TOP-GRAPH-001` (stable routing node identity), `TOP-GRAPH-002` (typed output-to-input connection with source/destination guards), `TOP-GRAPH-003` (missing-source-port rejection without mutation), `TOP-GRAPH-004` (explicit policy-based cycle rejection), and `TOP-GRAPH-005` (deterministic topological traversal) after independent review and post-landing sweeps.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -26,6 +26,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-GRAPH-004` focused cycle-rejection test, routing package tests, workspace formatter, and Clippy with warnings denied exited 0 after reviewed public source/evidence candidate commit `a165d6a08f7b511607f61e63c0cd0d6cd73c2104`.
+**Last completed integration sweep:** `TOP-GRAPH-005` focused traversal test, routing package tests, workspace formatter, and Clippy with warnings denied exited 0 after reviewed public source/evidence candidate commit `ffbb3dce9357d71def482ffbf39a3ab1cd057620`.
 
-**Next dependency-complete group:** `TOP-GRAPH-005` (deterministic traversal), then registry/preset leaves unlocked by `TOP-DOM-003`. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** registry/preset leaves unlocked by `TOP-DOM-003`; `TOP-A11Y-001` also still needs `TOP-UI-001`, and `TOP-CMD-003` still needs `TOP-CMD-001`. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

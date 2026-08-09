@@ -245,7 +245,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-GRAPH-004.yaml
   - id: TOP-GRAPH-005
     title: Produce deterministic topological traversal for the same graph
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-GRAPH-004

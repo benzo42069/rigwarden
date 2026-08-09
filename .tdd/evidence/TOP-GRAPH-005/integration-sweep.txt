@@ -1,0 +1,11 @@
+Integration base: ffbb3dce9357d71def482ffbf39a3ab1cd057620
+Integration date: 2026-08-09
+
+Commands rerun by parent integration owner from the reviewed candidate worktree:
+
+- cargo test -p topology-routing topological_traversal_is_deterministic_across_insertion_order -- --exact --nocapture: 0
+- cargo test -p topology-routing: 0
+- cargo fmt --all -- --check: 0
+- cargo clippy -p topology-routing --all-targets -- -D warnings: 0
+
+Scope/claim disposition: the candidate and independent review were published at the base commit above. This transition earns only UNIT_VERIFIED for deterministic Rust graph traversal. Simulator, hardware, protocol, device-specific routing, accessibility, and release claims remain unavailable.

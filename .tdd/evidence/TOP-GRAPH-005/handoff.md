@@ -1,6 +1,6 @@
 # TOP-GRAPH-005 worker handoff
 
-Status: candidate complete; awaiting independent topology review and parent integration.
+Status: integrated after independent review and parent rerun; see `integration-sweep.txt`.
 
 ## Behavior delivered
 
