@@ -1,0 +1,19 @@
+Equivalent working-tree inventory (the shared worktree has no clean baseline commit):
+- Cargo.toml and Cargo.lock: parent-owned workspace membership/dependency resolution for topology-bridge.
+- crates/topology_bridge/**: product-empty FRB 2.12.0 staticlib/cdylib, init-only API, and generated Rust glue.
+- apps/mobile_flutter/pubspec.yaml and pubspec.lock: pinned FRB runtime and generated local Cargokit package dependency.
+- apps/mobile_flutter/flutter_rust_bridge.yaml: version-controlled generation configuration with Dart output under lib/core/bridge/generated.
+- apps/mobile_flutter/rust_builder/** and ios/Podfile: generator-produced Cargokit integration source/configuration.
+- apps/mobile_flutter/lib/core/bridge/generated/**: generated Dart runtime glue only.
+- apps/mobile_flutter/lib/main.dart: generator demo removed; original empty RigWarden harness restored.
+- .tdd/evidence/TOP-FFI-000/**: this evidence.
+- LICENSE: public project copyright holder corrected to RigWarden contributors.
+- THIRD_PARTY_NOTICES.md: Flutter Rust Bridge 2.12.0 and its generated
+  Cargokit template are recorded with provenance and retained license paths.
+- apps/mobile_flutter/rust_builder/LICENSE: package-local MIT wrapper license
+  required by the generated iOS/macOS podspec metadata.
+- apps/mobile_flutter/ios/Flutter/Debug.xcconfig and Release.xcconfig: FRB
+  generated optional Pods-Runner includes required by the Cargokit app wiring;
+  this is static configuration only, not an iOS build result.
+
+Explicit removals: generator default lib/src/rust demo output, api/simple.rs, and the nested bridge Cargo.lock were removed. No device packs, native transport modules, product identity endpoint, protocol bytes, or hardware fixture changed.

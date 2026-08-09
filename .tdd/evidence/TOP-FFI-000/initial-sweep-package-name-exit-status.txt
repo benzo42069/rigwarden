@@ -1,0 +1,3 @@
+exit_status: 101
+accepted_as_green: no
+reason: The generated manifest used an underscore package name while the approved packet uses Cargo's canonical topology-bridge package identifier. The manifest was normalized and all final sweeps rerun.

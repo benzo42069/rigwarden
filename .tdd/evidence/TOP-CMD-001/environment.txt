@@ -1,0 +1,12 @@
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch: main (shared dirty integration worktree; no local integration commit is claimed)
+Timestamp: 2026-08-09T15:42:01-05:00
+Starting public remote commit: afa9ad9d72f04ee1e325ce206659393f338c057a (`Integrate profile-owned numeric metadata`); this extracted local Git database does not contain that remote object.
+Host: macOS Darwin 25.5.0 on arm64
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: 1.97.0 (c980f4866 2026-06-30)
+Flutter: 3.44.9 stable; Dart 3.12.2
+Selected packet: TOP-CMD-001, READY with integrated TOP-REG-001 and TOP-REG-003 dependencies
+Dirty-state summary: extensive pre-existing bootstrap and reviewed-candidate changes exist outside this packet; `files-changed.txt` records the bounded candidate inventory.
+Claim boundary: in-memory Rust unit validation only; no protocol, transport,
+AI, UI, simulator, platform, fixture, or hardware run.

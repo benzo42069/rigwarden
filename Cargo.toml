@@ -5,5 +5,7 @@ members = [
     "crates/topology_device_registry",
     "crates/topology_preset",
     "crates/topology_routing",
+    "crates/topology_bridge",
+    "crates/topology_command_engine",
 ]
 resolver = "2"

@@ -1,0 +1,3 @@
+exit_status: 101
+accepted_as_intended_red: true
+reason: The new workspace harness compiled and the focused test failed solely on the deliberately absent semantic mutation validator API.

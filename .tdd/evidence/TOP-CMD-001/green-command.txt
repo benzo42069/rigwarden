@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+
+cargo test -p topology-command-engine valid_parameter_mutation_is_typed_but_not_encoded -- --exact --nocapture

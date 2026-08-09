@@ -15,6 +15,7 @@
 - **Integrated:** `TOP-BOOT-009` (truthful local fixture-validation CLI) and `TOP-DOM-003` (typed read-only device identity) after independent review and post-landing Rust sweeps.
 - **Integrated:** `TOP-GRAPH-001` (stable routing node identity), `TOP-GRAPH-002` (typed output-to-input connection with source/destination guards), `TOP-GRAPH-003` (missing-source-port rejection without mutation), `TOP-GRAPH-004` (explicit policy-based cycle rejection), and `TOP-GRAPH-005` (deterministic topological traversal) after independent review and post-landing sweeps.
 - **Integrated:** `TOP-REG-001` (exact in-memory device/firmware profile resolution with explicit profile-derived write capability), `TOP-REG-002` (known-family/model unknown firmware becomes read-only), and `TOP-REG-003` (profile-owned fixed-point numeric metadata) after independent review and post-landing sweeps.
+- **Reviewed awaiting public integration:** `TOP-FFI-000` (pinned Flutter Rust Bridge 2.12.0 generated harness and Cargokit wiring) and `TOP-CMD-001` (profile-bound semantic numeric mutation validation). Both require the post-landing immutable-tree sweep before status promotion.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -29,4 +30,4 @@ Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime rout
 
 **Last completed integration sweep:** `TOP-REG-003` focused exact numeric-metadata test, registry/domain package tests, workspace formatter, and Clippy with warnings denied exited 0. The public integration commit is recorded with this status update.
 
-**Next dependency-complete group:** `TOP-CMD-001` is ready on the now-integrated registry contract. The generated bridge bootstrap is independently reviewing; after it lands, `TOP-FFI-001` and the Flutter presentation dependency chain can proceed. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** publish and verify the reviewed FFI/CMD candidates, then unblock `TOP-FFI-001`, `TOP-CMD-002`, and `TOP-CMD-003`. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

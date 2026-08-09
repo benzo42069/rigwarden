@@ -1,0 +1,7 @@
+initial cargo fmt --all -- --check: 1 (mechanical formatting only; preserved as pre-refactor diagnostic)
+final focused GREEN: 0
+cargo test -p topology-command-engine: 0
+cargo test -p topology-device-registry: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-command-engine --all-targets -- -D warnings: 0
+git diff --check scoped paths: 0

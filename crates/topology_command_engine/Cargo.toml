@@ -1,0 +1,11 @@
+[package]
+name = "topology-command-engine"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+topology-device-registry = { path = "../topology_device_registry" }
+
+[dev-dependencies]
+topology-domain = { path = "../topology_domain" }

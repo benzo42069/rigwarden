@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+
+ruby -rpathname -e 'ARGV.each{|path| text=File.read(path); match=text.match(/:file\s*=>\s*[\x27\"]([^\x27\"]+)/); abort "missing license entry: #{path}" unless match; resolved=File.expand_path(match[1], File.dirname(path)); puts "#{path}: #{resolved}"; abort "missing referenced license: #{resolved}" unless File.file?(resolved)}' apps/mobile_flutter/rust_builder/ios/topology_bridge.podspec apps/mobile_flutter/rust_builder/macos/topology_bridge.podspec

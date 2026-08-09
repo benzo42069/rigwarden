@@ -1,0 +1,12 @@
+Initial fail-fast sweep reached the required formatter check and exited 1 only
+because the new command-engine files had not yet been rustfmt-formatted. No
+test or Clippy result was claimed from that incomplete run.
+
+After `cargo fmt --all`, the focused GREEN was rerun and the final fail-fast
+sweep passed:
+
+- `cargo test -p topology-command-engine`: one integration test and doctests passed.
+- `cargo test -p topology-device-registry`: exact, unknown-firmware, and metadata tests passed.
+- `cargo fmt --all -- --check`: passed.
+- `cargo clippy -p topology-command-engine --all-targets -- -D warnings`: passed with no warnings.
+- scoped `git diff --check`: passed.

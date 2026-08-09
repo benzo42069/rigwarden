@@ -1,0 +1,8 @@
+Shell: zsh; working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+1. cmp -s work-items/wave-02-core-vertical-slice/TOP-FFI-000.yaml .tdd/evidence/TOP-FFI-000/work-item.yaml
+2. cargo test -p topology-bridge
+3. cd apps/mobile_flutter && flutter analyze
+4. cd apps/mobile_flutter && flutter test test/harness_test.dart
+5. cargo fmt --all -- --check
+6. cd apps/mobile_flutter && flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error
+7. ! rg -n 'greet\\(|quickstart|MyApp|simple\\.dart|lib/src/rust' crates/topology_bridge apps/mobile_flutter/lib/main.dart apps/mobile_flutter/lib/core/bridge/generated

@@ -1,0 +1,3 @@
+exit_status: 1
+accepted_as_red: no
+reason: This is a generator-harness dependency failure, not the requested codegen behavior. cargo-expand 1.0.124 was present on PATH before the successful GREEN rerun.

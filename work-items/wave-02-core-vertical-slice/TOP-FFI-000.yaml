@@ -1,0 +1,127 @@
+id: TOP-FFI-000
+kind: implementation
+epic: TOP-800
+title: Bootstrap the generated Rust-Dart bridge harness without a product API
+status: READY
+priority: high
+requirement_ids:
+- DEV-003
+- QA-001
+depends_on:
+- TOP-BOOT-003
+parallel_group: core-bridge-bootstrap
+agent:
+  preferred_role: parent_orchestrator
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - apps/mobile_flutter/**
+  - Cargo.toml
+  - docs/decisions/ADR-0004-rust-dart-bridge.md
+  write:
+  - Cargo.toml
+  - Cargo.lock
+  - crates/topology_bridge/**
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/pubspec.lock
+  - apps/mobile_flutter/flutter_rust_bridge.yaml
+  - apps/mobile_flutter/rust_builder/**
+  - apps/mobile_flutter/ios/Podfile
+  - apps/mobile_flutter/ios/Flutter/Debug.xcconfig
+  - apps/mobile_flutter/ios/Flutter/Release.xcconfig
+  - apps/mobile_flutter/lib/main.dart
+  - apps/mobile_flutter/lib/src/rust/**
+  - apps/mobile_flutter/lib/core/bridge/generated/**
+  - LICENSE
+  - THIRD_PARTY_NOTICES.md
+  - .tdd/evidence/TOP-FFI-000/**
+  forbidden:
+  - apps/mobile_flutter/lib/core/bridge/device_identity.dart
+  - apps/mobile_flutter/test/core/bridge/device_identity_test.dart
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+behavior:
+  why: The first actual bridge behavior needs generated, reviewable Rust-Dart glue and deterministic local build wiring; a Dart fake cannot establish the architecture boundary.
+  given:
+  - The checked Flutter/Rust toolchains and ADR-0004 selected Flutter Rust Bridge 2.12.0 with Cargokit.
+  - No product API is exposed yet.
+  when:
+  - The pinned code generator runs against an empty bridge API module.
+  then:
+  - Version-controlled generated Rust and Dart glue are produced in the declared paths.
+  - The Rust bridge crate compiles as a staticlib and cdylib.
+  - The Flutter harness can analyze without a product identity endpoint.
+non_goals:
+- Device identity bridge behavior
+- Native MIDI or transport
+- Android/iOS build or device verification
+- Native Assets beta backend
+- Hand-written Dart FFI
+preconditions:
+- TOP-BOOT-003 integrated.
+- ADR-0004 accepted.
+- flutter_rust_bridge_codegen 2.12.0 installed and version-recorded by the integration owner.
+test:
+  layer: build_codegen
+  file: apps/mobile_flutter/flutter_rust_bridge.yaml
+  name: pinned_generated_bridge_harness_builds
+  red_command: cd apps/mobile_flutter && flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error
+  expected_red:
+    acceptable:
+    - The intended code-generation configuration or generated bridge module is absent before bootstrap.
+    unacceptable:
+    - A different code generator version is selected.
+    - A product API or Dart fake is added to make codegen appear successful.
+    - Android/iOS tooling failure is represented as bridge generation success.
+  green_command: cd apps/mobile_flutter && flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error
+minimum_green:
+- Pin Flutter Rust Bridge 2.12.0 runtime and generator configuration.
+- Create only an empty generated API module plus required initialization glue.
+- Use the Cargokit package generated for the existing Flutter app.
+- Keep generated Dart output under lib/core/bridge/generated.
+required_sweeps:
+- cargo test -p topology-bridge
+- cd apps/mobile_flutter && flutter analyze
+- cd apps/mobile_flutter && flutter test test/harness_test.dart
+- cargo fmt --all -- --check
+acceptance:
+- Generator version and outputs are recorded and reproducible.
+- Rust crate uses staticlib and cdylib.
+- Flutter contains generated bridge support but no product endpoint.
+- Reviewer approves.
+available_claims_after_completion:
+- BUILD_CODEGEN_VERIFIED
+unavailable_claims:
+- FFI_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-FFI-001
+block_conditions:
+- Pinned generator cannot generate the selected Cargokit harness.
+- Flutter/Rust dependency resolution cannot complete.
+evidence_directory: .tdd/evidence/TOP-FFI-000
+amendments:
+- recorded_at: 2026-08-09T15:42:00-05:00
+  author: parent_orchestrator
+  reason: The pinned FRB integration tool emits an iOS Podfile and its default lib/src/rust output before the checked configuration redirects generated Dart to the packet-owned bridge directory. The bootstrap owns those generated setup paths so it can remove the default demo output rather than retain an out-of-scope API.
+  changes:
+  - scope.write gained apps/mobile_flutter/ios/Podfile.
+  - scope.write gained apps/mobile_flutter/lib/src/rust/** for generated-demo cleanup only.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:05:00-05:00
+  author: parent_orchestrator
+  reason: Independent review found that generated iOS/macOS podspecs referenced a missing wrapper license. Parent-owned license and third-party-notice updates make the generated dependency provenance and static podspec metadata truthful.
+  changes:
+  - scope write gained apps/mobile_flutter/rust_builder/LICENSE, LICENSE, and THIRD_PARTY_NOTICES.md.
+  - added a static podspec-license RED/GREEN correction cycle.
+  claim_changed: false
+- recorded_at: 2026-08-09T16:32:00-05:00
+  author: parent_orchestrator
+  reason: Exact remote-tree comparison showed that FRB's generated Cargokit app integration also adds optional CocoaPods includes to the existing iOS Debug and Release xcconfigs. These are generated build wiring, not an iOS build claim, and must be explicitly in packet scope before publication.
+  changes:
+  - scope.write gained apps/mobile_flutter/ios/Flutter/Debug.xcconfig and apps/mobile_flutter/ios/Flutter/Release.xcconfig.
+  - reviewer recheck required for the scope/provenance record.
+  claim_changed: false

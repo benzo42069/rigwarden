@@ -11,6 +11,7 @@ requirement_ids:
 depends_on:
 - TOP-DOM-003
 - TOP-BOOT-003
+- TOP-FFI-000
 parallel_group: core-bridge-a
 agent:
   preferred_role: topology_implementer
@@ -50,8 +51,8 @@ non_goals:
 - Performance benchmarks
 - Production codegen selection beyond the approved ADR
 preconditions:
-- TOP-DOM-003 and TOP-BOOT-003 integrated.
-- An ADR selects the bridge dependency and integration owner updates shared manifests/generated configuration.
+- TOP-DOM-003, TOP-BOOT-003, and TOP-FFI-000 integrated.
+- ADR-0004 selects the bridge dependency and the parent-owned generated configuration is green.
 test:
   layer: ffi_integration
   file: apps/mobile_flutter/test/core/bridge/device_identity_test.dart
@@ -93,3 +94,11 @@ block_conditions:
 - No approved FFI ADR/dependency.
 - Current environment cannot build the selected bridge.
 evidence_directory: .tdd/evidence/TOP-FFI-001
+amendments:
+- recorded_at: 2026-08-09T15:25:00-05:00
+  author: parent_orchestrator
+  reason: The original packet required an ADR and generated configuration but had no dependency that could truthfully establish them. TOP-FFI-000 is the narrow product-empty codegen prerequisite under ADR-0004.
+  changes:
+  - depends_on gained TOP-FFI-000.
+  - preconditions now name the accepted ADR and integrated bootstrap.
+  claim_changed: false

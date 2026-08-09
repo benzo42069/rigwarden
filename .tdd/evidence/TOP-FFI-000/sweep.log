@@ -1,0 +1,27 @@
+=== 1. packet copy ===
+packet copy: 0
+
+=== 2. cargo test -p topology-bridge ===
+Compiling topology-bridge v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_bridge)
+Finished `test` profile [unoptimized + debuginfo]
+Running unittests src/lib.rs
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+=== 3. flutter analyze ===
+Analyzing mobile_flutter...
+No issues found!
+
+=== 4. flutter test test/harness_test.dart ===
+00:00 +0: minimal app mounts
+00:00 +1: All tests passed!
+
+=== 5. cargo fmt --all -- --check ===
+
+=== 6. generator ===
+Done!
+
+=== 7. demo-output absence scan ===
+no matches

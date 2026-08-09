@@ -1,0 +1,9 @@
+1. packet copy: 0
+2. cargo test -p topology-bridge: 0
+3. flutter analyze: 0
+4. flutter test test/harness_test.dart: 0
+5. cargo fmt --all -- --check: 0
+6. flutter_rust_bridge_codegen generate: 0
+7. demo-output absence scan: 0
+Historical harness failure (cargo expand missing): 1; BLOCKED_ENVIRONMENT_DIAGNOSTIC, repaired before GREEN.
+Historical initial package-name mismatch: 101; BLOCKED_CONTRACT_DIAGNOSTIC, repaired before final sweeps.

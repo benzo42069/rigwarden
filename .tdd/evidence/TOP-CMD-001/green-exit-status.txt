@@ -1,0 +1,3 @@
+exit_status: 0
+accepted_as_green: true
+reason: The profile-owned amp-1/gain definition accepts stored 45 (4.5), preserves semantic fields, and rejects stored 101 with the structured inclusive-range error.

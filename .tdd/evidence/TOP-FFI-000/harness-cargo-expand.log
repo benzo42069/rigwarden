@@ -1,0 +1,4 @@
+[2026-08-09T20:09:56.022Z WARN flutter_rust_bridge_codegen] command=cd "/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_bridge" && RUSTFLAGS="--cfg frb_expand" "cargo" "expand" "--lib" "--theme=none" "--ugly" stdout= stderr=error: no such command: `expand`
+
+help: view all installed commands with `cargo --list`
+help: find a package to install `cargo-expand` with `cargo search cargo-expand`

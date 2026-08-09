@@ -1,0 +1,8 @@
+Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+Finished `test` profile [unoptimized + debuginfo]
+Running tests/parameter_mutation.rs
+
+running 1 test
+test valid_parameter_mutation_is_typed_but_not_encoded ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out

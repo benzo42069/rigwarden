@@ -1,0 +1,19 @@
+Recorded: 2026-08-09T15:12:42-05:00 / 2026-08-09T20:12:42Z
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch/worktree: main; shared dirty integration worktree
+Starting local commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+Public main before this candidate: 100e5e4110ffce72da6d06b100f7c7c81cbef322
+Dirty-state summary: 204 git-status rows before this packet; unrelated existing worktree changes preserved.
+Host: macOS 26.5 (25F71), arm64
+Rust: rustc 1.97.0; cargo 1.97.0
+Flutter/Dart: Flutter 3.44.9 stable; Dart 3.12.2
+Xcode/iOS: Xcode 26.5 (17F42); Simulator runtimes unavailable to flutter doctor; CocoaPods unavailable.
+Android/JDK/Gradle: Android SDK path exists; command-line tools unavailable; no emulator used.
+Native compiler: Apple clang 21.0.0
+Pinned generator: flutter_rust_bridge_codegen 2.12.0
+Generator parser dependency: cargo-expand 1.0.124
+Selected bridge: flutter_rust_bridge 2.12.0 with generated Cargokit backend per ADR-0004.
+Codex routing: parent integration owner; no child implementation agent for this shared-file bootstrap.
+Devices/hardware: no device, simulator, modeler, transport, fixture, or secret used.
+Environment variables: no task-specific environment variables used; secrets none.
+Claim boundary: host code-generation/build evidence only; not FFI behavior, native-platform, mobile-device, or hardware verification.

@@ -1,0 +1,3 @@
+exit_status: 1
+accepted_as_intended_red: yes
+reason: The pinned generator reached the Flutter project and failed only because the packet's bridge configuration had not been created.

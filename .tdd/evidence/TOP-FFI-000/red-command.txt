@@ -1,0 +1,4 @@
+Shell: zsh
+Working directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+Command:
+flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error

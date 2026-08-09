@@ -1,0 +1,3 @@
+exit_status: 0
+accepted_as_green: yes
+reason: The pinned generator emitted the empty bridge runtime and generated Dart glue under lib/core/bridge/generated after the demo API was removed.

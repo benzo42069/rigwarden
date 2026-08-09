@@ -1,0 +1,3 @@
+exit_status: 1
+accepted_as_intended_red: true
+reason: The independently reviewed podspec invariant found that both generated podspecs referenced a missing wrapper-license file.

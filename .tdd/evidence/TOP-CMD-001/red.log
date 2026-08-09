@@ -1,0 +1,12 @@
+Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+error[E0432]: unresolved imports `topology_command_engine::validate_parameter_mutation`, `topology_command_engine::MutationValidationError`, `topology_command_engine::ParameterMutationRequest`
+ --> crates/topology_command_engine/tests/parameter_mutation.rs:2:5
+  |
+2 |     validate_parameter_mutation, MutationValidationError, ParameterMutationRequest,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^ no `ParameterMutationRequest` in the root
+  |     |                            |
+  |     |                            no `MutationValidationError` in the root
+  |     no `validate_parameter_mutation` in the root
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-command-engine` (test "parameter_mutation") due to 1 previous error

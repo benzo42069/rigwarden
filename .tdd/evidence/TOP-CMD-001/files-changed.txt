@@ -1,0 +1,13 @@
+TOP-CMD-001 candidate inventory:
+
+- Cargo.toml and Cargo.lock: parent-owned workspace membership and lockfile
+  resolution for the packet-created command-engine crate; scope was explicitly
+  amended before the RED because the packet test otherwise could not run.
+- crates/topology_command_engine/Cargo.toml: minimal local crate manifest.
+- crates/topology_command_engine/src/lib.rs and src/mutation.rs: semantic
+  numeric validation only; no encoder, bytes, transport, or UI.
+- crates/topology_command_engine/tests/parameter_mutation.rs: focused valid
+  stored-45 and out-of-range stored-101 behavior test.
+- work-items/wave-02-core-vertical-slice/TOP-CMD-001.yaml: parent amendment
+  for required workspace membership.
+- .tdd/evidence/TOP-CMD-001/**: packet copy and observed RED/GREEN/sweep proof.
