@@ -1,0 +1,10 @@
+Integration base: 08a80d2fdad62f393c3359dc9401ef750acad196
+Integration date: 2026-08-09
+
+- cargo test -p topology-preset offline_container_preserves_normalized_and_opaque_data -- --exact --nocapture: 0
+- cargo test -p topology-preset offline_container_rejects_truncated_input_without_panic -- --exact --nocapture: 0
+- cargo test -p topology-preset: 0
+- cargo fmt --all -- --check: 0
+- cargo clippy -p topology-preset --all-targets -- -D warnings: 0
+
+This transition earns only UNIT_VERIFIED and FILE_CODEC_VERIFIED for the project-owned synthetic RWOC v1 container. Vendor format, byte fixture, protocol, simulator, platform, and hardware claims remain unavailable.

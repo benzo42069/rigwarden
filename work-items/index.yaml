@@ -260,7 +260,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-PRESET-001.yaml
   - id: TOP-PRESET-002
     title: Round-trip the initial RigWarden offline container without losing opaque bytes
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-PRESET-001
@@ -380,7 +380,7 @@ waves:
     - TOP-DOM-003
     path: work-items/wave-03-am4-bootstrap/TOP-AM4-PROTO-002.yaml
   - id: TOP-AM4-PROTO-003
-    title: Decode the AM4 preset fixture���s identity, name, and opaque remainder
+    title: Decode the AM4 preset fixture’s identity, name, and opaque remainder
     status: BLOCKED_FIXTURE
     priority: high
     depends_on:

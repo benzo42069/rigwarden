@@ -2,7 +2,7 @@ id: TOP-PRESET-002
 kind: implementation
 epic: TOP-200
 title: Round-trip the initial RigWarden offline container without losing opaque bytes
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - PRESET-007
