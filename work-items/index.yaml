@@ -311,7 +311,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-SIM-002.yaml
   - id: TOP-UI-001
     title: Adapt the session shell between narrow phone and wide tablet layouts
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-BOOT-003

@@ -1,0 +1,2 @@
+0
+accepted: focused Flutter widget/semantics test passed after the minimum tablet NavigationRail semantics wrapper added button role, tap action, and selected state.

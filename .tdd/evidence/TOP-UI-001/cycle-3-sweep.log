@@ -1,0 +1,45 @@
+--- command 1: cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart ---
+Resolving dependencies...
+Downloading packages...
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.19.0 available)
+  test_api 0.7.11 (0.7.13 available)
+  vector_math 2.2.0 (2.4.2 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+00:00 +0: session shell adapts without hiding editor destinations
+00:00 +1: All tests passed!
+
+--- command 2: cd apps/mobile_flutter && flutter test ---
+Resolving dependencies...
+Downloading packages...
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.19.0 available)
+  test_api 0.7.11 (0.7.13 available)
+  vector_math 2.2.0 (2.4.2 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/device_identity_test.dart
+00:00 +0: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/device_identity_test.dart: typed device identity round trips from Rust
+00:01 +1: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/harness_test.dart: minimal app mounts
+00:02 +2: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart: session shell adapts without hiding editor destinations
+00:04 +3: All tests passed!
+
+--- command 3: cd apps/mobile_flutter && flutter analyze ---
+Resolving dependencies...
+Downloading packages...
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.19.0 available)
+  test_api 0.7.11 (0.7.13 available)
+  vector_math 2.2.0 (2.4.2 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing mobile_flutter...                                     
+No issues found! (ran in 36.4s)
+
+--- command 4: cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed . ---
+Formatted 29 files (0 changed) in 0.03 seconds.

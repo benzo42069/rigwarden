@@ -1,0 +1,5 @@
+1: 0
+2: 0
+3: 0
+4: 1
+accepted: commands 1-3 passed; command 4 was a refactor-phase format failure and mechanically formatted session_shell.dart. No behavior was weakened or skipped.

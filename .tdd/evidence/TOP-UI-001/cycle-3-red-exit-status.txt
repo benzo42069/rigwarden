@@ -1,0 +1,2 @@
+1
+accepted: intended RED; the focused Flutter widget/semantics test reached the tablet NavigationRail branch and the new assertion observed isButton=false for Session. No production edits were made for this cycle before RED.

@@ -1,0 +1,18 @@
+timestamp_utc=2026-08-10T05:13:21Z
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree_summary=shared dirty worktree; parent/integration changes preserved
+ProductName:		macOS
+ProductVersion:		26.5
+BuildVersion:		25F71
+arm64
+Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6b182d2c75 (5 days ago) • 2026-08-05 10:04:07 -0700
+Engine • hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (9 days ago) • 2026-07-31 18:31:59.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+rustc 1.97.0 (2d8144b78 2026-07-07)
+requested_subagent_model=gpt-5.6-luna
+requested_reasoning_effort=max
+hardware=none required; Flutter L4 semantics only

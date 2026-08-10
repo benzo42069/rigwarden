@@ -1,0 +1,42 @@
+id: TOP-UI-001
+kind: implementation
+status: READY
+requirement_ids: [UI-003, UI-004]
+depends_on: [TOP-BOOT-003, TOP-FFI-001]
+amendment_reference: 7859a40632ca18a86ad629b68d621f397609dcdf
+scope_write:
+  - apps/mobile_flutter/lib/app/topology_app.dart
+  - apps/mobile_flutter/lib/features/session/session_shell.dart
+  - apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+  - .tdd/evidence/TOP-UI-001/**
+scope_forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/assets/**
+  - native/**
+  - device-packs/**
+behavior:
+  - Phone uses one primary content region with explicit navigation.
+  - Tablet exposes persistent navigation plus content.
+  - Both retain all declared destinations.
+  - Navigation exposes role/action/selected state, deterministic focus order/restoration, and announced destination changes without color dependence.
+  - Large text reflows without clipped labels; reduced motion avoids selection animation.
+test:
+  layer: flutter_widget
+  file: apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+  name: session_shell_adapts_without_hiding_editor_destinations
+  red_command: cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart --plain-name "session shell adapts without hiding editor destinations"
+  green_command: cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart --plain-name "session shell adapts without hiding editor destinations"
+required_sweeps:
+  - cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart
+  - cd apps/mobile_flutter && flutter test
+  - cd apps/mobile_flutter && flutter analyze
+  - cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .
+acceptance:
+  - Phone/tablet structures differ intentionally and all destinations are reachable.
+  - Semantics actions, selected state, focus order/restoration, announcement, large-text reflow, and reduced-motion behavior are asserted.
+  - Fresh accessibility review approves.
+available_claims_after_completion: [SEMANTICS_VERIFIED]
+unavailable_claims: [VISUAL_ASSET_COMPLETE, PLATFORM_DEVICE_VERIFIED, HARDWARE_VERIFIED]
+prior_failure_preserved: true

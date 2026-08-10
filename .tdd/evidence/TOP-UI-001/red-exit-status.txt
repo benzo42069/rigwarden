@@ -1,0 +1,2 @@
+1
+accepted: intended RED; the focused test reached Flutter and failed only because the packet-owned topology_app.dart and session_shell.dart APIs were absent.

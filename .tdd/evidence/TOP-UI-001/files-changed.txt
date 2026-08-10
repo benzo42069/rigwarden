@@ -1,0 +1,31 @@
+Starting worktree contained unrelated parent/integration changes; those were not edited.
+
+Packet-owned production/test files added:
+
+A apps/mobile_flutter/lib/app/topology_app.dart
+A apps/mobile_flutter/lib/features/session/session_shell.dart
+A apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+
+Packet-owned evidence files added under `.tdd/evidence/TOP-UI-001/`:
+
+A work-item.yaml
+A environment.txt
+A pre-cycle-status.txt
+A red-command.txt
+A red.log
+A red-exit-status.txt
+A green-command.txt
+A green.log
+A green-exit-status.txt
+A green-iteration-1.log
+A green-iteration-1-exit-status.txt
+A sweep-commands.txt
+A sweep.log
+A sweep-exit-statuses.txt
+A accessibility-results.md
+A files-changed.txt
+A review.md
+A handoff.md
+A patch.diff (generated uncommitted patch for the three packet-owned files)
+
+No root manifests, lockfiles, assets, native adapters, device packs, or existing parent-owned files were edited. Flutter test/build caches created by the commands are untracked/generated and are not part of the patch.

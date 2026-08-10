@@ -1,0 +1,254 @@
+diff --git a/apps/mobile_flutter/lib/app/topology_app.dart b/apps/mobile_flutter/lib/app/topology_app.dart
+new file mode 100644
+index 0000000..e597ef4
+--- /dev/null
++++ b/apps/mobile_flutter/lib/app/topology_app.dart
+@@ -0,0 +1,14 @@
++import 'package:flutter/material.dart';
++import 'package:rigwarden/features/session/session_shell.dart';
++
++/// Minimal app-facing entry point for the adaptive session shell.
++class TopologyApp extends StatelessWidget {
++  const TopologyApp({required this.session, super.key});
++
++  final SessionShellModel session;
++
++  @override
++  Widget build(BuildContext context) {
++    return SessionShell(session: session);
++  }
++}
+diff --git a/apps/mobile_flutter/lib/features/session/session_shell.dart b/apps/mobile_flutter/lib/features/session/session_shell.dart
+new file mode 100644
+index 0000000..5f8cb17
+--- /dev/null
++++ b/apps/mobile_flutter/lib/features/session/session_shell.dart
+@@ -0,0 +1,170 @@
++import 'package:flutter/material.dart';
++
++/// The destinations that a session shell exposes to both narrow and wide
++/// layouts. Destination screens are intentionally owned by later packets.
++class SessionDestination {
++  const SessionDestination(this.label);
++
++  final String label;
++}
++
++/// Synthetic session data used by the shell until the application state layer
++/// is integrated. The destination list is shared by every adaptive layout.
++class SessionShellModel {
++  const SessionShellModel({required this.title, required this.destinations});
++
++  final String title;
++  final List<SessionDestination> destinations;
++}
++
++/// Presents the same session destinations with a phone or tablet structure.
++class SessionShell extends StatefulWidget {
++  const SessionShell({required this.session, super.key});
++
++  final SessionShellModel session;
++
++  @override
++  State<SessionShell> createState() => _SessionShellState();
++}
++
++class _SessionShellState extends State<SessionShell> {
++  static const double _tabletBreakpoint = 600;
++
++  int _selectedIndex = 0;
++
++  @override
++  Widget build(BuildContext context) {
++    final destinations = widget.session.destinations;
++    if (destinations.isEmpty) {
++      return Scaffold(
++        appBar: AppBar(title: Text(widget.session.title)),
++        body: const SizedBox.shrink(),
++      );
++    }
++
++    final selectedIndex = _selectedIndex.clamp(0, destinations.length - 1);
++    final selectedDestination = destinations[selectedIndex];
++
++    return LayoutBuilder(
++      builder: (context, constraints) {
++        final isTablet = constraints.maxWidth >= _tabletBreakpoint;
++        final content = _SessionContent(destination: selectedDestination);
++
++        return Scaffold(
++          appBar: AppBar(title: Text(widget.session.title)),
++          body: isTablet
++              ? Row(
++                  children: <Widget>[
++                    _TabletNavigation(
++                      destinations: destinations,
++                      selectedIndex: selectedIndex,
++                      onDestinationSelected: _selectDestination,
++                    ),
++                    const VerticalDivider(width: 1),
++                    Expanded(child: content),
++                  ],
++                )
++              : content,
++          bottomNavigationBar: isTablet
++              ? null
++              : _PhoneNavigation(
++                  destinations: destinations,
++                  selectedIndex: selectedIndex,
++                  onDestinationSelected: _selectDestination,
++                ),
++        );
++      },
++    );
++  }
++
++  void _selectDestination(int index) {
++    if (index == _selectedIndex) {
++      return;
++    }
++
++    setState(() => _selectedIndex = index);
++  }
++}
++
++class _SessionContent extends StatelessWidget {
++  const _SessionContent({required this.destination});
++
++  final SessionDestination destination;
++
++  @override
++  Widget build(BuildContext context) {
++    return Semantics(
++      container: true,
++      label: 'Current editor destination: ${destination.label}',
++      child: Center(child: ExcludeSemantics(child: Text(destination.label))),
++    );
++  }
++}
++
++class _PhoneNavigation extends StatelessWidget {
++  const _PhoneNavigation({
++    required this.destinations,
++    required this.selectedIndex,
++    required this.onDestinationSelected,
++  });
++
++  final List<SessionDestination> destinations;
++  final int selectedIndex;
++  final ValueChanged<int> onDestinationSelected;
++
++  @override
++  Widget build(BuildContext context) {
++    return Semantics(
++      container: true,
++      explicitChildNodes: true,
++      label: 'Editor destination navigation',
++      child: BottomNavigationBar(
++        currentIndex: selectedIndex,
++        onTap: onDestinationSelected,
++        showUnselectedLabels: true,
++        items: [
++          for (final destination in destinations)
++            BottomNavigationBarItem(
++              icon: const SizedBox.shrink(),
++              label: destination.label,
++              tooltip: destination.label,
++            ),
++        ],
++      ),
++    );
++  }
++}
++
++class _TabletNavigation extends StatelessWidget {
++  const _TabletNavigation({
++    required this.destinations,
++    required this.selectedIndex,
++    required this.onDestinationSelected,
++  });
++
++  final List<SessionDestination> destinations;
++  final int selectedIndex;
++  final ValueChanged<int> onDestinationSelected;
++
++  @override
++  Widget build(BuildContext context) {
++    return Semantics(
++      container: true,
++      explicitChildNodes: true,
++      label: 'Editor destination navigation',
++      child: NavigationRail(
++        selectedIndex: selectedIndex,
++        onDestinationSelected: onDestinationSelected,
++        labelType: NavigationRailLabelType.all,
++        destinations: [
++          for (final destination in destinations)
++            NavigationRailDestination(
++              icon: const SizedBox.shrink(),
++              selectedIcon: const SizedBox.shrink(),
++              label: Text(destination.label),
++            ),
++        ],
++      ),
++    );
++  }
++}
+diff --git a/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart b/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+new file mode 100644
+index 0000000..52351e3
+--- /dev/null
++++ b/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+@@ -0,0 +1,52 @@
++import 'package:flutter/material.dart';
++import 'package:flutter_test/flutter_test.dart';
++import 'package:rigwarden/app/topology_app.dart';
++import 'package:rigwarden/features/session/session_shell.dart';
++
++void main() {
++  const session = SessionShellModel(
++    title: 'Fixture Session',
++    destinations: <SessionDestination>[
++      SessionDestination('Session'),
++      SessionDestination('Presets'),
++      SessionDestination('Routing'),
++      SessionDestination('Parameters'),
++      SessionDestination('Performance'),
++      SessionDestination('Library'),
++    ],
++  );
++
++  testWidgets('session shell adapts without hiding editor destinations', (
++    tester,
++  ) async {
++    addTearDown(() => tester.binding.setSurfaceSize(null));
++
++    await tester.pumpWidget(
++      const MaterialApp(home: TopologyApp(session: session)),
++    );
++
++    await tester.binding.setSurfaceSize(const Size(390, 844));
++    await tester.pumpAndSettle();
++
++    expect(find.byType(BottomNavigationBar), findsOneWidget);
++    expect(find.byType(NavigationRail), findsNothing);
++    for (final destination in session.destinations) {
++      expect(
++        find.bySemanticsLabel(RegExp('^${RegExp.escape(destination.label)}')),
++        findsOneWidget,
++      );
++    }
++
++    await tester.binding.setSurfaceSize(const Size(1024, 768));
++    await tester.pumpAndSettle();
++
++    expect(find.byType(NavigationRail), findsOneWidget);
++    expect(find.byType(BottomNavigationBar), findsNothing);
++    for (final destination in session.destinations) {
++      expect(
++        find.bySemanticsLabel(RegExp('^${RegExp.escape(destination.label)}')),
++        findsOneWidget,
++      );
++    }
++  });
++}

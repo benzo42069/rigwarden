@@ -18,8 +18,18 @@ working editor release.
 
 What is real today:
 
-- A minimal Rust workspace and executable test harness.
-- A minimal Flutter iOS/Android application harness with a passing widget test.
+- A Rust workspace with typed device identity, exact profile resolution,
+  fixed-point parameter validation, deterministic routing and command planning,
+  offline container/opaque-data preservation, and contributor tooling.
+- A generated Rust ↔ Flutter bridge that round-trips a Rust-owned typed device
+  identity through a real native library in the test harness.
+- An adaptive Flutter session shell: phone navigation and tablet navigation
+  expose the same six synthetic destinations with names, button semantics,
+  selected state, actions, live destination updates, large-text reflow, and a
+  reduced-motion branch. This is framework-level semantics evidence, not a
+  physical screen-reader claim.
+- One deterministic, explicitly synthetic request/response simulator exchange
+  with correlation, transcript recording, and a structured mismatch path.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release
@@ -29,10 +39,11 @@ What is real today:
 
 What is not here yet:
 
-- A usable editor UI or preset browser.
-- Rust/Flutter FFI, native MIDI/USB/BLE transport, device profiles, or protocol
-  implementation.
-- Emulator, physical-device, or modeler hardware verification.
+- A usable editor UI, preset browser, or completed destination screen.
+- Native MIDI/USB/BLE transport, Fractal protocol encoding/decoding, or a
+  supported-device promise.
+- Emulator, physical-device, VoiceOver/TalkBack, or modeler hardware
+  verification.
 - Any claim of supported Fractal firmware, hardware compatibility, or store
   readiness.
 
@@ -52,8 +63,7 @@ are not implemented or verified.
 
 ## Run the current harnesses
 
-The repository currently proves only that its Rust and Flutter bootstrap
-harnesses run.
+The current checks exercise the public foundation—not a real modeler:
 
 ```bash
 cargo test --workspace
@@ -63,9 +73,10 @@ flutter analyze
 flutter test
 ```
 
-The Flutter shell is not an Android or iOS build claim. Android build/device
-verification still requires the Android SDK, JDK, and Gradle; physical mobile
-and modeler testing come later through explicit packets.
+The Flutter shell is not an Android or iOS build claim. The synthetic simulator
+is not a protocol or hardware claim. Android build/device verification still
+requires the Android SDK, JDK, and Gradle; physical mobile and modeler testing
+come later through explicit packets.
 
 ## Contributing
 

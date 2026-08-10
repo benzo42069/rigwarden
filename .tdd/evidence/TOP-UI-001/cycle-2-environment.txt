@@ -1,0 +1,14 @@
+timestamp_utc=2026-08-10T00:13:57Z
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+amendment_reference=7859a40632ca18a86ad629b68d621f397609dcdf
+worktree=shared dirty worktree; unrelated parent/integration changes preserved
+platform=Darwin 25.5.0 arm64
+flutter=3.44.9 stable (framework 6b182d2c75)
+dart=Dart SDK 3.12.2 stable
+rustc=rustc 1.97.0
+requested_subagent_model=gpt-5.6-luna
+requested_reasoning_effort=max
+effective_worker_runtime_model=parent routing contract requested Luna/Max; runtime metadata not independently exposed in shell
+hardware=none required; no assets, device, transport, or native platform path exercised

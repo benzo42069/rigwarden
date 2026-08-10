@@ -1,0 +1,2 @@
+1
+accepted: intended RED; the amended test reached the Flutter widget harness and failed because the candidate shell had no explicit navigation focus-group policy. No production edits had been made for this cycle.

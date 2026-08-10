@@ -1,0 +1,49 @@
+id: TOP-UI-001
+cycle: 3
+kind: implementation-correction
+status: READY
+requirement_ids: [UI-003, UI-004]
+depends_on: [TOP-BOOT-003, TOP-FFI-001]
+dependency_status: INTEGRATED
+amendment_reference: existing TOP-UI-001 packet; no amendment
+scope_write:
+  - apps/mobile_flutter/lib/features/session/session_shell.dart
+  - apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+  - .tdd/evidence/TOP-UI-001/**
+scope_forbidden:
+  - apps/mobile_flutter/lib/app/topology_app.dart
+  - Cargo.toml
+  - Cargo.lock
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/assets/**
+  - native/**
+  - device-packs/**
+behavior:
+  observable: tablet NavigationRail destination semantics expose button role, tap action, and explicit selected state
+  why: the packet's SEMANTICS_VERIFIED claim requires equivalent accessible navigation semantics in both phone and tablet layouts
+  inputs: synthetic SessionShellModel at 1024x768 tablet width, six declared destinations, Routing selected before layout switch
+  expected: every tablet destination node labelled by its destination has isButton=true, tap action, and selected true only for the current destination
+  layer: flutter_widget_semantics_L4
+non_goals:
+  - phone semantics changes
+  - destination screens
+  - visual assets
+  - native VoiceOver/TalkBack or hardware verification
+  - broader focus/reflow/reduced-motion behavior already covered by prior cycles
+preconditions:
+  - dependencies TOP-BOOT-003 and TOP-FFI-001 are INTEGRATED in work-items/index.yaml
+  - Flutter widget harness is executable
+focused_test:
+  file: apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+  name: session shell adapts without hiding editor destinations
+  command: cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart --plain-name "session shell adapts without hiding editor destinations"
+expected_red: tablet loop assertion for isButton fails because NavigationRail exposes role none/isButton=false
+minimum_green: wrap each tablet destination's semantics with button=true, selected state, and onTap action while preserving NavigationRail selection callback
+required_sweeps:
+  - cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart
+  - cd apps/mobile_flutter && flutter test
+  - cd apps/mobile_flutter && flutter analyze
+  - cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .
+claims_after_cycle: candidate L4 SEMANTICS_VERIFIED for tablet destination role/action/selected parity, pending independent review and parent integration
+claims_unavailable: VISUAL_ASSET_COMPLETE, PLATFORM_SIMULATOR_VERIFIED, PLATFORM_DEVICE_VERIFIED, HARDWARE_VERIFIED
+preserve_prior_cycles: true

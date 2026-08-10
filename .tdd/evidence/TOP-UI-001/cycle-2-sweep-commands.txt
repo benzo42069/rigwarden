@@ -1,0 +1,4 @@
+1. cd apps/mobile_flutter && flutter test test/features/session/session_shell_layout_test.dart
+2. cd apps/mobile_flutter && flutter test
+3. cd apps/mobile_flutter && flutter analyze
+4. cd apps/mobile_flutter && dart format --output=none --set-exit-if-changed .

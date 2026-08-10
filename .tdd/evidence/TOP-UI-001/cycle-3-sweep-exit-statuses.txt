@@ -1,0 +1,5 @@
+1: 0
+2: 0
+3: 0
+4: 0
+accepted: final post-format serial required sweeps all passed; the earlier format-detection failure is retained in cycle-3-initial-sweep.* and was resolved by a formatter-only write followed by focused GREEN.

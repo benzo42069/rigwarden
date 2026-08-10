@@ -1,0 +1,2 @@
+0
+accepted: focused Flutter widget test passed after the minimum adaptive shell and semantics implementation.

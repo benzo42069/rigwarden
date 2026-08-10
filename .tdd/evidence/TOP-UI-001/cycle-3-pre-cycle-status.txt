@@ -1,0 +1,4 @@
+Cycle 3 pre-change source/test snapshot:
+?? apps/mobile_flutter/lib/features/session/session_shell.dart
+?? apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+Prior cycle evidence retained; cycle-3 files append only.

@@ -1,0 +1,40 @@
+Cycle-3 packet delta (relative to the prior TOP-UI-001 candidate):
+
+M apps/mobile_flutter/lib/features/session/session_shell.dart
+  _TabletNavigation now builds each NavigationRail label with a bounded
+  Semantics(container: true, button: true, selected: ..., onTap: ...)
+  wrapper; visible text remains an ExcludeSemantics child. No other source
+  branch was changed. Dart formatter applied its one-line child formatting.
+
+M apps/mobile_flutter/test/features/session/session_shell_layout_test.dart
+  Tablet destination loop now asserts flagsCollection.isButton == true,
+  alongside the existing tap-action and selected-state assertions.
+
+Evidence added under .tdd/evidence/TOP-UI-001/:
+  cycle-3-work-item.yaml
+  cycle-3-environment.txt
+  cycle-3-pre-cycle-status.txt
+  cycle-3-red-command.txt
+  cycle-3-red.log
+  cycle-3-red-exit-status.txt
+  cycle-3-green-command.txt
+  cycle-3-green.log
+  cycle-3-green-exit-status.txt
+  cycle-3-format-refactor-command.txt
+  cycle-3-format-refactor.log
+  cycle-3-format-refactor-exit-status.txt
+  cycle-3-post-format-write-green-command.txt
+  cycle-3-post-format-write-green.log
+  cycle-3-post-format-write-green-exit-status.txt
+  cycle-3-initial-sweep-commands.txt
+  cycle-3-initial-sweep.log
+  cycle-3-initial-sweep-exit-statuses.txt
+  cycle-3-sweep-commands.txt
+  cycle-3-sweep.log
+  cycle-3-sweep-exit-statuses.txt
+  cycle-3-files-changed.txt
+  cycle-3-handoff.md
+
+No apps/mobile_flutter/lib/app/topology_app.dart, root manifests, lockfiles,
+assets, native adapters, device packs, or integration-owned files were edited.
+No commit was created; parent owns patch landing and integration reruns.

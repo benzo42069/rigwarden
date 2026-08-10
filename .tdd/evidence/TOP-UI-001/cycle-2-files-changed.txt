@@ -1,0 +1,22 @@
+Packet-owned source/test paths:
+  A apps/mobile_flutter/lib/app/topology_app.dart (existing candidate preserved; unchanged in correction cycle)
+  M apps/mobile_flutter/lib/features/session/session_shell.dart (amended accessibility behavior)
+  M apps/mobile_flutter/test/features/session/session_shell_layout_test.dart (amended RED/GREEN assertions)
+
+Second-cycle evidence added:
+  cycle-2-red-command.txt
+  cycle-2-red.log
+  cycle-2-red-exit-status.txt
+  cycle-2-red-harness-iterations.md
+  cycle-2-green-command.txt
+  cycle-2-green.log
+  cycle-2-green-exit-status.txt
+  cycle-2-sweep-commands.txt
+  cycle-2-sweep.log
+  cycle-2-sweep-exit-statuses.txt
+  cycle-2-environment.txt
+  cycle-2-files-changed.txt
+  cycle-2-accessibility-results.md
+  cycle-2-handoff.md
+
+No root manifests, lockfiles, assets, native adapters, device packs, or shared integration-owned files were edited. No commit was created; parent owns integration/commit.

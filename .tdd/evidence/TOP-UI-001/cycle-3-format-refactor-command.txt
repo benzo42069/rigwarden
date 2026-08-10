@@ -1,0 +1,3 @@
+command: cd apps/mobile_flutter && dart format lib/features/session/session_shell.dart
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+shell: /bin/zsh
