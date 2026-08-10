@@ -1,0 +1,9 @@
+set -euo pipefail
+CORR_TARGET=/tmp/rigwarden-e2e000-correction-target
+1. CARGO_TARGET_DIR=/tmp/rigwarden-e2e000-correction-target cargo test -p topology-bridge
+2. CARGO_TARGET_DIR=/tmp/rigwarden-e2e000-correction-target cargo test -p topology-command-engine
+3. CARGO_TARGET_DIR=/tmp/rigwarden-e2e000-correction-target cargo test -p topology-simulator
+4. CARGO_TARGET_DIR=/tmp/rigwarden-e2e000-correction-target cargo test -p topology-undo
+5. cargo fmt --all -- --check (canonical workspace formatter; parent terminated after >4 minutes of filesystem contention; BLOCKED_ENVIRONMENT)
+6. CARGO_TARGET_DIR=/tmp/rigwarden-e2e000-correction-target cargo clippy -p topology-bridge --all-targets -- -D warnings
+7. rustfmt --edition 2021 --check crates/topology_bridge/src/lib.rs crates/topology_bridge/src/simulated_edit.rs crates/topology_bridge/tests/simulated_edit.rs

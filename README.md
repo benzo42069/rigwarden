@@ -39,21 +39,17 @@ What is real today:
   and never treats pending or failed mutations as completed undo entries. A
   prepared restoration keeps history intact until confirmation and is scoped to
   its owning journal instance. The journal also has a bounded, deterministic
-  in-memory snapshot codec for confirmed history and exact numeric state; this
-  is not yet a durable file-storage or crash-recovery guarantee.
+  snapshot codec plus a bounded local write/drop/reload path for confirmed
+  history and exact numeric state. This is not a crash-recovery or
+  cross-process-durability guarantee.
 - Preset-aware in-memory undo branches, so a new preset context cannot expose
   another preset's completed history. Disk persistence and branch merging are
   still deliberately absent.
-- The core slices are intentionally **not** yet presented as a completed
-  editor flow: the typed app → validation → synthetic simulator → confirmed
-  undo composition is blocked on a narrow, reviewed command/event bridge
-  contract. A Dart-only fake will not be used to paper over that gap.
-- Local journal-file restart support is **not integrated**. Its first
-  implementation was rejected in security review because a predictable
-  temporary-file path could follow a symlink. The corrected, exclusive
-  temporary-file implementation has passed independent security review and is
-  awaiting its immutable integration rerun; until then, this project makes no
-  local-file recovery claim.
+- One Rust-owned synthetic vertical composition validates a typed gain edit,
+  performs two scripted synthetic exchanges, confirms undo history, and
+  restores the prior value. It directly proves zero exchanges for invalid and
+  read-only requests. It is simulator-only and is not yet exposed through the
+  Flutter application.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release
@@ -68,8 +64,8 @@ What is not here yet:
   supported-device promise.
 - Emulator, physical-device, VoiceOver/TalkBack, or modeler hardware
   verification.
-- Durable local-file recovery, crash-safe persistence, or cross-process file
-  locking for undo history.
+- Crash-safe local-file recovery, cross-process file locking, or hostile
+  shared-directory durability for undo history.
 - Any claim of supported Fractal firmware, hardware compatibility, or store
   readiness.
 

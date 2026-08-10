@@ -1,0 +1,2 @@
+0
+accepted: the focused correction passes; successful composition reports two private exchanges, invalid range reports zero, and read-only profile reports zero.

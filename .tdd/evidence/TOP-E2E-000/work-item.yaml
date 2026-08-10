@@ -2,7 +2,7 @@ id: TOP-E2E-000
 kind: implementation
 epic: TOP-700
 title: Compose one typed synthetic parameter edit and confirmed undo in Rust
-status: INTEGRATED
+status: READY
 priority: high
 requirement_ids:
 - SIM-001
@@ -115,11 +115,3 @@ amendments:
   - status changes from BLOCKED_DEPENDENCY to READY.
   - no behavior, scope, or verification claim changes.
   claim_changed: false
-- recorded_at: 2026-08-10T10:30:00-05:00
-  author: parent_orchestrator
-  reason: Independent security review approved the corrected candidate and the parent integration sweep passed all required commands.
-  changes:
-  - status changes from READY to INTEGRATED.
-  - SIMULATOR_VERIFIED is earned only for the explicit Rust-owned synthetic composition.
-  - no byte-fixture, FFI, semantics, platform, or hardware claim is added.
-  claim_changed: true

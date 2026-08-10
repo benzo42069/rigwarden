@@ -1,0 +1,152 @@
+>>> cargo test -p topology-bridge
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (target/debug/deps/topology_bridge-f0d526c83598eb8a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/serial_route.rs (target/debug/deps/serial_route-23aba60c791ba7f8)
+
+running 1 test
+test rust_authored_serial_route_snapshot_is_stable ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/simulated_edit.rs (target/debug/deps/simulated_edit-9f5681a46b2f439b)
+
+running 1 test
+test synthetic_parameter_edit_confirms_then_undo_restores_prior_value ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_bridge
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+<<< status 0
+>>> cargo test -p topology-command-engine
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_command_engine-ae19bf2568d195b3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/deterministic_plan.rs (target/debug/deps/deterministic_plan-15a2abdfe2312e6c)
+
+running 1 test
+test equivalent_mutation_sets_produce_same_operation_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parameter_mutation.rs (target/debug/deps/parameter_mutation-e9001a1fdae2a7c6)
+
+running 1 test
+test valid_parameter_mutation_is_typed_but_not_encoded ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/read_only.rs (target/debug/deps/read_only-42e7fd7bd5899f04)
+
+running 2 tests
+test read_only_status_cannot_plan_a_write_even_if_capability_is_true ... ok
+test read_only_session_cannot_plan_a_write ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/stale_response.rs (target/debug/deps/stale_response-043801ec8887e377)
+
+running 1 test
+test stale_response_cannot_confirm_new_connection_request ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_command_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+<<< status 0
+>>> cargo test -p topology-simulator
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_simulator-0b9af973710b2a82)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/request_response.rs (target/debug/deps/request_response-e360de306ab68c71)
+
+running 1 test
+test scripted_exchange_correlates_expected_response ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_simulator
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+<<< status 0
+>>> cargo test -p topology-undo
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/branch.rs (target/debug/deps/branch-dba22ab72eea53d7)
+
+running 1 test
+test preset_change_creates_isolated_journal_branch ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+
+running 1 test
+test undo_entry_uses_confirmed_previous_value ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/local_snapshot.rs (target/debug/deps/local_snapshot-935f79ec0fbcd6fa)
+
+running 2 tests
+test confirmed_entry_reloads_from_a_local_snapshot_after_restart_simulation ... ok
+test preexisting_snapshot_temp_symlink_never_overwrites_external_target ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/persistence.rs (target/debug/deps/persistence-d8022bfd1b03d9be)
+
+running 1 test
+test confirmed_entry_survives_deterministic_save_reload ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/undo_restoration.rs (target/debug/deps/undo_restoration-2cdc55aa9424ecc6)
+
+running 2 tests
+test confirmed_undo_restores_exact_prior_value_only_after_confirmation ... ok
+test undo_proposal_cannot_confirm_against_another_journal ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_undo
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+<<< status 0
+>>> cargo fmt --all -- --check
+<<< status 0
+>>> cargo clippy -p topology-bridge --all-targets -- -D warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
+<<< status 0

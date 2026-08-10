@@ -1,0 +1,9 @@
+set -euo pipefail
+1. cargo test -p topology-bridge
+2. cargo test -p topology-command-engine
+3. cargo test -p topology-simulator
+4. cargo test -p topology-undo
+5. cargo fmt --all -- --check
+6. cargo clippy -p topology-bridge --all-targets -- -D warnings
+Final authoritative rerun after filesystem recovery: see sweep-cycle3-commands.txt (same six commands, all exit 0).
+Historical transient formatter timeout is preserved in sweep-cycle2-commands.txt and was superseded by the cycle3 rerun.

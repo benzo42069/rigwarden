@@ -1,0 +1,8 @@
+set -euo pipefail
+1. cargo test -p topology-bridge
+2. cargo test -p topology-command-engine
+3. cargo test -p topology-simulator
+4. cargo test -p topology-undo
+5. cargo fmt --all -- --check
+6. cargo clippy -p topology-bridge --all-targets -- -D warnings
+fail-fast: command 5 stopped the composite because cargo metadata could not read the root Cargo.toml (Operation timed out, os error 60); command 6 was not run in this composite.

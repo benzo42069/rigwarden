@@ -1,0 +1,2 @@
+0
+accepted: focused composition test passed after the minimum Rust-owned module and bridge registration were added.

@@ -1,0 +1,2 @@
+0
+accepted: strengthened focused test passed and now asserts the exact confirmed journal target/prior 30/new 45 values before the restoration is consumed.

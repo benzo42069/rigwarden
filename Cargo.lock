@@ -640,8 +640,12 @@ name = "topology-bridge"
 version = "0.1.0"
 dependencies = [
  "flutter_rust_bridge",
+ "topology-command-engine",
+ "topology-device-registry",
  "topology-domain",
  "topology-routing",
+ "topology-simulator",
+ "topology-undo",
 ]
 
 [[package]]

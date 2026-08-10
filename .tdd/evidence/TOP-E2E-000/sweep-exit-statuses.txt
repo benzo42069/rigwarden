@@ -1,0 +1,8 @@
+1. cargo test -p topology-bridge: 0
+2. cargo test -p topology-command-engine: 0
+3. cargo test -p topology-simulator: 0
+4. cargo test -p topology-undo: 0
+5. cargo fmt --all -- --check: 0
+6. cargo clippy -p topology-bridge --all-targets -- -D warnings: 0
+composite shell exit: 0
+Final authoritative cycle3 rerun: all six commands exit 0; raw output/statuses are in sweep-cycle3.log and sweep-cycle3-exit-statuses.txt. The earlier cycle2 formatter timeout is preserved, not treated as final.

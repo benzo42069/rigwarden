@@ -1,0 +1,39 @@
+   Compiling topology-bridge v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_bridge)
+error[E0599]: no method named `journal_entry_before_undo` found for struct `SimulatedEditSummary` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:34:24
+   |
+34 |     assert_eq!(summary.journal_entry_before_undo().target(), "amp-1/gain");
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: there is a method `journal_entries_before_undo` with a similar name
+   |
+34 -     assert_eq!(summary.journal_entry_before_undo().target(), "amp-1/gain");
+34 +     assert_eq!(summary.journal_entries_before_undo().target(), "amp-1/gain");
+   |
+
+error[E0599]: no method named `journal_entry_before_undo` found for struct `SimulatedEditSummary` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:36:17
+   |
+36 |         summary.journal_entry_before_undo().previous_stored_value(),
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: there is a method `journal_entries_before_undo` with a similar name
+   |
+36 -         summary.journal_entry_before_undo().previous_stored_value()
+36 +         summary.journal_entries_before_undo().previous_stored_value()
+   |
+
+error[E0599]: no method named `journal_entry_before_undo` found for struct `SimulatedEditSummary` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:39:24
+   |
+39 |     assert_eq!(summary.journal_entry_before_undo().new_stored_value(), 45);
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: there is a method `journal_entries_before_undo` with a similar name
+   |
+39 -     assert_eq!(summary.journal_entry_before_undo().new_stored_value(), 45);
+39 +     assert_eq!(summary.journal_entries_before_undo().new_stored_value(), 45);
+   |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-bridge` (test "simulated_edit") due to 3 previous errors

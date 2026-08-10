@@ -1,0 +1,30 @@
+sanitized typed transcript summary (from the focused Rust test assertions; no raw payload bytes or transport handle):
+simulator_identity: rigwarden.synthetic-scripted-simulator
+private_exchange_attempts: 2
+target: amp-1/gain
+profile_units: stored tenths, inclusive range 0..100, decimal_places=1
+states:
+  - PendingEdit(stored_value=45)
+  - ConfirmedEdit(stored_value=45)
+  - PendingRestoration(stored_value=30)
+  - ConfirmedRestoration(stored_value=30)
+journal_before_undo:
+  target: amp-1/gain
+  previous_stored_value: 30
+  new_stored_value: 45
+journal_entries_before_undo: 1
+journal_entries_remaining: 0
+semantic_exchange:
+  - Request(stored_value=45)
+  - Confirmed(stored_value=45)
+  - Request(stored_value=30)
+  - Confirmed(stored_value=30)
+final_state:
+  target: amp-1/gain
+  stored_value: 30
+  display_value: 3.0
+  decimal_places: 1
+raw_payloads: not returned
+transport_handles: not returned
+hardware_or_protocol_claim: not made
+invalid_or_read_only_exchange_attempts: 0 (asserted by correction test)

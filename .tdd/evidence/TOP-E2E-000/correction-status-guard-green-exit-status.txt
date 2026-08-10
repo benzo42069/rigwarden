@@ -1,0 +1,2 @@
+0
+accepted: the focused correction still passes with contradictory ReadOnly + write=true capability, proving the verification-status guard rejects before any exchange and reports exchange_count=0.

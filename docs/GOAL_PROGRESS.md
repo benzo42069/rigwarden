@@ -27,13 +27,14 @@
 - **Integrated:** `TOP-UNDO-003` (one confirmed undo restoration proposes the exact prior value, retains history while pending, and rejects foreign journal proposals) after independent review and parent Rust integration sweeps. This is `UNIT_VERIFIED` in-memory behavior only; no persistence or hardware claim is implied.
 - **Integrated:** `TOP-UNDO-004` (bounded deterministic in-memory journal snapshot codec) and `TOP-UNDO-005` (one confirmed journal snapshot writes, drops, and reloads from a local file) after independent review and parent sweeps. `TOP-UNDO-005` proves only the bounded local write/drop/reload path; it rejects pre-existing generated-path symlinks, but makes no hostile shared-directory, permission, special-file, fsync, crash-durability, or cross-process-locking claim.
 - **Integrated:** `TOP-FFI-002` (one Rust-authored synthetic serial route snapshot crosses the generated Rust–Flutter bridge) after independent review and parent release-build/Flutter integration checks. This is `FFI_VERIFIED` for the fixture snapshot only; it is not live graph, route-editing, semantics-device, or hardware proof.
+- **Integrated:** `TOP-E2E-000` (one Rust-owned typed synthetic gain edit validates before two synthetic exchanges, confirms journal state, and restores the exact prior value through prepared undo). It explicitly proves zero exchange attempts for invalid input and contradictory read-only/write-capability profiles. This is `SIMULATOR_VERIFIED` only; it is not a Flutter, protocol, platform, or hardware claim.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
 
 - `RUST_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-002R`; no domain/protocol/platform/hardware claim.
 - `FLUTTER_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-003`; no platform-device/hardware claim.
-- `SIMULATOR_VERIFIED`: `TOP-SIM-001` only, for its explicit synthetic scripted transport. No device, byte-fixture, platform, or hardware compatibility is implied.
+- `SIMULATOR_VERIFIED`: `TOP-SIM-001` for its explicit synthetic scripted transport and `TOP-E2E-000` for the bounded Rust-owned validation→synthetic exchange→undo composition. Neither implies device, byte-fixture, platform, or hardware compatibility.
 - `SEMANTICS_VERIFIED`: `TOP-UI-001` only, for its Flutter L4 adaptive shell names, button semantics, selection, actions, focus recovery policy, live destination update, large-text branch, and reduced-motion branch. It is not a physical screen-reader or complete-editor claim.
 - No native platform, accessibility-device, protocol-byte, fixture, or hardware verification label has been earned.
 
@@ -41,8 +42,8 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-UNDO-005` exact generated-path symlink rejection, write/drop/reload, undo/preset packages, workspace format, and undo Clippy all exited 0 after independent security review. `TOP-FFI-002` separately passed its Rust bridge/routing, release-build, real Flutter FFI, analyzer, formatter, and bridge Clippy checks; its reviewer records the shared-worktree workspace-formatter caveat.
+**Last completed integration sweep:** `TOP-E2E-000` focused synthetic composition, bridge, command-engine, simulator, and undo packages, workspace format, and bridge Clippy all exited 0 after independent security review. Its proof is limited to the explicit synthetic composition and does not expose protocol bytes or transport handles.
 
-**Next composed path:** `TOP-E2E-000` is READY: `ADR-0005` permits a narrow typed semantic command/event bridge while keeping transport bytes and handles out of Flutter, and `ADR-0006` now supplies the local journal record foundation. It must prove validation→synthetic simulator→journal composition without a fake Dart-only test. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next composed path:** `TOP-E2E-001` is READY: it must expose only the reviewed typed semantic session boundary through generated FRB and a test-owned Flutter harness. It must not bypass Rust validation, the synthetic simulator, or undo, and it must not expose bytes or transport handles. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
 
 **Nonvisual route gate:** `TOP-FFI-002` is integrated with one Rust-authored synthetic serial snapshot through the real generated bridge. `TOP-A11Y-001` is now READY to render that fixture without recreating graph traversal in Dart.

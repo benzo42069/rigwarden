@@ -1,0 +1,8 @@
+1. cargo test -p topology-bridge: 0
+2. cargo test -p topology-command-engine: 0
+3. cargo test -p topology-simulator: 0
+4. cargo test -p topology-undo: 0
+5. cargo fmt --all -- --check: 0
+6. cargo clippy -p topology-bridge --all-targets -- -D warnings: 0
+composite shell exit: 0
+formatter note: earlier cycle2 Cargo.toml read timeout (os error 60) is preserved in sweep-cycle2-*; this final retry supersedes it for the final candidate source.

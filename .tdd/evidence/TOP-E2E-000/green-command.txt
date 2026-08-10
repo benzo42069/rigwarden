@@ -1,0 +1,4 @@
+command: cargo test -p topology-bridge synthetic_parameter_edit_confirms_then_undo_restores_prior_value -- --exact --nocapture
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+environment: default workspace environment; no network, hardware, Flutter, or native adapter required

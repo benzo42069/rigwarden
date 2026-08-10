@@ -1,0 +1,2 @@
+101
+accepted: intended RED; the focused test reached topology-bridge and failed only because the Rust-owned simulated_edit composition API/module is absent. No production behavior was written before this run.

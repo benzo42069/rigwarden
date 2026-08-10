@@ -1,0 +1,21 @@
+   Compiling topology-bridge v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_bridge)
+error[E0599]: no method named `exchange_count` found for struct `SimulatedEditSummary` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:44:24
+   |
+44 |     assert_eq!(summary.exchange_count(), 2);
+   |                        ^^^^^^^^^^^^^^ method not found in `SimulatedEditSummary`
+
+error[E0599]: no method named `exchange_count` found for enum `SimulatedEditError` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:82:24
+   |
+82 |     assert_eq!(invalid.exchange_count(), 0);
+   |                        ^^^^^^^^^^^^^^ method not found in `SimulatedEditError`
+
+error[E0599]: no method named `exchange_count` found for enum `SimulatedEditError` in the current scope
+  --> crates/topology_bridge/tests/simulated_edit.rs:86:26
+   |
+86 |     assert_eq!(read_only.exchange_count(), 0);
+   |                          ^^^^^^^^^^^^^^ method not found for enum `SimulatedEditError`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-bridge` (test "simulated_edit") due to 3 previous errors

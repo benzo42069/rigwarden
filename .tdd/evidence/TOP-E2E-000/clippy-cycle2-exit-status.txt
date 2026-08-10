@@ -1,0 +1,2 @@
+0
+accepted: final bridge source/test clippy sweep passed independently after the composite formatter stop.

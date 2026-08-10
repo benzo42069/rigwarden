@@ -1,0 +1,9 @@
+1. cargo test -p topology-bridge: 0
+2. cargo test -p topology-command-engine: 0
+3. cargo test -p topology-simulator: 0
+4. cargo test -p topology-undo: 0
+5. cargo fmt --all -- --check: 1 (BLOCKED_ENVIRONMENT: cargo metadata failed to read /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/Cargo.toml with Operation timed out, os error 60)
+6. cargo clippy -p topology-bridge --all-targets -- -D warnings: not run after fail-fast stop
+composite shell: stopped at command 5; tool wrapper reported no final numeric shell status.
+independent retry cargo fmt -p topology-bridge -- --check: 1 (same Cargo.toml metadata timeout)
+independent retry rustfmt --edition 2021 --check crates/topology_bridge/src/lib.rs crates/topology_bridge/src/simulated_edit.rs crates/topology_bridge/tests/simulated_edit.rs: 101 (same source-read Operation timed out, os error 60)

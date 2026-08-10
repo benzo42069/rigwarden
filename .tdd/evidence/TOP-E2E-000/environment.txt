@@ -1,0 +1,19 @@
+UTC timestamp: 2026-08-10T14:27:21Z
+Local timestamp: 2026-08-10T09:27:21-0500
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch: main
+Starting/current commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+Worktree: pre-existing parent/integration changes are present; packet source/evidence files are untracked until integration.
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+Rust host: aarch64-apple-darwin
+OS: macOS 26.5 (arm64)
+Effective worker route: gpt-5.6-luna / max (assigned by parent orchestrator).
+Hardware/platform: simulator-only; no modeler hardware, native adapter, Flutter, emulator, or network was used by the behavior tests.
+Dependency preflight: public origin main resolves 373467b4613646c25170fc92037e006bda550e32 (TOP-UNDO-005 integration commit); local source tree is at the parent integration baseline 536d8901ac91ecdbc15e09356800d9f46be401dd.
+Integrated dependency statuses checked in work-items/index.yaml: TOP-CMD-001 INTEGRATED; TOP-SIM-001 INTEGRATED; TOP-UNDO-005 INTEGRATED; TOP-FFI-001 INTEGRATED.
+Baseline harness: cargo check -p topology-bridge passed (exit 0) after parent-owned bridge path edges resolved.
+Focused RED: cargo test -p topology-bridge synthetic_parameter_edit_confirms_then_undo_restores_prior_value -- --exact --nocapture, exit 101 for intended missing Rust composition API.
+Focused GREEN: same selector, exit 0 after minimum Rust composition implementation.
+Final post-recovery required sweeps (`sweep-cycle3-*`): all six commands exit 0. An earlier formatter metadata timeout (os error 60) is retained in `sweep-cycle2-*` as transient environment evidence and was superseded by this clean rerun.
+Correction cycle: package tests and bridge Clippy pass in `/tmp/rigwarden-e2e000-correction-target`; direct scoped rustfmt passes. Canonical workspace formatter remains BLOCKED_ENVIRONMENT under concurrent shared-worktree rustfmt contention; parent terminated the >4-minute process for safety.

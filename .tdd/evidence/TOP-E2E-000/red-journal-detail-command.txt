@@ -1,0 +1,4 @@
+command: cargo test -p topology-bridge synthetic_parameter_edit_confirms_then_undo_restores_prior_value -- --exact --nocapture
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+reason: focused test strengthened to assert the confirmed journal entry's exact prior/new stored values before restoration.

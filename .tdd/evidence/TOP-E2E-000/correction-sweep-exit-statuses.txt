@@ -1,0 +1,8 @@
+1. topology-bridge package tests: 0
+2. topology-command-engine package tests: 0
+3. topology-simulator package tests: 0
+4. topology-undo package tests: 0
+5. workspace cargo fmt --all -- --check: BLOCKED_ENVIRONMENT (canonical formatter process terminated by parent after >4m filesystem contention; do not count as pass or ordinary failure)
+6. topology-bridge Clippy --all-targets -D warnings: 0
+7. direct rustfmt check of bridge source/test files: 0
+functional correction sweep: package tests and Clippy all passed; direct scoped rustfmt passed; workspace formatter requires independent quiet-worktree rerun.

@@ -1,0 +1,2 @@
+101
+accepted: intended RED; the focused test reached the bridge composition and failed only because no observable exchange-count seam exists yet. This correction test does not use or expose bytes/handles.

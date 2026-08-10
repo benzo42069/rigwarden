@@ -1,0 +1,12 @@
+Worker-owned additions/changes:
+  A crates/topology_bridge/src/simulated_edit.rs — Rust-owned typed synthetic edit/confirmation/undo composition; private synthetic payload exchange; sanitized state/transcript result and errors; private exchange-count seam carried through success/error summaries.
+  M crates/topology_bridge/src/lib.rs — registers the Rust composition module.
+  A crates/topology_bridge/tests/simulated_edit.rs — focused simulator-layer composition test, including range and contradictory ReadOnly+write=true rejection with exchange_count=0.
+  A .tdd/evidence/TOP-E2E-000/* — packet, environment, RED/GREEN logs, sweep records, and handoff.
+
+Parent-owned pre-existing wiring visible in the shared worktree (not edited by this worker):
+  M Cargo.lock — bridge dependency resolution.
+  A crates/topology_bridge/Cargo.toml — command-engine, device-registry, simulator, and undo path edges.
+
+Forbidden/shared paths not changed by this worker: root Cargo.toml, apps/**, native/**, device-packs/**, crates/topology_bridge/src/api/**, crates/topology_bridge/src/frb_generated.rs, work-items/index.yaml.
+Build outputs under target/** are generated and not part of the packet patch.

@@ -2,7 +2,7 @@ id: TOP-E2E-001
 kind: implementation
 epic: TOP-700
 title: Complete a simulated parameter edit, confirmation, and undo through the typed application path
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - SIM-001
@@ -132,4 +132,11 @@ amendments:
   changes:
   - status changed from BLOCKED_CONTRACT to BLOCKED_DEPENDENCY on TOP-UNDO-003 and TOP-E2E-000.
   - scope now grants the bounded typed FRB API and generated bindings required by the real Flutter path; bridge manifest and lockfile remain owned by TOP-E2E-000.
+  claim_changed: false
+- recorded_at: 2026-08-10T10:30:00-05:00
+  author: parent_orchestrator
+  reason: TOP-E2E-000 is now integrated with its reviewed Rust-owned composition and all declared dependencies are integrated.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to READY.
+  - no scope, behavior, or verification claim changes.
   claim_changed: false

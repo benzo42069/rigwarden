@@ -1,0 +1,2 @@
+0
+accepted: final focused correction remains green after formatting; the test includes contradictory ReadOnly+write=true and asserts exchange_count=0.

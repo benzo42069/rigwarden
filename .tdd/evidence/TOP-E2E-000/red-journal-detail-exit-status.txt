@@ -1,0 +1,2 @@
+101
+accepted: intended RED for the strengthened journal-value assertion; the existing composition API did not expose the confirmed journal entry details. No unrelated compiler or environment failure occurred.
