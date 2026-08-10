@@ -297,7 +297,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-REG-003.yaml
   - id: TOP-SIM-001
     title: Complete one scripted request-response exchange with deterministic correlation
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-CMD-003

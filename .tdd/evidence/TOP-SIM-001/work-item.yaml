@@ -2,7 +2,7 @@ id: TOP-SIM-001
 kind: implementation
 epic: TOP-700
 title: Complete one scripted request-response exchange with deterministic correlation
-status: INTEGRATED
+status: READY
 priority: high
 requirement_ids:
 - SIM-001

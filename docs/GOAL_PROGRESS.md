@@ -19,18 +19,20 @@
 - **Integrated:** `TOP-CMD-002` (unknown-firmware sessions and contradictory read-only profiles both reject write planning before parameter mapping; `UNIT_VERIFIED` and `READ_ONLY` only) after independent security review and public candidate commit `b9ac4b8` matched reviewed blobs and passed its focused and required integration sweeps.
 - **Integrated:** `TOP-FFI-001` (a Rust-owned opaque `DeviceIdentity` handle round-trips across the generated Flutter bridge; `FFI_VERIFIED` only) after independent review and public candidate commit `4fc226b` matched reviewed blobs and passed the release-library build, real Flutter FFI test, analyzer, formatter, and Clippy sweep.
 - **Integrated:** `TOP-CMD-003` (stable semantic graph-mutation planning respects dependencies and is insertion-order independent; `UNIT_VERIFIED` only) after independent review and public candidate commit `906816f` matched reviewed blobs and passed focused, command, routing, formatter, and Clippy integration sweeps.
+- **Integrated:** `TOP-SIM-001` (one deterministic synthetic request/response exchange, correlation, transcript, and structured mismatch; `SIMULATOR_VERIFIED` only) after independent review and parent rerun of focused, simulator, command-engine, formatter, and Clippy checks. No byte, platform, or hardware claim is implied.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
 
 - `RUST_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-002R`; no domain/protocol/platform/hardware claim.
 - `FLUTTER_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-003`; no platform-device/hardware claim.
-- No simulator, native platform, accessibility-device, protocol-byte, fixture, or hardware verification label has been earned.
+- `SIMULATOR_VERIFIED`: `TOP-SIM-001` only, for its explicit synthetic scripted transport. No device, byte-fixture, platform, or hardware compatibility is implied.
+- No native platform, accessibility-device, protocol-byte, fixture, or hardware verification label has been earned.
 
 ## Routing and next group
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** public candidate `906816f` matched the reviewed deterministic-plan blobs; focused planner, command package, routing package, workspace format, and command Clippy checks all exited 0.
+**Last completed integration sweep:** `TOP-SIM-001` focused simulator, simulator package, command-engine package, workspace format, and simulator Clippy checks all exited 0 after independent review.
 
-**Next dependency-complete group:** `TOP-UI-001` and `TOP-SIM-001` are unblocked. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** `TOP-SIM-002` is now dependency-complete; `TOP-UI-001` remains under fresh accessibility review. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

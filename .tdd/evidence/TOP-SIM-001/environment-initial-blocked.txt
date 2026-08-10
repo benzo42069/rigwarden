@@ -1,0 +1,5 @@
+Preserved pre-amendment environment record from the invalid package-selector check.
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+scope_check: crates/topology_simulator absent; root Cargo.toml was then forbidden and did not list topology-simulator
+invalid_selector_exit: 101
+See red-invalid-command.txt, red-invalid.log, and red-invalid-exit-status.txt.

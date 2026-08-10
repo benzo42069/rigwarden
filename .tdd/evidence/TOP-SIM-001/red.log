@@ -1,0 +1,17 @@
+   Compiling topology-simulator v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_simulator)
+error[E0432]: unresolved imports `topology_simulator::ScriptedRequest`, `topology_simulator::ScriptedResponse`, `topology_simulator::ScriptedTransport`, `topology_simulator::SimulatorIdentity`, `topology_simulator::SyntheticPayload`, `topology_simulator::TranscriptEntry`
+ --> crates/topology_simulator/tests/request_response.rs:2:5
+  |
+2 |     ScriptedRequest, ScriptedResponse, ScriptedTransport, SimulatorIdentity, SyntheticPayload,
+  |     ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^ no `SyntheticPayload` in the root
+  |     |                |                 |                  |
+  |     |                |                 |                  no `SimulatorIdentity` in the root
+  |     |                |                 no `ScriptedTransport` in the root
+  |     |                no `ScriptedResponse` in the root
+  |     no `ScriptedRequest` in the root
+3 |     TranscriptEntry,
+  |     ^^^^^^^^^^^^^^^ no `TranscriptEntry` in the root
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-simulator` (test "request_response") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

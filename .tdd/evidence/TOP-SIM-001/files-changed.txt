@@ -1,0 +1,11 @@
+Packet-authorized source and harness files changed:
+- Cargo.toml: added only `crates/topology_simulator` to the existing worktree workspace list; other pre-existing member additions remain untouched.
+- Cargo.lock: cargo-resolved `topology-simulator` package edge; other pre-existing lockfile changes remain untouched.
+- crates/topology_simulator/Cargo.toml: minimal no-dependency package manifest.
+- crates/topology_simulator/src/lib.rs: public re-exports for simulator contracts.
+- crates/topology_simulator/src/scripted_transport.rs: synthetic payload/request/response types, identity, transcript, mismatch, and deterministic in-memory exchange.
+- crates/topology_simulator/tests/request_response.rs: focused expected-exchange, transcript, identity, and mismatch assertions.
+- .tdd/evidence/TOP-SIM-001/**: cycle, sweep, environment, and handoff records.
+
+Forbidden paths untouched: apps/**, native/**, device-packs/**.
+Relevant pre-existing worktree state (not authored by this packet): broader Cargo.toml/Cargo.lock additions and untracked crates/topology_command_engine.

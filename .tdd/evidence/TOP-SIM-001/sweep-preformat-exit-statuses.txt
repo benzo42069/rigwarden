@@ -1,0 +1,5 @@
+attempt_1_fail_fast:
+  cargo test -p topology-simulator: 0
+  cargo test -p topology-command-engine: 0
+  cargo fmt --all -- --check: 1
+  cargo clippy -p topology-simulator --all-targets -- -D warnings: not run (fail-fast)

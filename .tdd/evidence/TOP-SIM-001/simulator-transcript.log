@@ -1,0 +1,6 @@
+identity: rigwarden.synthetic-scripted-simulator
+request: Sent { id: 7, payload: read-state }
+response: Received { request_id: 7, payload: state-ok }
+unexpected-request-check: Sent { id: 8, payload: wrong-request }
+unexpected-request-result: ScriptMismatch { expected_id: 7, expected_payload: read-state, actual_id: 8, actual_payload: wrong-request }
+provenance: independently generated simulator-only synthetic values; no vendor bytes or external fixture.

@@ -1,0 +1,3 @@
+101
+accepted_as_red: true
+reason: The amended minimal workspace harness reached topology-simulator and failed only because the requested scripted transport API was absent; no unrelated package, fixture, clock, network, or hardware failure occurred.

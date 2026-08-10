@@ -1,0 +1,3 @@
+0
+accepted_as_green: true
+reason: Focused simulator integration test passed after the minimum scripted transport implementation. A prior test-form correction and formatter-only cleanup were rerun before accepting this GREEN.

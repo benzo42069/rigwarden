@@ -1,0 +1,3 @@
+101
+accepted_as_red: false
+reason: Workspace package was absent before the packet amendment; this was an unacceptable harness failure, not a behavior RED.

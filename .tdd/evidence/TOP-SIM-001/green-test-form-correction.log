@@ -1,0 +1,9 @@
+Initial post-implementation focused run (exit 101) exposed a test assertion type mismatch:
+
+error[E0308]: mismatched types
+  --> crates/topology_simulator/tests/request_response.rs:32:38
+   |
+32 |     assert_eq!(mismatch.expected_id, Some(7));
+   |                                      ^^^^^^^ expected `u64`, found `Option<{integer}>`
+
+This was corrected by changing only the test assertion to `assert_eq!(mismatch.expected_id, 7);`, then the focused GREEN passed. No production behavior was changed for this correction.

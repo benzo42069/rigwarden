@@ -1,0 +1,5 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-simulator scripted_exchange_correlates_expected_response -- --exact --nocapture
+phase: fresh post-amendment focused RED
+note: The simulator workspace member and minimal no-behavior crate harness existed before this run; the missing API diagnostics are the intended RED.

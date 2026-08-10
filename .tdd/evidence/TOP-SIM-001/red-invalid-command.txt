@@ -1,0 +1,4 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-simulator scripted_exchange_correlates_expected_response -- --exact --nocapture
+note: Initial pre-amendment harness check; preserved as invalid RED evidence.

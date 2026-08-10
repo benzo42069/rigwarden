@@ -1,0 +1,16 @@
+shell: /bin/zsh; working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+
+Attempt 1 (fail-fast, before formatter-only cleanup):
+1. cargo test -p topology-simulator
+2. cargo test -p topology-command-engine
+3. cargo fmt --all -- --check
+4. cargo clippy -p topology-simulator --all-targets -- -D warnings (not reached because command 3 failed)
+
+Focused formatter diagnostic rerun:
+5. cargo fmt --all -- --check (exit 1; same two line-wrap diffs, recorded in sweep-preformat.log)
+
+Attempt 2 (fail-fast, after rustfmt and focused GREEN rerun):
+6. cargo test -p topology-simulator
+7. cargo test -p topology-command-engine
+8. cargo fmt --all -- --check
+9. cargo clippy -p topology-simulator --all-targets -- -D warnings
