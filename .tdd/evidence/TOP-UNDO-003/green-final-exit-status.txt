@@ -1,0 +1,3 @@
+0
+accepted: YES
+reason: The original focused restoration test still passes after adding owner scoping.

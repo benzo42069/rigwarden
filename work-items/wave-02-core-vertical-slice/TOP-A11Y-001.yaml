@@ -2,7 +2,7 @@ id: TOP-A11Y-001
 kind: implementation
 epic: TOP-900
 title: Expose a serial signal path as an ordered nonvisual route
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - A11Y-002
@@ -12,6 +12,7 @@ depends_on:
 - TOP-GRAPH-002
 - TOP-GRAPH-005
 - TOP-UI-001
+- TOP-FFI-002
 parallel_group: core-ui-a
 agent:
   preferred_role: topology_implementer
@@ -51,6 +52,8 @@ non_goals:
 - Visual canvas
 preconditions:
 - TOP-GRAPH-002, TOP-GRAPH-005, and TOP-UI-001 integrated.
+- TOP-FFI-002 provides the Rust-authored synthetic serial snapshot through the real generated bridge.
+- This packet remains fixture-only: no live graph or device compatibility claim.
 test:
   layer: flutter_semantics
   file: apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
@@ -81,10 +84,17 @@ acceptance:
 available_claims_after_completion:
 - SEMANTICS_VERIFIED
 unavailable_claims:
-- VOICEOVER_VERIFIED
-- TALKBACK_VERIFIED
+- Physical VoiceOver/TalkBack verification
 - HARDWARE_VERIFIED
 required_followups:
 - TOP-E2E-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-A11Y-001
+amendments:
+- recorded_at: 2026-08-10T01:57:59-05:00
+  author: parent_orchestrator
+  reason: Dependencies were integrated but the packet's own no-Dart-graph rule had no approved Rust-to-Flutter boundary. TOP-FFI-002 supplies that missing narrow prerequisite.
+  changes:
+  - added TOP-FFI-002 dependency and generated-bridge snapshot precondition.
+  - status remains BLOCKED_DEPENDENCY until the snapshot is integrated.
+  claim_changed: false

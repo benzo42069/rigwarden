@@ -1,0 +1,8 @@
+1. cargo test -p topology-undo
+2. cargo test -p topology-preset
+3. cargo fmt --all -- --check
+4. cargo clippy -p topology-undo --all-targets -- -D warnings
+
+Execution policy: fail-fast; each command ran from /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1 under /bin/zsh with the default environment. All four completed, so no command was skipped.
+
+The four-command sequence was rerun after the parent-approved owner-scope amendment and is recorded as `owner_scope_final` in `sweep.log` and `sweep-exit-statuses.txt`; all four final statuses are 0.

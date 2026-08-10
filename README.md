@@ -22,7 +22,9 @@ What is real today:
   fixed-point parameter validation, deterministic routing and command planning,
   offline container/opaque-data preservation, and contributor tooling.
 - A generated Rust ↔ Flutter bridge that round-trips a Rust-owned typed device
-  identity through a real native library in the test harness.
+  identity and one Rust-authored synthetic serial route snapshot through a real
+  native library in the test harness. The route snapshot is read-only fixture
+  data, not a live graph editor or device connection.
 - An adaptive Flutter session shell: phone navigation and tablet navigation
   expose the same six synthetic destinations with names, button semantics,
   selected state, actions, live destination updates, large-text reflow, and a
@@ -34,10 +36,16 @@ What is real today:
   generation before it can confirm a reused request ID. This is a unit-level
   safety proof, not a protocol or transport compatibility claim.
 - An in-memory undo journal that records the actual confirmed previous value
-  and never treats pending or failed mutations as completed undo entries.
+  and never treats pending or failed mutations as completed undo entries. A
+  prepared restoration keeps history intact until confirmation and is scoped to
+  its owning journal instance; disk persistence remains deliberately absent.
 - Preset-aware in-memory undo branches, so a new preset context cannot expose
   another preset's completed history. Disk persistence and branch merging are
   still deliberately absent.
+- The core slices are intentionally **not** yet presented as a completed
+  editor flow: the typed app → validation → synthetic simulator → confirmed
+  undo composition is blocked on a narrow, reviewed command/event bridge
+  contract. A Dart-only fake will not be used to paper over that gap.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release

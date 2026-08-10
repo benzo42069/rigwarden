@@ -1,0 +1,3 @@
+exit_status=1
+accepted=YES
+reason=focused Flutter test reaches generated bridge imports and fails only because the route snapshot endpoint/types are absent before codegen.

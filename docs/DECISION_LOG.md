@@ -73,3 +73,5 @@ This file records interview decisions already made. Do not reopen them merely be
 | DEC-067 | The superseded working-name candidate is retired. Do not publish, reserve, or ship it as a public mark, store title, package ID, repository slug, domain, or handle. |
 | DEC-068 | `RigWarden` is the provisional public pre-alpha GitHub identity. It is not legal clearance or approval for store/package/domain/handle/trademark use. |
 | DEC-069 | The first typed Rust–Dart bridge uses stable Flutter Rust Bridge 2.12.0 with the Cargokit backend; Native Assets is reconsidered only after a stable release and clean mobile-build comparison. |
+| DEC-070 | The generated bridge may expose typed, capability-gated semantic commands and state events for deterministic workflows, but never raw transport bytes, endpoint handles, or arbitrary send capability. |
+| DEC-071 | The deterministic core uses a versioned local journal snapshot before final storage selection; it persists confirmed history only and rejects in-flight work. |

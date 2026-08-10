@@ -1,0 +1,534 @@
+UTC 2026-08-10T07:15:52Z
+LOCAL 2026-08-10T02:15:52-0500
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+worktree_status_begin
+## main
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red.log
+A  .tdd/evidence/TOP-BOOT-003/environment.txt
+A  .tdd/evidence/TOP-BOOT-003/files-changed.txt
+A  .tdd/evidence/TOP-BOOT-003/green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/green.log
+AM .tdd/evidence/TOP-BOOT-003/handoff.md
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green.log
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red.log
+A  .tdd/evidence/TOP-BOOT-003/red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/red.log
+AM .tdd/evidence/TOP-BOOT-003/review.md
+AM .tdd/evidence/TOP-BOOT-003/sweep-commands.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep-exit-statuses.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep.log
+AM .tdd/evidence/TOP-BOOT-003/work-item.yaml
+M  AGENTS.md
+ M Cargo.lock
+ M Cargo.toml
+ M LICENSE
+M  LICENSE_POLICY.md
+MM MANIFEST.sha256
+M  PACKAGE_VALIDATION.md
+MM README.md
+M  START_HERE_PROMPT.md
+ M THIRD_PARTY_NOTICES.md
+A  apps/mobile_flutter/.gitignore
+A  apps/mobile_flutter/.metadata
+A  apps/mobile_flutter/README.md
+A  apps/mobile_flutter/analysis_options.yaml
+A  apps/mobile_flutter/android/.gitignore
+A  apps/mobile_flutter/android/app/build.gradle.kts
+A  apps/mobile_flutter/android/app/src/debug/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/kotlin/io/rigwarden/rigwarden/MainActivity.kt
+A  apps/mobile_flutter/android/app/src/main/res/drawable-v21/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/drawable/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/values-night/styles.xml
+A  apps/mobile_flutter/android/app/src/main/res/values/styles.xml
+A  apps/mobile_flutter/android/app/src/profile/AndroidManifest.xml
+A  apps/mobile_flutter/android/build.gradle.kts
+A  apps/mobile_flutter/android/gradle.properties
+A  apps/mobile_flutter/android/gradle/wrapper/gradle-wrapper.properties
+A  apps/mobile_flutter/android/settings.gradle.kts
+A  apps/mobile_flutter/ios/.gitignore
+A  apps/mobile_flutter/ios/Flutter/AppFrameworkInfo.plist
+AM apps/mobile_flutter/ios/Flutter/Debug.xcconfig
+AM apps/mobile_flutter/ios/Flutter/Release.xcconfig
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.pbxproj
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+A  apps/mobile_flutter/ios/Runner.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner/AppDelegate.swift
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+A  apps/mobile_flutter/ios/Runner/Base.lproj/LaunchScreen.storyboard
+A  apps/mobile_flutter/ios/Runner/Base.lproj/Main.storyboard
+A  apps/mobile_flutter/ios/Runner/Info.plist
+A  apps/mobile_flutter/ios/Runner/Runner-Bridging-Header.h
+A  apps/mobile_flutter/ios/Runner/SceneDelegate.swift
+A  apps/mobile_flutter/ios/RunnerTests/RunnerTests.swift
+A  apps/mobile_flutter/lib/main.dart
+AM apps/mobile_flutter/pubspec.lock
+AM apps/mobile_flutter/pubspec.yaml
+A  apps/mobile_flutter/test/harness_test.dart
+ M crates/topology_domain/src/lib.rs
+M  docs/AI_PIPELINE.md
+M  docs/ARCHITECTURE.md
+MM docs/DECISION_LOG.md
+M  docs/GOVERNANCE_LICENSE_CONDUCT.md
+M  docs/PRODUCT_REQUIREMENTS.md
+M  docs/PROJECT_BRIEF.md
+M  docs/PROTOCOL_RESEARCH_AND_PROVENANCE.md
+M  docs/THREAT_MODEL.md
+M  docs/TRANSPORT_AND_COMPATIBILITY.md
+M  docs/decisions/ADR-0001-working-name-gate.md
+M  docs/decisions/ADR-0003-rigwarden-pre-alpha-identity.md
+M  docs/research/accessibility-test-plan.md
+M  docs/research/capture-and-fixture-plan.md
+M  docs/research/distribution-constraints.md
+M  docs/research/fractal-primary-source-map.md
+M  docs/research/open-source-source-and-license-audit.md
+M  docs/research/topology-name-screen.md
+M  docs/research/wave-00-integration.md
+M  prompts/CONTINUE_SESSION_PROMPT.md
+M  prompts/HARDWARE_CAPTURE_SESSION_PROMPT.md
+M  prompts/MASTER_ORCHESTRATOR_PROMPT.md
+M  prompts/REVIEW_WAVE_PROMPT.md
+M  schemas/device-pack.schema.json
+M  schemas/fixture-provenance.schema.json
+M  schemas/requirement.schema.json
+M  schemas/work-item.schema.json
+MM work-items/CATALOG.md
+M  work-items/README.md
+MM work-items/index.yaml
+M  work-items/wave-00-research/TOP-RSCH-001.yaml
+M  work-items/wave-00-research/TOP-RSCH-002.yaml
+M  work-items/wave-00-research/TOP-RSCH-005.yaml
+M  work-items/wave-00-research/TOP-RSCH-006.yaml
+M  work-items/wave-00-research/TOP-RSCH-007.yaml
+M  work-items/wave-00-research/TOP-RSCH-008.yaml
+M  work-items/wave-01-bootstrap/TOP-BOOT-001.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-002.yaml
+MM work-items/wave-01-bootstrap/TOP-BOOT-003.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-005.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-006.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-007.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-008.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-009.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-A11Y-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-E2E-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-004.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-005.yaml
+MM work-items/wave-02-core-vertical-slice/TOP-PRESET-001.yaml
+MM work-items/wave-02-core-vertical-slice/TOP-PRESET-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-REG-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-REG-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-SIM-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-SIM-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UI-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UNDO-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UNDO-002.yaml
+ M work-items/wave-04-fm3-bootstrap/TOP-FM3-RSCH-001.yaml
+?? .github/
+?? .tdd/evidence/TOP-BOOT-002R/
+?? .tdd/evidence/TOP-BOOT-004/
+?? .tdd/evidence/TOP-BOOT-005/
+?? .tdd/evidence/TOP-BOOT-006/
+?? .tdd/evidence/TOP-BOOT-007/
+?? .tdd/evidence/TOP-BOOT-008/
+?? .tdd/evidence/TOP-BOOT-009/
+?? .tdd/evidence/TOP-CMD-001/
+?? .tdd/evidence/TOP-CMD-002/
+?? .tdd/evidence/TOP-CMD-003/
+?? .tdd/evidence/TOP-DOM-001/
+?? .tdd/evidence/TOP-DOM-002/
+?? .tdd/evidence/TOP-DOM-003/
+?? .tdd/evidence/TOP-E2E-001/
+?? .tdd/evidence/TOP-FFI-000/
+?? .tdd/evidence/TOP-FFI-001/
+?? .tdd/evidence/TOP-FFI-002/
+?? .tdd/evidence/TOP-FM3-RSCH-001/
+?? .tdd/evidence/TOP-GRAPH-001/
+?? .tdd/evidence/TOP-GRAPH-002/
+?? .tdd/evidence/TOP-GRAPH-003/
+?? .tdd/evidence/TOP-GRAPH-004/
+?? .tdd/evidence/TOP-GRAPH-005/
+?? .tdd/evidence/TOP-PRESET-001/
+?? .tdd/evidence/TOP-PRESET-002/
+?? .tdd/evidence/TOP-REG-001/
+?? .tdd/evidence/TOP-REG-002/
+?? .tdd/evidence/TOP-REG-003/
+?? .tdd/evidence/TOP-SIM-001/
+?? .tdd/evidence/TOP-SIM-002/
+?? .tdd/evidence/TOP-UI-001/
+?? .tdd/evidence/TOP-UNDO-001/
+?? .tdd/evidence/TOP-UNDO-002/
+?? .tdd/evidence/TOP-UNDO-003/
+?? apps/mobile_flutter/flutter_rust_bridge.yaml
+?? apps/mobile_flutter/ios/Podfile
+?? apps/mobile_flutter/lib/app/
+?? apps/mobile_flutter/lib/core/
+?? apps/mobile_flutter/lib/features/
+?? apps/mobile_flutter/rust_builder/
+?? apps/mobile_flutter/test/core/
+?? apps/mobile_flutter/test/features/
+?? crates/topology_bridge/
+?? crates/topology_command_engine/
+?? crates/topology_device_registry/
+?? crates/topology_devtools/
+?? crates/topology_domain/src/device.rs
+?? crates/topology_domain/src/firmware.rs
+?? crates/topology_domain/tests/device_family_id.rs
+?? crates/topology_domain/tests/device_identity.rs
+?? crates/topology_domain/tests/firmware_id.rs
+?? crates/topology_preset/
+?? crates/topology_routing/
+?? crates/topology_simulator/
+?? crates/topology_undo/
+?? docs/GOAL_PROGRESS.md
+?? docs/concepts/gridlore-console-ivory-concept.png
+?? docs/concepts/gridlore-stage-amber-concept.png
+?? docs/concepts/gridlore-studio-carbon-concept.png
+?? docs/decisions/ADR-0004-rust-dart-bridge.md
+?? docs/decisions/ADR-0005-typed-semantic-command-bridge.md
+?? docs/decisions/ADR-0006-local-journal-snapshot-foundation.md
+?? docs/research/fm3-transport-matrix.md
+?? scripts/
+?? work-items/wave-01-bootstrap/TOP-BOOT-002R.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-E2E-000.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-FFI-000.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-FFI-002.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-REG-003.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-003.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-004.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-005.yaml
+worktree_status_end
+os=ProductName:		macOS
+ProductVersion:		26.5
+BuildVersion:		25F71
+arch=arm64
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+flutter=Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6b182d2c75 (5 days ago) • 2026-08-05 10:04:07 -0700
+Engine • hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (9 days ago) • 2026-07-31 18:31:59.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+dart=Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+frb_codegen=flutter_rust_bridge_codegen 2.12.0
+xcodebuild=Xcode 26.5
+Build version 17F42
+java=The operation couldn’t be completed. Unable to locate a Java Runtime.
+Please visit http://www.java.com for information on installing Java.
+
+adb=Android Debug Bridge version 1.0.41
+Version 37.0.0-14910828
+relevant_env_names=FLUTTER_ROOT,DART,CARGO_TARGET_DIR,RUSTFLAGS
+## main
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red.log
+A  .tdd/evidence/TOP-BOOT-003/environment.txt
+A  .tdd/evidence/TOP-BOOT-003/files-changed.txt
+A  .tdd/evidence/TOP-BOOT-003/green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/green.log
+AM .tdd/evidence/TOP-BOOT-003/handoff.md
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green.log
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red.log
+A  .tdd/evidence/TOP-BOOT-003/red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/red.log
+AM .tdd/evidence/TOP-BOOT-003/review.md
+AM .tdd/evidence/TOP-BOOT-003/sweep-commands.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep-exit-statuses.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep.log
+AM .tdd/evidence/TOP-BOOT-003/work-item.yaml
+M  AGENTS.md
+ M Cargo.lock
+ M Cargo.toml
+ M LICENSE
+M  LICENSE_POLICY.md
+MM MANIFEST.sha256
+M  PACKAGE_VALIDATION.md
+MM README.md
+M  START_HERE_PROMPT.md
+ M THIRD_PARTY_NOTICES.md
+A  apps/mobile_flutter/.gitignore
+A  apps/mobile_flutter/.metadata
+A  apps/mobile_flutter/README.md
+A  apps/mobile_flutter/analysis_options.yaml
+A  apps/mobile_flutter/android/.gitignore
+A  apps/mobile_flutter/android/app/build.gradle.kts
+A  apps/mobile_flutter/android/app/src/debug/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/kotlin/io/rigwarden/rigwarden/MainActivity.kt
+A  apps/mobile_flutter/android/app/src/main/res/drawable-v21/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/drawable/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/values-night/styles.xml
+A  apps/mobile_flutter/android/app/src/main/res/values/styles.xml
+A  apps/mobile_flutter/android/app/src/profile/AndroidManifest.xml
+A  apps/mobile_flutter/android/build.gradle.kts
+A  apps/mobile_flutter/android/gradle.properties
+A  apps/mobile_flutter/android/gradle/wrapper/gradle-wrapper.properties
+A  apps/mobile_flutter/android/settings.gradle.kts
+A  apps/mobile_flutter/ios/.gitignore
+A  apps/mobile_flutter/ios/Flutter/AppFrameworkInfo.plist
+AM apps/mobile_flutter/ios/Flutter/Debug.xcconfig
+AM apps/mobile_flutter/ios/Flutter/Release.xcconfig
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.pbxproj
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+A  apps/mobile_flutter/ios/Runner.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner/AppDelegate.swift
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+A  apps/mobile_flutter/ios/Runner/Base.lproj/LaunchScreen.storyboard
+A  apps/mobile_flutter/ios/Runner/Base.lproj/Main.storyboard
+A  apps/mobile_flutter/ios/Runner/Info.plist
+A  apps/mobile_flutter/ios/Runner/Runner-Bridging-Header.h
+A  apps/mobile_flutter/ios/Runner/SceneDelegate.swift
+A  apps/mobile_flutter/ios/RunnerTests/RunnerTests.swift
+A  apps/mobile_flutter/lib/main.dart
+AM apps/mobile_flutter/pubspec.lock
+AM apps/mobile_flutter/pubspec.yaml
+A  apps/mobile_flutter/test/harness_test.dart
+ M crates/topology_domain/src/lib.rs
+M  docs/AI_PIPELINE.md
+M  docs/ARCHITECTURE.md
+MM docs/DECISION_LOG.md
+M  docs/GOVERNANCE_LICENSE_CONDUCT.md
+M  docs/PRODUCT_REQUIREMENTS.md
+M  docs/PROJECT_BRIEF.md
+M  docs/PROTOCOL_RESEARCH_AND_PROVENANCE.md
+M  docs/THREAT_MODEL.md
+M  docs/TRANSPORT_AND_COMPATIBILITY.md
+M  docs/decisions/ADR-0001-working-name-gate.md
+M  docs/decisions/ADR-0003-rigwarden-pre-alpha-identity.md
+M  docs/research/accessibility-test-plan.md
+M  docs/research/capture-and-fixture-plan.md
+M  docs/research/distribution-constraints.md
+M  docs/research/fractal-primary-source-map.md
+M  docs/research/open-source-source-and-license-audit.md
+M  docs/research/topology-name-screen.md
+M  docs/research/wave-00-integration.md
+M  prompts/CONTINUE_SESSION_PROMPT.md
+M  prompts/HARDWARE_CAPTURE_SESSION_PROMPT.md
+M  prompts/MASTER_ORCHESTRATOR_PROMPT.md
+M  prompts/REVIEW_WAVE_PROMPT.md
+M  schemas/device-pack.schema.json
+M  schemas/fixture-provenance.schema.json
+M  schemas/requirement.schema.json
+M  schemas/work-item.schema.json
+MM work-items/CATALOG.md
+M  work-items/README.md
+MM work-items/index.yaml
+M  work-items/wave-00-research/TOP-RSCH-001.yaml
+M  work-items/wave-00-research/TOP-RSCH-002.yaml
+M  work-items/wave-00-research/TOP-RSCH-005.yaml
+M  work-items/wave-00-research/TOP-RSCH-006.yaml
+M  work-items/wave-00-research/TOP-RSCH-007.yaml
+M  work-items/wave-00-research/TOP-RSCH-008.yaml
+M  work-items/wave-01-bootstrap/TOP-BOOT-001.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-002.yaml
+MM work-items/wave-01-bootstrap/TOP-BOOT-003.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-004.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-005.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-006.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-007.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-008.yaml
+ M work-items/wave-01-bootstrap/TOP-BOOT-009.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-A11Y-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-CMD-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-DOM-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-E2E-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-003.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-004.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-GRAPH-005.yaml
+MM work-items/wave-02-core-vertical-slice/TOP-PRESET-001.yaml
+MM work-items/wave-02-core-vertical-slice/TOP-PRESET-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-REG-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-REG-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-SIM-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-SIM-002.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UI-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UNDO-001.yaml
+ M work-items/wave-02-core-vertical-slice/TOP-UNDO-002.yaml
+ M work-items/wave-04-fm3-bootstrap/TOP-FM3-RSCH-001.yaml
+?? .github/
+?? .tdd/evidence/TOP-BOOT-002R/
+?? .tdd/evidence/TOP-BOOT-004/
+?? .tdd/evidence/TOP-BOOT-005/
+?? .tdd/evidence/TOP-BOOT-006/
+?? .tdd/evidence/TOP-BOOT-007/
+?? .tdd/evidence/TOP-BOOT-008/
+?? .tdd/evidence/TOP-BOOT-009/
+?? .tdd/evidence/TOP-CMD-001/
+?? .tdd/evidence/TOP-CMD-002/
+?? .tdd/evidence/TOP-CMD-003/
+?? .tdd/evidence/TOP-DOM-001/
+?? .tdd/evidence/TOP-DOM-002/
+?? .tdd/evidence/TOP-DOM-003/
+?? .tdd/evidence/TOP-E2E-001/
+?? .tdd/evidence/TOP-FFI-000/
+?? .tdd/evidence/TOP-FFI-001/
+?? .tdd/evidence/TOP-FFI-002/
+?? .tdd/evidence/TOP-FM3-RSCH-001/
+?? .tdd/evidence/TOP-GRAPH-001/
+?? .tdd/evidence/TOP-GRAPH-002/
+?? .tdd/evidence/TOP-GRAPH-003/
+?? .tdd/evidence/TOP-GRAPH-004/
+?? .tdd/evidence/TOP-GRAPH-005/
+?? .tdd/evidence/TOP-PRESET-001/
+?? .tdd/evidence/TOP-PRESET-002/
+?? .tdd/evidence/TOP-REG-001/
+?? .tdd/evidence/TOP-REG-002/
+?? .tdd/evidence/TOP-REG-003/
+?? .tdd/evidence/TOP-SIM-001/
+?? .tdd/evidence/TOP-SIM-002/
+?? .tdd/evidence/TOP-UI-001/
+?? .tdd/evidence/TOP-UNDO-001/
+?? .tdd/evidence/TOP-UNDO-002/
+?? .tdd/evidence/TOP-UNDO-003/
+?? apps/mobile_flutter/flutter_rust_bridge.yaml
+?? apps/mobile_flutter/ios/Podfile
+?? apps/mobile_flutter/lib/app/
+?? apps/mobile_flutter/lib/core/
+?? apps/mobile_flutter/lib/features/
+?? apps/mobile_flutter/rust_builder/
+?? apps/mobile_flutter/test/core/
+?? apps/mobile_flutter/test/features/
+?? crates/topology_bridge/
+?? crates/topology_command_engine/
+?? crates/topology_device_registry/
+?? crates/topology_devtools/
+?? crates/topology_domain/src/device.rs
+?? crates/topology_domain/src/firmware.rs
+?? crates/topology_domain/tests/device_family_id.rs
+?? crates/topology_domain/tests/device_identity.rs
+?? crates/topology_domain/tests/firmware_id.rs
+?? crates/topology_preset/
+?? crates/topology_routing/
+?? crates/topology_simulator/
+?? crates/topology_undo/
+?? docs/GOAL_PROGRESS.md
+?? docs/concepts/gridlore-console-ivory-concept.png
+?? docs/concepts/gridlore-stage-amber-concept.png
+?? docs/concepts/gridlore-studio-carbon-concept.png
+?? docs/decisions/ADR-0004-rust-dart-bridge.md
+?? docs/decisions/ADR-0005-typed-semantic-command-bridge.md
+?? docs/decisions/ADR-0006-local-journal-snapshot-foundation.md
+?? docs/research/fm3-transport-matrix.md
+?? scripts/
+?? work-items/wave-01-bootstrap/TOP-BOOT-002R.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-E2E-000.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-FFI-000.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-FFI-002.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-REG-003.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-003.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-004.yaml
+?? work-items/wave-02-core-vertical-slice/TOP-UNDO-005.yaml
+worktree_status_end
+os=ProductName:		macOS
+ProductVersion:		26.5
+BuildVersion:		25F71
+arch=arm64
+rustc=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+flutter=Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6b182d2c75 (5 days ago) • 2026-08-05 10:04:07 -0700
+Engine • hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (9 days ago) • 2026-07-31 18:31:59.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+dart=Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+frb_codegen=flutter_rust_bridge_codegen 2.12.0
+xcodebuild=Xcode 26.5
+Build version 17F42
+java=The operation couldn’t be completed. Unable to locate a Java Runtime.
+Please visit http://www.java.com for information on installing Java.
+
+adb=Android Debug Bridge version 1.0.41
+Version 37.0.0-14910828
+relevant_env_names=FLUTTER_ROOT,DART,CARGO_TARGET_DIR,RUSTFLAGS

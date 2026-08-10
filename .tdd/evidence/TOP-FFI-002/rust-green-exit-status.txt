@@ -1,0 +1,3 @@
+exit_status=0
+accepted=YES
+reason=focused Rust snapshot test after ordering correction.

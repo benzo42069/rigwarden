@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter
+command=flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml --stop-on-error
+cycle=regenerate pinned FRB Rust/Dart bindings after Rust GREEN

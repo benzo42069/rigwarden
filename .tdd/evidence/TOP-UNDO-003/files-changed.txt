@@ -1,0 +1,10 @@
+Packet-authorized production path changed:
+- crates/topology_undo/src/journal.rs — added the typed UndoProposal, pending restoration state, preparation API, and confirmation API. This file was already an untracked dependency candidate in the shared worktree before TOP-UNDO-003; no unrelated baseline content was removed.
+
+Packet-authorized test path added:
+- crates/topology_undo/tests/undo_restoration.rs — focused RED/GREEN tests for exact prior-value proposal, retained history while pending, confirmation consumption, and cross-Journal proposal rejection.
+
+Packet-authorized evidence paths added:
+- .tdd/evidence/TOP-UNDO-003/** — packet copy, environment, RED/GREEN logs/statuses, sweep commands/log/statuses, and handoff/review records.
+
+No changes made to crates/topology_undo/src/lib.rs, Cargo.toml, Cargo.lock, apps/**, native/**, device-packs/**, work-items/index.yaml, docs/requirements/traceability.yaml, or any other forbidden/shared path.

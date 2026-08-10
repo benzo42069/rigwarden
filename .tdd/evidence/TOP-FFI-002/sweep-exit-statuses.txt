@@ -1,0 +1,18 @@
+initial_fail_fast:
+1 cargo test -p topology-bridge: 0
+2 cargo test -p topology-routing: 0
+3 CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release: 0
+4 cd apps/mobile_flutter && flutter test test/core/bridge/serial_route_test.dart: 0
+5 cd apps/mobile_flutter && flutter analyze: 0
+6 cargo fmt --all -- --check: 1 (bridge source/test formatting; fail-fast stopped before command 7)
+7 cargo clippy -p topology-bridge --all-targets -- -D warnings: NOT_RUN (fail-fast)
+
+post_format_rerun:
+1 cargo test -p topology-bridge: 0
+2 cargo test -p topology-routing: 0
+3 CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release: 0
+4 cd apps/mobile_flutter && flutter test test/core/bridge/serial_route_test.dart: 0
+5 cd apps/mobile_flutter && flutter analyze: 0
+6 cargo fmt --all -- --check: 0
+7 cargo clippy -p topology-bridge --all-targets -- -D warnings: 0
+composite_status=0

@@ -1,0 +1,3 @@
+exit_status=1 (shell/evidence path setup)
+accepted=NO
+reason=invalid evidence capture attempt: command was launched from apps/mobile_flutter while using a repository-relative evidence path, so the focused test output was not captured. The Flutter compiler nevertheless reported the intended missing generated endpoint; the accepted RED is rerun from the repository root with the packet command and raw output capture.

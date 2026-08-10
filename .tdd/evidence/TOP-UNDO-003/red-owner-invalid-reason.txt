@@ -1,0 +1,1 @@
+The first owner-isolation attempt exited 0 because the test did not prepare a restoration in the receiving journal, so `confirm_undo` correctly rejected the call as having no pending proposal. This was an invalid RED setup, not evidence of the requested behavior; the raw output is preserved in `red-owner.log` and the corrected test was rerun below.

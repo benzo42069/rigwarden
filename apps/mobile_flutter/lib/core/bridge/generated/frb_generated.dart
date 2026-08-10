@@ -66,7 +66,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.12.0';
 
   @override
-  int get rustContentHash => -911114862;
+  int get rustContentHash => 159246985;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -97,6 +97,8 @@ abstract class RustLibApi extends BaseApi {
   Future<void> crateApiInitRigwardenBridge();
 
   Future<DeviceIdentityHandle> crateApiReadFixtureDeviceIdentity();
+
+  Future<SerialRouteSnapshot> crateApiReadFixtureSerialRouteSnapshot();
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_DeviceIdentityHandle;
@@ -298,6 +300,36 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         argNames: [],
       );
 
+  @override
+  Future<SerialRouteSnapshot> crateApiReadFixtureSerialRouteSnapshot() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 7,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_serial_route_snapshot,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiReadFixtureSerialRouteSnapshotConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiReadFixtureSerialRouteSnapshotConstMeta =>
+      const TaskConstMeta(
+        debugName: "read_fixture_serial_route_snapshot",
+        argNames: [],
+      );
+
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_DeviceIdentityHandle => wire
       .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle;
@@ -343,6 +375,61 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as Uint8List;
+  }
+
+  @protected
+  List<SerialRouteConnection> dco_decode_list_serial_route_connection(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>)
+        .map(dco_decode_serial_route_connection)
+        .toList();
+  }
+
+  @protected
+  List<SerialRouteNode> dco_decode_list_serial_route_node(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_serial_route_node).toList();
+  }
+
+  @protected
+  SerialRouteConnection dco_decode_serial_route_connection(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 4)
+      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
+    return SerialRouteConnection(
+      sourceNodeId: dco_decode_String(arr[0]),
+      sourcePortId: dco_decode_String(arr[1]),
+      destinationNodeId: dco_decode_String(arr[2]),
+      destinationPortId: dco_decode_String(arr[3]),
+    );
+  }
+
+  @protected
+  SerialRouteNode dco_decode_serial_route_node(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 3)
+      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    return SerialRouteNode(
+      id: dco_decode_String(arr[0]),
+      incomingConnections: dco_decode_list_serial_route_connection(arr[1]),
+      outgoingConnections: dco_decode_list_serial_route_connection(arr[2]),
+    );
+  }
+
+  @protected
+  SerialRouteSnapshot dco_decode_serial_route_snapshot(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return SerialRouteSnapshot(
+      nodes: dco_decode_list_serial_route_node(arr[0]),
+      connections: dco_decode_list_serial_route_connection(arr[1]),
+    );
   }
 
   @protected
@@ -411,6 +498,78 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var len_ = sse_decode_i_32(deserializer);
     return deserializer.buffer.getUint8List(len_);
+  }
+
+  @protected
+  List<SerialRouteConnection> sse_decode_list_serial_route_connection(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <SerialRouteConnection>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_serial_route_connection(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
+  List<SerialRouteNode> sse_decode_list_serial_route_node(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <SerialRouteNode>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_serial_route_node(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
+  SerialRouteConnection sse_decode_serial_route_connection(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_sourceNodeId = sse_decode_String(deserializer);
+    var var_sourcePortId = sse_decode_String(deserializer);
+    var var_destinationNodeId = sse_decode_String(deserializer);
+    var var_destinationPortId = sse_decode_String(deserializer);
+    return SerialRouteConnection(
+      sourceNodeId: var_sourceNodeId,
+      sourcePortId: var_sourcePortId,
+      destinationNodeId: var_destinationNodeId,
+      destinationPortId: var_destinationPortId,
+    );
+  }
+
+  @protected
+  SerialRouteNode sse_decode_serial_route_node(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_id = sse_decode_String(deserializer);
+    var var_incomingConnections = sse_decode_list_serial_route_connection(
+      deserializer,
+    );
+    var var_outgoingConnections = sse_decode_list_serial_route_connection(
+      deserializer,
+    );
+    return SerialRouteNode(
+      id: var_id,
+      incomingConnections: var_incomingConnections,
+      outgoingConnections: var_outgoingConnections,
+    );
+  }
+
+  @protected
+  SerialRouteSnapshot sse_decode_serial_route_snapshot(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_nodes = sse_decode_list_serial_route_node(deserializer);
+    var var_connections = sse_decode_list_serial_route_connection(deserializer);
+    return SerialRouteSnapshot(nodes: var_nodes, connections: var_connections);
   }
 
   @protected
@@ -495,6 +654,69 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putUint8List(self);
+  }
+
+  @protected
+  void sse_encode_list_serial_route_connection(
+    List<SerialRouteConnection> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_serial_route_connection(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_list_serial_route_node(
+    List<SerialRouteNode> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_serial_route_node(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_serial_route_connection(
+    SerialRouteConnection self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.sourceNodeId, serializer);
+    sse_encode_String(self.sourcePortId, serializer);
+    sse_encode_String(self.destinationNodeId, serializer);
+    sse_encode_String(self.destinationPortId, serializer);
+  }
+
+  @protected
+  void sse_encode_serial_route_node(
+    SerialRouteNode self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.id, serializer);
+    sse_encode_list_serial_route_connection(
+      self.incomingConnections,
+      serializer,
+    );
+    sse_encode_list_serial_route_connection(
+      self.outgoingConnections,
+      serializer,
+    );
+  }
+
+  @protected
+  void sse_encode_serial_route_snapshot(
+    SerialRouteSnapshot self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_list_serial_route_node(self.nodes, serializer);
+    sse_encode_list_serial_route_connection(self.connections, serializer);
   }
 
   @protected

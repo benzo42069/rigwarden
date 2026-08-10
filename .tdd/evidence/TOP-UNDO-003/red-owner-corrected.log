@@ -1,0 +1,37 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.81s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/branch.rs (target/debug/deps/branch-dba22ab72eea53d7)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/undo_restoration.rs (target/debug/deps/undo_restoration-2cdc55aa9424ecc6)
+
+running 1 test
+
+thread 'undo_proposal_cannot_confirm_against_another_journal' (11241129) panicked at crates/topology_undo/tests/undo_restoration.rs:52:5:
+assertion failed: first.confirm_undo(foreign_proposal).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test undo_proposal_cannot_confirm_against_another_journal ... FAILED
+
+failures:
+
+failures:
+    undo_proposal_cannot_confirm_against_another_journal
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p topology-undo --test undo_restoration`

@@ -1,0 +1,3 @@
+101
+accepted: YES
+reason: The focused test reached topology-undo and failed only because the intended typed Journal::prepare_undo and Journal::confirm_undo APIs are absent; existing dependency tests compiled far enough to identify those missing methods.

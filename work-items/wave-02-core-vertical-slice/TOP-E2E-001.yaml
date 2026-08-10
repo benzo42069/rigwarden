@@ -2,7 +2,7 @@ id: TOP-E2E-001
 kind: implementation
 epic: TOP-700
 title: Complete a simulated parameter edit, confirmation, and undo through the typed application path
-status: BLOCKED_CONTRACT
+status: BLOCKED_DEPENDENCY
 priority: high
 requirement_ids:
 - SIM-001
@@ -11,8 +11,10 @@ requirement_ids:
 depends_on:
 - TOP-SIM-001
 - TOP-UNDO-001
+- TOP-UNDO-003
 - TOP-FFI-001
 - TOP-UI-001
+- TOP-E2E-000
 parallel_group: null
 agent:
   preferred_role: topology_implementer
@@ -26,8 +28,14 @@ scope:
   - crates/topology_bridge/**
   - apps/mobile_flutter/**
   write:
-  - tests/e2e/simulated_parameter_edit/**
+  - crates/topology_bridge/src/api/mod.rs
+  - crates/topology_bridge/src/api/simulated_parameter_edit.rs
+  - crates/topology_bridge/src/frb_generated.rs
   - apps/mobile_flutter/integration_test/simulated_parameter_edit_test.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/api.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.io.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.web.dart
   - .tdd/evidence/TOP-E2E-001/**
   forbidden:
   - Cargo.toml
@@ -59,7 +67,8 @@ non_goals:
 - Crash persistence
 preconditions:
 - All dependencies integrated.
-- Integration owner creates an E2E harness without broad app scaffolding.
+- TOP-E2E-000 supplies the reviewed Rust-owned composition API.
+- ADR-0005 permits only the typed semantic command/event boundary used here.
 test:
   layer: deterministic_e2e
   file: apps/mobile_flutter/integration_test/simulated_parameter_edit_test.dart
@@ -75,10 +84,10 @@ test:
     - Native environment failure unrelated to deterministic harness.
   green_command: cd apps/mobile_flutter && flutter test integration_test/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end"
 minimum_green:
-- Wire existing layers only.
-- Add minimal orchestration state needed.
+- Expose only typed semantic session actions and state through generated FRB.
+- Use a test-owned Flutter harness with explicit edit/undo semantic controls.
 - Do not add real protocol/native transport.
-- Record transcript.
+- Do not expose bytes, endpoint handles, or arbitrary send.
 required_sweeps:
 - cargo test --workspace
 - cd apps/mobile_flutter && flutter test
@@ -100,9 +109,8 @@ required_followups:
 - TOP-AM4-FIX-001
 - TOP-FM3-RSCH-001
 block_conditions:
-- The current packet permits only test files, but the required typed app-to-Rust composition API, generated FRB bindings, bridge dependency edges, and a test-owned edit/undo harness do not exist or fit its write scope.
-- ADR-0004 currently limits the bridge to read-only values; a typed, validator-gated command/event boundary must be explicitly decided before any mutation API crosses FFI.
-- The current simulator and undo APIs do not provide the stateful edit/restore composition described by this packet.
+- TOP-UNDO-003 and TOP-E2E-000 must be integrated before the generated UI path can run.
+- The generated release library must be built at the configured Flutter Rust Bridge output path before the Flutter test; a missing library is `BLOCKED_ENVIRONMENT`, never a valid RED.
 evidence_directory: .tdd/evidence/TOP-E2E-001
 amendments:
 - recorded_at: 2026-08-10T01:17:04-05:00
@@ -117,4 +125,11 @@ amendments:
   changes:
   - status changed from READY to BLOCKED_CONTRACT pending a narrow typed command/event bridge and composition packet.
   - block conditions record the missing production and generated boundaries; no test or product source was written.
+  claim_changed: false
+- recorded_at: 2026-08-10T01:44:31-05:00
+  author: parent_orchestrator
+  reason: ADR-0005 and two narrowly scoped prerequisite packets resolve the command/event and undo-restoration contract gap without allowing raw transport access or a Dart fake.
+  changes:
+  - status changed from BLOCKED_CONTRACT to BLOCKED_DEPENDENCY on TOP-UNDO-003 and TOP-E2E-000.
+  - scope now grants the bounded typed FRB API and generated bindings required by the real Flutter path; bridge manifest and lockfile remain owned by TOP-E2E-000.
   claim_changed: false

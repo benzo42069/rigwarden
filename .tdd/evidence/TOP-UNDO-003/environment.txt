@@ -1,0 +1,20 @@
+utc_timestamp: 2026-08-10T06:54:42Z
+local_timestamp: 2026-08-10T01:54:42-0500
+os: Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0 arm64
+cpu_architecture: arm64
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+dirty_state: pre-existing shared-worktree changes; 168 tracked paths changed and 68 untracked paths before this packet's test/evidence additions
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+flutter: Flutter 3.44.9 stable (revision 6b182d2c75)
+dart: Dart SDK 3.12.2 stable on macos_arm64
+xcode: Xcode 26.5, build 17F42
+android_sdk: ANDROID_HOME unset; not required by this Rust unit packet
+java: unavailable; not required by this Rust unit packet
+codex_route_requested: OpenAI gpt-5.6-luna / max
+codex_route_effective: parent-verified route per task assignment
+agent_role: topology_implementer
+environment_variables: no custom variables used; no secrets recorded
+fixtures_hardware: no fixture, simulator, native platform, or hardware required

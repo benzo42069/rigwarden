@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo fmt --all -- --check
+cycle=post-package-format formatter check

@@ -1,0 +1,109 @@
+id: TOP-E2E-000
+kind: implementation
+epic: TOP-700
+title: Compose one typed synthetic parameter edit and confirmed undo in Rust
+status: BLOCKED_DEPENDENCY
+priority: high
+requirement_ids:
+- SIM-001
+- UNDO-001
+- UNDO-003
+- BLOCK-003
+depends_on:
+- TOP-CMD-001
+- TOP-SIM-001
+- TOP-UNDO-005
+- TOP-FFI-001
+parallel_group: null
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_security_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_command_engine/**
+  - crates/topology_device_registry/**
+  - crates/topology_simulator/**
+  - crates/topology_undo/**
+  - crates/topology_bridge/**
+  - docs/decisions/ADR-0005-typed-semantic-command-bridge.md
+  write:
+  - crates/topology_bridge/Cargo.toml
+  - Cargo.lock
+  - crates/topology_bridge/src/simulated_edit.rs
+  - crates/topology_bridge/src/lib.rs
+  - crates/topology_bridge/tests/simulated_edit.rs
+  - .tdd/evidence/TOP-E2E-000/**
+  forbidden:
+  - Cargo.toml
+  - apps/**
+  - native/**
+  - device-packs/**
+  - crates/topology_bridge/src/api/**
+  - crates/topology_bridge/src/frb_generated.rs
+  - work-items/index.yaml
+behavior:
+  why: The first E2E path must prove Rust validation, a synthetic peer, confirmation, and semantic undo compose before presentation or generated bindings are added.
+  given:
+  - An exact synthetic writable profile declares `amp-1/gain` in stored tenths from 0 through 100.
+  - Confirmed synthetic state is 30 (display 3.0).
+  - A scripted synthetic peer accepts a semantic request for 45 and a later semantic restoration for 30.
+  when:
+  - The composition submits stored value 45, confirms it, then applies one prepared undo restoration.
+  then:
+  - Validation occurs before either synthetic exchange.
+  - State transitions pending → confirmed 45 → pending restoration → confirmed 30.
+  - The journal records prior 30 before the completed edit and consumes it only when restoration confirms.
+  - The returned transcript summary identifies the synthetic simulator and exposes no bytes.
+non_goals:
+- Generated Flutter bindings
+- Production Flutter UI
+- Vendor protocol bytes
+- Stateful device emulation beyond this fixed script
+- Persistence, redo, retry, timeout, or native transport
+preconditions:
+- TOP-UNDO-005 is integrated.
+- ADR-0005 is accepted.
+- Integration owner owns the bridge dependency and lockfile edge.
+test:
+  layer: simulator_integration
+  file: crates/topology_bridge/tests/simulated_edit.rs
+  name: synthetic_parameter_edit_confirms_then_undo_restores_prior_value
+  red_command: cargo test -p topology-bridge synthetic_parameter_edit_confirms_then_undo_restores_prior_value -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing Rust-owned composition API.
+    - Assertion fails because a required validation, confirmation, journal, restoration, or typed-state transition is absent.
+    unacceptable:
+    - Flutter, generated binding, native library, network, or hardware environment failure.
+    - Test bypasses the command validator, scripted transport, or journal.
+  green_command: cargo test -p topology-bridge synthetic_parameter_edit_confirms_then_undo_restores_prior_value -- --exact --nocapture
+minimum_green:
+- Add only a Rust-owned deterministic composition module.
+- Add explicit bridge crate dependencies needed for the existing typed layers.
+- Return sanitized typed state/transcript summary, never bytes or a transport handle.
+required_sweeps:
+- cargo test -p topology-bridge
+- cargo test -p topology-command-engine
+- cargo test -p topology-simulator
+- cargo test -p topology-undo
+- cargo fmt --all -- --check
+- cargo clippy -p topology-bridge --all-targets -- -D warnings
+acceptance:
+- The test crosses validation, synthetic exchange, journal confirmation, and restoration.
+- Read-only or invalid writes do not acquire an exchange path.
+- Transcript is explicitly simulator-only and byte-free.
+- Independent security review approves.
+available_claims_after_completion:
+- SIMULATOR_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- FFI_VERIFIED
+- SEMANTICS_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-E2E-001
+block_conditions:
+- TOP-UNDO-005 has not been integrated.
+evidence_directory: .tdd/evidence/TOP-E2E-000

@@ -1,0 +1,3 @@
+0
+accepted: YES
+reason: The focused restoration test passes with the minimum typed proposal and explicit confirmation path; the proposal exposes amp-1/gain and 3.0, history remains until confirmation, and confirmation removes the entry.

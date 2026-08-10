@@ -6,7 +6,7 @@
 
 ## Frozen in-scope work items
 
-`TOP-RSCH-001`–`TOP-RSCH-008`; `TOP-BOOT-001`, `TOP-BOOT-002`, `TOP-BOOT-002R`, `TOP-BOOT-003`–`TOP-BOOT-009`; `TOP-A11Y-001`, `TOP-CMD-001`–`TOP-CMD-003`, `TOP-DOM-001`–`TOP-DOM-003`, `TOP-E2E-001`, `TOP-FFI-001`, `TOP-GRAPH-001`–`TOP-GRAPH-005`, `TOP-PRESET-001`–`TOP-PRESET-002`, `TOP-REG-001`–`TOP-REG-002`, `TOP-SIM-001`–`TOP-SIM-002`, `TOP-UI-001`, `TOP-UNDO-001`–`TOP-UNDO-002`; `TOP-AM4-E2E-001`–`TOP-AM4-E2E-002`, `TOP-AM4-FIX-001`–`TOP-AM4-FIX-002`, `TOP-AM4-HIL-001`, `TOP-AM4-PROTO-001`–`TOP-AM4-PROTO-003`, `TOP-AM4-REG-001`, `TOP-AM4-SIM-001`; `TOP-FM3-E2E-001`–`TOP-FM3-E2E-003`, `TOP-FM3-FIX-001`, `TOP-FM3-HIL-001`–`TOP-FM3-HIL-002`, `TOP-FM3-IOS-001`, `TOP-FM3-NATIVE-001`–`TOP-FM3-NATIVE-002`, `TOP-FM3-PROTO-001`, `TOP-FM3-RSCH-001`, `TOP-FM3-SIM-001`.
+`TOP-RSCH-001`–`TOP-RSCH-008`; `TOP-BOOT-001`, `TOP-BOOT-002`, `TOP-BOOT-002R`, `TOP-BOOT-003`–`TOP-BOOT-009`; `TOP-A11Y-001`, `TOP-CMD-001`–`TOP-CMD-003`, `TOP-DOM-001`–`TOP-DOM-003`, `TOP-E2E-000`–`TOP-E2E-001`, `TOP-FFI-001`–`TOP-FFI-002`, `TOP-GRAPH-001`–`TOP-GRAPH-005`, `TOP-PRESET-001`–`TOP-PRESET-002`, `TOP-REG-001`–`TOP-REG-003`, `TOP-SIM-001`–`TOP-SIM-002`, `TOP-UI-001`, `TOP-UNDO-001`–`TOP-UNDO-005`; `TOP-AM4-E2E-001`–`TOP-AM4-E2E-002`, `TOP-AM4-FIX-001`–`TOP-AM4-FIX-002`, `TOP-AM4-HIL-001`, `TOP-AM4-PROTO-001`–`TOP-AM4-PROTO-003`, `TOP-AM4-REG-001`, `TOP-AM4-SIM-001`; `TOP-FM3-E2E-001`–`TOP-FM3-E2E-003`, `TOP-FM3-FIX-001`, `TOP-FM3-HIL-001`–`TOP-FM3-HIL-002`, `TOP-FM3-IOS-001`, `TOP-FM3-NATIVE-001`–`TOP-FM3-NATIVE-002`, `TOP-FM3-PROTO-001`, `TOP-FM3-SIM-001`.
 
 ## Current status
 
@@ -24,6 +24,8 @@
 - **Integrated:** `TOP-SIM-002` (a reused request ID from an older connection generation cannot confirm the newer request) after independent security review and parent Rust integration sweeps. This is `UNIT_VERIFIED` command-session correlation only, not simulator transport, protocol, platform, or hardware verification.
 - **Integrated:** `TOP-UNDO-001` (an in-memory undo entry is finalized only after confirmation and stores the exact prior/new values) after independent review and parent Rust integration sweeps. This is `UNIT_VERIFIED` only; persistence, simulator, platform, and hardware behavior remain unavailable.
 - **Integrated:** `TOP-UNDO-002` (preset contexts retain separate in-memory undo branches and the prior branch remains inspectable) after independent review and parent Rust integration sweeps. Pending-across-switch affinity is defensive source behavior, not a separately verified claim.
+- **Integrated:** `TOP-UNDO-003` (one confirmed undo restoration proposes the exact prior value, retains history while pending, and rejects foreign journal proposals) after independent review and parent Rust integration sweeps. This is `UNIT_VERIFIED` in-memory behavior only; no persistence or hardware claim is implied.
+- **Integrated:** `TOP-FFI-002` (one Rust-authored synthetic serial route snapshot crosses the generated Rust–Flutter bridge) after independent review and parent release-build/Flutter integration checks. This is `FFI_VERIFIED` for the fixture snapshot only; it is not live graph, route-editing, semantics-device, or hardware proof.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -38,6 +40,8 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-UNDO-002` focused branch isolation, undo package, preset package, workspace format, and undo Clippy checks all exited 0 after independent review.
+**Last completed integration sweep:** `TOP-UNDO-003` focused restoration and foreign-proposal rejection, undo/preset packages, workspace format, and undo Clippy checks all exited 0 after independent review. `TOP-FFI-002` separately passed its Rust bridge/routing, release-build, real Flutter FFI, analyzer, formatter, and bridge Clippy checks; its reviewer records the shared-worktree workspace-formatter caveat.
 
-**Contract gate:** `TOP-E2E-001` is `BLOCKED_CONTRACT`: a real typed app→FFI→validator→synthetic simulator→journal composition path does not yet exist. It needs a narrow command/event bridge decision and composition packet; no fake Dart-only E2E test will be accepted. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next composed path:** `ADR-0005` permits a narrow typed semantic command/event bridge while keeping transport bytes and handles out of Flutter. `ADR-0006` adds the missing persistent-record foundation: `TOP-UNDO-003` prepares one confirmed restoration, `TOP-UNDO-004` snapshots confirmed history, and `TOP-UNDO-005` reloads it from a local file before `TOP-E2E-000` proves validation→synthetic simulator→journal composition. No fake Dart-only E2E test will be accepted. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+
+**Nonvisual route gate:** `TOP-FFI-002` is integrated with one Rust-authored synthetic serial snapshot through the real generated bridge. `TOP-A11Y-001` is now READY to render that fixture without recreating graph traversal in Dart.

@@ -1,0 +1,26 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0599]: no method named `prepare_undo` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/undo_restoration.rs:13:10
+   |
+12 |       let proposal = journal
+   |  ____________________-
+13 | |         .prepare_undo()
+   | |         -^^^^^^^^^^^^ method not found in `Journal`
+   | |_________|
+   |
+
+error[E0599]: no method named `confirm_undo` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/undo_restoration.rs:27:10
+   |
+26 | /     journal
+27 | |         .confirm_undo(proposal)
+   | |_________-^^^^^^^^^^^^
+   |
+help: there is a method `confirm` with a similar name
+   |
+27 -         .confirm_undo(proposal)
+27 +         .confirm(proposal)
+   |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-undo` (test "undo_restoration") due to 2 previous errors

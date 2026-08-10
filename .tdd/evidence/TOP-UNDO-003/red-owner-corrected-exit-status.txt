@@ -1,0 +1,3 @@
+101
+accepted: YES
+reason: The corrected focused test prepared a pending restoration in both independently initialized journals, then the receiving journal accepted the foreign proposal because IDs/fields collided; the assertion failed at the exact cross-journal confirmation boundary.

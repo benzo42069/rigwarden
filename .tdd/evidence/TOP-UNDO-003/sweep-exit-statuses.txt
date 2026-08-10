@@ -1,0 +1,12 @@
+0	cargo test -p topology-undo
+0	cargo test -p topology-preset
+0	cargo fmt --all -- --check
+0	cargo clippy -p topology-undo --all-targets -- -D warnings
+0	cargo test -p topology-undo	final_rerun
+0	cargo test -p topology-preset	final_rerun
+0	cargo fmt --all -- --check	final_rerun
+0	cargo clippy -p topology-undo --all-targets -- -D warnings	final_rerun
+0	cargo test -p topology-undo	owner_scope_final
+0	cargo test -p topology-preset	owner_scope_final
+0	cargo fmt --all -- --check	owner_scope_final
+0	cargo clippy -p topology-undo --all-targets -- -D warnings	owner_scope_final

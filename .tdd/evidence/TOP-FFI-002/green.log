@@ -1,0 +1,12 @@
+Resolving dependencies...
+Downloading packages...
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.19.0 available)
+  test_api 0.7.11 (0.7.13 available)
+  vector_math 2.2.0 (2.4.2 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/serial_route_test.dart
+00:00 +0: typed serial route snapshot round trips from Rust
+00:00 +1: All tests passed!

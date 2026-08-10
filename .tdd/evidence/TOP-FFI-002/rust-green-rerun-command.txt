@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cargo test -p topology-bridge rust_authored_serial_route_snapshot_is_stable -- --exact --nocapture
+cycle=post-format focused Rust rerun

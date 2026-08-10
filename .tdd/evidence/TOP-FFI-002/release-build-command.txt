@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release
+cycle=actual release bridge library required for Flutter GREEN

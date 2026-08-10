@@ -1,0 +1,105 @@
+id: TOP-UNDO-003
+kind: implementation
+epic: TOP-500
+title: Prepare one confirmed undo restoration without removing history early
+status: INTEGRATED
+priority: high
+requirement_ids:
+- UNDO-003
+- UNDO-008
+depends_on:
+- TOP-UNDO-001
+- TOP-UNDO-002
+parallel_group: core-undo-b
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_undo/**
+  write:
+  - crates/topology_undo/src/journal.rs
+  - crates/topology_undo/tests/undo_restoration.rs
+  - .tdd/evidence/TOP-UNDO-003/**
+  forbidden:
+  - Cargo.toml
+  - Cargo.lock
+  - apps/**
+  - native/**
+  - device-packs/**
+  - work-items/index.yaml
+  - docs/requirements/traceability.yaml
+behavior:
+  why: A confirmed mutation is not undoable until the journal can expose its exact prior value as a proposed restoration and retain history until that restoration confirms.
+  given:
+  - The active preset branch contains one confirmed `amp-1/gain` change from literal 3.0 to 4.5.
+  when:
+  - The user requests an undo and the caller confirms its restoration.
+  then:
+  - The proposal names `amp-1/gain` and restoration value 3.0.
+  - The completed entry remains visible while the restoration is pending.
+  - Confirmation consumes exactly that completed entry.
+  - No transport bytes or persistence behavior is introduced.
+non_goals:
+- Redo
+- Disk persistence
+- Protocol encoding
+- Flutter or FFI API
+- Batch undo
+preconditions:
+- TOP-UNDO-001 and TOP-UNDO-002 are integrated.
+test:
+  layer: rust_unit
+  file: crates/topology_undo/tests/undo_restoration.rs
+  name: confirmed_undo_restores_exact_prior_value_only_after_confirmation
+  red_command: cargo test -p topology-undo confirmed_undo_restores_exact_prior_value_only_after_confirmation -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing typed undo-restoration API.
+    - Assertion fails because history is consumed before restoration confirmation or the prior value is wrong.
+    unacceptable:
+    - Existing pending/confirmed journal behavior is broken.
+    - Test uses a simulator, transport, or persistence fixture.
+  green_command: cargo test -p topology-undo confirmed_undo_restores_exact_prior_value_only_after_confirmation -- --exact --nocapture
+minimum_green:
+- Add a typed inspectable restoration proposal and explicit confirmation path.
+- Keep the active branch's completed history until restoration confirmation.
+- Use existing semantic numeric values only.
+required_sweeps:
+- cargo test -p topology-undo
+- cargo test -p topology-preset
+- cargo fmt --all -- --check
+- cargo clippy -p topology-undo --all-targets -- -D warnings
+acceptance:
+- Exact prior value is proposed.
+- History is not removed before confirmation.
+- Confirmed restoration removes only the matching entry.
+- Independent review approves.
+available_claims_after_completion:
+- UNIT_VERIFIED
+unavailable_claims:
+- BYTE_FIXTURE_VERIFIED
+- SIMULATOR_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-E2E-000
+block_conditions: []
+evidence_directory: .tdd/evidence/TOP-UNDO-003
+amendments:
+- recorded_at: 2026-08-10T02:10:37-05:00
+  author: parent_orchestrator
+  reason: Independent review found that two independently initialized journals could accept equal-looking proposals and consume the receiving journal's entry. This tightly coupled exact-entry correction is within the existing behavior, not a persistence or transport feature.
+  changes:
+  - focused test adds cross-journal proposal rejection.
+  - Journal scopes proposals to their owning instance and rejects a foreign proposal.
+  - prior RED/GREEN and required sweeps remain preserved; a second RED/GREEN and final sweeps are recorded separately.
+  claim_changed: false
+- recorded_at: 2026-08-10T03:02:00-05:00
+  author: parent_orchestrator
+  reason: Independent review approved the amended candidate and the parent integration sweep passed before the immutable public integration commit.
+  changes:
+  - Packet promoted to INTEGRATED with UNIT_VERIFIED limited to in-memory undo-restoration behavior.
+  - Persistent storage, simulator, platform, hardware, byte-fixture, and accessibility claims remain unavailable.
+  claim_changed: false

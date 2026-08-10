@@ -1,0 +1,39 @@
+TOP-FFI-002 candidate scope (shared worktree; no worker commit created):
+
+M  Cargo.lock
+   Added the topology-bridge -> topology-routing package edge (Cargo.toml's
+   topology-domain edge was already present). The packet explicitly grants the
+   bridge manifest and lockfile.
+A  crates/topology_bridge/Cargo.toml
+   Existing bootstrap manifest is untracked against the stale local base; this
+   cycle adds topology-routing and rlib output so the declared Rust integration
+   test can link the bridge crate. Existing cdylib/staticlib entries remain.
+A  crates/topology_bridge/src/api/mod.rs
+   Rust-owned serial graph fixture, deterministic topological snapshot records,
+   connection context, and read-only generated endpoint.
+A  crates/topology_bridge/src/frb_generated.rs
+   FRB 2.12.0 generated Rust wire bindings for the snapshot endpoint and value
+   records.
+A  crates/topology_bridge/tests/serial_route.rs
+   Focused Rust RED/GREEN test for stable node order, exact connection identity,
+   and incoming/outgoing context.
+A  apps/mobile_flutter/lib/core/bridge/generated/api.dart
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.dart
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.io.dart
+A  apps/mobile_flutter/lib/core/bridge/generated/frb_generated.web.dart
+   FRB 2.12.0 generated Dart API and platform/runtime bindings.
+A  apps/mobile_flutter/test/core/bridge/serial_route_test.dart
+   Focused real-FFI Flutter test; calls RustLib.init() and the generated endpoint.
+
+Evidence-only files under .tdd/evidence/TOP-FFI-002/ are listed by the evidence
+directory itself and are part of this candidate handoff.
+
+Not candidate changes:
+- apps/mobile_flutter/pubspec.lock was already AM in the starting worktree
+  before this packet (see environment.txt); Flutter pub get refreshed the same
+  pre-existing lockfile state while running the required tests. It is outside
+  this packet's write scope and is not claimed here.
+- crates/topology_bridge/target/** and Flutter/Dart build caches are ignored
+  build outputs from codegen/release/test commands, not source changes.
+- No root Cargo.toml, routing crate source, native/, device-packs/, index, or
+  Flutter pubspec was edited.

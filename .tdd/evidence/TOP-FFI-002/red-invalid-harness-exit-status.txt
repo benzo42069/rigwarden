@@ -1,0 +1,3 @@
+exit_status=101 (cargo command)
+accepted=NO
+reason=invalid RED: the bridge manifest exposed only cdylib/staticlib, so the integration test could not link `topology_bridge` and never reached the intended missing snapshot API. This harness issue is fixed before rerunning RED; the raw output is preserved in red.log.

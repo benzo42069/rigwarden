@@ -1,0 +1,3 @@
+exit_status=101
+accepted=YES
+reason=focused test now links the intended bridge crate and fails only because the requested Rust snapshot API/types are absent.

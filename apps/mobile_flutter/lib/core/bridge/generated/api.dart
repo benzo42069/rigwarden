@@ -6,9 +6,17 @@
 import 'frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
+// These functions are ignored because they are not marked as `pub`: `serial_node`, `serial_port`, `serial_route_connection`
+// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `assert_fields_are_eq`, `assert_fields_are_eq`, `assert_fields_are_eq`, `clone`, `clone`, `clone`, `eq`, `eq`, `eq`, `fmt`, `fmt`, `fmt`
+
 /// Return one validated identity fixture through the typed Rust-Dart bridge.
 Future<DeviceIdentityHandle> readFixtureDeviceIdentity() =>
     RustLib.instance.api.crateApiReadFixtureDeviceIdentity();
+
+/// Build the synthetic Input 1 -> Drive 1 -> Output 1 graph using Rust's
+/// routing APIs and expose only its deterministic read-only snapshot.
+Future<SerialRouteSnapshot> readFixtureSerialRouteSnapshot() =>
+    RustLib.instance.api.crateApiReadFixtureSerialRouteSnapshot();
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>>
 abstract class DeviceIdentityHandle implements RustOpaqueInterface {
@@ -19,4 +27,81 @@ abstract class DeviceIdentityHandle implements RustOpaqueInterface {
   String get model;
 
   String get transportEndpoint;
+}
+
+/// One read-only connection context in a Rust-authored route snapshot.
+class SerialRouteConnection {
+  final String sourceNodeId;
+  final String sourcePortId;
+  final String destinationNodeId;
+  final String destinationPortId;
+
+  const SerialRouteConnection({
+    required this.sourceNodeId,
+    required this.sourcePortId,
+    required this.destinationNodeId,
+    required this.destinationPortId,
+  });
+
+  @override
+  int get hashCode =>
+      sourceNodeId.hashCode ^
+      sourcePortId.hashCode ^
+      destinationNodeId.hashCode ^
+      destinationPortId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SerialRouteConnection &&
+          runtimeType == other.runtimeType &&
+          sourceNodeId == other.sourceNodeId &&
+          sourcePortId == other.sourcePortId &&
+          destinationNodeId == other.destinationNodeId &&
+          destinationPortId == other.destinationPortId;
+}
+
+/// One ordered node and its incoming/outgoing connection context.
+class SerialRouteNode {
+  final String id;
+  final List<SerialRouteConnection> incomingConnections;
+  final List<SerialRouteConnection> outgoingConnections;
+
+  const SerialRouteNode({
+    required this.id,
+    required this.incomingConnections,
+    required this.outgoingConnections,
+  });
+
+  @override
+  int get hashCode =>
+      id.hashCode ^ incomingConnections.hashCode ^ outgoingConnections.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SerialRouteNode &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          incomingConnections == other.incomingConnections &&
+          outgoingConnections == other.outgoingConnections;
+}
+
+/// A deterministic, read-only route snapshot for the nonvisual Flutter view.
+class SerialRouteSnapshot {
+  final List<SerialRouteNode> nodes;
+  final List<SerialRouteConnection> connections;
+
+  const SerialRouteSnapshot({required this.nodes, required this.connections});
+
+  @override
+  int get hashCode => nodes.hashCode ^ connections.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SerialRouteSnapshot &&
+          runtimeType == other.runtimeType &&
+          nodes == other.nodes &&
+          connections == other.connections;
 }

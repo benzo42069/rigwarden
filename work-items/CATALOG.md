@@ -1,6 +1,6 @@
 # Work Item Catalog
 
-Generated from 65 detailed packets.
+Generated from 70 detailed packets.
 
 ## wave-00-research
 
@@ -33,16 +33,18 @@ Generated from 65 detailed packets.
 
 | ID | Status | Priority | Title | Dependencies |
 |---|---|---|---|---|
-| `TOP-A11Y-001` | BLOCKED_DEPENDENCY | high | Expose a serial signal path as an ordered nonvisual route | TOP-GRAPH-002, TOP-GRAPH-005, TOP-UI-001 |
+| `TOP-A11Y-001` | READY | high | Expose a serial signal path as an ordered nonvisual route | TOP-GRAPH-002, TOP-GRAPH-005, TOP-UI-001, TOP-FFI-002 |
 | `TOP-CMD-001` | INTEGRATED | high | Validate one typed parameter mutation against an exact writable profile | TOP-REG-001, TOP-REG-003 |
 | `TOP-CMD-002` | INTEGRATED | high | Reject every write mutation in an unknown-firmware read-only session | TOP-REG-002, TOP-CMD-001 |
 | `TOP-CMD-003` | INTEGRATED | high | Order independent graph mutations deterministically | TOP-CMD-001, TOP-GRAPH-005 |
 | `TOP-DOM-001` | BLOCKED_DEPENDENCY | high | Reject blank device-family identifiers | TOP-BOOT-002, TOP-BOOT-004 |
 | `TOP-DOM-002` | BLOCKED_DEPENDENCY | high | Preserve a nonblank firmware identifier without semantic-version assumptions | TOP-DOM-001 |
 | `TOP-DOM-003` | BLOCKED_DEPENDENCY | high | Represent an identified device with family, model, firmware, and transport endpoint | TOP-DOM-001, TOP-DOM-002 |
-| `TOP-E2E-001` | BLOCKED_CONTRACT | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
+| `TOP-E2E-000` | BLOCKED_DEPENDENCY | high | Compose one typed synthetic parameter edit and confirmed undo in Rust | TOP-CMD-001, TOP-SIM-001, TOP-UNDO-005, TOP-FFI-001 |
+| `TOP-E2E-001` | BLOCKED_DEPENDENCY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-UNDO-003, TOP-FFI-001, TOP-UI-001, TOP-E2E-000 |
 | `TOP-FFI-000` | INTEGRATED | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
 | `TOP-FFI-001` | INTEGRATED | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
+| `TOP-FFI-002` | INTEGRATED | high | Round-trip one Rust-authored serial route snapshot across the generated Flutter bridge | TOP-GRAPH-002, TOP-GRAPH-005, TOP-FFI-001 |
 | `TOP-GRAPH-001` | BLOCKED_DEPENDENCY | high | Create graph nodes with stable typed identities | TOP-DOM-001 |
 | `TOP-GRAPH-002` | BLOCKED_DEPENDENCY | high | Accept one valid serial connection between existing compatible ports | TOP-GRAPH-001 |
 | `TOP-GRAPH-003` | BLOCKED_DEPENDENCY | high | Reject a connection whose source node or port does not exist | TOP-GRAPH-002 |
@@ -58,6 +60,9 @@ Generated from 65 detailed packets.
 | `TOP-UI-001` | INTEGRATED | high | Adapt the session shell between narrow phone and wide tablet layouts | TOP-BOOT-003, TOP-FFI-001 |
 | `TOP-UNDO-001` | INTEGRATED | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
 | `TOP-UNDO-002` | INTEGRATED | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
+| `TOP-UNDO-003` | INTEGRATED | high | Prepare one confirmed undo restoration without removing history early | TOP-UNDO-001, TOP-UNDO-002 |
+| `TOP-UNDO-004` | READY | high | Serialize one confirmed branch history as a bounded deterministic journal snapshot | TOP-UNDO-003 |
+| `TOP-UNDO-005` | BLOCKED_DEPENDENCY | high | Reload one confirmed journal snapshot from a local file after restart simulation | TOP-UNDO-004 |
 
 ## wave-03-am4-bootstrap
 

@@ -1,0 +1,4 @@
+shell=/bin/zsh
+working_directory=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command=cd apps/mobile_flutter && flutter test test/core/bridge/serial_route_test.dart --plain-name "typed serial route snapshot round trips from Rust"
+cycle=generated Dart FFI GREEN after codegen and release bridge build

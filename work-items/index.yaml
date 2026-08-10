@@ -143,12 +143,13 @@ waves:
   items:
   - id: TOP-A11Y-001
     title: Expose a serial signal path as an ordered nonvisual route
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-GRAPH-002
     - TOP-GRAPH-005
     - TOP-UI-001
+    - TOP-FFI-002
     path: work-items/wave-02-core-vertical-slice/TOP-A11Y-001.yaml
   - id: TOP-CMD-001
     title: Validate one typed parameter mutation against an exact writable profile
@@ -197,15 +198,27 @@ waves:
     - TOP-DOM-001
     - TOP-DOM-002
     path: work-items/wave-02-core-vertical-slice/TOP-DOM-003.yaml
+  - id: TOP-E2E-000
+    title: Compose one typed synthetic parameter edit and confirmed undo in Rust
+    status: BLOCKED_DEPENDENCY
+    priority: high
+    depends_on:
+    - TOP-CMD-001
+    - TOP-SIM-001
+    - TOP-UNDO-005
+    - TOP-FFI-001
+    path: work-items/wave-02-core-vertical-slice/TOP-E2E-000.yaml
   - id: TOP-E2E-001
     title: Complete a simulated parameter edit, confirmation, and undo through the typed application path
-    status: BLOCKED_CONTRACT
+    status: BLOCKED_DEPENDENCY
     priority: high
     depends_on:
     - TOP-SIM-001
     - TOP-UNDO-001
+    - TOP-UNDO-003
     - TOP-FFI-001
     - TOP-UI-001
+    - TOP-E2E-000
     path: work-items/wave-02-core-vertical-slice/TOP-E2E-001.yaml
   - id: TOP-FFI-001
     title: Round-trip a typed device identity across the Rust-Dart boundary
@@ -216,6 +229,15 @@ waves:
     - TOP-BOOT-003
     - TOP-FFI-000
     path: work-items/wave-02-core-vertical-slice/TOP-FFI-001.yaml
+  - id: TOP-FFI-002
+    title: Round-trip one Rust-authored serial route snapshot across the generated Flutter bridge
+    status: INTEGRATED
+    priority: high
+    depends_on:
+    - TOP-GRAPH-002
+    - TOP-GRAPH-005
+    - TOP-FFI-001
+    path: work-items/wave-02-core-vertical-slice/TOP-FFI-002.yaml
   - id: TOP-FFI-000
     title: Bootstrap the generated Rust-Dart bridge harness without a product API
     status: INTEGRATED
@@ -333,6 +355,28 @@ waves:
     - TOP-UNDO-001
     - TOP-PRESET-002
     path: work-items/wave-02-core-vertical-slice/TOP-UNDO-002.yaml
+  - id: TOP-UNDO-003
+    title: Prepare one confirmed undo restoration without removing history early
+    status: INTEGRATED
+    priority: high
+    depends_on:
+    - TOP-UNDO-001
+    - TOP-UNDO-002
+    path: work-items/wave-02-core-vertical-slice/TOP-UNDO-003.yaml
+  - id: TOP-UNDO-004
+    title: Serialize one confirmed branch history as a bounded deterministic journal snapshot
+    status: READY
+    priority: high
+    depends_on:
+    - TOP-UNDO-003
+    path: work-items/wave-02-core-vertical-slice/TOP-UNDO-004.yaml
+  - id: TOP-UNDO-005
+    title: Reload one confirmed journal snapshot from a local file after restart simulation
+    status: BLOCKED_DEPENDENCY
+    priority: high
+    depends_on:
+    - TOP-UNDO-004
+    path: work-items/wave-02-core-vertical-slice/TOP-UNDO-005.yaml
 - name: wave-03-am4-bootstrap
   items:
   - id: TOP-AM4-E2E-001

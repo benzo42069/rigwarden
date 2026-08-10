@@ -1,0 +1,11 @@
+   Compiling topology-bridge v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_bridge)
+error[E0432]: unresolved imports `topology_bridge::api::read_fixture_serial_route_snapshot`, `topology_bridge::api::SerialRouteConnection`
+ --> crates/topology_bridge/tests/serial_route.rs:2:5
+  |
+2 |     read_fixture_serial_route_snapshot, SerialRouteConnection,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^ no `SerialRouteConnection` in `api`
+  |     |
+  |     no `read_fixture_serial_route_snapshot` in `api`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-bridge` (test "serial_route") due to 1 previous error

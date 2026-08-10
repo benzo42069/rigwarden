@@ -1,0 +1,3 @@
+0
+accepted: NO
+reason: The first owner-isolation attempt omitted a pending restoration in the receiving journal, so UnknownUndoProposal was the correct result; this was an invalid RED setup and is superseded by red-owner-corrected.log.

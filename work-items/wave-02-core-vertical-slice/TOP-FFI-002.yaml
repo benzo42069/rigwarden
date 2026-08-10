@@ -1,0 +1,106 @@
+id: TOP-FFI-002
+kind: implementation
+epic: TOP-600
+title: Round-trip one Rust-authored serial route snapshot across the generated Flutter bridge
+status: INTEGRATED
+priority: high
+requirement_ids:
+- GRAPH-008
+- GRAPH-010
+- A11Y-002
+depends_on:
+- TOP-GRAPH-002
+- TOP-GRAPH-005
+- TOP-FFI-001
+parallel_group: core-bridge-route-a
+agent:
+  preferred_role: topology_implementer
+  reviewer_role: topology_reviewer
+  integrator_role: parent_orchestrator
+scope:
+  read:
+  - crates/topology_routing/**
+  - crates/topology_bridge/**
+  - apps/mobile_flutter/flutter_rust_bridge.yaml
+  - apps/mobile_flutter/lib/core/bridge/**
+  write:
+  - crates/topology_bridge/Cargo.toml
+  - Cargo.lock
+  - crates/topology_bridge/src/api/mod.rs
+  - crates/topology_bridge/src/api/serial_route.rs
+  - crates/topology_bridge/src/frb_generated.rs
+  - crates/topology_bridge/tests/serial_route.rs
+  - apps/mobile_flutter/lib/core/bridge/generated/api.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.io.dart
+  - apps/mobile_flutter/lib/core/bridge/generated/frb_generated.web.dart
+  - apps/mobile_flutter/test/core/bridge/serial_route_test.dart
+  - .tdd/evidence/TOP-FFI-002/**
+  forbidden:
+  - Cargo.toml
+  - apps/mobile_flutter/pubspec.yaml
+  - apps/mobile_flutter/assets/**
+  - native/**
+  - device-packs/**
+  - crates/topology_routing/**
+  - work-items/index.yaml
+behavior:
+  why: Flutter cannot truthfully provide a nonvisual route list by recreating graph traversal in Dart; it needs a typed, Rust-authored route snapshot through the real generated bridge.
+  given:
+  - Rust constructs the synthetic serial graph Input 1 → Drive 1 → Output 1 with stable node and port IDs.
+  when:
+  - Flutter requests the snapshot through `RustLib.init()` and the generated FRB endpoint.
+  then:
+  - Ordered nodes are Input 1, Drive 1, Output 1 from Rust topological traversal.
+  - Each node exposes stable ID and incoming/outgoing connection context.
+  - Each connection exposes its stable source/destination node and port identities.
+  - No Dart graph construction, raw bytes, transport handle, or mutation API exists.
+non_goals:
+- Live device graph
+- Full graph metadata, split/merge language, or visual canvas
+- Connection removal mutation
+- Protocol bytes, native transport, platform, or hardware
+preconditions:
+- TOP-GRAPH-002, TOP-GRAPH-005, and TOP-FFI-001 are integrated.
+- The generated bridge release library can be built at its configured local path.
+test:
+  layer: ffi_integration
+  file: crates/topology_bridge/tests/serial_route.rs and apps/mobile_flutter/test/core/bridge/serial_route_test.dart
+  name: rust_authored_serial_route_snapshot_is_stable / typed_serial_route_snapshot_round_trips_from_rust
+  red_command: cargo test -p topology-bridge rust_authored_serial_route_snapshot_is_stable -- --exact --nocapture
+  expected_red:
+    acceptable:
+    - Missing Rust snapshot API or incorrect Rust-derived order/context.
+    - After the Rust cycle is green, a missing generated Flutter API before codegen is a separate tightly coupled RED.
+    unacceptable:
+    - Flutter test uses a mock, hand-built Dart graph, or `RustLib.initMock`.
+    - Missing package, native library, or unrelated code generation failure is used as the Rust RED.
+  green_command: cd apps/mobile_flutter && flutter test test/core/bridge/serial_route_test.dart --plain-name "typed serial route snapshot round trips from Rust"
+minimum_green:
+- Build the route only in Rust using existing Graph APIs and `topological_traversal`.
+- Return typed read-only snapshot records through generated FRB.
+- Regenerate bindings with the pinned generator and use an actual release bridge library for Flutter GREEN.
+required_sweeps:
+- cargo test -p topology-bridge
+- cargo test -p topology-routing
+- CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release
+- cd apps/mobile_flutter && flutter test test/core/bridge/serial_route_test.dart
+- cd apps/mobile_flutter && flutter analyze
+- cargo fmt --all -- --check
+- cargo clippy -p topology-bridge --all-targets -- -D warnings
+acceptance:
+- Flutter proves a real generated FFI call, not a fake.
+- Traversal/order/context originate in Rust.
+- Snapshot has no vendor, endpoint-open, or connection-mutation capability.
+- Independent review approves.
+available_claims_after_completion:
+- FFI_VERIFIED
+unavailable_claims:
+- SEMANTICS_VERIFIED
+- PLATFORM_DEVICE_VERIFIED
+- HARDWARE_VERIFIED
+required_followups:
+- TOP-A11Y-001
+block_conditions:
+- The local FRB release library cannot be built or loaded.
+evidence_directory: .tdd/evidence/TOP-FFI-002

@@ -39,7 +39,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.12.0";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = -911114862;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 159246985;
 
 // Section: executor
 
@@ -305,6 +305,39 @@ fn wire__crate__api__read_fixture_device_identity_impl(
         },
     )
 }
+fn wire__crate__api__read_fixture_serial_route_snapshot_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "read_fixture_serial_route_snapshot",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok =
+                        Result::<_, ()>::Ok(crate::api::read_fixture_serial_route_snapshot())?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
 
 // Section: related_funcs
 
@@ -354,6 +387,77 @@ impl SseDecode for Vec<u8> {
     }
 }
 
+impl SseDecode for Vec<crate::api::SerialRouteConnection> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut len_ = <i32>::sse_decode(deserializer);
+        let mut ans_ = Vec::with_capacity(len_ as usize);
+        for idx_ in 0..len_ {
+            ans_.push(<crate::api::SerialRouteConnection>::sse_decode(
+                deserializer,
+            ));
+        }
+        return ans_;
+    }
+}
+
+impl SseDecode for Vec<crate::api::SerialRouteNode> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut len_ = <i32>::sse_decode(deserializer);
+        let mut ans_ = Vec::with_capacity(len_ as usize);
+        for idx_ in 0..len_ {
+            ans_.push(<crate::api::SerialRouteNode>::sse_decode(deserializer));
+        }
+        return ans_;
+    }
+}
+
+impl SseDecode for crate::api::SerialRouteConnection {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_sourceNodeId = <String>::sse_decode(deserializer);
+        let mut var_sourcePortId = <String>::sse_decode(deserializer);
+        let mut var_destinationNodeId = <String>::sse_decode(deserializer);
+        let mut var_destinationPortId = <String>::sse_decode(deserializer);
+        return crate::api::SerialRouteConnection {
+            source_node_id: var_sourceNodeId,
+            source_port_id: var_sourcePortId,
+            destination_node_id: var_destinationNodeId,
+            destination_port_id: var_destinationPortId,
+        };
+    }
+}
+
+impl SseDecode for crate::api::SerialRouteNode {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_id = <String>::sse_decode(deserializer);
+        let mut var_incomingConnections =
+            <Vec<crate::api::SerialRouteConnection>>::sse_decode(deserializer);
+        let mut var_outgoingConnections =
+            <Vec<crate::api::SerialRouteConnection>>::sse_decode(deserializer);
+        return crate::api::SerialRouteNode {
+            id: var_id,
+            incoming_connections: var_incomingConnections,
+            outgoing_connections: var_outgoingConnections,
+        };
+    }
+}
+
+impl SseDecode for crate::api::SerialRouteSnapshot {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_nodes = <Vec<crate::api::SerialRouteNode>>::sse_decode(deserializer);
+        let mut var_connections =
+            <Vec<crate::api::SerialRouteConnection>>::sse_decode(deserializer);
+        return crate::api::SerialRouteSnapshot {
+            nodes: var_nodes,
+            connections: var_connections,
+        };
+    }
+}
+
 impl SseDecode for u8 {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
@@ -398,6 +502,12 @@ fn pde_ffi_dispatcher_primary_impl(
     match func_id {
         5 => wire__crate__api__init_rigwarden_bridge_impl(port, ptr, rust_vec_len, data_len),
         6 => wire__crate__api__read_fixture_device_identity_impl(port, ptr, rust_vec_len, data_len),
+        7 => wire__crate__api__read_fixture_serial_route_snapshot_impl(
+            port,
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
         _ => unreachable!(),
     }
 }
@@ -442,6 +552,70 @@ impl flutter_rust_bridge::IntoIntoDart<FrbWrapper<DeviceIdentityHandle>> for Dev
     }
 }
 
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::SerialRouteConnection {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.source_node_id.into_into_dart().into_dart(),
+            self.source_port_id.into_into_dart().into_dart(),
+            self.destination_node_id.into_into_dart().into_dart(),
+            self.destination_port_id.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::SerialRouteConnection
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::SerialRouteConnection>
+    for crate::api::SerialRouteConnection
+{
+    fn into_into_dart(self) -> crate::api::SerialRouteConnection {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::SerialRouteNode {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.id.into_into_dart().into_dart(),
+            self.incoming_connections.into_into_dart().into_dart(),
+            self.outgoing_connections.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive for crate::api::SerialRouteNode {}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::SerialRouteNode>
+    for crate::api::SerialRouteNode
+{
+    fn into_into_dart(self) -> crate::api::SerialRouteNode {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::SerialRouteSnapshot {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.nodes.into_into_dart().into_dart(),
+            self.connections.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::SerialRouteSnapshot
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::SerialRouteSnapshot>
+    for crate::api::SerialRouteSnapshot
+{
+    fn into_into_dart(self) -> crate::api::SerialRouteSnapshot {
+        self
+    }
+}
+
 impl SseEncode for DeviceIdentityHandle {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
@@ -479,6 +653,53 @@ impl SseEncode for Vec<u8> {
         for item in self {
             <u8>::sse_encode(item, serializer);
         }
+    }
+}
+
+impl SseEncode for Vec<crate::api::SerialRouteConnection> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(self.len() as _, serializer);
+        for item in self {
+            <crate::api::SerialRouteConnection>::sse_encode(item, serializer);
+        }
+    }
+}
+
+impl SseEncode for Vec<crate::api::SerialRouteNode> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(self.len() as _, serializer);
+        for item in self {
+            <crate::api::SerialRouteNode>::sse_encode(item, serializer);
+        }
+    }
+}
+
+impl SseEncode for crate::api::SerialRouteConnection {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <String>::sse_encode(self.source_node_id, serializer);
+        <String>::sse_encode(self.source_port_id, serializer);
+        <String>::sse_encode(self.destination_node_id, serializer);
+        <String>::sse_encode(self.destination_port_id, serializer);
+    }
+}
+
+impl SseEncode for crate::api::SerialRouteNode {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <String>::sse_encode(self.id, serializer);
+        <Vec<crate::api::SerialRouteConnection>>::sse_encode(self.incoming_connections, serializer);
+        <Vec<crate::api::SerialRouteConnection>>::sse_encode(self.outgoing_connections, serializer);
+    }
+}
+
+impl SseEncode for crate::api::SerialRouteSnapshot {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <Vec<crate::api::SerialRouteNode>>::sse_encode(self.nodes, serializer);
+        <Vec<crate::api::SerialRouteConnection>>::sse_encode(self.connections, serializer);
     }
 }
 

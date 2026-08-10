@@ -49,6 +49,23 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  List<SerialRouteConnection> dco_decode_list_serial_route_connection(
+    dynamic raw,
+  );
+
+  @protected
+  List<SerialRouteNode> dco_decode_list_serial_route_node(dynamic raw);
+
+  @protected
+  SerialRouteConnection dco_decode_serial_route_connection(dynamic raw);
+
+  @protected
+  SerialRouteNode dco_decode_serial_route_node(dynamic raw);
+
+  @protected
+  SerialRouteSnapshot dco_decode_serial_route_snapshot(dynamic raw);
+
+  @protected
   int dco_decode_u_8(dynamic raw);
 
   @protected
@@ -80,6 +97,29 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
+
+  @protected
+  List<SerialRouteConnection> sse_decode_list_serial_route_connection(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  List<SerialRouteNode> sse_decode_list_serial_route_node(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SerialRouteConnection sse_decode_serial_route_connection(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SerialRouteNode sse_decode_serial_route_node(SseDeserializer deserializer);
+
+  @protected
+  SerialRouteSnapshot sse_decode_serial_route_snapshot(
+    SseDeserializer deserializer,
+  );
 
   @protected
   int sse_decode_u_8(SseDeserializer deserializer);
@@ -123,6 +163,36 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_list_prim_u_8_strict(
     Uint8List self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_list_serial_route_connection(
+    List<SerialRouteConnection> self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_list_serial_route_node(
+    List<SerialRouteNode> self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_serial_route_connection(
+    SerialRouteConnection self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_serial_route_node(
+    SerialRouteNode self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_serial_route_snapshot(
+    SerialRouteSnapshot self,
     SseSerializer serializer,
   );
 

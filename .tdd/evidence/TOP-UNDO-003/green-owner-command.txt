@@ -1,0 +1,4 @@
+command: cargo test -p topology-undo undo_proposal_cannot_confirm_against_another_journal -- --exact --nocapture
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+environment: default repository environment; no custom variables
