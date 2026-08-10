@@ -61,8 +61,8 @@ Generated from 70 detailed packets.
 | `TOP-UNDO-001` | INTEGRATED | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
 | `TOP-UNDO-002` | INTEGRATED | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
 | `TOP-UNDO-003` | INTEGRATED | high | Prepare one confirmed undo restoration without removing history early | TOP-UNDO-001, TOP-UNDO-002 |
-| `TOP-UNDO-004` | READY | high | Serialize one confirmed branch history as a bounded deterministic journal snapshot | TOP-UNDO-003 |
-| `TOP-UNDO-005` | BLOCKED_DEPENDENCY | high | Reload one confirmed journal snapshot from a local file after restart simulation | TOP-UNDO-004 |
+| `TOP-UNDO-004` | INTEGRATED | high | Serialize one confirmed branch history as a bounded deterministic journal snapshot | TOP-UNDO-003 |
+| `TOP-UNDO-005` | READY | high | Reload one confirmed journal snapshot from a local file after restart simulation | TOP-UNDO-004 |
 
 ## wave-03-am4-bootstrap
 

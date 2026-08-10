@@ -365,14 +365,14 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-UNDO-003.yaml
   - id: TOP-UNDO-004
     title: Serialize one confirmed branch history as a bounded deterministic journal snapshot
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-UNDO-003
     path: work-items/wave-02-core-vertical-slice/TOP-UNDO-004.yaml
   - id: TOP-UNDO-005
     title: Reload one confirmed journal snapshot from a local file after restart simulation
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-UNDO-004

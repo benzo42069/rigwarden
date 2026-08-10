@@ -2,4 +2,7 @@
 
 mod journal;
 
-pub use journal::{Journal, JournalError, PendingMutationId, UndoEntry};
+pub use journal::{
+    JOURNAL_SNAPSHOT_SCHEMA_VERSION, Journal, JournalError, JournalSnapshotError,
+    PendingMutationId, UndoEntry,
+};

@@ -1,0 +1,4 @@
+cargo test -p topology-undo: 0
+cargo test -p topology-preset: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-undo --all-targets -- -D warnings: 0

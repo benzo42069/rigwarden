@@ -1,0 +1,2 @@
+101
+Accepted as intended RED: the focused topology-undo test reached the package and failed only because the packet's snapshot API is not yet implemented.

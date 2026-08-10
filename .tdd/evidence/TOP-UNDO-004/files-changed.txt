@@ -1,0 +1,10 @@
+Packet-authorized production/test paths changed by TOP-UNDO-004:
+- crates/topology_undo/src/journal.rs — bounded deterministic snapshot codec, structured snapshot errors, and Journal encode/decode methods.
+- crates/topology_undo/src/lib.rs — re-exports JournalSnapshotError and JOURNAL_SNAPSHOT_SCHEMA_VERSION.
+- crates/topology_undo/tests/persistence.rs — focused deterministic save/reload, malformed-input, exact-f64, and transient-state tests.
+
+Packet-authorized evidence paths created:
+- .tdd/evidence/TOP-UNDO-004/**
+
+Forbidden/shared paths edited by this packet: none.
+The worktree already contains unrelated dirty/untracked foundation and dependency work; no such paths were modified or staged by this packet.

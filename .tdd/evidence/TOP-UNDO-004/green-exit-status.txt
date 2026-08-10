@@ -1,0 +1,2 @@
+0
+Focused GREEN passed after the minimum codec implementation; final tightened rerun is recorded in green-final.log.

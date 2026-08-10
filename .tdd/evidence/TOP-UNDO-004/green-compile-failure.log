@@ -1,0 +1,43 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0308]: arguments to this method are incorrect
+   --> crates/topology_undo/src/journal.rs:279:24
+    |
+279 |                 writer.u64("entry.previous_value", entry.previous_value.to_bits())?;
+    |                        ^^^ ----------------------  ------------------------------ expected `&'static str`, found `u64`
+    |                            |
+    |                            expected `u64`, found `&'static str`
+    |
+note: method defined here
+   --> crates/topology_undo/src/journal.rs:526:8
+    |
+526 |     fn u64(&mut self, value: u64, field: &'static str) -> Result<(), JournalSnapshotError> {
+    |        ^^^
+help: swap these arguments
+    |
+279 -                 writer.u64("entry.previous_value", entry.previous_value.to_bits())?;
+279 +                 writer.u64(entry.previous_value.to_bits(), "entry.previous_value")?;
+    |
+
+error[E0308]: arguments to this method are incorrect
+   --> crates/topology_undo/src/journal.rs:280:24
+    |
+280 |                 writer.u64("entry.new_value", entry.new_value.to_bits())?;
+    |                        ^^^ -----------------  ------------------------- expected `&'static str`, found `u64`
+    |                            |
+    |                            expected `u64`, found `&'static str`
+    |
+note: method defined here
+   --> crates/topology_undo/src/journal.rs:526:8
+    |
+526 |     fn u64(&mut self, value: u64, field: &'static str) -> Result<(), JournalSnapshotError> {
+    |        ^^^
+help: swap these arguments
+    |
+280 -                 writer.u64("entry.new_value", entry.new_value.to_bits())?;
+280 +                 writer.u64(entry.new_value.to_bits(), "entry.new_value")?;
+    |
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `topology-undo` (lib) due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `topology-undo` (lib test) due to 2 previous errors

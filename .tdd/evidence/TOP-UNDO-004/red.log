@@ -1,0 +1,59 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0599]: no method named `encode_snapshot` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/persistence.rs:17:10
+   |
+16 |       let encoded = journal
+   |  ___________________-
+17 | |         .encode_snapshot()
+   | |         -^^^^^^^^^^^^^^^ method not found in `Journal`
+   | |_________|
+   |
+
+error[E0599]: no associated function or constant named `decode_snapshot` found for struct `Journal` in the current scope
+   --> crates/topology_undo/tests/persistence.rs:25:29
+    |
+ 25 |     let restored = Journal::decode_snapshot(&encoded).expect("snapshot should decode");
+    |                             ^^^^^^^^^^^^^^^ associated function or constant not found in `Journal`
+    |
+note: if you're trying to build a new `Journal` consider using one of the following associated functions:
+      Journal::new
+      Journal::new_with_preset
+   --> crates/topology_undo/src/journal.rs:111:5
+    |
+111 |     pub fn new() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^
+...
+116 |     pub fn new_with_preset(preset: impl Into<String>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no method named `encode_snapshot` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/persistence.rs:58:30
+   |
+58 |     assert!(pending_mutation.encode_snapshot().is_err());
+   |                              ^^^^^^^^^^^^^^^ method not found in `Journal`
+
+error[E0599]: no method named `encode_snapshot` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/persistence.rs:68:33
+   |
+68 |     assert!(pending_restoration.encode_snapshot().is_err());
+   |                                 ^^^^^^^^^^^^^^^ method not found in `Journal`
+
+error[E0599]: no associated function or constant named `decode_snapshot` found for struct `Journal` in the current scope
+   --> crates/topology_undo/tests/persistence.rs:72:60
+    |
+ 72 |     let result = catch_unwind(AssertUnwindSafe(|| Journal::decode_snapshot(input)));
+    |                                                            ^^^^^^^^^^^^^^^ associated function or constant not found in `Journal`
+    |
+note: if you're trying to build a new `Journal` consider using one of the following associated functions:
+      Journal::new
+      Journal::new_with_preset
+   --> crates/topology_undo/src/journal.rs:111:5
+    |
+111 |     pub fn new() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^
+...
+116 |     pub fn new_with_preset(preset: impl Into<String>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-undo` (test "persistence") due to 5 previous errors
