@@ -28,7 +28,7 @@ scope:
   - crates/topology_undo/src/journal.rs
   - crates/topology_undo/tests/confirmed_previous.rs
   - .tdd/evidence/TOP-UNDO-001/**
-forbidden:
+  forbidden:
   - apps/**
   - native/**
   - device-packs/**
