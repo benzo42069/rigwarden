@@ -40,4 +40,4 @@ Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime rout
 
 **Last completed integration sweep:** `TOP-UNDO-002` focused branch isolation, undo package, preset package, workspace format, and undo Clippy checks all exited 0 after independent review.
 
-**Next dependency-complete group:** `TOP-E2E-001` requires a contract amendment before execution; fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Contract gate:** `TOP-E2E-001` is `BLOCKED_CONTRACT`: a real typed app→FFI→validator→synthetic simulator→journal composition path does not yet exist. It needs a narrow command/event bridge decision and composition packet; no fake Dart-only E2E test will be accepted. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
