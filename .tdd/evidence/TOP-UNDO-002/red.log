@@ -1,0 +1,15 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0599]: no associated function or constant named `new_with_preset` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/branch.rs:5:32
+   |
+ 5 |     let mut journal = Journal::new_with_preset("preset-a");
+   |                                ^^^^^^^^^^^^^^^ associated function or constant not found in `Journal`
+   |
+note: if you're trying to build a new `Journal`, consider using `Journal::new` which returns `Journal`
+  --> crates/topology_undo/src/journal.rs:57:5
+   |
+57 |     pub fn new() -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `topology-undo` (test "branch") due to 1 previous error

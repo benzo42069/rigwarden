@@ -1,0 +1,3 @@
+exit_status=101
+accepted=YES
+reason=Focused test reached topology-undo and failed only because Journal::new_with_preset is intentionally absent; this is the missing branch API required by the packet.

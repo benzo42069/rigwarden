@@ -2,7 +2,7 @@ id: TOP-UNDO-002
 kind: implementation
 epic: TOP-500
 title: Create a new journal branch when preset context changes
-status: INTEGRATED
+status: READY
 priority: high
 requirement_ids:
 - UNDO-004

@@ -57,7 +57,7 @@ Generated from 65 detailed packets.
 | `TOP-SIM-002` | INTEGRATED | high | Reject a stale response from a previous connection generation | TOP-SIM-001 |
 | `TOP-UI-001` | INTEGRATED | high | Adapt the session shell between narrow phone and wide tablet layouts | TOP-BOOT-003, TOP-FFI-001 |
 | `TOP-UNDO-001` | INTEGRATED | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
-| `TOP-UNDO-002` | READY | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
+| `TOP-UNDO-002` | INTEGRATED | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
 
 ## wave-03-am4-bootstrap
 

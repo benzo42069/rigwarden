@@ -327,7 +327,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-UNDO-001.yaml
   - id: TOP-UNDO-002
     title: Create a new journal branch when preset context changes
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-UNDO-001

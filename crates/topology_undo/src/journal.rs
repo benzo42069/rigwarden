@@ -45,17 +45,55 @@ pub enum JournalError {
 }
 
 /// In-memory semantic journal for pending and confirmed changes.
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct Journal {
     next_id: u64,
-    pending: BTreeMap<PendingMutationId, UndoEntry>,
-    completed: Vec<UndoEntry>,
+    pending: BTreeMap<PendingMutationId, PendingEntry>,
+    branches: BTreeMap<String, Vec<UndoEntry>>,
+    current_branch: String,
+}
+
+#[derive(Debug)]
+struct PendingEntry {
+    branch_name: String,
+    entry: UndoEntry,
 }
 
 impl Journal {
     /// Create an empty journal.
     pub fn new() -> Self {
-        Self::default()
+        Self::new_with_preset("default")
+    }
+
+    /// Create an empty journal for the supplied preset context.
+    pub fn new_with_preset(preset: impl Into<String>) -> Self {
+        let preset = preset.into();
+        let mut branches = BTreeMap::new();
+        branches.insert(preset.clone(), Vec::new());
+        Self {
+            next_id: 0,
+            pending: BTreeMap::new(),
+            branches,
+            current_branch: preset,
+        }
+    }
+
+    /// Switch the active preset context, retaining each context's history in
+    /// its own named branch.
+    pub fn switch_preset(&mut self, preset: impl Into<String>) {
+        let preset = preset.into();
+        self.branches.entry(preset.clone()).or_default();
+        self.current_branch = preset;
+    }
+
+    /// Return the name of the active preset branch.
+    pub fn current_branch_name(&self) -> &str {
+        &self.current_branch
+    }
+
+    /// Return completed entries retained by a named preset branch.
+    pub fn branch_entries(&self, branch_name: &str) -> Option<&[UndoEntry]> {
+        self.branches.get(branch_name).map(Vec::as_slice)
     }
 
     /// Stage a parameter change using the caller's confirmed prior value.
@@ -73,18 +111,24 @@ impl Journal {
         self.next_id = self.next_id.saturating_add(1);
         self.pending.insert(
             id,
-            UndoEntry::new(target.into(), confirmed_previous_value, requested_new_value),
+            PendingEntry {
+                branch_name: self.current_branch.clone(),
+                entry: UndoEntry::new(target.into(), confirmed_previous_value, requested_new_value),
+            },
         );
         id
     }
 
     /// Mark a pending mutation confirmed and append its undo entry.
     pub fn confirm(&mut self, id: PendingMutationId) -> Result<(), JournalError> {
-        let entry = self
+        let pending = self
             .pending
             .remove(&id)
             .ok_or(JournalError::UnknownPendingMutation(id))?;
-        self.completed.push(entry);
+        self.branches
+            .entry(pending.branch_name)
+            .or_default()
+            .push(pending.entry);
         Ok(())
     }
 
@@ -103,6 +147,14 @@ impl Journal {
 
     /// Return completed undo entries in confirmation order.
     pub fn completed_entries(&self) -> &[UndoEntry] {
-        &self.completed
+        self.branches
+            .get(&self.current_branch)
+            .expect("journal always contains its active branch")
+    }
+}
+
+impl Default for Journal {
+    fn default() -> Self {
+        Self::new()
     }
 }

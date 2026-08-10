@@ -1,0 +1,10 @@
+Worker scope (TOP-UNDO-002):
+- crates/topology_undo/src/journal.rs — added named preset branch context, current-branch selection, branch inspection, and pending-entry branch affinity; existing pending/confirmed semantics retained.
+- crates/topology_undo/tests/branch.rs — focused isolation test `preset_change_creates_isolated_journal_branch`.
+- .tdd/evidence/TOP-UNDO-002/** — cycle commands, raw logs, environment, handoff, and review-pending record.
+
+Equivalent worktree status at evidence capture:
+- `crates/topology_undo/src/journal.rs` is an untracked dependency-crate file in the shared integration worktree; its packet-scoped content was edited in place and must be included by the parent integration owner.
+- `crates/topology_undo/tests/branch.rs` is a new packet test.
+- Root manifests, lockfiles, apps, native, indexes, traceability, and all other pre-existing dirty/untracked files were not edited by this worker.
+- Cargo target outputs were generated under the existing target directory and are not part of the patch.

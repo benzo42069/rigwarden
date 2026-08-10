@@ -35,6 +35,9 @@ What is real today:
   safety proof, not a protocol or transport compatibility claim.
 - An in-memory undo journal that records the actual confirmed previous value
   and never treats pending or failed mutations as completed undo entries.
+- Preset-aware in-memory undo branches, so a new preset context cannot expose
+  another preset's completed history. Disk persistence and branch merging are
+  still deliberately absent.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release
