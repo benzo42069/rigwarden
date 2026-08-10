@@ -1,0 +1,13 @@
+Packet-authorized source/test paths changed:
+- crates/topology_command_engine/src/lib.rs: declared and re-exported the session module, as granted by the packet amendment.
+- crates/topology_command_engine/src/session.rs: added typed connection-generation request keys, pending/confirmed state, and fail-closed stale response reconciliation.
+- crates/topology_command_engine/tests/stale_response.rs: focused stale-generation RED/GREEN test covering request-ID reuse, pending preservation, stale rejection, and current confirmation.
+
+Packet-authorized evidence paths changed:
+- .tdd/evidence/TOP-SIM-002/**: packet copy, commands, raw logs/statuses, environment, handoff, and pending review.
+
+No changes:
+- crates/topology_simulator/src/scripted_transport.rs (allowed but not needed; the packet behavior is owned by the command-session correlation API).
+- Cargo.toml, Cargo.lock, apps/**, native/**, device-packs/**, work-items/index.yaml, docs/requirements/traceability.yaml.
+
+The repository is a shared dirty worktree with unrelated untracked/staged files; attribution above is limited to this packet's allowed paths and this cycle.

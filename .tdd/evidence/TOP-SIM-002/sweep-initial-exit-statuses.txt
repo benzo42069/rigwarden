@@ -1,0 +1,6 @@
+cargo test -p topology-command-engine: 0
+cargo test -p topology-simulator: 0
+cargo fmt --all -- --check: 0
+cargo clippy -p topology-command-engine --all-targets -- -D warnings: 0
+sweep_complete: true
+observation: initial fail-fast wrapper stopped after the fmt header without persisting a numeric fmt status; no production output was omitted from the canonical rerun below.

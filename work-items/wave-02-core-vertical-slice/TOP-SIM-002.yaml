@@ -2,7 +2,7 @@ id: TOP-SIM-002
 kind: implementation
 epic: TOP-400
 title: Reject a stale response from a previous connection generation
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - TRANSPORT-004
@@ -52,7 +52,7 @@ non_goals:
 preconditions:
 - TOP-SIM-001 integrated.
 test:
-  layer: simulator_integration
+  layer: rust_unit
   file: crates/topology_command_engine/tests/stale_response.rs
   name: stale_response_cannot_confirm_new_connection_request
   red_command: cargo test -p topology-command-engine stale_response_cannot_confirm_new_connection_request -- --exact --nocapture
@@ -78,8 +78,9 @@ acceptance:
 - Current response accepted.
 - Security reviewer approves.
 available_claims_after_completion:
-- SIMULATOR_VERIFIED
+- UNIT_VERIFIED
 unavailable_claims:
+- SIMULATOR_VERIFIED
 - PLATFORM_DEVICE_VERIFIED
 - HARDWARE_VERIFIED
 required_followups: []
@@ -98,3 +99,10 @@ amendments:
   changes:
   - scope.write gained crates/topology_command_engine/src/lib.rs solely for the session module declaration and required API re-export.
   claim_changed: false
+- recorded_at: 2026-08-10T01:08:00-05:00
+  author: parent_orchestrator
+  reason: The executed test directly validates command-session correlation and does not drive a topology-simulator transport path. The verification claim must therefore remain at L1 rather than imply L3 simulator integration.
+  changes:
+  - test.layer changed from simulator_integration to rust_unit.
+  - available claim changed from SIMULATOR_VERIFIED to UNIT_VERIFIED; SIMULATOR_VERIFIED is explicitly unavailable for this packet.
+  claim_changed: true

@@ -1,0 +1,3 @@
+101
+accepted_as_red: false
+reason: Invalid harness; the focused test imported topology_simulator without a packet-permitted Cargo.toml dev-dependency, so compilation stopped before the command-engine behavior under test.

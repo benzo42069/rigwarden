@@ -1,0 +1,4 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-command-engine stale_response_cannot_confirm_new_connection_request -- --exact --nocapture
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd (local worktree; parent published amendment reference 5d1d5ba8279452d90ff362724c319f0f75141afe)

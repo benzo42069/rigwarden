@@ -1,0 +1,20 @@
+work_item: TOP-SIM-002
+requirement_ids: TRANSPORT-004, UNDO-007, SEC-001
+observed_at_utc: 2026-08-10T06:00:15Z
+observed_at_local: 2026-08-10T01:00:15-0500
+repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch: main
+starting_commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+parent_amendment_reference: 5d1d5ba8279452d90ff362724c319f0f75141afe (public-main reference supplied by parent; not present in this local object database)
+worktree: dirty; unrelated parent/other-agent changes pre-existed; no reset or checkout performed
+os: macOS 26.5 (Darwin 25.5.0, arm64)
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+flutter: Flutter 3.44.9 stable (not required for this Rust simulator cycle)
+dart: Dart SDK 3.12.2 (not required for this Rust simulator cycle)
+native_sdks: Xcode 26.5 / build 17F42 (not required)
+requested_subagent_route: OpenAI gpt-5.6-luna, max
+effective_subagent_route: OpenAI gpt-5.6-luna, max (parent-confirmed; not independently visible in this worker)
+hardware: not required; no physical device, transport, emulator, or network used
+fixtures: no external/vendor fixture; response payloads are opaque synthetic test bytes
+environment_variables: none set for this cycle

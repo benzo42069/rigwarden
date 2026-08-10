@@ -304,7 +304,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-SIM-001.yaml
   - id: TOP-SIM-002
     title: Reject a stale response from a previous connection generation
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-SIM-001

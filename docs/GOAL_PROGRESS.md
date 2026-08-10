@@ -21,6 +21,7 @@
 - **Integrated:** `TOP-CMD-003` (stable semantic graph-mutation planning respects dependencies and is insertion-order independent; `UNIT_VERIFIED` only) after independent review and public candidate commit `906816f` matched reviewed blobs and passed focused, command, routing, formatter, and Clippy integration sweeps.
 - **Integrated:** `TOP-SIM-001` (one deterministic synthetic request/response exchange, correlation, transcript, and structured mismatch; `SIMULATOR_VERIFIED` only) after independent review and parent rerun of focused, simulator, command-engine, formatter, and Clippy checks. No byte, platform, or hardware claim is implied.
 - **Integrated:** `TOP-UI-001` (adaptive phone/tablet session shell with a bounded Flutter L4 semantic contract) after three preserved TDD cycles, independent accessibility review, and a clean serial parent Flutter sweep. The claim excludes physical VoiceOver/TalkBack, switch-control, destination workflows, platform-device, and hardware proof.
+- **Integrated:** `TOP-SIM-002` (a reused request ID from an older connection generation cannot confirm the newer request) after independent security review and parent Rust integration sweeps. This is `UNIT_VERIFIED` command-session correlation only, not simulator transport, protocol, platform, or hardware verification.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
@@ -35,6 +36,6 @@
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-UI-001` focused and full Flutter tests, analyzer, and Dart format checks all exited 0 serially after independent accessibility review.
+**Last completed integration sweep:** `TOP-SIM-002` focused stale-response, command-engine, simulator, workspace format, and command-engine Clippy checks all exited 0 after independent security review.
 
-**Next dependency-complete group:** `TOP-SIM-002` and `TOP-UNDO-001` are now dependency-complete. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next dependency-complete group:** `TOP-UNDO-001` is under final parent integration. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.

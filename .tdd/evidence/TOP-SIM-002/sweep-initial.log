@@ -1,0 +1,74 @@
+
+===== cargo test -p topology-command-engine =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_command_engine-ae19bf2568d195b3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/deterministic_plan.rs (target/debug/deps/deterministic_plan-15a2abdfe2312e6c)
+
+running 1 test
+test equivalent_mutation_sets_produce_same_operation_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parameter_mutation.rs (target/debug/deps/parameter_mutation-e9001a1fdae2a7c6)
+
+running 1 test
+test valid_parameter_mutation_is_typed_but_not_encoded ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/read_only.rs (target/debug/deps/read_only-42e7fd7bd5899f04)
+
+running 2 tests
+test read_only_status_cannot_plan_a_write_even_if_capability_is_true ... ok
+test read_only_session_cannot_plan_a_write ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/stale_response.rs (target/debug/deps/stale_response-043801ec8887e377)
+
+running 1 test
+test stale_response_cannot_confirm_new_connection_request ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_command_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+===== cargo test -p topology-simulator =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_simulator-0b9af973710b2a82)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/request_response.rs (target/debug/deps/request_response-e360de306ab68c71)
+
+running 1 test
+test scripted_exchange_correlates_expected_response ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_simulator
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+===== cargo fmt --all -- --check =====
+
+===== cargo clippy -p topology-command-engine --all-targets -- -D warnings =====
+    Checking topology-domain v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_domain)
+    Checking topology-device-registry v0.0.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_device_registry)
+    Checking topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s
