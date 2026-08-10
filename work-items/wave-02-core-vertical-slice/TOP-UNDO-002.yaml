@@ -2,7 +2,7 @@ id: TOP-UNDO-002
 kind: implementation
 epic: TOP-500
 title: Create a new journal branch when preset context changes
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - UNDO-004
@@ -81,3 +81,10 @@ unavailable_claims:
 required_followups: []
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-UNDO-002
+amendments:
+- recorded_at: 2026-08-10T01:17:04-05:00
+  author: parent_orchestrator
+  reason: TOP-UNDO-001 and TOP-PRESET-002 are integrated on public main; the dependency block was stale.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false

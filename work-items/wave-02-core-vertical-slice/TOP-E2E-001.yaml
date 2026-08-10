@@ -2,7 +2,7 @@ id: TOP-E2E-001
 kind: implementation
 epic: TOP-700
 title: Complete a simulated parameter edit, confirmation, and undo through the typed application path
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - SIM-001
@@ -101,3 +101,10 @@ required_followups:
 - TOP-FM3-RSCH-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-E2E-001
+amendments:
+- recorded_at: 2026-08-10T01:17:04-05:00
+  author: parent_orchestrator
+  reason: TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, and TOP-UI-001 are integrated on public main; the dependency block was stale. Execution must still stop for a packet-scope amendment if the composed behavior needs production orchestration paths.
+  changes:
+  - status advanced from BLOCKED_DEPENDENCY to READY for contract audit and future execution.
+  claim_changed: false

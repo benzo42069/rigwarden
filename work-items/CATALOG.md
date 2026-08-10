@@ -40,7 +40,7 @@ Generated from 65 detailed packets.
 | `TOP-DOM-001` | BLOCKED_DEPENDENCY | high | Reject blank device-family identifiers | TOP-BOOT-002, TOP-BOOT-004 |
 | `TOP-DOM-002` | BLOCKED_DEPENDENCY | high | Preserve a nonblank firmware identifier without semantic-version assumptions | TOP-DOM-001 |
 | `TOP-DOM-003` | BLOCKED_DEPENDENCY | high | Represent an identified device with family, model, firmware, and transport endpoint | TOP-DOM-001, TOP-DOM-002 |
-| `TOP-E2E-001` | BLOCKED_DEPENDENCY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
+| `TOP-E2E-001` | READY | high | Complete a simulated parameter edit, confirmation, and undo through the typed application path | TOP-SIM-001, TOP-UNDO-001, TOP-FFI-001, TOP-UI-001 |
 | `TOP-FFI-000` | INTEGRATED | high | Bootstrap the generated Rust-Dart bridge harness without a product API | TOP-BOOT-003 |
 | `TOP-FFI-001` | INTEGRATED | high | Round-trip a typed device identity across the Rust-Dart boundary | TOP-DOM-003, TOP-BOOT-003, TOP-FFI-000 |
 | `TOP-GRAPH-001` | BLOCKED_DEPENDENCY | high | Create graph nodes with stable typed identities | TOP-DOM-001 |
@@ -57,7 +57,7 @@ Generated from 65 detailed packets.
 | `TOP-SIM-002` | INTEGRATED | high | Reject a stale response from a previous connection generation | TOP-SIM-001 |
 | `TOP-UI-001` | INTEGRATED | high | Adapt the session shell between narrow phone and wide tablet layouts | TOP-BOOT-003, TOP-FFI-001 |
 | `TOP-UNDO-001` | INTEGRATED | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
-| `TOP-UNDO-002` | BLOCKED_DEPENDENCY | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
+| `TOP-UNDO-002` | READY | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
 
 ## wave-03-am4-bootstrap
 
