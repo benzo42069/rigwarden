@@ -21,14 +21,14 @@ scope:
   - crates/topology_command_engine/**
   - docs/ARCHITECTURE.md
   write:
+  - Cargo.toml
+  - Cargo.lock
   - crates/topology_undo/Cargo.toml
   - crates/topology_undo/src/lib.rs
   - crates/topology_undo/src/journal.rs
   - crates/topology_undo/tests/confirmed_previous.rs
   - .tdd/evidence/TOP-UNDO-001/**
-  forbidden:
-  - Cargo.toml
-  - Cargo.lock
+forbidden:
   - apps/**
   - native/**
   - device-packs/**
@@ -95,4 +95,12 @@ amendments:
   reason: TOP-PRESET-001 and TOP-CMD-001 are integrated on public main; the dependency block was stale.
   changes:
   - status advanced from BLOCKED_DEPENDENCY to READY.
+  claim_changed: false
+- recorded_at: 2026-08-10T10:12:00-05:00
+  author: parent_orchestrator
+  reason: The packet-owned undo crate cannot enter the workspace or execute its exact selector while root manifest and lockfile are forbidden. The observed package-selector failure is invalid RED evidence; no production behavior was written.
+  changes:
+  - scope.write gained Cargo.toml and Cargo.lock exclusively for the minimal topology-undo workspace membership and its resolved lockfile edge.
+  - scope.forbidden no longer includes Cargo.toml or Cargo.lock.
+  - the implementer must create only the minimal manifest/test harness before a fresh valid RED, then continue the original behavior cycle.
   claim_changed: false
