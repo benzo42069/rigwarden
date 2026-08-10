@@ -1,0 +1,2 @@
+101
+valid mutation RED: the strengthened test targeted the exact current `.journal.rwjs.<pid>.0.tmp` symlink, and unsafe create(true) followed it and overwrote the external target with RWJS bytes.

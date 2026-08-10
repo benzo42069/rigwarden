@@ -1,0 +1,2 @@
+0
+current-source baseline GREEN after the test-strengthening revision: the exact `.journal.rwjs.<pid>.0.tmp` path is attacked in the isolated process, and the package-sweep `.1.tmp` candidate is covered when the restart test runs first.

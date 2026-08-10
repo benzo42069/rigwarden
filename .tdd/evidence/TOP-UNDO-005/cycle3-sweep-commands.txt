@@ -1,0 +1,8 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+environment: CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target for cargo test/clippy commands
+1. CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo test -p topology-undo
+2. CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo test -p topology-preset
+3. cargo fmt --all -- --check
+4. CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo clippy -p topology-undo --all-targets -- -D warnings
+fail_fast: all four commands completed against the restored create_new source and final strengthened test; the initial format check before the final layout patch was a preserved failure, then the final format check passed.

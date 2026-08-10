@@ -1,0 +1,2 @@
+0
+the original confirmed-entry restart selector remained green after the strengthened exact-name mutation cycle.

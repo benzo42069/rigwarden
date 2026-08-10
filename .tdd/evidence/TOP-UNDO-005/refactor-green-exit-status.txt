@@ -1,0 +1,2 @@
+0
+focused test remained green after formatting refactor.

@@ -1,0 +1,3 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+command: cargo test -p topology-undo confirmed_entry_reloads_from_a_local_snapshot_after_restart_simulation -- --exact --nocapture

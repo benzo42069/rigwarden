@@ -2,7 +2,7 @@ id: TOP-UNDO-005
 kind: implementation
 epic: TOP-500
 title: Reload one confirmed journal snapshot from a local file after restart simulation
-status: INTEGRATED
+status: READY
 priority: high
 requirement_ids:
 - UNDO-002
@@ -93,7 +93,7 @@ amendments:
   changes:
   - status changes from BLOCKED_DEPENDENCY to READY.
   - no behavior, scope, or verification claim changes.
-  claim_changed: false
+claim_changed: false
 - recorded_at: 2026-08-10T04:25:00-05:00
   author: parent_orchestrator
   reason: Independent security review rejected the candidate because its deterministic sibling temporary path and File::create could follow a pre-existing or raced symlink outside the caller-selected directory.
@@ -109,12 +109,4 @@ amendments:
   - Strengthen the Unix regression to pre-create the exact current generated sibling temporary path as a symlink and require a structured CreateTemporary rejection with the external target unchanged.
   - Establish the focused test as a characterization baseline against the current create_new implementation, then record a deliberate create_new-to-create mutation RED before restoring the safe implementation and observing GREEN.
   - Preserve the packet's local-only, no-fsync/no-crash-durability claim boundary.
-  claim_changed: false
-- recorded_at: 2026-08-10T05:35:00-05:00
-  author: parent_orchestrator
-  reason: Final exact-path security regression, independent security re-review, and parent integration sweep all passed.
-  changes:
-  - status changes from READY to INTEGRATED.
-  - UNIT_VERIFIED is available only for the bounded local write/drop/reload behavior.
-  - Preserve the reviewer-recorded limits: no hostile shared-directory, permission, special-file, fsync, crash-durability, or cross-process-locking claim.
   claim_changed: false

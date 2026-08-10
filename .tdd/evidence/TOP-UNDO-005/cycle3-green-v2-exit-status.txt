@@ -1,0 +1,2 @@
+0
+restored GREEN: create_new rejected the exact current PID/counter temporary symlink, external bytes were unchanged, and both pre-existing symlink candidates remained intact.

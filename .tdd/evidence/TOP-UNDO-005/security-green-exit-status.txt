@@ -1,0 +1,2 @@
+0
+correction GREEN observed: pre-existing deterministic temp symlink remained untouched, external bytes were unchanged, and the destination was safe/reloadable.

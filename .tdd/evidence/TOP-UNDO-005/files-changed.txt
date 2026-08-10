@@ -1,0 +1,67 @@
+Logical packet changes:
+M crates/topology_undo/src/lib.rs — declares the persistence module and re-exports the local adapter error/operation types.
+A crates/topology_undo/src/persistence.rs — bounded local snapshot file adapter plus Journal save/load wrappers, sibling temporary write, flush, rename replacement, cleanup, and structured errors.
+A crates/topology_undo/tests/local_snapshot.rs — focused restart simulation, exact branch/value preservation, malformed snapshot rejection, temp cleanup, and transient-state rejection.
+
+Evidence additions:
+A .tdd/evidence/TOP-UNDO-005/work-item.yaml
+A .tdd/evidence/TOP-UNDO-005/environment.txt
+A .tdd/evidence/TOP-UNDO-005/red-command.txt
+A .tdd/evidence/TOP-UNDO-005/red.log
+A .tdd/evidence/TOP-UNDO-005/red-exit-status.txt
+A .tdd/evidence/TOP-UNDO-005/green-command.txt
+A .tdd/evidence/TOP-UNDO-005/green.log
+A .tdd/evidence/TOP-UNDO-005/green-exit-status.txt
+A .tdd/evidence/TOP-UNDO-005/sweep-commands.txt
+A .tdd/evidence/TOP-UNDO-005/sweep.log
+A .tdd/evidence/TOP-UNDO-005/sweep-exit-statuses.txt
+A .tdd/evidence/TOP-UNDO-005/refactor-format-failure.log
+A .tdd/evidence/TOP-UNDO-005/refactor-format-failure-status.txt
+A .tdd/evidence/TOP-UNDO-005/refactor-green-command.txt
+A .tdd/evidence/TOP-UNDO-005/refactor-green.log
+A .tdd/evidence/TOP-UNDO-005/refactor-green-exit-status.txt
+A .tdd/evidence/TOP-UNDO-005/review.md
+A .tdd/evidence/TOP-UNDO-005/handoff.md — updated for the security correction cycle; final worker status is CANDIDATE_RE_REVIEW_PENDING.
+A .tdd/evidence/TOP-UNDO-005/patch.diff — uncommitted candidate patch reference generated from the packet-owned source/test files.
+A .tdd/evidence/TOP-UNDO-005/security-red-command.txt — focused pre-existing-temp-symlink correction RED command.
+A .tdd/evidence/TOP-UNDO-005/security-red.log — correction RED output showing the old implementation overwrote the external target.
+A .tdd/evidence/TOP-UNDO-005/security-red-exit-status.txt — correction RED exit 101 and validity note.
+A .tdd/evidence/TOP-UNDO-005/security-green-command.txt — focused symlink regression GREEN command after the unique create_new fix.
+A .tdd/evidence/TOP-UNDO-005/security-green.log — correction GREEN output.
+A .tdd/evidence/TOP-UNDO-005/security-green-exit-status.txt — correction GREEN exit 0 and safety result.
+A .tdd/evidence/TOP-UNDO-005/correction-restart-green-command.txt — original restart selector after the security correction.
+A .tdd/evidence/TOP-UNDO-005/correction-restart-green.log — restart correction GREEN output.
+A .tdd/evidence/TOP-UNDO-005/correction-restart-green-exit-status.txt — restart correction GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline-command.txt — first exact-current-name characterization baseline.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline.log — first baseline GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline-exit-status.txt — first baseline GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline-v2-command.txt — final strengthened exact-name baseline command.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline-v2.log — final strengthened baseline GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-baseline-v2-exit-status.txt — final strengthened baseline GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red-command.txt — first deliberate create_new-to-create mutation command.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red.log — first mutation RED output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red-exit-status.txt — first mutation RED exit 101.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red-v2-command.txt — final strengthened mutation command.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red-v2.log — final strengthened mutation RED output showing external-target overwrite.
+A .tdd/evidence/TOP-UNDO-005/cycle3-mutation-red-v2-exit-status.txt — final strengthened mutation RED exit 101.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green-command.txt — first restored create_new GREEN command.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green.log — first restored GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green-exit-status.txt — first restored GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green-v2-command.txt — final strengthened restored GREEN command.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green-v2.log — final strengthened restored GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-green-v2-exit-status.txt — final strengthened restored GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green-command.txt — first restart selector after the third cycle.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green.log — first third-cycle restart GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green-exit-status.txt — first third-cycle restart GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green-v2-command.txt — final restart selector after the strengthened test.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green-v2.log — final restart GREEN output.
+A .tdd/evidence/TOP-UNDO-005/cycle3-restart-green-v2-exit-status.txt — final restart GREEN exit 0.
+A .tdd/evidence/TOP-UNDO-005/cycle3-sweep-commands.txt — final required sweep commands.
+A .tdd/evidence/TOP-UNDO-005/cycle3-sweep.log — raw output from the final four required sweep reruns.
+A .tdd/evidence/TOP-UNDO-005/cycle3-sweep-exit-statuses.txt — final four required sweep exits, all 0.
+
+Correction source scope: crates/topology_undo/src/persistence.rs uses a unique process/counter sibling temporary name, OpenOptions::create_new(true), and cleanup guarded by successful creation; crates/topology_undo/tests/local_snapshot.rs contains the independent Unix regression against the exact `.0.tmp` path in an isolated selector and the `.1.tmp` package-sweep candidate. The third cycle changed only this test and evidence; final production source remains create_new. No other production source changed.
+
+Sweep status: final third-cycle cargo test -p topology-undo, cargo test -p topology-preset, cargo fmt --all -- --check, and cargo clippy -p topology-undo --all-targets -- -D warnings all exited 0 against the restored source and strengthened test. See cycle3-sweep-commands.txt, cycle3-sweep.log, and cycle3-sweep-exit-statuses.txt.
+
+Scope audit: no Cargo.toml, Cargo.lock, apps, native, device-packs, work-items/index.yaml, or traceability files changed. No commit was created; parent integration owns landing and final diff status. Fresh independent security review is required; prior review.md REVIEW_FAILED evidence is preserved unchanged.

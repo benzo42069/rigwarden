@@ -1,0 +1,2 @@
+101
+accepted as intended RED: topology-undo compiled far enough to identify the missing local persistence error type and Journal file save/load API required by TOP-UNDO-005; no unrelated fixture, filesystem, or dependency failure occurred.

@@ -1,0 +1,23 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running unittests src/lib.rs (/tmp/rigwarden-undo005-cycle3-target/debug/deps/topology_undo-c98808d24dc58a14)
+
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/local_snapshot.rs (/tmp/rigwarden-undo005-cycle3-target/debug/deps/local_snapshot-935f79ec0fbcd6fa)
+
+running 1 test
+
+thread 'preexisting_snapshot_temp_symlink_never_overwrites_external_target' (11691347) panicked at crates/topology_undo/tests/local_snapshot.rs:114:5:
+assertion `left == right` failed: a temporary-path symlink must never receive snapshot bytes
+left: [82, 87, 74, 83, 1, 0, 1, 0, 0, 0, 8, 0, 0, 0, 112, 114, 101, 115, 101, 116, 45, 97, 8, 0, 0, 0, 112, 114, 101, 115, 101, 116, 45, 97, 1, 0, 0, 0, 10, 0, 0, 0, 97, 109, 112, 45, 49, 47, 103, 97, 105, 110, 0, 0, 0, 0, 0, 0, 8, 64, 0, 0, 0, 0, 0, 18, 64]
+right: [101, 120, 116, 101, 114, 110, 97, 108, 32, 115, 116, 97, 116, 101, 32, 109, 117, 115, 116, 32, 114, 101, 109, 97, 105, 110, 32, 117, 110, 99, 104, 97, 110, 103, 101, 100]
+test preexisting_snapshot_temp_symlink_never_overwrites_external_target ... FAILED
+
+failures:
+    preexisting_snapshot_temp_symlink_never_overwrites_external_target
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+error: test failed, to rerun `-p topology-undo --test local_snapshot`

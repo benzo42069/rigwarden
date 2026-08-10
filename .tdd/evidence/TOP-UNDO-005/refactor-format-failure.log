@@ -1,0 +1,55 @@
+command: cargo fmt --all -- --check
+exit_status: 1
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo/src/persistence.rs:74:
+     /// The snapshot is first written to a sibling temporary file and then
+     /// renamed over the destination. This is a local write/reload boundary;
+     /// it does not claim fsync or power-loss durability.
+-    pub fn save_snapshot_to(
+-        &self,
+-        path: impl AsRef<Path>,
+-    ) -> Result<(), JournalPersistenceError> {
++    pub fn save_snapshot_to(&self, path: impl AsRef<Path>) -> Result<(), JournalPersistenceError> {
+         save_snapshot(path.as_ref(), self)
+     }
+
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo/src/persistence.rs:94:
+     let temporary_path = sibling_temporary_path(path)?;
+
+     let result = (|| {
+-        let mut file = File::create(&temporary_path).map_err(|error| {
+-            JournalPersistenceError::Io {
++        let mut file =
++            File::create(&temporary_path).map_err(|error| JournalPersistenceError::Io {
+                 operation: JournalFileOperation::CreateTemporary,
+                 kind: error.kind(),
+-            }
+-        })?;
+-        file.write_all(&snapshot).map_err(|error| {
+-            JournalPersistenceError::Io {
++            })?;
++        file.write_all(&snapshot)
++            .map_err(|error| JournalPersistenceError::Io {
+                 operation: JournalFileOperation::WriteTemporary,
+                 kind: error.kind(),
+-            }
+-        })?;
++            })?;
+         file.flush().map_err(|error| JournalPersistenceError::Io {
+             operation: JournalFileOperation::FlushTemporary,
+             kind: error.kind(),
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo/tests/local_snapshot.rs:24:
+
+     let saved_paths = fs::read_dir(&directory.0)
+         .expect("temporary directory should be readable")
+-        .map(|entry| entry.expect("directory entry should be readable").file_name())
++        .map(|entry| {
++            entry
++                .expect("directory entry should be readable")
++                .file_name()
++        })
+         .collect::<Vec<_>>();
+-    assert_eq!(
+-        saved_paths,
+-        vec![std::ffi::OsString::from("journal.rwjs")]
+-    );
++    assert_eq!(saved_paths, vec![std::ffi::OsString::from("journal.rwjs")]);

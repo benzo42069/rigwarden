@@ -1,0 +1,2 @@
+0
+the original confirmed-entry restart selector remained green after the final strengthened symlink test and restored create_new implementation.

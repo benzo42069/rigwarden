@@ -1,0 +1,292 @@
+diff --git a/crates/topology_undo/src/persistence.rs b/crates/topology_undo/src/persistence.rs
+new file mode 100644
+index 0000000..3f9a71c
+--- /dev/null
++++ b/crates/topology_undo/src/persistence.rs
+@@ -0,0 +1,153 @@
++use std::fmt;
++use std::fs::{self, File};
++use std::io::{self, Read, Write};
++use std::path::{Path, PathBuf};
++
++use crate::{Journal, JournalSnapshotError};
++
++// Keep file reads bounded to the same limit enforced by the reviewed
++// in-memory snapshot codec. The adapter must not allocate for an unbounded
++// caller-selected file before the codec can reject it.
++const MAX_SNAPSHOT_BYTES: usize = 1024 * 1024;
++
++/// File operation that failed while persisting or loading a journal snapshot.
++#[derive(Clone, Copy, Debug, Eq, PartialEq)]
++pub enum JournalFileOperation {
++    CreateTemporary,
++    WriteTemporary,
++    FlushTemporary,
++    ReplaceSnapshot,
++    ReadSnapshot,
++}
++
++impl fmt::Display for JournalFileOperation {
++    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
++        let operation = match self {
++            Self::CreateTemporary => "create temporary snapshot",
++            Self::WriteTemporary => "write temporary snapshot",
++            Self::FlushTemporary => "flush temporary snapshot",
++            Self::ReplaceSnapshot => "replace snapshot",
++            Self::ReadSnapshot => "read snapshot",
++        };
++        formatter.write_str(operation)
++    }
++}
++
++/// Structured failures returned by the local journal snapshot adapter.
++#[derive(Debug)]
++pub enum JournalPersistenceError {
++    /// The caller-selected path could not be represented as a sibling file.
++    InvalidPath,
++    /// The local filesystem rejected one bounded adapter operation.
++    Io {
++        operation: JournalFileOperation,
++        kind: io::ErrorKind,
++    },
++    /// The local file was read but did not contain a valid journal snapshot.
++    Snapshot(JournalSnapshotError),
++}
++
++impl fmt::Display for JournalPersistenceError {
++    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
++        match self {
++            Self::InvalidPath => formatter.write_str("journal snapshot path has no file name"),
++            Self::Io { operation, kind } => {
++                write!(formatter, "{operation} failed with {kind}")
++            }
++            Self::Snapshot(error) => error.fmt(formatter),
++        }
++    }
++}
++
++impl std::error::Error for JournalPersistenceError {
++    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
++        match self {
++            Self::Snapshot(error) => Some(error),
++            Self::InvalidPath | Self::Io { .. } => None,
++        }
++    }
++}
++
++impl Journal {
++    /// Save confirmed journal history through a caller-selected local path.
++    ///
++    /// The snapshot is first written to a sibling temporary file and then
++    /// renamed over the destination. This is a local write/reload boundary;
++    /// it does not claim fsync or power-loss durability.
++    pub fn save_snapshot_to(&self, path: impl AsRef<Path>) -> Result<(), JournalPersistenceError> {
++        save_snapshot(path.as_ref(), self)
++    }
++
++    /// Load a fresh journal from a caller-selected local snapshot path.
++    pub fn load_snapshot_from(path: impl AsRef<Path>) -> Result<Self, JournalPersistenceError> {
++        load_snapshot(path.as_ref())
++    }
++}
++
++fn save_snapshot(path: &Path, journal: &Journal) -> Result<(), JournalPersistenceError> {
++    let snapshot = journal
++        .encode_snapshot()
++        .map_err(JournalPersistenceError::Snapshot)?;
++    let temporary_path = sibling_temporary_path(path)?;
++
++    let result = (|| {
++        let mut file =
++            File::create(&temporary_path).map_err(|error| JournalPersistenceError::Io {
++                operation: JournalFileOperation::CreateTemporary,
++                kind: error.kind(),
++            })?;
++        file.write_all(&snapshot)
++            .map_err(|error| JournalPersistenceError::Io {
++                operation: JournalFileOperation::WriteTemporary,
++                kind: error.kind(),
++            })?;
++        file.flush().map_err(|error| JournalPersistenceError::Io {
++            operation: JournalFileOperation::FlushTemporary,
++            kind: error.kind(),
++        })?;
++        drop(file);
++
++        fs::rename(&temporary_path, path).map_err(|error| JournalPersistenceError::Io {
++            operation: JournalFileOperation::ReplaceSnapshot,
++            kind: error.kind(),
++        })
++    })();
++
++    if result.is_err() {
++        let _ = fs::remove_file(&temporary_path);
++    }
++    result
++}
++
++fn load_snapshot(path: &Path) -> Result<Journal, JournalPersistenceError> {
++    let file = File::open(path).map_err(|error| JournalPersistenceError::Io {
++        operation: JournalFileOperation::ReadSnapshot,
++        kind: error.kind(),
++    })?;
++    let mut bounded = file.take((MAX_SNAPSHOT_BYTES as u64).saturating_add(1));
++    let mut snapshot = Vec::new();
++    bounded
++        .read_to_end(&mut snapshot)
++        .map_err(|error| JournalPersistenceError::Io {
++            operation: JournalFileOperation::ReadSnapshot,
++            kind: error.kind(),
++        })?;
++    if snapshot.len() > MAX_SNAPSHOT_BYTES {
++        return Err(JournalPersistenceError::Snapshot(
++            JournalSnapshotError::SnapshotTooLarge {
++                length: snapshot.len(),
++                maximum: MAX_SNAPSHOT_BYTES,
++            },
++        ));
++    }
++
++    Journal::decode_snapshot(&snapshot).map_err(JournalPersistenceError::Snapshot)
++}
++
++fn sibling_temporary_path(path: &Path) -> Result<PathBuf, JournalPersistenceError> {
++    let file_name = path
++        .file_name()
++        .and_then(|name| name.to_str())
++        .ok_or(JournalPersistenceError::InvalidPath)?;
++    Ok(path.with_file_name(format!(".{file_name}.tmp")))
++}
+diff --git a/crates/topology_undo/src/lib.rs b/crates/topology_undo/src/lib.rs
+new file mode 100644
+index 0000000..7ba0020
+--- /dev/null
++++ b/crates/topology_undo/src/lib.rs
+@@ -0,0 +1,10 @@
++//! Semantic undo journal for confirmed editor mutations.
++
++mod journal;
++mod persistence;
++
++pub use journal::{
++    JOURNAL_SNAPSHOT_SCHEMA_VERSION, Journal, JournalError, JournalSnapshotError,
++    PendingMutationId, UndoEntry,
++};
++pub use persistence::{JournalFileOperation, JournalPersistenceError};
+diff --git a/crates/topology_undo/tests/local_snapshot.rs b/crates/topology_undo/tests/local_snapshot.rs
+new file mode 100644
+index 0000000..c18f0f7
+--- /dev/null
++++ b/crates/topology_undo/tests/local_snapshot.rs
+@@ -0,0 +1,111 @@
++use std::fs;
++use std::path::PathBuf;
++use std::sync::atomic::{AtomicU64, Ordering};
++
++use topology_undo::{Journal, JournalPersistenceError, JournalSnapshotError};
++
++static NEXT_DIRECTORY_ID: AtomicU64 = AtomicU64::new(0);
++
++#[test]
++fn confirmed_entry_reloads_from_a_local_snapshot_after_restart_simulation() {
++    let directory = temporary_directory();
++    let snapshot_path = directory.0.join("journal.rwjs");
++
++    let mut journal = Journal::new_with_preset("preset-a");
++    let mutation = journal.begin_parameter_change("amp-1/gain", 3.0, 4.5);
++    journal.confirm(mutation).expect("mutation should confirm");
++    journal.switch_preset("preset-b");
++    journal.switch_preset("preset-a");
++
++    journal
++        .save_snapshot_to(&snapshot_path)
++        .expect("confirmed journal should save");
++    let snapshot_bytes = fs::read(&snapshot_path).expect("saved snapshot should be readable");
++
++    let saved_paths = fs::read_dir(&directory.0)
++        .expect("temporary directory should be readable")
++        .map(|entry| {
++            entry
++                .expect("directory entry should be readable")
++                .file_name()
++        })
++        .collect::<Vec<_>>();
++    assert_eq!(saved_paths, vec![std::ffi::OsString::from("journal.rwjs")]);
++
++    drop(journal);
++    let restored = Journal::load_snapshot_from(&snapshot_path).expect("snapshot should reload");
++    assert_eq!(restored.current_branch_name(), "preset-a");
++    let entries = restored
++        .branch_entries("preset-a")
++        .expect("active branch should survive");
++    assert_eq!(entries.len(), 1);
++    assert_eq!(entries[0].target(), "amp-1/gain");
++    assert_eq!(entries[0].previous_value().to_bits(), 3.0f64.to_bits());
++    assert_eq!(entries[0].new_value().to_bits(), 4.5f64.to_bits());
++    assert!(restored.branch_entries("preset-b").is_some());
++
++    fs::write(&snapshot_path, b"not-a-journal")
++        .expect("test should be able to write malformed snapshot bytes");
++    assert!(matches!(
++        Journal::load_snapshot_from(&snapshot_path),
++        Err(JournalPersistenceError::Snapshot(
++            JournalSnapshotError::InvalidMagic { .. }
++        ))
++    ));
++
++    fs::write(&snapshot_path, &snapshot_bytes).expect("valid snapshot should be restorable");
++    let mut pending_mutation = Journal::new_with_preset("preset-a");
++    pending_mutation.begin_parameter_change("amp-1/gain", 3.0, 4.5);
++    assert!(matches!(
++        pending_mutation.save_snapshot_to(&snapshot_path),
++        Err(JournalPersistenceError::Snapshot(
++            JournalSnapshotError::PendingMutation
++        ))
++    ));
++    assert_eq!(
++        fs::read(&snapshot_path).expect("failed save must preserve prior snapshot"),
++        snapshot_bytes
++    );
++
++    let mut pending_restoration = Journal::new_with_preset("preset-a");
++    let mutation = pending_restoration.begin_parameter_change("amp-1/gain", 3.0, 4.5);
++    pending_restoration
++        .confirm(mutation)
++        .expect("mutation should confirm");
++    pending_restoration
++        .prepare_undo()
++        .expect("confirmed entry should prepare undo");
++    assert!(matches!(
++        pending_restoration.save_snapshot_to(&snapshot_path),
++        Err(JournalPersistenceError::Snapshot(
++            JournalSnapshotError::PendingRestoration
++        ))
++    ));
++    assert_eq!(
++        fs::read(&snapshot_path).expect("failed save must preserve prior snapshot"),
++        snapshot_bytes
++    );
++}
++
++struct TemporaryDirectory(PathBuf);
++
++impl Drop for TemporaryDirectory {
++    fn drop(&mut self) {
++        let _ = fs::remove_dir_all(&self.0);
++    }
++}
++
++fn temporary_directory() -> TemporaryDirectory {
++    loop {
++        let id = NEXT_DIRECTORY_ID.fetch_add(1, Ordering::Relaxed);
++        let path = std::env::temp_dir().join(format!(
++            "rigwarden-top-undo-005-{}-{id}",
++            std::process::id()
++        ));
++        match fs::create_dir(&path) {
++            Ok(()) => return TemporaryDirectory(path),
++            Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => continue,
++            Err(error) => panic!("temporary directory setup failed: {error}"),
++        }
++    }
++}

@@ -1,0 +1,5 @@
+cycle: third correction cycle, final restored create_new source and strengthened exact-name regression
+1 CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo test -p topology-undo: 0
+2 CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo test -p topology-preset: 0
+3 cargo fmt --all -- --check: 0
+4 CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo clippy -p topology-undo --all-targets -- -D warnings: 0

@@ -1,0 +1,4 @@
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+environment: CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target
+command: CARGO_TARGET_DIR=/tmp/rigwarden-undo005-cycle3-target cargo test -p topology-undo preexisting_snapshot_temp_symlink_never_overwrites_external_target -- --exact --nocapture

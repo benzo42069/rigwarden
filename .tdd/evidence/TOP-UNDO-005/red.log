@@ -1,0 +1,73 @@
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0432]: unresolved import `topology_undo::JournalPersistenceError`
+ --> crates/topology_undo/tests/local_snapshot.rs:5:30
+  |
+5 | use topology_undo::{Journal, JournalPersistenceError, JournalSnapshotError};
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^ no `JournalPersistenceError` in the root
+
+error[E0599]: no method named `save_snapshot_to` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/local_snapshot.rs:21:10
+   |
+20 | /     journal
+21 | |         .save_snapshot_to(&snapshot_path)
+   | |         -^^^^^^^^^^^^^^^^ method not found in `Journal`
+   | |_________|
+   |
+
+error[E0599]: no associated function or constant named `load_snapshot_from` found for struct `Journal` in the current scope
+   --> crates/topology_undo/tests/local_snapshot.rs:32:29
+    |
+ 32 |     let restored = Journal::load_snapshot_from(&snapshot_path).expect("snapshot should reload");
+    |                             ^^^^^^^^^^^^^^^^^^ associated function or constant not found in `Journal`
+    |
+note: if you're trying to build a new `Journal` consider using one of the following associated functions:
+      Journal::new
+      Journal::new_with_preset
+      Journal::decode_snapshot
+   --> crates/topology_undo/src/journal.rs:225:5
+    |
+225 |     pub fn new() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^
+...
+230 |     pub fn new_with_preset(preset: impl Into<String>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+295 |     pub fn decode_snapshot(input: &[u8]) -> Result<Self, JournalSnapshotError> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `load_snapshot_from` found for struct `Journal` in the current scope
+   --> crates/topology_undo/tests/local_snapshot.rs:46:18
+    |
+ 46 |         Journal::load_snapshot_from(&snapshot_path),
+    |                  ^^^^^^^^^^^^^^^^^^ associated function or constant not found in `Journal`
+    |
+note: if you're trying to build a new `Journal` consider using one of the following associated functions:
+      Journal::new
+      Journal::new_with_preset
+      Journal::decode_snapshot
+   --> crates/topology_undo/src/journal.rs:225:5
+    |
+225 |     pub fn new() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^
+...
+230 |     pub fn new_with_preset(preset: impl Into<String>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+295 |     pub fn decode_snapshot(input: &[u8]) -> Result<Self, JournalSnapshotError>
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no method named `save_snapshot_to` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/local_snapshot.rs:56:26
+   |
+56 |         pending_mutation.save_snapshot_to(&snapshot_path),
+   |                          ^^^^^^^^^^^^^^^^ method not found in `Journal`
+
+error[E0599]: no method named `save_snapshot_to` found for struct `Journal` in the current scope
+  --> crates/topology_undo/tests/local_snapshot.rs:75:29
+   |
+75 |         pending_restoration.save_snapshot_to(&snapshot_path),
+   |                             ^^^^^^^^^^^^^^^^ method not found in `Journal`
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `topology-undo` (test "local_snapshot") due to 6 previous errors

@@ -1,0 +1,2 @@
+101
+valid mutation RED: unsafe create(true) followed the exact generated temporary symlink and overwrote the external target with RWJS bytes.

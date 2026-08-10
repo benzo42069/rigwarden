@@ -1,0 +1,2 @@
+101
+accepted as valid correction RED: the focused symlink regression reached topology-undo, all unrelated targets were filtered/passing, and the old File::create path overwrote the external target with RWJS bytes before the assertion failed.

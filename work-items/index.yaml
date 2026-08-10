@@ -200,7 +200,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-DOM-003.yaml
   - id: TOP-E2E-000
     title: Compose one typed synthetic parameter edit and confirmed undo in Rust
-    status: BLOCKED_DEPENDENCY
+    status: READY
     priority: high
     depends_on:
     - TOP-CMD-001
@@ -372,7 +372,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-UNDO-004.yaml
   - id: TOP-UNDO-005
     title: Reload one confirmed journal snapshot from a local file after restart simulation
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-UNDO-004

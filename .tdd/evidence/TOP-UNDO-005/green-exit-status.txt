@@ -1,0 +1,2 @@
+0
+focused RED→GREEN cycle accepted; local snapshot restart test passed with one test executed and no failures.

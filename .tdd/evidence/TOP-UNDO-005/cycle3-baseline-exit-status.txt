@@ -1,0 +1,2 @@
+0
+test-strengthening characterization baseline GREEN: the exact current PID/counter temporary sibling path (`.journal.rwjs.<pid>.0.tmp`) was pre-created as a symlink, and the current create_new implementation rejected it without touching the external target or destination.

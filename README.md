@@ -38,7 +38,9 @@ What is real today:
 - An in-memory undo journal that records the actual confirmed previous value
   and never treats pending or failed mutations as completed undo entries. A
   prepared restoration keeps history intact until confirmation and is scoped to
-  its owning journal instance; disk persistence remains deliberately absent.
+  its owning journal instance. The journal also has a bounded, deterministic
+  in-memory snapshot codec for confirmed history and exact numeric state; this
+  is not yet a durable file-storage or crash-recovery guarantee.
 - Preset-aware in-memory undo branches, so a new preset context cannot expose
   another preset's completed history. Disk persistence and branch merging are
   still deliberately absent.
@@ -46,6 +48,12 @@ What is real today:
   editor flow: the typed app → validation → synthetic simulator → confirmed
   undo composition is blocked on a narrow, reviewed command/event bridge
   contract. A Dart-only fake will not be used to paper over that gap.
+- Local journal-file restart support is **not integrated**. Its first
+  implementation was rejected in security review because a predictable
+  temporary-file path could follow a symlink. The corrected, exclusive
+  temporary-file implementation has passed independent security review and is
+  awaiting its immutable integration rerun; until then, this project makes no
+  local-file recovery claim.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release
@@ -60,6 +68,8 @@ What is not here yet:
   supported-device promise.
 - Emulator, physical-device, VoiceOver/TalkBack, or modeler hardware
   verification.
+- Durable local-file recovery, crash-safe persistence, or cross-process file
+  locking for undo history.
 - Any claim of supported Fractal firmware, hardware compatibility, or store
   readiness.
 

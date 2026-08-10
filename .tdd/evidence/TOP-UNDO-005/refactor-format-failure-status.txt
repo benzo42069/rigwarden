@@ -1,0 +1,2 @@
+1
+accepted as a refactor-phase formatting failure; targeted rustfmt was run only on the three packet-owned Rust files, focused GREEN was rerun, and the required final format sweep then exited 0.
