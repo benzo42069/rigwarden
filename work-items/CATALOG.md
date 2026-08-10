@@ -54,9 +54,9 @@ Generated from 65 detailed packets.
 | `TOP-REG-002` | BLOCKED_DEPENDENCY | high | Unknown firmware resolves to a non-writable session | TOP-REG-001 |
 | `TOP-REG-003` | INTEGRATED | high | Expose one exact numeric parameter range from an in-memory device profile | TOP-REG-001 |
 | `TOP-SIM-001` | INTEGRATED | high | Complete one scripted request-response exchange with deterministic correlation | TOP-CMD-003 |
-| `TOP-SIM-002` | BLOCKED_DEPENDENCY | high | Reject a stale response from a previous connection generation | TOP-SIM-001 |
+| `TOP-SIM-002` | READY | high | Reject a stale response from a previous connection generation | TOP-SIM-001 |
 | `TOP-UI-001` | INTEGRATED | high | Adapt the session shell between narrow phone and wide tablet layouts | TOP-BOOT-003, TOP-FFI-001 |
-| `TOP-UNDO-001` | BLOCKED_DEPENDENCY | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
+| `TOP-UNDO-001` | READY | high | Create an undo entry only after recording the confirmed previous value | TOP-PRESET-001, TOP-CMD-001 |
 | `TOP-UNDO-002` | BLOCKED_DEPENDENCY | high | Create a new journal branch when preset context changes | TOP-UNDO-001, TOP-PRESET-002 |
 
 ## wave-03-am4-bootstrap
