@@ -2,7 +2,7 @@ id: TOP-UNDO-005
 kind: implementation
 epic: TOP-500
 title: Reload one confirmed journal snapshot from a local file after restart simulation
-status: BLOCKED_DEPENDENCY
+status: READY
 priority: high
 requirement_ids:
 - UNDO-002
@@ -84,6 +84,13 @@ unavailable_claims:
 - HARDWARE_VERIFIED
 required_followups:
 - TOP-E2E-000
-block_conditions:
-- TOP-UNDO-004 is not yet integrated.
+block_conditions: []
 evidence_directory: .tdd/evidence/TOP-UNDO-005
+amendments:
+- recorded_at: 2026-08-10T03:55:00-05:00
+  author: parent_orchestrator
+  reason: TOP-UNDO-004 is now integrated in immutable public commit 8b66ae456cb1186b68af3cbceb3b3599acbe02b8.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to READY.
+  - no behavior, scope, or verification claim changes.
+  claim_changed: false
