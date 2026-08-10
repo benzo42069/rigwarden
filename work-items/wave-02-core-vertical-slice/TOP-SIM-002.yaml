@@ -20,6 +20,7 @@ scope:
   - crates/topology_simulator/**
   - crates/topology_command_engine/**
   write:
+  - crates/topology_command_engine/src/lib.rs
   - crates/topology_command_engine/src/session.rs
   - crates/topology_command_engine/tests/stale_response.rs
   - crates/topology_simulator/src/scripted_transport.rs
@@ -84,6 +85,13 @@ unavailable_claims:
 required_followups: []
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-SIM-002
+amendments:
+- recorded_at: 2026-08-10T10:16:00-05:00
+  author: parent_orchestrator
+  reason: The packet requires an externally exercised command-session API, but the new session module cannot be exported from the command-engine crate under the original write scope.
+  changes:
+  - scope.write gained crates/topology_command_engine/src/lib.rs solely for the session module declaration and required API re-export.
+  claim_changed: false
 amendments:
 - recorded_at: 2026-08-10T10:00:00-05:00
   author: parent_orchestrator
