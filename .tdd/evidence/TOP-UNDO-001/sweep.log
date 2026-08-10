@@ -1,0 +1,149 @@
+===== pass 1 / command 1: cargo test -p topology-undo =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+running 1 test
+test undo_entry_uses_confirmed_previous_value ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests topology_undo
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== pass 1 / command 2: cargo test -p topology-command-engine =====
+   Compiling topology-command-engine v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_command_engine)
+error[E0432]: unresolved imports `topology_command_engine::ConnectionSession`, `topology_command_engine::IncomingResponse`, `topology_command_engine::ResponseDisposition`
+ --> crates/topology_command_engine/tests/stale_response.rs:1:31
+  |
+1 | use topology_command_engine::{ConnectionSession, IncomingResponse, ResponseDisposition};
+  |                               ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^ no `ResponseDisposition` in the root
+  |                               |                  |
+  |                               |                  no `IncomingResponse` in the root
+  |                               no `ConnectionSession` in the root
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `topology-command-engine` (test "stale_response") due to 1 previous error
+
+===== pass 1 / command 3: cargo fmt --all -- --check =====
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo/src/journal.rs:73:
+         self.next_id = self.next_id.saturating_add(1);
+         self.pending.insert(
+             id,
+-            UndoEntry::new(
+-                target.into(),
+-                confirmed_previous_value,
+-                requested_new_value,
+-            ),
++            UndoEntry::new(target.into(), confirmed_previous_value, requested_new_value),
+         );
+Diff in /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo/tests/confirmed_previous.rs:22:
+     assert_eq!(journal.pending_count(), 0);
+ 
+     let failed = journal.begin_parameter_change("amp-1.gain", 4.5, 6.0);
+-    journal.fail(failed).expect("failed mutation should be removable");
++    journal
++        .fail(failed)
++        .expect("failed mutation should be removable");
+
+===== pass 1 / command 4: cargo clippy -p topology-undo --all-targets -- -D warnings =====
+    Checking topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.15s
+
+===== pass 2 / command 5: cargo test -p topology-undo undo_entry_uses_confirmed_previous_value -- --exact --nocapture =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.21s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+running 1 test
+test undo_entry_uses_confirmed_previous_value ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== pass 2 / command 6: cargo test -p topology-undo =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+running 1 test
+test undo_entry_uses_confirmed_previous_value ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests topology_undo
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== pass 2 / command 7: cargo fmt --all -- --check =====
+
+===== pass 2 / command 8: cargo clippy -p topology-undo --all-targets -- -D warnings =====
+    Checking topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s
+
+===== final required / command 9: cargo test -p topology-undo =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/topology_undo-c98808d24dc58a14)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/confirmed_previous.rs (target/debug/deps/confirmed_previous-3676d7a2a2fa665a)
+
+running 1 test
+test undo_entry_uses_confirmed_previous_value ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_undo
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== final required / command 10: cargo test -p topology-command-engine =====
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/topology_command_engine-ae19bf2568d195b3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/deterministic_plan.rs (target/debug/deps/deterministic_plan-15a2abdfe2312e6c)
+
+running 1 test
+test equivalent_mutation_sets_produce_same_operation_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parameter_mutation.rs (target/debug/deps/parameter_mutation-e9001a1fdae2a7c6)
+
+running 1 test
+test valid_parameter_mutation_is_typed_but_not_encoded ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/read_only.rs (target/debug/deps/read_only-42e7fd7bd5899f04)
+
+running 2 tests
+test read_only_status_cannot_plan_a_write_even_if_capability_is_true ... ok
+test read_only_session_cannot_plan_a_write ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/stale_response.rs (target/debug/deps/stale_response-043801ec8887e377)
+
+running 1 test
+test stale_response_cannot_confirm_new_connection_request ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests topology_command_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== final required / command 11: cargo fmt --all -- --check =====
+
+===== final required / command 12: cargo clippy -p topology-undo --all-targets -- -D warnings =====
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s

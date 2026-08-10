@@ -1,0 +1,20 @@
+UTC timestamp: 2026-08-10T05:54:22Z
+Local timestamp: 2026-08-10T00:54:22-0500
+OS: Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0 Apr 27 20:41:26 PDT 2026; arm64
+CPU architecture: arm64
+Repository: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+Branch: main
+Starting commit: 536d8901ac91ecdbc15e09356800d9f46be401dd
+Worktree: dirty (pre-existing shared integration changes; 225 porcelain entries before this packet)
+Rust: rustc 1.97.0 (2d8144b78 2026-07-07)
+Cargo: cargo 1.97.0 (c980f4866 2026-06-30)
+Rust toolchain: channel 1.97.0, profile minimal
+Flutter: 3.44.9 stable
+Dart: 3.12.2 macos_arm64
+Xcode: 26.5 (17F42)
+Java: unavailable (no Java runtime)
+Android SDK/JDK/Gradle: not required for Rust unit packet; Java unavailable
+Codex client/build: not exposed in shell
+Requested/effective worker route: gpt-5.6-luna / max (parent routing confirmation)
+Hardware/emulator: none required; pure Rust unit layer
+Secrets/environment: no secret values used

@@ -1,0 +1,16 @@
+$ cargo test -p topology-undo undo_entry_uses_confirmed_previous_value -- --exact --nocapture
+   Compiling topology-undo v0.1.0 (/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/crates/topology_undo)
+error[E0432]: unresolved imports `journal::Journal`, `journal::JournalError`, `journal::PendingMutationId`, `journal::UndoEntry`
+ --> crates/topology_undo/src/lib.rs:5:19
+  |
+5 | pub use journal::{Journal, JournalError, PendingMutationId, UndoEntry};
+  |                   ^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^ no `UndoEntry` in `journal`
+  |                   |        |             |
+  |                   |        |             no `PendingMutationId` in `journal`
+  |                   |        no `JournalError` in `journal`
+  |                   no `Journal` in `journal`
+
+For more information about this error, try `rustc --explain E0432`.
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `topology-undo` (lib) due to 1 previous error
+error: could not compile `topology-undo` (lib test) due to 1 previous error

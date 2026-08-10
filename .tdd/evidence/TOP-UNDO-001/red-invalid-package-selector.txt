@@ -1,0 +1,1 @@
+The pre-amendment package-selector preflight was invalid RED because topology-undo was not yet a workspace member. The packet amendment at 2026-08-10T00:52:14-05:00 granted the minimal root manifest/lock edge. No raw output was captured before the amendment; this note preserves the status boundary and is not counted as behavior RED evidence.

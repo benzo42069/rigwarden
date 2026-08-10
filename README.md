@@ -30,6 +30,11 @@ What is real today:
   physical screen-reader claim.
 - One deterministic, explicitly synthetic request/response simulator exchange
   with correlation, transcript recording, and a structured mismatch path.
+- A command-session guard that rejects a late response from an older connection
+  generation before it can confirm a reused request ID. This is a unit-level
+  safety proof, not a protocol or transport compatibility claim.
+- An in-memory undo journal that records the actual confirmed previous value
+  and never treats pending or failed mutations as completed undo entries.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release

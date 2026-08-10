@@ -319,7 +319,7 @@ waves:
     path: work-items/wave-02-core-vertical-slice/TOP-UI-001.yaml
   - id: TOP-UNDO-001
     title: Create an undo entry only after recording the confirmed previous value
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-PRESET-001

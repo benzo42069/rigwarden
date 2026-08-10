@@ -1,0 +1,10 @@
+Candidate packet files (including untracked paths):
+M  Cargo.toml — packet-authorized workspace membership edge for crates/topology_undo; existing parent integration members were already dirty before this packet.
+M  Cargo.lock — packet-authorized lock edge for topology-undo v0.1.0; the lockfile already contained unrelated parent dependency changes before this packet.
+?? crates/topology_undo/Cargo.toml — minimal package manifest.
+?? crates/topology_undo/src/lib.rs — public journal exports.
+?? crates/topology_undo/src/journal.rs — in-memory pending/confirmed semantic journal.
+?? crates/topology_undo/tests/confirmed_previous.rs — focused behavior test.
+?? .tdd/evidence/TOP-UNDO-001/** — immutable packet, environment, RED/GREEN/sweep logs, handoff, and review status.
+
+No apps/, native/, device-packs/, or SIM-002 files were modified by this packet. Build artifacts under target/ are ignored/generated and are not part of the patch.

@@ -1,0 +1,2 @@
+101
+Accepted as intended RED: the focused package compiled far enough to report the deliberately missing journal API; no unrelated dependency, selector, fixture, or environment failure occurred.

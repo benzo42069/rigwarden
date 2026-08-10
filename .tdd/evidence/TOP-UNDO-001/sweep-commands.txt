@@ -1,0 +1,17 @@
+Sweep pass 1 (fail-fast commands run independently; raw failures preserved):
+1. set -euo pipefail; cargo test -p topology-undo
+2. set -euo pipefail; cargo test -p topology-command-engine
+3. set -euo pipefail; cargo fmt --all -- --check
+4. set -euo pipefail; cargo clippy -p topology-undo --all-targets -- -D warnings
+
+Refactor correction and sweep pass 2:
+5. set -euo pipefail; cargo test -p topology-undo undo_entry_uses_confirmed_previous_value -- --exact --nocapture
+6. set -euo pipefail; cargo test -p topology-undo
+7. set -euo pipefail; cargo fmt --all -- --check
+8. set -euo pipefail; cargo clippy -p topology-undo --all-targets -- -D warnings
+
+Final required rerun after TOP-SIM-002 source freeze (this packet did not edit SIM-002 files):
+9. set -euo pipefail; cargo test -p topology-undo
+10. set -euo pipefail; cargo test -p topology-command-engine
+11. set -euo pipefail; cargo fmt --all -- --check
+12. set -euo pipefail; cargo clippy -p topology-undo --all-targets -- -D warnings

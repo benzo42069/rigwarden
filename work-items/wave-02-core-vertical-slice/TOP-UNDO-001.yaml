@@ -2,7 +2,7 @@ id: TOP-UNDO-001
 kind: implementation
 epic: TOP-500
 title: Create an undo entry only after recording the confirmed previous value
-status: READY
+status: INTEGRATED
 priority: high
 requirement_ids:
 - UNDO-001
@@ -28,7 +28,7 @@ scope:
   - crates/topology_undo/src/journal.rs
   - crates/topology_undo/tests/confirmed_previous.rs
   - .tdd/evidence/TOP-UNDO-001/**
-forbidden:
+  forbidden:
   - apps/**
   - native/**
   - device-packs/**

@@ -1,0 +1,2 @@
+0
+Focused GREEN observed. The test proves pending is not completed, confirmation preserves exact prior/new values, and failure removes a pending mutation without adding an undo entry.

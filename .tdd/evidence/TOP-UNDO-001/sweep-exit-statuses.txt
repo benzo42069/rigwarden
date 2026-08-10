@@ -1,0 +1,9 @@
+Pass 1: command 1 cargo test -p topology-undo: 0
+Pass 1: command 2 cargo test -p topology-command-engine: 101 (concurrent TOP-SIM-002 stale_response.rs missing API; not this packet)
+Pass 1: command 3 cargo fmt --all -- --check: 1 (only this packet's files; corrected after green)
+Pass 1: command 4 cargo clippy -p topology-undo --all-targets -- -D warnings: 0
+Pass 2: command 5 focused topology-undo test: 0
+Pass 2: command 6 cargo test -p topology-undo: 0
+Pass 2: command 7 cargo fmt --all -- --check: 0
+Pass 2: command 8 cargo clippy -p topology-undo --all-targets -- -D warnings: 0
+Final required rerun after TOP-SIM-002 freeze: command 9 topology-undo: 0; command 10 topology-command-engine: 0; command 11 fmt check: 0; command 12 clippy: 0.

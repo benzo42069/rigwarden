@@ -8,5 +8,6 @@ members = [
     "crates/topology_bridge",
     "crates/topology_command_engine",
     "crates/topology_simulator",
+    "crates/topology_undo",
 ]
 resolver = "2"
