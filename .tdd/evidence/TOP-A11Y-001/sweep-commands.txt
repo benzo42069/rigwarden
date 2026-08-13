@@ -1,0 +1,7 @@
+Fail-fast sweep shell (`set -euo pipefail`), executed in this order from `apps/mobile_flutter`:
+
+1. `flutter test test/features/routing/accessible_route_list_test.dart`
+2. `flutter test test/features/routing/`
+3. `flutter analyze`
+
+Each command records its exit status in `sweep-exit-statuses.txt`; the raw combined stdout/stderr is in `sweep.log`.

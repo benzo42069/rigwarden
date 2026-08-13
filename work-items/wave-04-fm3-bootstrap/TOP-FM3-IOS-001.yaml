@@ -2,7 +2,7 @@ id: TOP-FM3-IOS-001
 kind: implementation
 epic: TOP-1000
 title: Enumerate the evidenced iOS FM3-compatible MIDI/interface path
-status: BLOCKED_DEPENDENCY
+status: BLOCKED_ENVIRONMENT
 priority: high
 requirement_ids:
 - TRANSPORT-002
@@ -84,3 +84,11 @@ required_followups:
 - TOP-FM3-HIL-002
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-FM3-IOS-001
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: TOP-FM3-RSCH-001 and TOP-BOOT-003 are integrated, but the host has Xcode without any installed iOS Simulator runtime, so the packet's exact xcodebuild simulator test cannot provide a valid RED or GREEN.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to BLOCKED_ENVIRONMENT pending a user-provided compatible iOS Simulator runtime or an approved equivalent Xcode test environment.
+  - no CoreMIDI enumeration behavior or platform claim is written.
+  claim_changed: false

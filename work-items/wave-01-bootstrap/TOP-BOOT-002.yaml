@@ -2,7 +2,7 @@ id: TOP-BOOT-002
 kind: bootstrap
 epic: TOP-000
 title: Create the minimum Rust workspace and empty domain test harness
-status: REVIEW_FAILED
+status: INTEGRATED
 priority: critical
 requirement_ids:
 - QA-001
@@ -89,3 +89,11 @@ required_followups:
 block_conditions:
 - Required Rust toolchain cannot be installed/executed in the environment.
 evidence_directory: .tdd/evidence/TOP-BOOT-002
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: The original bootstrap evidence failed independent audit, but TOP-BOOT-002R re-executed the identical product-empty bootstrap behavior with a valid absent-workspace RED, reviewed GREEN, and parent integration sweeps. Repeating the original missing-workspace RED would require destroying the integrated workspace and would not add evidence.
+  changes:
+  - status changes from REVIEW_FAILED to INTEGRATED through the auditable TOP-BOOT-002R remediation record.
+  - the only carried claim remains RUST_HARNESS_EXECUTABLE; no product behavior is inferred.
+  claim_changed: false

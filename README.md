@@ -23,8 +23,10 @@ What is real today:
   offline container/opaque-data preservation, and contributor tooling.
 - A generated Rust ↔ Flutter bridge that round-trips a Rust-owned typed device
   identity and one Rust-authored synthetic serial route snapshot through a real
-  native library in the test harness. The route snapshot is read-only fixture
-  data, not a live graph editor or device connection.
+  native library in the test harness. The route fixture also has a structured
+  nonvisual Flutter list: ordered nodes, incoming/outgoing context, and
+  per-connection remove affordances without a canvas or color dependency.
+  It is read-only fixture data, not a live graph editor or device connection.
 - An adaptive Flutter session shell: phone navigation and tablet navigation
   expose the same six synthetic destinations with names, button semantics,
   selected state, actions, live destination updates, large-text reflow, and a

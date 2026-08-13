@@ -1,0 +1,11 @@
+Invalid focused attempt (harness diagnostics, rejected before RED acceptance).
+
+Command:
+cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart --plain-name "serial route is completely navigable without canvas"
+
+Observed diagnostics:
+test/features/routing/accessible_route_list_test.dart:8:8: Error: Error when reading 'lib/features/routing/accessible_route_list.dart': No such file or directory
+test/features/routing/accessible_route_list_test.dart:24:19: Error: Method not found: 'AccessibleRouteList'.
+test/features/routing/accessible_route_list_test.dart:94:16: Error: The method 'performAction' isn't defined for the type 'WidgetTester'.
+
+The shell wrapper also used the zsh read-only variable name `status` and therefore did not persist an exit-status file. The production widget was still absent, but this was not accepted as RED because the action invocation and wrapper were unrelated harness defects. The test now invokes the semantics owner directly and uses a non-reserved exit variable before the accepted RED rerun.

@@ -1,0 +1,22 @@
+Invalid focused attempt (harness diagnostics, rejected as RED because the test itself referenced stale Flutter APIs in addition to the intentionally missing production widget).
+
+Command:
+cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart --plain-name "serial route is completely navigable without canvas"
+
+Observed diagnostics:
+test/features/routing/accessible_route_list_test.dart:8:8: Error: Error when reading 'lib/features/routing/accessible_route_list.dart': No such file or directory
+import 'package:rigwarden/features/routing/accessible_route_list.dart';
+       ^
+test/features/routing/accessible_route_list_test.dart:24:19: Error: Method not found: 'AccessibleRouteList'.
+            body: AccessibleRouteList(
+                  ^^^^^^^^^^^^^^^^^^^
+test/features/routing/accessible_route_list_test.dart:80:54: Error: Undefined name 'Tristate'.
+        expect(data.flagsCollection.isFocused, isNot(Tristate.none));
+                                                     ^^^^^^^^
+test/features/routing/accessible_route_list_test.dart:94:14: Error: The method 'performAction' isn't defined for the type 'SemanticsNode'.
+ - 'SemanticsNode' is from 'package:flutter/src/semantics/semantics.dart'
+Try correcting the name to the name of an existing method, or defining a method named 'performAction'.
+
+Exit status: 1.
+
+Disposition: INVALID_RED_HARNESS. The missing route widget diagnostic is the intended absence, but the Tristate namespace and action invocation were unrelated test-harness errors. They were corrected before accepting RED; no production file existed or was edited during this attempt.

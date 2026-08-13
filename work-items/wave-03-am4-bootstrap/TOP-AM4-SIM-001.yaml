@@ -2,7 +2,7 @@ id: TOP-AM4-SIM-001
 kind: implementation
 epic: TOP-1200
 title: Replay AM4 identity discovery through the simulator and registry
-status: BLOCKED_DEPENDENCY
+status: BLOCKED_FIXTURE
 priority: high
 requirement_ids:
 - SIM-002
@@ -91,3 +91,11 @@ required_followups:
 - TOP-AM4-E2E-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-AM4-SIM-001
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: All non-device prerequisites are integrated; the remaining direct prerequisites are the lawful AM4 identity fixture, exact decoder, and exact profile, each rooted in user-supplied hardware capture and redistribution approval.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to BLOCKED_FIXTURE.
+  - no simulator, protocol, profile, or compatibility behavior is written or claimed.
+  claim_changed: false

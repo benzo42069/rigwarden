@@ -75,7 +75,7 @@ waves:
     path: work-items/wave-01-bootstrap/TOP-BOOT-001.yaml
   - id: TOP-BOOT-002
     title: Create the minimum Rust workspace and empty domain test harness
-    status: REVIEW_FAILED
+    status: INTEGRATED
     priority: critical
     depends_on:
     - TOP-BOOT-001
@@ -143,7 +143,7 @@ waves:
   items:
   - id: TOP-A11Y-001
     title: Expose a serial signal path as an ordered nonvisual route
-    status: READY
+    status: INTEGRATED
     priority: high
     depends_on:
     - TOP-GRAPH-002
@@ -457,7 +457,7 @@ waves:
     path: work-items/wave-03-am4-bootstrap/TOP-AM4-REG-001.yaml
   - id: TOP-AM4-SIM-001
     title: Replay AM4 identity discovery through the simulator and registry
-    status: BLOCKED_DEPENDENCY
+    status: BLOCKED_FIXTURE
     priority: high
     depends_on:
     - TOP-AM4-PROTO-001
@@ -522,7 +522,7 @@ waves:
     path: work-items/wave-04-fm3-bootstrap/TOP-FM3-HIL-002.yaml
   - id: TOP-FM3-IOS-001
     title: Enumerate the evidenced iOS FM3-compatible MIDI/interface path
-    status: BLOCKED_DEPENDENCY
+    status: BLOCKED_ENVIRONMENT
     priority: high
     depends_on:
     - TOP-FM3-RSCH-001
@@ -530,7 +530,7 @@ waves:
     path: work-items/wave-04-fm3-bootstrap/TOP-FM3-IOS-001.yaml
   - id: TOP-FM3-NATIVE-001
     title: Enumerate a matching FM3 USB serial endpoint on Android without opening it
-    status: BLOCKED_DEPENDENCY
+    status: BLOCKED_ENVIRONMENT
     priority: high
     depends_on:
     - TOP-FM3-RSCH-001
@@ -538,7 +538,7 @@ waves:
     path: work-items/wave-04-fm3-bootstrap/TOP-FM3-NATIVE-001.yaml
   - id: TOP-FM3-NATIVE-002
     title: Open, cancel, and close an Android FM3 USB serial session through a bounded adapter
-    status: BLOCKED_DEPENDENCY
+    status: BLOCKED_ENVIRONMENT
     priority: high
     depends_on:
     - TOP-FM3-NATIVE-001
@@ -562,7 +562,7 @@ waves:
     path: work-items/wave-04-fm3-bootstrap/TOP-FM3-RSCH-001.yaml
   - id: TOP-FM3-SIM-001
     title: Replay FM3 discovery with serial fragmentation through simulator
-    status: BLOCKED_DEPENDENCY
+    status: BLOCKED_FIXTURE
     priority: high
     depends_on:
     - TOP-FM3-PROTO-001

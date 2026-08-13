@@ -2,7 +2,7 @@ id: TOP-FM3-NATIVE-001
 kind: implementation
 epic: TOP-1100
 title: Enumerate a matching FM3 USB serial endpoint on Android without opening it
-status: BLOCKED_DEPENDENCY
+status: BLOCKED_ENVIRONMENT
 priority: high
 requirement_ids:
 - TRANSPORT-002
@@ -87,3 +87,11 @@ required_followups:
 - TOP-FM3-HIL-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-FM3-NATIVE-001
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: TOP-FM3-RSCH-001 and TOP-BOOT-003 are integrated, but the host has neither a Java runtime nor Android SDK environment variables, so the packet's exact Gradle unit test cannot execute a valid RED.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to BLOCKED_ENVIRONMENT pending a user-provided JDK and Android SDK/Gradle test environment.
+  - no descriptor matching or Android USB behavior is written.
+  claim_changed: false

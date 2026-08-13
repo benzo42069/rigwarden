@@ -2,7 +2,7 @@ id: TOP-FM3-NATIVE-002
 kind: implementation
 epic: TOP-1100
 title: Open, cancel, and close an Android FM3 USB serial session through a bounded adapter
-status: BLOCKED_DEPENDENCY
+status: BLOCKED_ENVIRONMENT
 priority: high
 requirement_ids:
 - TRANSPORT-003
@@ -84,3 +84,11 @@ required_followups:
 - TOP-FM3-HIL-001
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-FM3-NATIVE-002
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: Its sole prerequisite TOP-FM3-NATIVE-001 is blocked by the missing host JDK/Android SDK test environment; lifecycle implementation cannot begin before enumeration is independently integrated.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to BLOCKED_ENVIRONMENT pending the user-provided Android test environment and integrated TOP-FM3-NATIVE-001.
+  - no USB session lifecycle behavior is written.
+  claim_changed: false

@@ -1,0 +1,3 @@
+0
+accepted: GREEN
+reason: focused Flutter semantics test passes after the minimum list view uses the real Rust-authored generated bridge snapshot; each node has ordered context and each connection exposes an independently invoked remove callback without mutation.

@@ -2,7 +2,7 @@ id: TOP-FM3-SIM-001
 kind: implementation
 epic: TOP-1300
 title: Replay FM3 discovery with serial fragmentation through simulator
-status: BLOCKED_DEPENDENCY
+status: BLOCKED_FIXTURE
 priority: high
 requirement_ids:
 - SIM-003
@@ -91,3 +91,11 @@ required_followups:
 - TOP-FM3-HIL-002
 block_conditions: []
 evidence_directory: .tdd/evidence/TOP-FM3-SIM-001
+amendments:
+- recorded_at: 2026-08-13T01:35:16-05:00
+  author: parent_orchestrator
+  reason: The generic simulator and registry prerequisites are integrated, but TOP-FM3-PROTO-001 remains blocked on a lawful FM3 identity response fixture from a user-provided physical capture with redistribution approval.
+  changes:
+  - status changes from BLOCKED_DEPENDENCY to BLOCKED_FIXTURE.
+  - no fragmentation/reassembly, decoder, or compatibility behavior is written.
+  claim_changed: false

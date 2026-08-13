@@ -1,0 +1,22 @@
+timestamp_utc=2026-08-13T06:03:53Z
+timestamp_local=2026-08-13T01:03:53-0500
+os=macOS
+26.5
+arch=arm64
+repository=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+branch=main
+starting_commit=536d8901ac91ecdbc15e09356800d9f46be401dd
+dirty_state_summary=246
+ changed_paths
+rust=rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo=cargo 1.97.0 (c980f4866 2026-06-30)
+flutter=Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6b182d2c75 (8 days ago) • 2026-08-05 10:04:07 -0700
+Engine • hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (12 days ago) • 2026-07-31 18:31:59.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+dart=Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+xcode=Xcode 26.5;Build version 17F42;
+android_sdk=<unset>
+jdk=The operation couldn’t be completed. Unable to locate a Java Runtime.
+codex_model_requested=gpt-5.6-luna/max (parent packet routing)
+secrets=none used

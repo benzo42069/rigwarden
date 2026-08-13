@@ -1,0 +1,14 @@
+===== COMMAND 1: flutter test test/features/routing/accessible_route_list_test.dart =====
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+00:00 +0: serial route is completely navigable without canvas
+00:00 +1: All tests passed!
+COMMAND 1 EXIT STATUS: 0
+===== COMMAND 2: flutter test test/features/routing/ =====
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+00:00 +0: serial route is completely navigable without canvas
+00:00 +1: All tests passed!
+COMMAND 2 EXIT STATUS: 0
+===== COMMAND 3: flutter analyze =====
+Analyzing mobile_flutter...                                     
+No issues found! (ran in 90.4s)
+COMMAND 3 EXIT STATUS: 0

@@ -1,0 +1,11 @@
+Invalid GREEN harness attempt (preserved; not counted as GREEN).
+
+Command:
+cd apps/mobile_flutter && flutter test test/features/routing/accessible_route_list_test.dart --plain-name "serial route is completely navigable without canvas"
+
+Observed output:
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+00:00 +0: serial route is completely navigable without canvas
+stage:init
+
+The test stalled in direct `RustLib.init()` before the fixture snapshot call and had to be terminated. This is an invalid GREEN/harness attempt, not a product assertion failure. The test now runs the real FFI initialization and snapshot request inside `WidgetTester.runAsync`, matching the existing bridge test harness boundary. No production behavior was changed for this correction.

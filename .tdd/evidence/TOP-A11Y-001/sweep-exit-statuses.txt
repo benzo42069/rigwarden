@@ -1,0 +1,4 @@
+command_1=0
+command_2=0
+command_3=0
+sweep_pipeline_exit=0

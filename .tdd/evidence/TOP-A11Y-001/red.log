@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+test/features/routing/accessible_route_list_test.dart:8:8: Error: Error when reading 'lib/features/routing/accessible_route_list.dart': No such file or directory
+import 'package:rigwarden/features/routing/accessible_route_list.dart';
+       ^
+test/features/routing/accessible_route_list_test.dart:24:19: Error: Method not found: 'AccessibleRouteList'.
+            body: AccessibleRouteList(
+                  ^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart [E]
+  Failed to load "/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart":
+  Compilation failed for testPath=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart: test/features/routing/accessible_route_list_test.dart:8:8: Error: Error when reading 'lib/features/routing/accessible_route_list.dart': No such file or directory
+  import 'package:rigwarden/features/routing/accessible_route_list.dart';
+         ^
+  test/features/routing/accessible_route_list_test.dart:24:19: Error: Method not found: 'AccessibleRouteList'.
+              body: AccessibleRouteList(
+                    ^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart

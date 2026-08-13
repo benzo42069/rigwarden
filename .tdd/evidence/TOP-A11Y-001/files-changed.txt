@@ -1,0 +1,5 @@
+STATUS  ?? apps/mobile_flutter/lib/features/routing/accessible_route_list.dart
+STATUS  ?? apps/mobile_flutter/test/features/routing/accessible_route_list_test.dart
+STATUS  ?? .tdd/evidence/TOP-A11Y-001/**
+
+The two Flutter files are the packet-owned production semantic view and its focused widget/semantics test. The evidence directory contains the copied packet, environment, invalid harness attempts, accepted RED, accepted GREEN, required sweep outputs/statuses, review-pending record, and handoff. No manifests, generated bridge files, native files, device packs, indexes, or shared integration files were edited.
