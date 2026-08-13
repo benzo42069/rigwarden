@@ -72,9 +72,11 @@ class _AccessibleRouteNode extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ExcludeSemantics(child: Text(node.id)),
-            for (var connectionIndex = 0;
-                connectionIndex < node.outgoingConnections.length;
-                connectionIndex += 1)
+            for (
+              var connectionIndex = 0;
+              connectionIndex < node.outgoingConnections.length;
+              connectionIndex += 1
+            )
               _AccessibleRouteConnection(
                 connection: node.outgoingConnections[connectionIndex],
                 key: ValueKey(
@@ -87,7 +89,6 @@ class _AccessibleRouteNode extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class _AccessibleRouteConnection extends StatelessWidget {
@@ -97,7 +98,9 @@ class _AccessibleRouteConnection extends StatelessWidget {
     super.key,
   });
 
-  static const _removeAction = CustomSemanticsAction(label: 'Remove connection');
+  static const _removeAction = CustomSemanticsAction(
+    label: 'Remove connection',
+  );
 
   final SerialRouteConnection connection;
   final AccessibleRouteRemoveCallback onRemoveConnection;

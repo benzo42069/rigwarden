@@ -47,3 +47,13 @@ rebuilt the release bridge then reran the exact focused test, routing test
 directory, and Flutter analyzer with exit `0` for every command. Physical
 assistive-technology, platform, live-graph, protocol, and hardware claims
 remain unavailable.
+
+## Parent mechanical refactor rerun
+
+After the initial public integration, the scoped Dart formatter identified a
+layout-only refactor in `accessible_route_list.dart`. The parent applied that
+formatter output without changing behavior, then reran `dart format` (0 files
+changed), the exact focused route test, the routing test directory, and
+`flutter analyze`; all exited `0`. See `parent-format-refactor.md`. The
+independent accessibility verdict remains applicable because no semantics or
+runtime behavior changed.
