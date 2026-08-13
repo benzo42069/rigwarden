@@ -1,0 +1,19 @@
+crates/topology_bridge/src/api/mod.rs
+crates/topology_bridge/src/api/simulated_parameter_edit.rs
+crates/topology_bridge/src/frb_generated.rs
+apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart
+apps/mobile_flutter/lib/core/bridge/generated/api.dart
+apps/mobile_flutter/lib/core/bridge/generated/api/simulated_parameter_edit.dart
+apps/mobile_flutter/lib/core/bridge/generated/frb_generated.dart
+apps/mobile_flutter/lib/core/bridge/generated/frb_generated.io.dart
+apps/mobile_flutter/lib/core/bridge/generated/frb_generated.web.dart
+.tdd/evidence/TOP-E2E-001/**
+
+Parent-owned/shared files were not modified by this worker. The parent later
+formatted the pre-existing shared serial_route_test.dart so ci-local could
+complete; that change is not part of this worker's candidate.
+
+Final accessibility correction edits remain confined to the listed
+test-owned Flutter harness plus `.tdd/evidence/TOP-E2E-001/**`; the Rust
+session and generated bridge behavior were unchanged in that cycle. Mutation
+RED logs preserve the temporary harness mutants and the restored source hash.

@@ -1,0 +1,10 @@
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/device_identity_test.dart
+00:00 +0: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/device_identity_test.dart: typed device identity round trips from Rust
+00:01 +1: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: simulated edit confirmation and undo complete end to end
+00:02 +2: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: simulated edit confirmation and undo complete end to end
+00:03 +3: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: emitted semantics retain focus order, keyboard activation, and recovery
+00:03 +4: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: read-only synthetic rejection crosses FFI without exchange
+00:03 +5: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: out-of-range typed error renders through FFI semantics
+00:06 +6: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/harness_test.dart: minimal app mounts
+00:12 +7: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/features/session/session_shell_layout_test.dart: session shell adapts without hiding editor destinations
+00:13 +8: All tests passed!

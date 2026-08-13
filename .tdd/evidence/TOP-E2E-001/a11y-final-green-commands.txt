@@ -1,0 +1,4 @@
+focus: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "emitted semantics retain focus order, keyboard activation, and recovery"
+error: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "out-of-range typed error renders through FFI semantics"
+happy: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end"
+read-only: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "read-only synthetic rejection crosses FFI without exchange"

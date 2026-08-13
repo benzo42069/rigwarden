@@ -1,0 +1,218 @@
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart
+test/core/bridge/simulated_parameter_edit_test.dart:201:23: Error: Method not found: 'createSimulatedReadOnlyParameterEditSession'.
+      session = await createSimulatedReadOnlyParameterEditSession();
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:211:5: Error: 'SimulatedParameterEditError' isn't a type.
+    SimulatedParameterEditError? rejection;
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:216:25: Error: 'SimulatedParameterEditError' isn't a type.
+      expect(error, isA<SimulatedParameterEditError>());
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:217:28: Error: 'SimulatedParameterEditError' isn't a type.
+      rejection = error as SimulatedParameterEditError;
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:220:29: Error: Undefined name 'SimulatedParameterEditErrorCode'.
+    expect(rejection!.code, SimulatedParameterEditErrorCode.readOnly);
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:26:20: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+    expect(initial.context, 'synthetic preset / Amp 1 / gain');
+                   ^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:27:20: Error: The getter 'unit' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'unit'.
+    expect(initial.unit, 'synthetic stored units');
+                   ^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:30:20: Error: The getter 'stepStored' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepStored'.
+    expect(initial.stepStored, 1);
+                   ^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:31:20: Error: The getter 'stepDisplay' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepDisplay'.
+    expect(initial.stepDisplay, closeTo(0.1, 0.000001));
+                   ^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:33:20: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+    expect(initial.readOnly, isFalse);
+                   ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:34:20: Error: The getter 'errorMessage' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'errorMessage'.
+    expect(initial.errorMessage, isNull);
+                   ^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:206:20: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+    expect(initial.readOnly, isTrue);
+                   ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:209:20: Error: The getter 'errorMessage' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'errorMessage'.
+    expect(initial.errorMessage, contains('read-only'));
+                   ^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:311:36: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+  bool get _editEnabled => !_state.readOnly && !_pending;
+                                   ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:314:15: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+      !_state.readOnly && !_pending && _state.journalEntryCount > 0;
+              ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:361:34: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+        ? 'Action: edit ${_state.context} to 4.5'
+                                 ^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:362:41: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+        : 'Action unavailable: ${_state.readOnly ? 'read-only' : 'pending'}';
+                                        ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:364:34: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+        ? 'Action: undo ${_state.context}'
+                                 ^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:365:41: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+        : 'Action unavailable: ${_state.readOnly ? 'read-only' : 'pending or no journal entry'}';
+                                        ^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:404:52: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+                  '${_phaseLabel(_state)} ${_state.context}; '
+                                                   ^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:406:29: Error: The getter 'unit' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'unit'.
+                  '${_state.unit}; range ${_formatStored(_state.minStored)} '
+                            ^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:408:34: Error: The getter 'stepDisplay' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepDisplay'.
+                  'step ${_state.stepDisplay}; precision ${_state.decimalPlaces}',
+                                 ^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:425:24: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+ - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+            if (_state.readOnly)
+                       ^^^^^^^^
+00:00 +0 -1: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart [E]
+  Failed to load "/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart":
+  Compilation failed for testPath=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: test/core/bridge/simulated_parameter_edit_test.dart:201:23: Error: Method not found: 'createSimulatedReadOnlyParameterEditSession'.
+        session = await createSimulatedReadOnlyParameterEditSession();
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:211:5: Error: 'SimulatedParameterEditError' isn't a type.
+      SimulatedParameterEditError? rejection;
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:216:25: Error: 'SimulatedParameterEditError' isn't a type.
+        expect(error, isA<SimulatedParameterEditError>());
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:217:28: Error: 'SimulatedParameterEditError' isn't a type.
+        rejection = error as SimulatedParameterEditError;
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:220:29: Error: Undefined name 'SimulatedParameterEditErrorCode'.
+      expect(rejection!.code, SimulatedParameterEditErrorCode.readOnly);
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:26:20: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+      expect(initial.context, 'synthetic preset / Amp 1 / gain');
+                     ^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:27:20: Error: The getter 'unit' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'unit'.
+      expect(initial.unit, 'synthetic stored units');
+                     ^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:30:20: Error: The getter 'stepStored' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepStored'.
+      expect(initial.stepStored, 1);
+                     ^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:31:20: Error: The getter 'stepDisplay' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepDisplay'.
+      expect(initial.stepDisplay, closeTo(0.1, 0.000001));
+                     ^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:33:20: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+      expect(initial.readOnly, isFalse);
+                     ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:34:20: Error: The getter 'errorMessage' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'errorMessage'.
+      expect(initial.errorMessage, isNull);
+                     ^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:206:20: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+      expect(initial.readOnly, isTrue);
+                     ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:209:20: Error: The getter 'errorMessage' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'errorMessage'.
+      expect(initial.errorMessage, contains('read-only'));
+                     ^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:311:36: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+    bool get _editEnabled => !_state.readOnly && !_pending;
+                                     ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:314:15: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+        !_state.readOnly && !_pending && _state.journalEntryCount > 0;
+                ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:361:34: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+          ? 'Action: edit ${_state.context} to 4.5'
+                                   ^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:362:41: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+          : 'Action unavailable: ${_state.readOnly ? 'read-only' : 'pending'}';
+                                          ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:364:34: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+          ? 'Action: undo ${_state.context}'
+                                   ^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:365:41: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+          : 'Action unavailable: ${_state.readOnly ? 'read-only' : 'pending or no journal entry'}';
+                                          ^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:404:52: Error: The getter 'context' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'context'.
+                    '${_phaseLabel(_state)} ${_state.context}; '
+                                                     ^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:406:29: Error: The getter 'unit' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'unit'.
+                    '${_state.unit}; range ${_formatStored(_state.minStored)} '
+                              ^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:408:34: Error: The getter 'stepDisplay' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'stepDisplay'.
+                    'step ${_state.stepDisplay}; precision ${_state.decimalPlaces}',
+                                   ^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:425:24: Error: The getter 'readOnly' isn't defined for the type 'SimulatedParameterEditState'.
+   - 'SimulatedParameterEditState' is from 'package:rigwarden/core/bridge/generated/api/simulated_parameter_edit.dart' ('lib/core/bridge/generated/api/simulated_parameter_edit.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'readOnly'.
+              if (_state.readOnly)
+                         ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart

@@ -8,10 +8,11 @@ void main() {
 
     final snapshot = await readFixtureSerialRouteSnapshot();
 
-    expect(
-      snapshot.nodes.map((node) => node.id).toList(),
-      ['Input 1', 'Drive 1', 'Output 1'],
-    );
+    expect(snapshot.nodes.map((node) => node.id).toList(), [
+      'Input 1',
+      'Drive 1',
+      'Output 1',
+    ]);
     expect(
       snapshot.connections
           .map(
@@ -24,14 +25,38 @@ void main() {
     );
 
     expect(snapshot.nodes[0].incomingConnections, isEmpty);
-    expect(snapshot.nodes[0].outgoingConnections.single.sourceNodeId, 'Input 1');
-    expect(snapshot.nodes[0].outgoingConnections.single.destinationNodeId, 'Drive 1');
-    expect(snapshot.nodes[1].incomingConnections.single.sourceNodeId, 'Input 1');
-    expect(snapshot.nodes[1].incomingConnections.single.destinationNodeId, 'Drive 1');
-    expect(snapshot.nodes[1].outgoingConnections.single.sourceNodeId, 'Drive 1');
-    expect(snapshot.nodes[1].outgoingConnections.single.destinationNodeId, 'Output 1');
-    expect(snapshot.nodes[2].incomingConnections.single.sourceNodeId, 'Drive 1');
-    expect(snapshot.nodes[2].incomingConnections.single.destinationNodeId, 'Output 1');
+    expect(
+      snapshot.nodes[0].outgoingConnections.single.sourceNodeId,
+      'Input 1',
+    );
+    expect(
+      snapshot.nodes[0].outgoingConnections.single.destinationNodeId,
+      'Drive 1',
+    );
+    expect(
+      snapshot.nodes[1].incomingConnections.single.sourceNodeId,
+      'Input 1',
+    );
+    expect(
+      snapshot.nodes[1].incomingConnections.single.destinationNodeId,
+      'Drive 1',
+    );
+    expect(
+      snapshot.nodes[1].outgoingConnections.single.sourceNodeId,
+      'Drive 1',
+    );
+    expect(
+      snapshot.nodes[1].outgoingConnections.single.destinationNodeId,
+      'Output 1',
+    );
+    expect(
+      snapshot.nodes[2].incomingConnections.single.sourceNodeId,
+      'Drive 1',
+    );
+    expect(
+      snapshot.nodes[2].incomingConnections.single.destinationNodeId,
+      'Output 1',
+    );
     expect(snapshot.nodes[2].outgoingConnections, isEmpty);
   });
 }

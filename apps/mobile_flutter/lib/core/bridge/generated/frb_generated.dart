@@ -4,6 +4,7 @@
 // ignore_for_file: unused_import, unused_element, unnecessary_import, duplicate_ignore, invalid_use_of_internal_member, annotate_overrides, non_constant_identifier_names, curly_braces_in_flow_control_structures, prefer_const_literals_to_create_immutables, unused_field
 
 import 'api.dart';
+import 'api/simulated_parameter_edit.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'frb_generated.dart';
@@ -66,7 +67,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.12.0';
 
   @override
-  int get rustContentHash => 159246985;
+  int get rustContentHash => -1292274858;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -94,6 +95,38 @@ abstract class RustLibApi extends BaseApi {
     required DeviceIdentityHandle that,
   });
 
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginEdit({
+    required SimulatedParameterEditSession that,
+    required int requestedStoredValue,
+  });
+
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginUndo({
+    required SimulatedParameterEditSession that,
+  });
+
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmEdit({
+    required SimulatedParameterEditSession that,
+  });
+
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmUndo({
+    required SimulatedParameterEditSession that,
+  });
+
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionInitialState({
+    required SimulatedParameterEditSession that,
+  });
+
+  Future<SimulatedParameterEditSession>
+  crateApiSimulatedParameterEditCreateSimulatedParameterEditSession();
+
+  Future<SimulatedParameterEditSession>
+  crateApiSimulatedParameterEditCreateSimulatedReadOnlyParameterEditSession();
+
   Future<void> crateApiInitRigwardenBridge();
 
   Future<DeviceIdentityHandle> crateApiReadFixtureDeviceIdentity();
@@ -108,6 +141,15 @@ abstract class RustLibApi extends BaseApi {
 
   CrossPlatformFinalizerArg
   get rust_arc_decrement_strong_count_DeviceIdentityHandlePtr;
+
+  RustArcIncrementStrongCountFnType
+  get rust_arc_increment_strong_count_SimulatedParameterEditSession;
+
+  RustArcDecrementStrongCountFnType
+  get rust_arc_decrement_strong_count_SimulatedParameterEditSession;
+
+  CrossPlatformFinalizerArg
+  get rust_arc_decrement_strong_count_SimulatedParameterEditSessionPtr;
 }
 
 class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
@@ -243,6 +285,271 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginEdit({
+    required SimulatedParameterEditSession that,
+    required int requestedStoredValue,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+            that,
+            serializer,
+          );
+          sse_encode_i_32(requestedStoredValue, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 5,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_simulated_parameter_edit_state,
+          decodeErrorData: sse_decode_simulated_parameter_edit_error,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditSimulatedParameterEditSessionBeginEditConstMeta,
+        argValues: [that, requestedStoredValue],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditSimulatedParameterEditSessionBeginEditConstMeta =>
+      const TaskConstMeta(
+        debugName: "SimulatedParameterEditSession_begin_edit",
+        argNames: ["that", "requestedStoredValue"],
+      );
+
+  @override
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginUndo({
+    required SimulatedParameterEditSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 6,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_simulated_parameter_edit_state,
+          decodeErrorData: sse_decode_simulated_parameter_edit_error,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditSimulatedParameterEditSessionBeginUndoConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditSimulatedParameterEditSessionBeginUndoConstMeta =>
+      const TaskConstMeta(
+        debugName: "SimulatedParameterEditSession_begin_undo",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmEdit({
+    required SimulatedParameterEditSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 7,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_simulated_parameter_edit_state,
+          decodeErrorData: sse_decode_simulated_parameter_edit_error,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmEditConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmEditConstMeta =>
+      const TaskConstMeta(
+        debugName: "SimulatedParameterEditSession_confirm_edit",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmUndo({
+    required SimulatedParameterEditSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 8,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_simulated_parameter_edit_state,
+          decodeErrorData: sse_decode_simulated_parameter_edit_error,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmUndoConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmUndoConstMeta =>
+      const TaskConstMeta(
+        debugName: "SimulatedParameterEditSession_confirm_undo",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<SimulatedParameterEditState>
+  crateApiSimulatedParameterEditSimulatedParameterEditSessionInitialState({
+    required SimulatedParameterEditSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 9,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_simulated_parameter_edit_state,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditSimulatedParameterEditSessionInitialStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditSimulatedParameterEditSessionInitialStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "SimulatedParameterEditSession_initial_state",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<SimulatedParameterEditSession>
+  crateApiSimulatedParameterEditCreateSimulatedParameterEditSession() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 10,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditCreateSimulatedParameterEditSessionConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditCreateSimulatedParameterEditSessionConstMeta =>
+      const TaskConstMeta(
+        debugName: "create_simulated_parameter_edit_session",
+        argNames: [],
+      );
+
+  @override
+  Future<SimulatedParameterEditSession>
+  crateApiSimulatedParameterEditCreateSimulatedReadOnlyParameterEditSession() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 11,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiSimulatedParameterEditCreateSimulatedReadOnlyParameterEditSessionConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiSimulatedParameterEditCreateSimulatedReadOnlyParameterEditSessionConstMeta =>
+      const TaskConstMeta(
+        debugName: "create_simulated_read_only_parameter_edit_session",
+        argNames: [],
+      );
+
+  @override
   Future<void> crateApiInitRigwardenBridge() {
     return handler.executeNormal(
       NormalTask(
@@ -251,7 +558,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 5,
+            funcId: 12,
             port: port_,
           );
         },
@@ -278,7 +585,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 6,
+            funcId: 13,
             port: port_,
           );
         },
@@ -309,7 +616,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 7,
+            funcId: 14,
             port: port_,
           );
         },
@@ -338,6 +645,14 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   get rust_arc_decrement_strong_count_DeviceIdentityHandle => wire
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle;
 
+  RustArcIncrementStrongCountFnType
+  get rust_arc_increment_strong_count_SimulatedParameterEditSession => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession;
+
+  RustArcDecrementStrongCountFnType
+  get rust_arc_decrement_strong_count_SimulatedParameterEditSession => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession;
+
   @protected
   DeviceIdentityHandle
   dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
@@ -345,6 +660,28 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return DeviceIdentityHandleImpl.frbInternalDcoDecode(raw as List<dynamic>);
+  }
+
+  @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
+  }
+
+  @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
   }
 
   @protected
@@ -357,6 +694,17 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
+  }
+
+  @protected
   DeviceIdentityHandle
   dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     dynamic raw,
@@ -366,9 +714,44 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditSession
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
+  }
+
+  @protected
   String dco_decode_String(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as String;
+  }
+
+  @protected
+  bool dco_decode_bool(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as bool;
+  }
+
+  @protected
+  int dco_decode_box_autoadd_i_32(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as int;
+  }
+
+  @protected
+  double dco_decode_f_64(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as double;
+  }
+
+  @protected
+  int dco_decode_i_32(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as int;
   }
 
   @protected
@@ -391,6 +774,27 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   List<SerialRouteNode> dco_decode_list_serial_route_node(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return (raw as List<dynamic>).map(dco_decode_serial_route_node).toList();
+  }
+
+  @protected
+  List<SimulatedParameterEditTranscriptEntry>
+  dco_decode_list_simulated_parameter_edit_transcript_entry(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>)
+        .map(dco_decode_simulated_parameter_edit_transcript_entry)
+        .toList();
+  }
+
+  @protected
+  String? dco_decode_opt_String(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw == null ? null : dco_decode_String(raw);
+  }
+
+  @protected
+  int? dco_decode_opt_box_autoadd_i_32(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw == null ? null : dco_decode_box_autoadd_i_32(raw);
   }
 
   @protected
@@ -433,6 +837,95 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditError dco_decode_simulated_parameter_edit_error(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 3)
+      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    return SimulatedParameterEditError(
+      code: dco_decode_simulated_parameter_edit_error_code(arr[0]),
+      message: dco_decode_String(arr[1]),
+      exchangeCount: dco_decode_u_32(arr[2]),
+    );
+  }
+
+  @protected
+  SimulatedParameterEditErrorCode
+  dco_decode_simulated_parameter_edit_error_code(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditErrorCode.values[raw as int];
+  }
+
+  @protected
+  SimulatedParameterEditPhase dco_decode_simulated_parameter_edit_phase(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditPhase.values[raw as int];
+  }
+
+  @protected
+  SimulatedParameterEditState dco_decode_simulated_parameter_edit_state(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 19)
+      throw Exception('unexpected arr length: expect 19 but see ${arr.length}');
+    return SimulatedParameterEditState(
+      phase: dco_decode_simulated_parameter_edit_phase(arr[0]),
+      target: dco_decode_String(arr[1]),
+      context: dco_decode_String(arr[2]),
+      unit: dco_decode_String(arr[3]),
+      storedValue: dco_decode_i_32(arr[4]),
+      displayValue: dco_decode_f_64(arr[5]),
+      decimalPlaces: dco_decode_u_8(arr[6]),
+      minStored: dco_decode_i_32(arr[7]),
+      maxStored: dco_decode_i_32(arr[8]),
+      stepStored: dco_decode_i_32(arr[9]),
+      stepDisplay: dco_decode_f_64(arr[10]),
+      readOnly: dco_decode_bool(arr[11]),
+      errorMessage: dco_decode_opt_String(arr[12]),
+      journalPreviousStoredValue: dco_decode_opt_box_autoadd_i_32(arr[13]),
+      journalNewStoredValue: dco_decode_opt_box_autoadd_i_32(arr[14]),
+      journalEntryCount: dco_decode_u_32(arr[15]),
+      exchangeCount: dco_decode_u_32(arr[16]),
+      simulatorLabel: dco_decode_String(arr[17]),
+      transcript: dco_decode_list_simulated_parameter_edit_transcript_entry(
+        arr[18],
+      ),
+    );
+  }
+
+  @protected
+  SimulatedParameterEditTranscriptEntry
+  dco_decode_simulated_parameter_edit_transcript_entry(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return SimulatedParameterEditTranscriptEntry(
+      kind: dco_decode_simulated_parameter_edit_transcript_kind(arr[0]),
+      storedValue: dco_decode_i_32(arr[1]),
+    );
+  }
+
+  @protected
+  SimulatedParameterEditTranscriptKind
+  dco_decode_simulated_parameter_edit_transcript_kind(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SimulatedParameterEditTranscriptKind.values[raw as int];
+  }
+
+  @protected
+  int dco_decode_u_32(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as int;
+  }
+
+  @protected
   int dco_decode_u_8(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as int;
@@ -463,12 +956,48 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
+  }
+
+  @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
+  }
+
+  @protected
   DeviceIdentityHandle
   sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return DeviceIdentityHandleImpl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
+  }
+
+  @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
@@ -487,10 +1016,46 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditSession
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return SimulatedParameterEditSessionImpl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
+  }
+
+  @protected
   String sse_decode_String(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var inner = sse_decode_list_prim_u_8_strict(deserializer);
     return utf8.decoder.convert(inner);
+  }
+
+  @protected
+  bool sse_decode_bool(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getUint8() != 0;
+  }
+
+  @protected
+  int sse_decode_box_autoadd_i_32(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_i_32(deserializer));
+  }
+
+  @protected
+  double sse_decode_f_64(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getFloat64();
+  }
+
+  @protected
+  int sse_decode_i_32(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getInt32();
   }
 
   @protected
@@ -526,6 +1091,45 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       ans_.add(sse_decode_serial_route_node(deserializer));
     }
     return ans_;
+  }
+
+  @protected
+  List<SimulatedParameterEditTranscriptEntry>
+  sse_decode_list_simulated_parameter_edit_transcript_entry(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <SimulatedParameterEditTranscriptEntry>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(
+        sse_decode_simulated_parameter_edit_transcript_entry(deserializer),
+      );
+    }
+    return ans_;
+  }
+
+  @protected
+  String? sse_decode_opt_String(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    if (sse_decode_bool(deserializer)) {
+      return (sse_decode_String(deserializer));
+    } else {
+      return null;
+    }
+  }
+
+  @protected
+  int? sse_decode_opt_box_autoadd_i_32(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    if (sse_decode_bool(deserializer)) {
+      return (sse_decode_box_autoadd_i_32(deserializer));
+    } else {
+      return null;
+    }
   }
 
   @protected
@@ -573,6 +1177,122 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  SimulatedParameterEditError sse_decode_simulated_parameter_edit_error(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_code = sse_decode_simulated_parameter_edit_error_code(deserializer);
+    var var_message = sse_decode_String(deserializer);
+    var var_exchangeCount = sse_decode_u_32(deserializer);
+    return SimulatedParameterEditError(
+      code: var_code,
+      message: var_message,
+      exchangeCount: var_exchangeCount,
+    );
+  }
+
+  @protected
+  SimulatedParameterEditErrorCode
+  sse_decode_simulated_parameter_edit_error_code(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return SimulatedParameterEditErrorCode.values[inner];
+  }
+
+  @protected
+  SimulatedParameterEditPhase sse_decode_simulated_parameter_edit_phase(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return SimulatedParameterEditPhase.values[inner];
+  }
+
+  @protected
+  SimulatedParameterEditState sse_decode_simulated_parameter_edit_state(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_phase = sse_decode_simulated_parameter_edit_phase(deserializer);
+    var var_target = sse_decode_String(deserializer);
+    var var_context = sse_decode_String(deserializer);
+    var var_unit = sse_decode_String(deserializer);
+    var var_storedValue = sse_decode_i_32(deserializer);
+    var var_displayValue = sse_decode_f_64(deserializer);
+    var var_decimalPlaces = sse_decode_u_8(deserializer);
+    var var_minStored = sse_decode_i_32(deserializer);
+    var var_maxStored = sse_decode_i_32(deserializer);
+    var var_stepStored = sse_decode_i_32(deserializer);
+    var var_stepDisplay = sse_decode_f_64(deserializer);
+    var var_readOnly = sse_decode_bool(deserializer);
+    var var_errorMessage = sse_decode_opt_String(deserializer);
+    var var_journalPreviousStoredValue = sse_decode_opt_box_autoadd_i_32(
+      deserializer,
+    );
+    var var_journalNewStoredValue = sse_decode_opt_box_autoadd_i_32(
+      deserializer,
+    );
+    var var_journalEntryCount = sse_decode_u_32(deserializer);
+    var var_exchangeCount = sse_decode_u_32(deserializer);
+    var var_simulatorLabel = sse_decode_String(deserializer);
+    var var_transcript =
+        sse_decode_list_simulated_parameter_edit_transcript_entry(deserializer);
+    return SimulatedParameterEditState(
+      phase: var_phase,
+      target: var_target,
+      context: var_context,
+      unit: var_unit,
+      storedValue: var_storedValue,
+      displayValue: var_displayValue,
+      decimalPlaces: var_decimalPlaces,
+      minStored: var_minStored,
+      maxStored: var_maxStored,
+      stepStored: var_stepStored,
+      stepDisplay: var_stepDisplay,
+      readOnly: var_readOnly,
+      errorMessage: var_errorMessage,
+      journalPreviousStoredValue: var_journalPreviousStoredValue,
+      journalNewStoredValue: var_journalNewStoredValue,
+      journalEntryCount: var_journalEntryCount,
+      exchangeCount: var_exchangeCount,
+      simulatorLabel: var_simulatorLabel,
+      transcript: var_transcript,
+    );
+  }
+
+  @protected
+  SimulatedParameterEditTranscriptEntry
+  sse_decode_simulated_parameter_edit_transcript_entry(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_kind = sse_decode_simulated_parameter_edit_transcript_kind(
+      deserializer,
+    );
+    var var_storedValue = sse_decode_i_32(deserializer);
+    return SimulatedParameterEditTranscriptEntry(
+      kind: var_kind,
+      storedValue: var_storedValue,
+    );
+  }
+
+  @protected
+  SimulatedParameterEditTranscriptKind
+  sse_decode_simulated_parameter_edit_transcript_kind(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return SimulatedParameterEditTranscriptKind.values[inner];
+  }
+
+  @protected
+  int sse_decode_u_32(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getUint32();
+  }
+
+  @protected
   int sse_decode_u_8(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return deserializer.buffer.getUint8();
@@ -590,18 +1310,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  int sse_decode_i_32(SseDeserializer deserializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return deserializer.buffer.getInt32();
-  }
-
-  @protected
-  bool sse_decode_bool(SseDeserializer deserializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return deserializer.buffer.getUint8() != 0;
-  }
-
-  @protected
   void
   sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     DeviceIdentityHandle self,
@@ -610,6 +1318,36 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
       (self as DeviceIdentityHandleImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
+  }
+
+  @protected
+  void
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+      (self as SimulatedParameterEditSessionImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
+  }
+
+  @protected
+  void
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+      (self as SimulatedParameterEditSessionImpl).frbInternalSseEncode(
+        move: false,
+      ),
       serializer,
     );
   }
@@ -629,6 +1367,21 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+      (self as SimulatedParameterEditSessionImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
+  }
+
+  @protected
+  void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     DeviceIdentityHandle self,
     SseSerializer serializer,
@@ -641,9 +1394,48 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+      (self as SimulatedParameterEditSessionImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
+  }
+
+  @protected
   void sse_encode_String(String self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_list_prim_u_8_strict(utf8.encoder.convert(self), serializer);
+  }
+
+  @protected
+  void sse_encode_bool(bool self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putUint8(self ? 1 : 0);
+  }
+
+  @protected
+  void sse_encode_box_autoadd_i_32(int self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self, serializer);
+  }
+
+  @protected
+  void sse_encode_f_64(double self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putFloat64(self);
+  }
+
+  @protected
+  void sse_encode_i_32(int self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putInt32(self);
   }
 
   @protected
@@ -677,6 +1469,38 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_i_32(self.length, serializer);
     for (final item in self) {
       sse_encode_serial_route_node(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_list_simulated_parameter_edit_transcript_entry(
+    List<SimulatedParameterEditTranscriptEntry> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_simulated_parameter_edit_transcript_entry(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_opt_String(String? self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    sse_encode_bool(self != null, serializer);
+    if (self != null) {
+      sse_encode_String(self, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_opt_box_autoadd_i_32(int? self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    sse_encode_bool(self != null, serializer);
+    if (self != null) {
+      sse_encode_box_autoadd_i_32(self, serializer);
     }
   }
 
@@ -720,6 +1544,93 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_simulated_parameter_edit_error(
+    SimulatedParameterEditError self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_simulated_parameter_edit_error_code(self.code, serializer);
+    sse_encode_String(self.message, serializer);
+    sse_encode_u_32(self.exchangeCount, serializer);
+  }
+
+  @protected
+  void sse_encode_simulated_parameter_edit_error_code(
+    SimulatedParameterEditErrorCode self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
+  }
+
+  @protected
+  void sse_encode_simulated_parameter_edit_phase(
+    SimulatedParameterEditPhase self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
+  }
+
+  @protected
+  void sse_encode_simulated_parameter_edit_state(
+    SimulatedParameterEditState self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_simulated_parameter_edit_phase(self.phase, serializer);
+    sse_encode_String(self.target, serializer);
+    sse_encode_String(self.context, serializer);
+    sse_encode_String(self.unit, serializer);
+    sse_encode_i_32(self.storedValue, serializer);
+    sse_encode_f_64(self.displayValue, serializer);
+    sse_encode_u_8(self.decimalPlaces, serializer);
+    sse_encode_i_32(self.minStored, serializer);
+    sse_encode_i_32(self.maxStored, serializer);
+    sse_encode_i_32(self.stepStored, serializer);
+    sse_encode_f_64(self.stepDisplay, serializer);
+    sse_encode_bool(self.readOnly, serializer);
+    sse_encode_opt_String(self.errorMessage, serializer);
+    sse_encode_opt_box_autoadd_i_32(
+      self.journalPreviousStoredValue,
+      serializer,
+    );
+    sse_encode_opt_box_autoadd_i_32(self.journalNewStoredValue, serializer);
+    sse_encode_u_32(self.journalEntryCount, serializer);
+    sse_encode_u_32(self.exchangeCount, serializer);
+    sse_encode_String(self.simulatorLabel, serializer);
+    sse_encode_list_simulated_parameter_edit_transcript_entry(
+      self.transcript,
+      serializer,
+    );
+  }
+
+  @protected
+  void sse_encode_simulated_parameter_edit_transcript_entry(
+    SimulatedParameterEditTranscriptEntry self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_simulated_parameter_edit_transcript_kind(self.kind, serializer);
+    sse_encode_i_32(self.storedValue, serializer);
+  }
+
+  @protected
+  void sse_encode_simulated_parameter_edit_transcript_kind(
+    SimulatedParameterEditTranscriptKind self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
+  }
+
+  @protected
+  void sse_encode_u_32(int self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putUint32(self);
+  }
+
+  @protected
   void sse_encode_u_8(int self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putUint8(self);
@@ -734,18 +1645,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   void sse_encode_usize(BigInt self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putBigUint64(self);
-  }
-
-  @protected
-  void sse_encode_i_32(int self, SseSerializer serializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    serializer.buffer.putInt32(self);
-  }
-
-  @protected
-  void sse_encode_bool(bool self, SseSerializer serializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    serializer.buffer.putUint8(self ? 1 : 0);
   }
 }
 
@@ -788,4 +1687,66 @@ class DeviceIdentityHandleImpl extends RustOpaque
 
   String get transportEndpoint => RustLib.instance.api
       .crateApiDeviceIdentityHandleTransportEndpoint(that: this);
+}
+
+@sealed
+class SimulatedParameterEditSessionImpl extends RustOpaque
+    implements SimulatedParameterEditSession {
+  // Not to be used by end users
+  SimulatedParameterEditSessionImpl.frbInternalDcoDecode(List<dynamic> wire)
+    : super.frbInternalDcoDecode(wire, _kStaticData);
+
+  // Not to be used by end users
+  SimulatedParameterEditSessionImpl.frbInternalSseDecode(
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+
+  static final _kStaticData = RustArcStaticData(
+    rustArcIncrementStrongCount: RustLib
+        .instance
+        .api
+        .rust_arc_increment_strong_count_SimulatedParameterEditSession,
+    rustArcDecrementStrongCount: RustLib
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_SimulatedParameterEditSession,
+    rustArcDecrementStrongCountPtr: RustLib
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_SimulatedParameterEditSessionPtr,
+  );
+
+  /// Validate and stage one bounded semantic edit.
+  Future<SimulatedParameterEditState> beginEdit({
+    required int requestedStoredValue,
+  }) => RustLib.instance.api
+      .crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginEdit(
+        that: this,
+        requestedStoredValue: requestedStoredValue,
+      );
+
+  /// Stage restoration of the exact confirmed prior journal value.
+  Future<SimulatedParameterEditState> beginUndo() => RustLib.instance.api
+      .crateApiSimulatedParameterEditSimulatedParameterEditSessionBeginUndo(
+        that: this,
+      );
+
+  /// Send the staged edit to the scripted simulator and confirm its journal entry.
+  Future<SimulatedParameterEditState> confirmEdit() => RustLib.instance.api
+      .crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmEdit(
+        that: this,
+      );
+
+  /// Prepare and send the restoration, then consume the confirmed journal entry.
+  Future<SimulatedParameterEditState> confirmUndo() => RustLib.instance.api
+      .crateApiSimulatedParameterEditSimulatedParameterEditSessionConfirmUndo(
+        that: this,
+      );
+
+  /// Return the current typed state without exposing Rust-owned internals.
+  Future<SimulatedParameterEditState> initialState() => RustLib.instance.api
+      .crateApiSimulatedParameterEditSimulatedParameterEditSessionInitialState(
+        that: this,
+      );
 }

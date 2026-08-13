@@ -48,8 +48,11 @@ What is real today:
 - One Rust-owned synthetic vertical composition validates a typed gain edit,
   performs two scripted synthetic exchanges, confirms undo history, and
   restores the prior value. It directly proves zero exchanges for invalid and
-  read-only requests. It is simulator-only and is not yet exposed through the
-  Flutter application.
+  read-only requests. A generated Flutter test harness now crosses that same
+  typed boundary through a real Rust library, exposes only synthetic state and
+  errors, and verifies emitted L4 semantics for the staged edit/undo flow.
+  This is simulator and framework-semantics evidence only—not a live editor,
+  native screen-reader, protocol, platform-device, or hardware claim.
 - iOS/iPadOS 16.0 and Android API 29 minimum / API 36 target configuration.
 - Research and decision records covering Fractal model families, mobile
   transport constraints, accessibility, source provenance, privacy, release

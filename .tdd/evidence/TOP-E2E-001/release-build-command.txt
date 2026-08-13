@@ -1,0 +1,2 @@
+CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release
+configured Flutter Rust Bridge output: crates/topology_bridge/target/release/libtopology_bridge.dylib

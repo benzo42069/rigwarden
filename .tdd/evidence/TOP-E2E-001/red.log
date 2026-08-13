@@ -1,0 +1,98 @@
+00:00 +0: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart
+test/core/bridge/simulated_parameter_edit_test.dart:55:9: Error: Type 'SimulatedParameterEditSession' not found.
+  final SimulatedParameterEditSession session;
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:64:8: Error: Type 'SimulatedParameterEditState' not found.
+  late SimulatedParameterEditState _state;
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:65:14: Error: Type 'SimulatedParameterEditState' not found.
+  final List<SimulatedParameterEditState> _history =
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:180:22: Error: Type 'SimulatedParameterEditState' not found.
+  String _phaseLabel(SimulatedParameterEditState state) {
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:11:29: Error: Method not found: 'createSimulatedParameterEditSession'.
+      final session = await createSimulatedParameterEditSession();
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:55:9: Error: 'SimulatedParameterEditSession' isn't a type.
+  final SimulatedParameterEditSession session;
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:64:8: Error: 'SimulatedParameterEditState' isn't a type.
+  late SimulatedParameterEditState _state;
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:65:14: Error: 'SimulatedParameterEditState' isn't a type.
+  final List<SimulatedParameterEditState> _history =
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:66:8: Error: 'SimulatedParameterEditState' isn't a type.
+      <SimulatedParameterEditState>[];
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:180:22: Error: 'SimulatedParameterEditState' isn't a type.
+  String _phaseLabel(SimulatedParameterEditState state) {
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:182:7: Error: Not a constant expression.
+      SimulatedParameterEditPhase.idle => 'Confirmed initial',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:183:7: Error: Not a constant expression.
+      SimulatedParameterEditPhase.pendingEdit => 'Pending edit',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:184:7: Error: Not a constant expression.
+      SimulatedParameterEditPhase.confirmedEdit => 'Confirmed edit',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:185:7: Error: Not a constant expression.
+      SimulatedParameterEditPhase.pendingUndo => 'Pending undo',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/bridge/simulated_parameter_edit_test.dart:186:7: Error: Not a constant expression.
+      SimulatedParameterEditPhase.confirmedUndo => 'Confirmed undo',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart [E]
+  Failed to load "/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart":
+  Compilation failed for testPath=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: test/core/bridge/simulated_parameter_edit_test.dart:55:9: Error: Type 'SimulatedParameterEditSession' not found.
+    final SimulatedParameterEditSession session;
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:64:8: Error: Type 'SimulatedParameterEditState' not found.
+    late SimulatedParameterEditState _state;
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:65:14: Error: Type 'SimulatedParameterEditState' not found.
+    final List<SimulatedParameterEditState> _history =
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:180:22: Error: Type 'SimulatedParameterEditState' not found.
+    String _phaseLabel(SimulatedParameterEditState state) {
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:11:29: Error: Method not found: 'createSimulatedParameterEditSession'.
+        final session = await createSimulatedParameterEditSession();
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:55:9: Error: 'SimulatedParameterEditSession' isn't a type.
+    final SimulatedParameterEditSession session;
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:64:8: Error: 'SimulatedParameterEditState' isn't a type.
+    late SimulatedParameterEditState _state;
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:65:14: Error: 'SimulatedParameterEditState' isn't a type.
+    final List<SimulatedParameterEditState> _history =
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:66:8: Error: 'SimulatedParameterEditState' isn't a type.
+        <SimulatedParameterEditState>[];
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:180:22: Error: 'SimulatedParameterEditState' isn't a type.
+    String _phaseLabel(SimulatedParameterEditState state) {
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:182:7: Error: Not a constant expression.
+        SimulatedParameterEditPhase.idle => 'Confirmed initial',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:183:7: Error: Not a constant expression.
+        SimulatedParameterEditPhase.pendingEdit => 'Pending edit',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:184:7: Error: Not a constant expression.
+        SimulatedParameterEditPhase.confirmedEdit => 'Confirmed edit',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:185:7: Error: Not a constant expression.
+        SimulatedParameterEditPhase.pendingUndo => 'Pending undo',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/bridge/simulated_parameter_edit_test.dart:186:7: Error: Not a constant expression.
+        SimulatedParameterEditPhase.confirmedUndo => 'Confirmed undo',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart: loading /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1/apps/mobile_flutter/test/core/bridge/simulated_parameter_edit_test.dart

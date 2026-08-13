@@ -26,6 +26,7 @@
 
 // Section: imports
 
+use crate::api::simulated_parameter_edit::*;
 use crate::api::*;
 use flutter_rust_bridge::for_generated::byteorder::{NativeEndian, ReadBytesExt, WriteBytesExt};
 use flutter_rust_bridge::for_generated::{transform_result_dco, Lifetimeable, Lockable};
@@ -39,7 +40,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.12.0";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 159246985;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = -1292274858;
 
 // Section: executor
 
@@ -238,6 +239,157 @@ fn wire__crate__api__DeviceIdentityHandle_transport_endpoint_impl(
         },
     )
 }
+fn wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_begin_edit_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "SimulatedParameterEditSession_begin_edit", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>>>::sse_decode(&mut deserializer);
+let api_requested_stored_value = <i32>::sse_decode(&mut deserializer);deserializer.end(); move |context|  {
+                    transform_result_sse::<_, crate::api::simulated_parameter_edit::SimulatedParameterEditError>((move ||  {
+                        let mut api_that_guard = None;
+let decode_indices_ = flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(&api_that, 0, true)]);
+        for i in decode_indices_ {
+            match i {
+                0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                _ => unreachable!(),
+            }
+        }
+        let mut api_that_guard = api_that_guard.unwrap();
+ let output_ok = crate::api::simulated_parameter_edit::SimulatedParameterEditSession::begin_edit(&mut *api_that_guard, api_requested_stored_value)?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_begin_undo_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "SimulatedParameterEditSession_begin_undo", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>>>::sse_decode(&mut deserializer);deserializer.end(); move |context|  {
+                    transform_result_sse::<_, crate::api::simulated_parameter_edit::SimulatedParameterEditError>((move ||  {
+                        let mut api_that_guard = None;
+let decode_indices_ = flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(&api_that, 0, true)]);
+        for i in decode_indices_ {
+            match i {
+                0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                _ => unreachable!(),
+            }
+        }
+        let mut api_that_guard = api_that_guard.unwrap();
+ let output_ok = crate::api::simulated_parameter_edit::SimulatedParameterEditSession::begin_undo(&mut *api_that_guard)?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_confirm_edit_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "SimulatedParameterEditSession_confirm_edit", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>>>::sse_decode(&mut deserializer);deserializer.end(); move |context|  {
+                    transform_result_sse::<_, crate::api::simulated_parameter_edit::SimulatedParameterEditError>((move ||  {
+                        let mut api_that_guard = None;
+let decode_indices_ = flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(&api_that, 0, true)]);
+        for i in decode_indices_ {
+            match i {
+                0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                _ => unreachable!(),
+            }
+        }
+        let mut api_that_guard = api_that_guard.unwrap();
+ let output_ok = crate::api::simulated_parameter_edit::SimulatedParameterEditSession::confirm_edit(&mut *api_that_guard)?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_confirm_undo_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "SimulatedParameterEditSession_confirm_undo", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>>>::sse_decode(&mut deserializer);deserializer.end(); move |context|  {
+                    transform_result_sse::<_, crate::api::simulated_parameter_edit::SimulatedParameterEditError>((move ||  {
+                        let mut api_that_guard = None;
+let decode_indices_ = flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(&api_that, 0, true)]);
+        for i in decode_indices_ {
+            match i {
+                0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                _ => unreachable!(),
+            }
+        }
+        let mut api_that_guard = api_that_guard.unwrap();
+ let output_ok = crate::api::simulated_parameter_edit::SimulatedParameterEditSession::confirm_undo(&mut *api_that_guard)?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_initial_state_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "SimulatedParameterEditSession_initial_state", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>>>::sse_decode(&mut deserializer);deserializer.end(); move |context|  {
+                    transform_result_sse::<_, ()>((move ||  {
+                        let mut api_that_guard = None;
+let decode_indices_ = flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![flutter_rust_bridge::for_generated::LockableOrderInfo::new(&api_that, 0, false)]);
+        for i in decode_indices_ {
+            match i {
+                0 => api_that_guard = Some(api_that.lockable_decode_sync_ref()),
+                _ => unreachable!(),
+            }
+        }
+        let api_that_guard = api_that_guard.unwrap();
+ let output_ok = Result::<_,()>::Ok(crate::api::simulated_parameter_edit::SimulatedParameterEditSession::initial_state(&*api_that_guard))?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__create_simulated_parameter_edit_session_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "create_simulated_parameter_edit_session", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end(); move |context|  {
+                    transform_result_sse::<_, ()>((move ||  {
+                         let output_ok = Result::<_,()>::Ok(crate::api::simulated_parameter_edit::create_simulated_parameter_edit_session())?;   Ok(output_ok)
+                    })())
+                } })
+}
+fn wire__crate__api__simulated_parameter_edit__create_simulated_read_only_parameter_edit_session_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec,_,_>(flutter_rust_bridge::for_generated::TaskInfo{ debug_name: "create_simulated_read_only_parameter_edit_session", port: Some(port_), mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal }, move || { 
+            let message = unsafe { flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(ptr_, rust_vec_len_, data_len_) };
+            let mut deserializer = flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end(); move |context|  {
+                    transform_result_sse::<_, ()>((move ||  {
+                         let output_ok = Result::<_,()>::Ok(crate::api::simulated_parameter_edit::create_simulated_read_only_parameter_edit_session())?;   Ok(output_ok)
+                    })())
+                } })
+}
 fn wire__crate__api__init_rigwarden_bridge_impl(
     port_: flutter_rust_bridge::for_generated::MessagePort,
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
@@ -344,6 +496,9 @@ fn wire__crate__api__read_fixture_serial_route_snapshot_impl(
 flutter_rust_bridge::frb_generated_moi_arc_impl_value!(
     flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>
 );
+flutter_rust_bridge::frb_generated_moi_arc_impl_value!(
+    flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>
+);
 
 // Section: dart2rust
 
@@ -352,6 +507,16 @@ impl SseDecode for DeviceIdentityHandle {
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
         let mut inner = <RustOpaqueMoi<
             flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>,
+        >>::sse_decode(deserializer);
+        return flutter_rust_bridge::for_generated::rust_auto_opaque_decode_owned(inner);
+    }
+}
+
+impl SseDecode for SimulatedParameterEditSession {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <RustOpaqueMoi<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
         >>::sse_decode(deserializer);
         return flutter_rust_bridge::for_generated::rust_auto_opaque_decode_owned(inner);
     }
@@ -367,11 +532,44 @@ impl SseDecode
     }
 }
 
+impl SseDecode
+    for RustOpaqueMoi<
+        flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+    >
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <usize>::sse_decode(deserializer);
+        return decode_rust_opaque_moi(inner);
+    }
+}
+
 impl SseDecode for String {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
         let mut inner = <Vec<u8>>::sse_decode(deserializer);
         return String::from_utf8(inner).unwrap();
+    }
+}
+
+impl SseDecode for bool {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_u8().unwrap() != 0
+    }
+}
+
+impl SseDecode for f64 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_f64::<NativeEndian>().unwrap()
+    }
+}
+
+impl SseDecode for i32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_i32::<NativeEndian>().unwrap()
     }
 }
 
@@ -410,6 +608,42 @@ impl SseDecode for Vec<crate::api::SerialRouteNode> {
             ans_.push(<crate::api::SerialRouteNode>::sse_decode(deserializer));
         }
         return ans_;
+    }
+}
+
+impl SseDecode
+    for Vec<crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut len_ = <i32>::sse_decode(deserializer);
+        let mut ans_ = Vec::with_capacity(len_ as usize);
+        for idx_ in 0..len_ {
+            ans_.push(<crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry>::sse_decode(deserializer));
+        }
+        return ans_;
+    }
+}
+
+impl SseDecode for Option<String> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        if (<bool>::sse_decode(deserializer)) {
+            return Some(<String>::sse_decode(deserializer));
+        } else {
+            return None;
+        }
+    }
+}
+
+impl SseDecode for Option<i32> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        if (<bool>::sse_decode(deserializer)) {
+            return Some(<i32>::sse_decode(deserializer));
+        } else {
+            return None;
+        }
     }
 }
 
@@ -458,6 +692,140 @@ impl SseDecode for crate::api::SerialRouteSnapshot {
     }
 }
 
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditError {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_code =
+            <crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode>::sse_decode(
+                deserializer,
+            );
+        let mut var_message = <String>::sse_decode(deserializer);
+        let mut var_exchangeCount = <u32>::sse_decode(deserializer);
+        return crate::api::simulated_parameter_edit::SimulatedParameterEditError {
+            code: var_code,
+            message: var_message,
+            exchange_count: var_exchangeCount,
+        };
+    }
+}
+
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <i32>::sse_decode(deserializer);
+        return match inner {
+            0 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ReadOnly,
+1 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ProfileNotWritable,
+2 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ParameterNotDeclared,
+3 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::OutOfRange,
+4 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::PendingAction,
+5 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::NoPendingEdit,
+6 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::NoPendingUndo,
+7 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::JournalFailure,
+8 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ProfileInconsistent,
+9 => crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::SyntheticExchangeRejected,
+            _ => unreachable!("Invalid variant for SimulatedParameterEditErrorCode: {}", inner),
+        };
+    }
+}
+
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditPhase {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <i32>::sse_decode(deserializer);
+        return match inner {
+            0 => crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::Idle,
+            1 => crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::PendingEdit,
+            2 => crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::ConfirmedEdit,
+            3 => crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::PendingUndo,
+            4 => crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::ConfirmedUndo,
+            _ => unreachable!("Invalid variant for SimulatedParameterEditPhase: {}", inner),
+        };
+    }
+}
+
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditState {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_phase =
+            <crate::api::simulated_parameter_edit::SimulatedParameterEditPhase>::sse_decode(
+                deserializer,
+            );
+        let mut var_target = <String>::sse_decode(deserializer);
+        let mut var_context = <String>::sse_decode(deserializer);
+        let mut var_unit = <String>::sse_decode(deserializer);
+        let mut var_storedValue = <i32>::sse_decode(deserializer);
+        let mut var_displayValue = <f64>::sse_decode(deserializer);
+        let mut var_decimalPlaces = <u8>::sse_decode(deserializer);
+        let mut var_minStored = <i32>::sse_decode(deserializer);
+        let mut var_maxStored = <i32>::sse_decode(deserializer);
+        let mut var_stepStored = <i32>::sse_decode(deserializer);
+        let mut var_stepDisplay = <f64>::sse_decode(deserializer);
+        let mut var_readOnly = <bool>::sse_decode(deserializer);
+        let mut var_errorMessage = <Option<String>>::sse_decode(deserializer);
+        let mut var_journalPreviousStoredValue = <Option<i32>>::sse_decode(deserializer);
+        let mut var_journalNewStoredValue = <Option<i32>>::sse_decode(deserializer);
+        let mut var_journalEntryCount = <u32>::sse_decode(deserializer);
+        let mut var_exchangeCount = <u32>::sse_decode(deserializer);
+        let mut var_simulatorLabel = <String>::sse_decode(deserializer);
+        let mut var_transcript = <Vec<
+            crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry,
+        >>::sse_decode(deserializer);
+        return crate::api::simulated_parameter_edit::SimulatedParameterEditState {
+            phase: var_phase,
+            target: var_target,
+            context: var_context,
+            unit: var_unit,
+            stored_value: var_storedValue,
+            display_value: var_displayValue,
+            decimal_places: var_decimalPlaces,
+            min_stored: var_minStored,
+            max_stored: var_maxStored,
+            step_stored: var_stepStored,
+            step_display: var_stepDisplay,
+            read_only: var_readOnly,
+            error_message: var_errorMessage,
+            journal_previous_stored_value: var_journalPreviousStoredValue,
+            journal_new_stored_value: var_journalNewStoredValue,
+            journal_entry_count: var_journalEntryCount,
+            exchange_count: var_exchangeCount,
+            simulator_label: var_simulatorLabel,
+            transcript: var_transcript,
+        };
+    }
+}
+
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_kind = <crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind>::sse_decode(deserializer);
+        let mut var_storedValue = <i32>::sse_decode(deserializer);
+        return crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry {
+            kind: var_kind,
+            stored_value: var_storedValue,
+        };
+    }
+}
+
+impl SseDecode for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <i32>::sse_decode(deserializer);
+        return match inner {
+            0 => crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind::Request,
+1 => crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind::Confirmed,
+            _ => unreachable!("Invalid variant for SimulatedParameterEditTranscriptKind: {}", inner),
+        };
+    }
+}
+
+impl SseDecode for u32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_u32::<NativeEndian>().unwrap()
+    }
+}
+
 impl SseDecode for u8 {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
@@ -477,20 +845,6 @@ impl SseDecode for usize {
     }
 }
 
-impl SseDecode for i32 {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
-        deserializer.cursor.read_i32::<NativeEndian>().unwrap()
-    }
-}
-
-impl SseDecode for bool {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
-        deserializer.cursor.read_u8().unwrap() != 0
-    }
-}
-
 fn pde_ffi_dispatcher_primary_impl(
     func_id: i32,
     port: flutter_rust_bridge::for_generated::MessagePort,
@@ -500,16 +854,18 @@ fn pde_ffi_dispatcher_primary_impl(
 ) {
     // Codec=Pde (Serialization + dispatch), see doc to use other codecs
     match func_id {
-        5 => wire__crate__api__init_rigwarden_bridge_impl(port, ptr, rust_vec_len, data_len),
-        6 => wire__crate__api__read_fixture_device_identity_impl(port, ptr, rust_vec_len, data_len),
-        7 => wire__crate__api__read_fixture_serial_route_snapshot_impl(
-            port,
-            ptr,
-            rust_vec_len,
-            data_len,
-        ),
-        _ => unreachable!(),
-    }
+                        5 => wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_begin_edit_impl(port, ptr, rust_vec_len, data_len),
+6 => wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_begin_undo_impl(port, ptr, rust_vec_len, data_len),
+7 => wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_confirm_edit_impl(port, ptr, rust_vec_len, data_len),
+8 => wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_confirm_undo_impl(port, ptr, rust_vec_len, data_len),
+9 => wire__crate__api__simulated_parameter_edit__SimulatedParameterEditSession_initial_state_impl(port, ptr, rust_vec_len, data_len),
+10 => wire__crate__api__simulated_parameter_edit__create_simulated_parameter_edit_session_impl(port, ptr, rust_vec_len, data_len),
+11 => wire__crate__api__simulated_parameter_edit__create_simulated_read_only_parameter_edit_session_impl(port, ptr, rust_vec_len, data_len),
+12 => wire__crate__api__init_rigwarden_bridge_impl(port, ptr, rust_vec_len, data_len),
+13 => wire__crate__api__read_fixture_device_identity_impl(port, ptr, rust_vec_len, data_len),
+14 => wire__crate__api__read_fixture_serial_route_snapshot_impl(port, ptr, rust_vec_len, data_len),
+                        _ => unreachable!(),
+                    }
 }
 
 fn pde_ffi_dispatcher_sync_impl(
@@ -548,6 +904,26 @@ impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
 
 impl flutter_rust_bridge::IntoIntoDart<FrbWrapper<DeviceIdentityHandle>> for DeviceIdentityHandle {
     fn into_into_dart(self) -> FrbWrapper<DeviceIdentityHandle> {
+        self.into()
+    }
+}
+
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for FrbWrapper<SimulatedParameterEditSession> {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        flutter_rust_bridge::for_generated::rust_auto_opaque_encode::<_, MoiArc<_>>(self.0)
+            .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for FrbWrapper<SimulatedParameterEditSession>
+{
+}
+
+impl flutter_rust_bridge::IntoIntoDart<FrbWrapper<SimulatedParameterEditSession>>
+    for SimulatedParameterEditSession
+{
+    fn into_into_dart(self) -> FrbWrapper<SimulatedParameterEditSession> {
         self.into()
     }
 }
@@ -615,12 +991,211 @@ impl flutter_rust_bridge::IntoIntoDart<crate::api::SerialRouteSnapshot>
         self
     }
 }
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditError
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.code.into_into_dart().into_dart(),
+            self.message.into_into_dart().into_dart(),
+            self.exchange_count.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditError
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditError,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditError
+{
+    fn into_into_dart(self) -> crate::api::simulated_parameter_edit::SimulatedParameterEditError {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            Self::ReadOnly => 0.into_dart(),
+            Self::ProfileNotWritable => 1.into_dart(),
+            Self::ParameterNotDeclared => 2.into_dart(),
+            Self::OutOfRange => 3.into_dart(),
+            Self::PendingAction => 4.into_dart(),
+            Self::NoPendingEdit => 5.into_dart(),
+            Self::NoPendingUndo => 6.into_dart(),
+            Self::JournalFailure => 7.into_dart(),
+            Self::ProfileInconsistent => 8.into_dart(),
+            Self::SyntheticExchangeRejected => 9.into_dart(),
+            _ => unreachable!(),
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode
+{
+    fn into_into_dart(
+        self,
+    ) -> crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditPhase
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            Self::Idle => 0.into_dart(),
+            Self::PendingEdit => 1.into_dart(),
+            Self::ConfirmedEdit => 2.into_dart(),
+            Self::PendingUndo => 3.into_dart(),
+            Self::ConfirmedUndo => 4.into_dart(),
+            _ => unreachable!(),
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditPhase
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditPhase,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditPhase
+{
+    fn into_into_dart(self) -> crate::api::simulated_parameter_edit::SimulatedParameterEditPhase {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditState
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.phase.into_into_dart().into_dart(),
+            self.target.into_into_dart().into_dart(),
+            self.context.into_into_dart().into_dart(),
+            self.unit.into_into_dart().into_dart(),
+            self.stored_value.into_into_dart().into_dart(),
+            self.display_value.into_into_dart().into_dart(),
+            self.decimal_places.into_into_dart().into_dart(),
+            self.min_stored.into_into_dart().into_dart(),
+            self.max_stored.into_into_dart().into_dart(),
+            self.step_stored.into_into_dart().into_dart(),
+            self.step_display.into_into_dart().into_dart(),
+            self.read_only.into_into_dart().into_dart(),
+            self.error_message.into_into_dart().into_dart(),
+            self.journal_previous_stored_value
+                .into_into_dart()
+                .into_dart(),
+            self.journal_new_stored_value.into_into_dart().into_dart(),
+            self.journal_entry_count.into_into_dart().into_dart(),
+            self.exchange_count.into_into_dart().into_dart(),
+            self.simulator_label.into_into_dart().into_dart(),
+            self.transcript.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditState
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditState,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditState
+{
+    fn into_into_dart(self) -> crate::api::simulated_parameter_edit::SimulatedParameterEditState {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.kind.into_into_dart().into_dart(),
+            self.stored_value.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry
+{
+    fn into_into_dart(
+        self,
+    ) -> crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind
+{
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            Self::Request => 0.into_dart(),
+            Self::Confirmed => 1.into_dart(),
+            _ => unreachable!(),
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind
+{
+}
+impl
+    flutter_rust_bridge::IntoIntoDart<
+        crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind,
+    > for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind
+{
+    fn into_into_dart(
+        self,
+    ) -> crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind {
+        self
+    }
+}
 
 impl SseEncode for DeviceIdentityHandle {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         <RustOpaqueMoi<
             flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>,
+        >>::sse_encode(
+            flutter_rust_bridge::for_generated::rust_auto_opaque_encode::<_, MoiArc<_>>(self),
+            serializer,
+        );
+    }
+}
+
+impl SseEncode for SimulatedParameterEditSession {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <RustOpaqueMoi<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
         >>::sse_encode(
             flutter_rust_bridge::for_generated::rust_auto_opaque_encode::<_, MoiArc<_>>(self),
             serializer,
@@ -639,10 +1214,44 @@ impl SseEncode
     }
 }
 
+impl SseEncode
+    for RustOpaqueMoi<
+        flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+    >
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        let (ptr, size) = self.sse_encode_raw();
+        <usize>::sse_encode(ptr, serializer);
+        <i32>::sse_encode(size, serializer);
+    }
+}
+
 impl SseEncode for String {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         <Vec<u8>>::sse_encode(self.into_bytes(), serializer);
+    }
+}
+
+impl SseEncode for bool {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_u8(self as _).unwrap();
+    }
+}
+
+impl SseEncode for f64 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_f64::<NativeEndian>(self).unwrap();
+    }
+}
+
+impl SseEncode for i32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_i32::<NativeEndian>(self).unwrap();
     }
 }
 
@@ -676,6 +1285,38 @@ impl SseEncode for Vec<crate::api::SerialRouteNode> {
     }
 }
 
+impl SseEncode
+    for Vec<crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(self.len() as _, serializer);
+        for item in self {
+            <crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry>::sse_encode(item, serializer);
+        }
+    }
+}
+
+impl SseEncode for Option<String> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <bool>::sse_encode(self.is_some(), serializer);
+        if let Some(value) = self {
+            <String>::sse_encode(value, serializer);
+        }
+    }
+}
+
+impl SseEncode for Option<i32> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <bool>::sse_encode(self.is_some(), serializer);
+        if let Some(value) = self {
+            <i32>::sse_encode(value, serializer);
+        }
+    }
+}
+
 impl SseEncode for crate::api::SerialRouteConnection {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
@@ -703,6 +1344,99 @@ impl SseEncode for crate::api::SerialRouteSnapshot {
     }
 }
 
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditError {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode>::sse_encode(
+            self.code, serializer,
+        );
+        <String>::sse_encode(self.message, serializer);
+        <u32>::sse_encode(self.exchange_count, serializer);
+    }
+}
+
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(match self {crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ReadOnly => { 0 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ProfileNotWritable => { 1 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ParameterNotDeclared => { 2 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::OutOfRange => { 3 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::PendingAction => { 4 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::NoPendingEdit => { 5 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::NoPendingUndo => { 6 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::JournalFailure => { 7 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::ProfileInconsistent => { 8 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditErrorCode::SyntheticExchangeRejected => { 9 }
+ _ => { unimplemented!(""); }}, serializer);
+    }
+}
+
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditPhase {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(match self {crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::Idle => { 0 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::PendingEdit => { 1 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::ConfirmedEdit => { 2 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::PendingUndo => { 3 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditPhase::ConfirmedUndo => { 4 }
+ _ => { unimplemented!(""); }}, serializer);
+    }
+}
+
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditState {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <crate::api::simulated_parameter_edit::SimulatedParameterEditPhase>::sse_encode(
+            self.phase, serializer,
+        );
+        <String>::sse_encode(self.target, serializer);
+        <String>::sse_encode(self.context, serializer);
+        <String>::sse_encode(self.unit, serializer);
+        <i32>::sse_encode(self.stored_value, serializer);
+        <f64>::sse_encode(self.display_value, serializer);
+        <u8>::sse_encode(self.decimal_places, serializer);
+        <i32>::sse_encode(self.min_stored, serializer);
+        <i32>::sse_encode(self.max_stored, serializer);
+        <i32>::sse_encode(self.step_stored, serializer);
+        <f64>::sse_encode(self.step_display, serializer);
+        <bool>::sse_encode(self.read_only, serializer);
+        <Option<String>>::sse_encode(self.error_message, serializer);
+        <Option<i32>>::sse_encode(self.journal_previous_stored_value, serializer);
+        <Option<i32>>::sse_encode(self.journal_new_stored_value, serializer);
+        <u32>::sse_encode(self.journal_entry_count, serializer);
+        <u32>::sse_encode(self.exchange_count, serializer);
+        <String>::sse_encode(self.simulator_label, serializer);
+        <Vec<crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry>>::sse_encode(self.transcript, serializer);
+    }
+}
+
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptEntry {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind>::sse_encode(
+            self.kind, serializer,
+        );
+        <i32>::sse_encode(self.stored_value, serializer);
+    }
+}
+
+impl SseEncode for crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(match self {crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind::Request => { 0 }
+crate::api::simulated_parameter_edit::SimulatedParameterEditTranscriptKind::Confirmed => { 1 }
+ _ => { unimplemented!(""); }}, serializer);
+    }
+}
+
+impl SseEncode for u32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_u32::<NativeEndian>(self).unwrap();
+    }
+}
+
 impl SseEncode for u8 {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
@@ -725,20 +1459,6 @@ impl SseEncode for usize {
     }
 }
 
-impl SseEncode for i32 {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
-        serializer.cursor.write_i32::<NativeEndian>(self).unwrap();
-    }
-}
-
-impl SseEncode for bool {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
-        serializer.cursor.write_u8(self as _).unwrap();
-    }
-}
-
 #[cfg(not(target_family = "wasm"))]
 mod io {
     // This file is automatically generated, so please do not edit it.
@@ -747,6 +1467,7 @@ mod io {
     // Section: imports
 
     use super::*;
+    use crate::api::simulated_parameter_edit::*;
     use crate::api::*;
     use flutter_rust_bridge::for_generated::byteorder::{
         NativeEndian, ReadBytesExt, WriteBytesExt,
@@ -771,6 +1492,24 @@ mod io {
     ) {
         MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>>::decrement_strong_count(ptr as _);
     }
+
+    #[unsafe(no_mangle)]
+    pub extern "C" fn frbgen_rigwarden_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+        >::increment_strong_count(ptr as _);
+    }
+
+    #[unsafe(no_mangle)]
+    pub extern "C" fn frbgen_rigwarden_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+        >::decrement_strong_count(ptr as _);
+    }
 }
 #[cfg(not(target_family = "wasm"))]
 pub use io::*;
@@ -784,6 +1523,7 @@ mod web {
     // Section: imports
 
     use super::*;
+    use crate::api::simulated_parameter_edit::*;
     use crate::api::*;
     use flutter_rust_bridge::for_generated::byteorder::{
         NativeEndian, ReadBytesExt, WriteBytesExt,
@@ -809,6 +1549,24 @@ mod web {
         ptr: *const std::ffi::c_void,
     ) {
         MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DeviceIdentityHandle>>::decrement_strong_count(ptr as _);
+    }
+
+    #[wasm_bindgen]
+    pub fn rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+        >::increment_strong_count(ptr as _);
+    }
+
+    #[wasm_bindgen]
+    pub fn rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SimulatedParameterEditSession>,
+        >::decrement_strong_count(ptr as _);
     }
 }
 #[cfg(target_family = "wasm")]

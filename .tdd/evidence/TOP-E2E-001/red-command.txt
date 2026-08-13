@@ -1,0 +1,5 @@
+command: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end"
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+release_library_precondition: CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release (exit 0; configured target/release library present)
+expected_failure: generated API has no typed simulated parameter edit session/state yet; focused Flutter test should fail at those missing bridge symbols.

@@ -6,6 +6,15 @@ use topology_routing::graph::{
     Connection, Graph, GridPosition, Node, NodeId, Port, PortDirection, PortId, PortRef,
 };
 
+pub mod simulated_parameter_edit;
+
+pub use simulated_parameter_edit::{
+    create_simulated_parameter_edit_session, create_simulated_read_only_parameter_edit_session,
+    SimulatedParameterEditError, SimulatedParameterEditErrorCode, SimulatedParameterEditPhase,
+    SimulatedParameterEditSession, SimulatedParameterEditState,
+    SimulatedParameterEditTranscriptEntry, SimulatedParameterEditTranscriptKind,
+};
+
 /// Configure flutter_rust_bridge's generated runtime.
 #[flutter_rust_bridge::frb(init)]
 pub fn init_rigwarden_bridge() {

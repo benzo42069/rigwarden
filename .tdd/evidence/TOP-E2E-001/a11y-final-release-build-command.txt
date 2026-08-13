@@ -1,0 +1,1 @@
+command: CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release

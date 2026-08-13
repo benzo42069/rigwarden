@@ -7,6 +7,7 @@
 // ignore_for_file: argument_type_not_assignable
 
 import 'api.dart';
+import 'api/simulated_parameter_edit.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'frb_generated.dart';
@@ -24,9 +25,25 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   get rust_arc_decrement_strong_count_DeviceIdentityHandlePtr => wire
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle;
 
+  CrossPlatformFinalizerArg
+  get rust_arc_decrement_strong_count_SimulatedParameterEditSessionPtr => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession;
+
   @protected
   DeviceIdentityHandle
   dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
+    dynamic raw,
+  );
+
+  @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  );
+
+  @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
     dynamic raw,
   );
 
@@ -37,13 +54,37 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  SimulatedParameterEditSession
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  );
+
+  @protected
   DeviceIdentityHandle
   dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     dynamic raw,
   );
 
   @protected
+  SimulatedParameterEditSession
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    dynamic raw,
+  );
+
+  @protected
   String dco_decode_String(dynamic raw);
+
+  @protected
+  bool dco_decode_bool(dynamic raw);
+
+  @protected
+  int dco_decode_box_autoadd_i_32(dynamic raw);
+
+  @protected
+  double dco_decode_f_64(dynamic raw);
+
+  @protected
+  int dco_decode_i_32(dynamic raw);
 
   @protected
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
@@ -57,6 +98,16 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   List<SerialRouteNode> dco_decode_list_serial_route_node(dynamic raw);
 
   @protected
+  List<SimulatedParameterEditTranscriptEntry>
+  dco_decode_list_simulated_parameter_edit_transcript_entry(dynamic raw);
+
+  @protected
+  String? dco_decode_opt_String(dynamic raw);
+
+  @protected
+  int? dco_decode_opt_box_autoadd_i_32(dynamic raw);
+
+  @protected
   SerialRouteConnection dco_decode_serial_route_connection(dynamic raw);
 
   @protected
@@ -64,6 +115,36 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   SerialRouteSnapshot dco_decode_serial_route_snapshot(dynamic raw);
+
+  @protected
+  SimulatedParameterEditError dco_decode_simulated_parameter_edit_error(
+    dynamic raw,
+  );
+
+  @protected
+  SimulatedParameterEditErrorCode
+  dco_decode_simulated_parameter_edit_error_code(dynamic raw);
+
+  @protected
+  SimulatedParameterEditPhase dco_decode_simulated_parameter_edit_phase(
+    dynamic raw,
+  );
+
+  @protected
+  SimulatedParameterEditState dco_decode_simulated_parameter_edit_state(
+    dynamic raw,
+  );
+
+  @protected
+  SimulatedParameterEditTranscriptEntry
+  dco_decode_simulated_parameter_edit_transcript_entry(dynamic raw);
+
+  @protected
+  SimulatedParameterEditTranscriptKind
+  dco_decode_simulated_parameter_edit_transcript_kind(dynamic raw);
+
+  @protected
+  int dco_decode_u_32(dynamic raw);
 
   @protected
   int dco_decode_u_8(dynamic raw);
@@ -81,8 +162,26 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   DeviceIdentityHandle
   sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditSession
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
     SseDeserializer deserializer,
   );
 
@@ -93,7 +192,25 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  SimulatedParameterEditSession
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   String sse_decode_String(SseDeserializer deserializer);
+
+  @protected
+  bool sse_decode_bool(SseDeserializer deserializer);
+
+  @protected
+  int sse_decode_box_autoadd_i_32(SseDeserializer deserializer);
+
+  @protected
+  double sse_decode_f_64(SseDeserializer deserializer);
+
+  @protected
+  int sse_decode_i_32(SseDeserializer deserializer);
 
   @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
@@ -109,6 +226,18 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  List<SimulatedParameterEditTranscriptEntry>
+  sse_decode_list_simulated_parameter_edit_transcript_entry(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  String? sse_decode_opt_String(SseDeserializer deserializer);
+
+  @protected
+  int? sse_decode_opt_box_autoadd_i_32(SseDeserializer deserializer);
+
+  @protected
   SerialRouteConnection sse_decode_serial_route_connection(
     SseDeserializer deserializer,
   );
@@ -122,6 +251,40 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  SimulatedParameterEditError sse_decode_simulated_parameter_edit_error(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditErrorCode
+  sse_decode_simulated_parameter_edit_error_code(SseDeserializer deserializer);
+
+  @protected
+  SimulatedParameterEditPhase sse_decode_simulated_parameter_edit_phase(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditState sse_decode_simulated_parameter_edit_state(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditTranscriptEntry
+  sse_decode_simulated_parameter_edit_transcript_entry(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  SimulatedParameterEditTranscriptKind
+  sse_decode_simulated_parameter_edit_transcript_kind(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  int sse_decode_u_32(SseDeserializer deserializer);
+
+  @protected
   int sse_decode_u_8(SseDeserializer deserializer);
 
   @protected
@@ -131,15 +294,23 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   BigInt sse_decode_usize(SseDeserializer deserializer);
 
   @protected
-  int sse_decode_i_32(SseDeserializer deserializer);
-
-  @protected
-  bool sse_decode_bool(SseDeserializer deserializer);
-
-  @protected
   void
   sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     DeviceIdentityHandle self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
     SseSerializer serializer,
   );
 
@@ -152,13 +323,39 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
     DeviceIdentityHandle self,
     SseSerializer serializer,
   );
 
   @protected
+  void
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    SimulatedParameterEditSession self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_String(String self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_bool(bool self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_i_32(int self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_f_64(double self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_i_32(int self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_prim_u_8_strict(
@@ -179,6 +376,18 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  void sse_encode_list_simulated_parameter_edit_transcript_entry(
+    List<SimulatedParameterEditTranscriptEntry> self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_opt_String(String? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_box_autoadd_i_32(int? self, SseSerializer serializer);
+
+  @protected
   void sse_encode_serial_route_connection(
     SerialRouteConnection self,
     SseSerializer serializer,
@@ -197,6 +406,45 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   );
 
   @protected
+  void sse_encode_simulated_parameter_edit_error(
+    SimulatedParameterEditError self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_simulated_parameter_edit_error_code(
+    SimulatedParameterEditErrorCode self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_simulated_parameter_edit_phase(
+    SimulatedParameterEditPhase self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_simulated_parameter_edit_state(
+    SimulatedParameterEditState self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_simulated_parameter_edit_transcript_entry(
+    SimulatedParameterEditTranscriptEntry self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_simulated_parameter_edit_transcript_kind(
+    SimulatedParameterEditTranscriptKind self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_u_32(int self, SseSerializer serializer);
+
+  @protected
   void sse_encode_u_8(int self, SseSerializer serializer);
 
   @protected
@@ -204,12 +452,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_usize(BigInt self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_i_32(int self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_bool(bool self, SseSerializer serializer);
 }
 
 // Section: wire_class
@@ -232,6 +474,22 @@ class RustLibWire implements BaseWire {
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
         ptr,
       );
+
+  void
+  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    int ptr,
+  ) => wasmModule
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr,
+      );
+
+  void
+  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    int ptr,
+  ) => wasmModule
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+        ptr,
+      );
 }
 
 @JS('wasm_bindgen')
@@ -247,6 +505,16 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
 
   external void
   rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeviceIdentityHandle(
+    int ptr,
+  );
+
+  external void
+  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
+    int ptr,
+  );
+
+  external void
+  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSimulatedParameterEditSession(
     int ptr,
   );
 }

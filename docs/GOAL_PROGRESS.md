@@ -28,22 +28,23 @@
 - **Integrated:** `TOP-UNDO-004` (bounded deterministic in-memory journal snapshot codec) and `TOP-UNDO-005` (one confirmed journal snapshot writes, drops, and reloads from a local file) after independent review and parent sweeps. `TOP-UNDO-005` proves only the bounded local write/drop/reload path; it rejects pre-existing generated-path symlinks, but makes no hostile shared-directory, permission, special-file, fsync, crash-durability, or cross-process-locking claim.
 - **Integrated:** `TOP-FFI-002` (one Rust-authored synthetic serial route snapshot crosses the generated Rust–Flutter bridge) after independent review and parent release-build/Flutter integration checks. This is `FFI_VERIFIED` for the fixture snapshot only; it is not live graph, route-editing, semantics-device, or hardware proof.
 - **Integrated:** `TOP-E2E-000` (one Rust-owned typed synthetic gain edit validates before two synthetic exchanges, confirms journal state, and restores the exact prior value through prepared undo). It explicitly proves zero exchange attempts for invalid input and contradictory read-only/write-capability profiles. This is `SIMULATOR_VERIFIED` only; it is not a Flutter, protocol, platform, or hardware claim.
+- **Integrated:** `TOP-E2E-001` (a test-owned Flutter harness crosses the generated Rust bridge for the same staged synthetic edit and undo). It directly proves typed zero/one/two-exchange states, the `[45,45,30,30]` synthetic transcript, pending-undo journal retention, and zero-exchange typed read-only/out-of-range errors. Its `SEMANTICS_VERIFIED` claim is Flutter L4 only: emitted roles/actions, synthetic context/value/range metadata, state labels, live updates, and tested focus/keyboard recovery. It is not a live editor, physical device, native assistive-technology, protocol, or hardware claim.
 - **Externally gated:** AM4/FM3 fixture and hardware packets retain their packet-level `BLOCKED_FIXTURE` or `BLOCKED_HARDWARE` status until lawful fixtures or physical equipment are supplied.
 
 ## Verification truth
 
 - `RUST_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-002R`; no domain/protocol/platform/hardware claim.
 - `FLUTTER_HARNESS_EXECUTABLE`: integrated via `TOP-BOOT-003`; no platform-device/hardware claim.
-- `SIMULATOR_VERIFIED`: `TOP-SIM-001` for its explicit synthetic scripted transport and `TOP-E2E-000` for the bounded Rust-owned validation→synthetic exchange→undo composition. Neither implies device, byte-fixture, platform, or hardware compatibility.
-- `SEMANTICS_VERIFIED`: `TOP-UI-001` only, for its Flutter L4 adaptive shell names, button semantics, selection, actions, focus recovery policy, live destination update, large-text branch, and reduced-motion branch. It is not a physical screen-reader or complete-editor claim.
+- `SIMULATOR_VERIFIED`: `TOP-SIM-001` for its explicit synthetic scripted transport, `TOP-E2E-000` for the bounded Rust-owned validation→synthetic exchange→undo composition, and `TOP-E2E-001` for the same synthetic flow through the generated Flutter bridge. None implies device, byte-fixture, platform, or hardware compatibility.
+- `SEMANTICS_VERIFIED`: `TOP-UI-001` for its Flutter L4 adaptive shell names, button semantics, selection, actions, focus recovery policy, live destination update, large-text branch, and reduced-motion branch; and `TOP-E2E-001` for its test-owned synthetic edit/undo controls, emitted metadata/state semantics, live update, and tested keyboard/focus recovery. Neither is a physical screen-reader or complete-editor claim.
 - No native platform, accessibility-device, protocol-byte, fixture, or hardware verification label has been earned.
 
 ## Routing and next group
 
 Project role configuration requests OpenAI `gpt-5.6-luna` at `max`; runtime routing research is integrated in `TOP-RSCH-001`. Sandbox isolation remains unverified, so write-capable work is serialized or narrowly scoped with independent review.
 
-**Last completed integration sweep:** `TOP-E2E-000` focused synthetic composition, bridge, command-engine, simulator, and undo packages, workspace format, and bridge Clippy all exited 0 after independent security review. Its proof is limited to the explicit synthetic composition and does not expose protocol bytes or transport handles.
+**Last completed integration sweep:** `TOP-E2E-001` release bridge build, four focused real-FFI Flutter tests, `cargo test --workspace`, full Flutter tests, and `scripts/ci-local.sh` all exited 0 after independent correctness and accessibility review. Its proof is limited to the explicit synthetic composition and test-owned Flutter L4 boundary; it exposes no protocol bytes or transport handles.
 
-**Next composed path:** `TOP-E2E-001` is READY: it must expose only the reviewed typed semantic session boundary through generated FRB and a test-owned Flutter harness. It must not bypass Rust validation, the synthetic simulator, or undo, and it must not expose bytes or transport handles. Fixture-derived AM4/FM3 leaves remain gated by lawful fixture or hardware inputs.
+**Next composed path:** fixture-derived AM4/FM3 leaves remain gated by lawful fixture or physical hardware inputs. `TOP-A11Y-001` is READY to render the integrated Rust-authored synthetic serial-route fixture without recreating graph traversal in Dart.
 
 **Nonvisual route gate:** `TOP-FFI-002` is integrated with one Rust-authored synthetic serial snapshot through the real generated bridge. `TOP-A11Y-001` is now READY to render that fixture without recreating graph traversal in Dart.

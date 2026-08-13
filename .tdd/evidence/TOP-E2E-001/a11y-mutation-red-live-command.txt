@@ -1,0 +1,1 @@
+command: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "emitted semantics retain focus order, keyboard activation, and recovery"

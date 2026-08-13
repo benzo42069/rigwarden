@@ -1,0 +1,10 @@
+cargo test --workspace
+cd apps/mobile_flutter && flutter test
+bash scripts/ci-local.sh
+
+Historical gate note: the first ci-local candidate reached rust_fmt,
+rust_clippy, rust_test, and stopped at flutter_format because the unrelated
+untracked apps/mobile_flutter/test/core/bridge/serial_route_test.dart was not
+formatted. That file was outside this packet's owned write paths and was not
+changed by this worker. The parent formatted that shared file, and the final
+ci-local rerun passed all stages (see sweep-ci-local-clean.log).

@@ -1,0 +1,165 @@
+Mon Aug 10 15:26:59 UTC 2026
+Mon Aug 10 10:26:59 CDT 2026
+Darwin Mac.attlocal.net 25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:41:26 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T8132 arm64
+
+repo=/Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+main
+536d8901ac91ecdbc15e09356800d9f46be401dd
+1e9304c39a2e59e689b52bb33ca7e89056635d34	refs/heads/main
+rustc 1.97.0 (2d8144b78 2026-07-07)
+cargo 1.97.0 (c980f4866 2026-06-30)
+Flutter 3.44.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6b182d2c75 (5 days ago) • 2026-08-05 10:04:07 -0700
+Engine • hash b9499e4c25212536ba3a4eec4f5c1905fb3214fe (revision 5a2a6a42cc) (9 days ago) • 2026-07-31 18:31:59.000Z
+Tools • Dart 3.12.2 • DevTools 2.57.0
+Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "macos_arm64"
+
+release_library:
+-rw-r--r--@ 1 benzo  staff  20883800 Aug 10 02:26 crates/topology_bridge/target/release/libtopology_bridge.a
+-rw-r--r--@ 1 benzo  staff      1098 Aug 10 03:06 crates/topology_bridge/target/release/libtopology_bridge.d
+-rwxr-xr-x@ 1 benzo  staff   1043392 Aug 10 02:26 crates/topology_bridge/target/release/libtopology_bridge.dylib
+-rw-r--r--@ 1 benzo  staff    656456 Aug 10 02:26 crates/topology_bridge/target/release/libtopology_bridge.rlib
+
+wireless/device discovery:
+Found 2 connected devices:
+  macOS (desktop) • macos  • darwin-arm64   • macOS 26.5 25F71 darwin-arm64
+  Chrome (web)    • chrome • web-javascript • Google Chrome 151.0.7922.76
+
+Checking for wireless devices...
+
+Found 1 wirelessly connected device:
+  Benzo’s iPhone (wireless) (mobile) • 00008150-000828C001A3401C • ios • iOS 26.5.2 23F84
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+
+status summary:
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/behavior-red.log
+A  .tdd/evidence/TOP-BOOT-003/environment.txt
+A  .tdd/evidence/TOP-BOOT-003/files-changed.txt
+A  .tdd/evidence/TOP-BOOT-003/green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/green.log
+AM .tdd/evidence/TOP-BOOT-003/handoff.md
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-green.log
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/platform-target-red.log
+A  .tdd/evidence/TOP-BOOT-003/red-command.txt
+A  .tdd/evidence/TOP-BOOT-003/red-exit-status.txt
+A  .tdd/evidence/TOP-BOOT-003/red.log
+AM .tdd/evidence/TOP-BOOT-003/review.md
+AM .tdd/evidence/TOP-BOOT-003/sweep-commands.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep-exit-statuses.txt
+AM .tdd/evidence/TOP-BOOT-003/sweep.log
+AM .tdd/evidence/TOP-BOOT-003/work-item.yaml
+M  AGENTS.md
+ M Cargo.lock
+ M Cargo.toml
+ M LICENSE
+M  LICENSE_POLICY.md
+MM MANIFEST.sha256
+M  PACKAGE_VALIDATION.md
+MM README.md
+M  START_HERE_PROMPT.md
+ M THIRD_PARTY_NOTICES.md
+A  apps/mobile_flutter/.gitignore
+A  apps/mobile_flutter/.metadata
+A  apps/mobile_flutter/README.md
+A  apps/mobile_flutter/analysis_options.yaml
+A  apps/mobile_flutter/android/.gitignore
+A  apps/mobile_flutter/android/app/build.gradle.kts
+A  apps/mobile_flutter/android/app/src/debug/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/AndroidManifest.xml
+A  apps/mobile_flutter/android/app/src/main/kotlin/io/rigwarden/rigwarden/MainActivity.kt
+A  apps/mobile_flutter/android/app/src/main/res/drawable-v21/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/drawable/launch_background.xml
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+A  apps/mobile_flutter/android/app/src/main/res/values-night/styles.xml
+A  apps/mobile_flutter/android/app/src/main/res/values/styles.xml
+A  apps/mobile_flutter/android/app/src/profile/AndroidManifest.xml
+A  apps/mobile_flutter/android/build.gradle.kts
+A  apps/mobile_flutter/android/gradle.properties
+A  apps/mobile_flutter/android/gradle/wrapper/gradle-wrapper.properties
+A  apps/mobile_flutter/android/settings.gradle.kts
+A  apps/mobile_flutter/ios/.gitignore
+A  apps/mobile_flutter/ios/Flutter/AppFrameworkInfo.plist
+AM apps/mobile_flutter/ios/Flutter/Debug.xcconfig
+AM apps/mobile_flutter/ios/Flutter/Release.xcconfig
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.pbxproj
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+A  apps/mobile_flutter/ios/Runner.xcworkspace/contents.xcworkspacedata
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+A  apps/mobile_flutter/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+A  apps/mobile_flutter/ios/Runner/AppDelegate.swift
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+A  apps/mobile_flutter/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+A  apps/mobile_flutter/ios/Runner/Base.lproj/LaunchScreen.storyboard
+A  apps/mobile_flutter/ios/Runner/Base.lproj/Main.storyboard
+A  apps/mobile_flutter/ios/Runner/Info.plist
+A  apps/mobile_flutter/ios/Runner/Runner-Bridging-Header.h
+A  apps/mobile_flutter/ios/Runner/SceneDelegate.swift
+A  apps/mobile_flutter/ios/RunnerTests/RunnerTests.swift
+A  apps/mobile_flutter/lib/main.dart
+AM apps/mobile_flutter/pubspec.lock
+AM apps/mobile_flutter/pubspec.yaml
+A  apps/mobile_flutter/test/harness_test.dart
+ M crates/topology_domain/src/lib.rs
+M  docs/AI_PIPELINE.md
+M  docs/ARCHITECTURE.md
+MM docs/DECISION_LOG.md
+M  docs/GOVERNANCE_LICENSE_CONDUCT.md
+M  docs/PRODUCT_REQUIREMENTS.md
+M  docs/PROJECT_BRIEF.md
+M  docs/PROTOCOL_RESEARCH_AND_PROVENANCE.md
+M  docs/THREAT_MODEL.md
+M  docs/TRANSPORT_AND_COMPATIBILITY.md
+M  docs/decisions/ADR-0001-working-name-gate.md
+M  docs/decisions/ADR-0003-rigwarden-pre-alpha-identity.md
+M  docs/research/accessibility-test-plan.md
+M  docs/research/capture-and-fixture-plan.md
+M  docs/research/distribution-constraints.md
+M  docs/research/fractal-primary-source-map.md
+M  docs/research/open-source-source-and-license-audit.md
+M  docs/research/topology-name-screen.md
+M  docs/research/wave-00-integration.md
+M  prompts/CONTINUE_SESSION_PROMPT.md
+
+final_candidate:
+codegen=flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml (exit 0)
+release_build=CARGO_TARGET_DIR=crates/topology_bridge/target cargo build -p topology-bridge --release (exit 0)
+focused_green=flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end" (exit 0)
+sweep_cargo=cargo test --workspace (exit 0)
+sweep_flutter=cd apps/mobile_flutter && flutter test (exit 0)
+sweep_ci_local=bash scripts/ci-local.sh (exit 0 after parent-owned shared serial_route_test.dart formatting)

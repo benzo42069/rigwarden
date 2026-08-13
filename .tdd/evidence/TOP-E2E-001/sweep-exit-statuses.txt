@@ -1,0 +1,4 @@
+cargo test --workspace: 0
+cd apps/mobile_flutter && flutter test: 0
+bash scripts/ci-local.sh (initial candidate): 1 (unrelated untracked serial_route_test.dart formatting gate)
+bash scripts/ci-local.sh (final candidate, after parent formatted shared serial_route_test.dart): 0

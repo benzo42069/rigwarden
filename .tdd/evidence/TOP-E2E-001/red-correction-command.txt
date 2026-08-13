@@ -1,0 +1,5 @@
+command: cd apps/mobile_flutter && flutter test test/core/bridge/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end"
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+release_library_precondition: crates/topology_bridge/target/release/libtopology_bridge.dylib present from prior recorded release build (exit 0)
+expected_failure: focused correction assertions reached Flutter compilation and failed on the newly required typed bridge/session API and state fields; semantics harness symbols were resolved before accepting this RED.

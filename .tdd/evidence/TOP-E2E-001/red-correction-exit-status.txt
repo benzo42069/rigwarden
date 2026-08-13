@@ -1,0 +1,2 @@
+1
+accepted: RED_OBSERVED; the direct Flutter test reached the intended package and failed only on absent correction API/state symbols (`createSimulatedReadOnlyParameterEditSession`, typed error DTO, and profile-derived state fields). The earlier SemanticsTester/hasAction test-harness errors were fixed before accepting this RED.

@@ -1,0 +1,7 @@
+The packet originally named an integration_test path. The exact command was attempted before the parent amendment:
+
+  cd apps/mobile_flutter && flutter test integration_test/simulated_parameter_edit_test.dart --plain-name "simulated edit confirmation and undo complete end to end"
+
+It exited with no supported device. A targeted wireless iPhone attempt exited after loading with `Cannot start app on wirelessly tethered iOS device`; `xcrun simctl list runtimes` reported no installed runtimes. These are preserved as BLOCKED_ENVIRONMENT attempts and are not accepted as the focused RED.
+
+Parent amendment at 2026-08-10T11:20:00-05:00 narrowed the test layer/path to the host Flutter real-FFI harness under `test/core/bridge`; the direct RED command and `red.log` are the canonical cycle evidence.

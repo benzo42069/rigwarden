@@ -1,0 +1,6 @@
+Mutation: removed both emitted focused flags, changed liveRegion true to false, and disabled the error Text guard. Restored from inverse patch before GREEN.
+Live-only mutation (liveRegion true -> false) and error-only mutation (error Text guard -> false) both failed their focused assertions; each was restored before the final GREEN.
+Read-only full semantic error assertion added; live-only and error-render-only mutants failed focused read-only test and were restored.
+final2 fresh CI exit 0 after read-only full semantic/error assertion.
+Current restored source hash after the final read-only semantic assertion is
+recorded in `a11y-final-source-sha256.txt`.

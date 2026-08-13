@@ -1,0 +1,4 @@
+command: cd apps/mobile_flutter && flutter_rust_bridge_codegen generate --config-file flutter_rust_bridge.yaml
+shell: /bin/zsh
+working_directory: /Users/benzo/Desktop/Topology_Codex_Starter_Kit_v1
+exit: 0

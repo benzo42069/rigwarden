@@ -1,0 +1,7 @@
+Work item: TOP-E2E-001 final accessibility correction cycle.
+Layer: Flutter L4 emitted semantics over the existing real Rust-Dart FFI harness.
+Observable behaviors: focused-node identity/order/recovery; Tab and Enter activation; live-region flag; complete phase/value/context/unit/range/step/precision/error labels at each state; out-of-range typed FFI error rendered by the widget harness.
+Fixture: synthetic stored units/profile only; no physical-unit or device claim.
+Expected mutation RED: removing emitted focused flags, setting liveRegion false, or disabling the typed-error Text guard makes the focused assertions fail.
+Non-goals: native VoiceOver/TalkBack, switch control, large-text/reflow, reduced motion, protocol bytes, hardware.
+Allowed writes: test-owned Flutter harness and TOP-E2E-001 evidence only.

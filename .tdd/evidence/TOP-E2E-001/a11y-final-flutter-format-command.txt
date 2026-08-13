@@ -1,0 +1,1 @@
+command: cd apps/mobile_flutter && dart format --set-exit-if-changed lib test
